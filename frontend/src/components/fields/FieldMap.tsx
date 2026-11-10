@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import * as maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { Search, Satellite, Map as MapIcon, Undo2, Check, X, Crosshair } from 'lucide-react'
@@ -108,7 +108,19 @@ function distToSegment(p: Pt, a: Pt, b: Pt): { d: number; t: number } {
   return { d: Math.hypot(p.x - cx, p.y - cy), t }
 }
 
-const DRAW_SOURCE = 'fieldshift-draw'
+// Ray-casting point-in-polygon test in screen pixels, for selecting a
+// field by clicking it on the map (the GeoJSON layer click no longer
+// exists — field outlines are drawn as an SVG overlay, see below).
+function pointInPolygon(p: Pt, poly: Pt[]): boolean {
+  let inside = false
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    const xi = poly[i].x, yi = poly[i].y
+    const xj = poly[j].x, yj = poly[j].y
+    const intersect = yi > p.y !== yj > p.y && p.x < ((xj - xi) * (p.y - yi)) / (yj - yi) + xi
+    if (intersect) inside = !inside
+  }
+  return inside
+}
 
 export default function FieldMap({
   fields,
@@ -123,7 +135,6 @@ export default function FieldMap({
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<maplibregl.Map | null>(null)
-  const srcRef = useRef<string>('fieldshift-fields')
 
   const [basemap, setBasemap] = useState<Basemap>('satellite')
   const [points, setPoints] = useState<LngLat[]>([])
@@ -136,6 +147,9 @@ export default function FieldMap({
   // push data into the sources) once the map is ready — otherwise a fetch
   // that resolves before the map loads leaves every polygon invisible.
   const [mapLoaded, setMapLoaded] = useState(false)
+  // Bumps on every map move/pan/zoom so the SVG overlay (which projects
+  // geographic coordinates to screen pixels) re-renders in step.
+  const [mapTick, setMapTick] = useState(0)
 
   const pointsRef = useRef<LngLat[]>([])
   const drawModeRef = useRef(drawMode)
@@ -199,29 +213,14 @@ export default function FieldMap({
       'top-right',
     )
     map.on('load', () => {
-      // Idempotent: only add the fields source/layers if they are missing
-      // (the load handler can fire again after a style reload, and a
-      // duplicate add would throw and block setMapLoaded below).
-      try {
-        if (!map.getSource(srcRef.current)) {
-          map.addSource(srcRef.current, {
-            type: 'geojson',
-            data: { type: 'FeatureCollection', features: [] },
-          })
-          map.addLayer({ id: 'field-fill', type: 'fill', source: srcRef.current, paint: { 'fill-color': '#4fb8b2', 'fill-opacity': 0.28 } })
-          map.addLayer({ id: 'field-line', type: 'line', source: srcRef.current, paint: { 'line-color': '#2f6a4a', 'line-width': 2 } })
-        }
-      } catch {
-        // A failed source/layer add must not block the map from being
-        // marked loaded — the data effects below are self-healing and will
-        // (re)create the source/layers when they run.
-      } finally {
-        // Always mark the map loaded, even if the setup above threw.
-        setMapLoaded(true)
-      }
-      // The drawing preview source/layers are created lazily by the
-      // "Render drawing preview" effect (self-healing), not here.
+      // Field outlines and the draw preview are drawn as an SVG overlay
+      // (see the overlay memo below), not as MapLibre GeoJSON layers:
+      // the GeoJSON layers never painted on this site although the data
+      // was correct, so the overlay bypasses that renderer entirely.
+      setMapLoaded(true)
     })
+    // Re-project the SVG overlay on every pan / zoom / rotate.
+    map.on('move', () => setMapTick((t) => t + 1))
     // Fallback: if the 'load' event is ever missed (inline style racing
     // the handler), poll until the style is loaded and mark the map
     // loaded then. Without this, every data effect gated on mapLoaded
@@ -259,12 +258,16 @@ export default function FieldMap({
     else map.once('load', apply)
   }, [basemap])
 
-  // --- Render saved fields ---------------------------------------------------
-  const features = useMemo(() => {
+  // --- SVG overlay: saved fields + draw preview ---------------------------
+  // The map's GeoJSON layers never painted on this site (data was correct,
+  // sources/layers existed, setData ran — yet nothing rendered, through
+  // five fix rounds). So field outlines and the draw preview are drawn as
+  // a plain SVG overlay positioned over the map container, projecting
+  // geographic coordinates to screen pixels with map.project(). This is
+  // ordinary DOM — it cannot fail the way the layer renderer did. It
+  // re-projects on every map move via mapTick.
+  const closedRings = useMemo(() => {
     return fields.map((f) => {
-      // GeoJSON linear rings must be closed (first point == last point).
-      // The seed polygons are generated open, so close each ring here;
-      // an unclosed ring is ignored by the map renderer.
       const ring = f.geometry.coordinates[0] as LngLat[]
       const closed =
         ring.length > 0 &&
@@ -272,100 +275,72 @@ export default function FieldMap({
           ring[0][1] !== ring[ring.length - 1][1])
           ? [...ring, ring[0]]
           : ring
-      return {
-        type: 'Feature' as const,
-        id: f.id,
-        properties: { selected: f.id === selectedId },
-        geometry: { type: 'Polygon', coordinates: [closed] },
-      }
+      return { id: f.id, ring: closed }
     })
-  }, [fields, selectedId])
+  }, [fields])
 
-  // Self-healing like the draw preview: (re)create the fields source/layers
-  // if they are missing, so the polygons cannot silently disappear when the
-  // map style reloads or the load handler raced. Re-runs when the map
-  // finishes loading (mapLoaded) so data lands once the source exists.
-  // Note: a style reload can drop LAYERS while the source survives, so
-  // check for each layer by id too — a present source alone is not enough.
-  useEffect(() => {
+  const overlay = useMemo(() => {
     const map = mapRef.current
-    if (!map || !mapLoaded) return
-    if (!map.isStyleLoaded()) return
-    try {
-      if (!map.getSource(srcRef.current)) {
-        map.addSource(srcRef.current, {
-          type: 'geojson',
-          data: { type: 'FeatureCollection', features: [] },
-        })
-      }
-      if (!map.getLayer('field-fill')) {
-        map.addLayer({ id: 'field-fill', type: 'fill', source: srcRef.current, paint: { 'fill-color': '#4fb8b2', 'fill-opacity': 0.28 } })
-      }
-      if (!map.getLayer('field-line')) {
-        map.addLayer({ id: 'field-line', type: 'line', source: srcRef.current, paint: { 'line-color': '#2f6a4a', 'line-width': 2 } })
-      }
-    } catch {
-      return
+    if (!map || !mapLoaded) return null
+    const project = (lngLat: LngLat): string => {
+      const p = map.project(lngLat as never)
+      return `${p.x.toFixed(1)},${p.y.toFixed(1)}`
     }
-    ;(map.getSource(srcRef.current) as unknown as maplibregl.GeoJSONSource)?.setData({ type: 'FeatureCollection', features } as never)
-    if (selectedId) {
-      const f = fields.find((x) => x.id === selectedId)
-      if (f) {
-        map.setPaintProperty('field-fill', 'fill-color', f.id === selectedId ? '#328f97' : '#4fb8b2')
-        map.setPaintProperty('field-line', 'line-color', '#2f6a4a')
-      }
-    }
-  }, [features, fields, selectedId, mapLoaded])
-
-  // --- Render drawing preview -----------------------------------------------
-  // Self-healing: the draw source/layers are (re)created here if they are
-  // missing, so the preview cannot silently disappear when the map style
-  // reloads or the load handler raced. Data is only set once the source
-  // exists and the style is loaded. Check layers by id too — a style
-  // reload can drop layers while the source survives.
-  useEffect(() => {
-    const map = mapRef.current
-    if (!map || !mapLoaded) return
-    if (!map.isStyleLoaded()) {
-      map.once('load', () => {
-        // Re-run this effect's work once the style is ready.
-        setPoints((p) => p.slice())
-      })
-      return
-    }
-    try {
-      if (!map.getSource(DRAW_SOURCE)) {
-        map.addSource(DRAW_SOURCE, {
-          type: 'geojson',
-          data: { type: 'FeatureCollection', features: [] },
-        })
-      }
-      if (!map.getLayer('draw-fill')) {
-        map.addLayer({ id: 'draw-fill', type: 'fill', source: DRAW_SOURCE, paint: { 'fill-color': '#f59e0b', 'fill-opacity': 0.25 } })
-      }
-      if (!map.getLayer('draw-line')) {
-        map.addLayer({ id: 'draw-line', type: 'line', source: DRAW_SOURCE, paint: { 'line-color': '#f59e0b', 'line-width': 3 } })
-      }
-      if (!map.getLayer('draw-points')) {
-        map.addLayer({ id: 'draw-points', type: 'circle', source: DRAW_SOURCE, paint: { 'circle-radius': 7, 'circle-color': '#ffffff', 'circle-stroke-color': '#f59e0b', 'circle-stroke-width': 2.5 } })
-      }
-    } catch {
-      return
-    }
-    const lineCoords: LngLat[] = cursor && points.length > 0 ? [...points, [cursor.lng, cursor.lat]] : points
-    const feats: Array<Record<string, unknown>> = []
+    const fieldEls = closedRings.map(({ id, ring }) => {
+      const pts = ring.map(project).join(' ')
+      const isSel = id === selectedId
+      return (
+        <polygon
+          key={id}
+          points={pts}
+          fill={isSel ? 'rgba(50,143,151,0.45)' : 'rgba(79,184,178,0.28)'}
+          stroke={isSel ? '#1d3a2a' : '#2f6a4a'}
+          strokeWidth={isSel ? 3 : 2}
+          strokeLinejoin="round"
+        />
+      )
+    })
+    const drawEls: ReactNode[] = []
     if (points.length >= 3) {
       const closed = [...points, points[0]]
-      feats.push({ type: 'Feature', geometry: { type: 'Polygon', coordinates: [closed] }, properties: {} })
+      drawEls.push(
+        <polygon
+          key="draw-fill"
+          points={closed.map(project).join(' ')}
+          fill="rgba(245,158,11,0.25)"
+          stroke="#f59e0b"
+          strokeWidth={3}
+          strokeLinejoin="round"
+        />,
+      )
     }
-    if (lineCoords.length >= 2) {
-      feats.push({ type: 'Feature', geometry: { type: 'LineString', coordinates: lineCoords }, properties: {} })
+    if (points.length > 0 && cursor) {
+      const line = [...points, [cursor.lng, cursor.lat] as LngLat]
+      drawEls.push(
+        <polyline
+          key="draw-line"
+          points={line.map(project).join(' ')}
+          fill="none"
+          stroke="#f59e0b"
+          strokeWidth={3}
+          strokeLinejoin="round"
+        />,
+      )
     }
-    if (points.length > 0) {
-      feats.push({ type: 'Feature', geometry: { type: 'MultiPoint', coordinates: points }, properties: {} })
-    }
-    ;(map.getSource(DRAW_SOURCE) as unknown as maplibregl.GeoJSONSource)?.setData({ type: 'FeatureCollection', features: feats } as never)
-  }, [points, cursor, mapLoaded])
+    points.forEach((pt, i) => {
+      const p = map.project(pt as never)
+      drawEls.push(
+        <circle key={`draw-pt-${i}`} cx={p.x} cy={p.y} r={7} fill="#ffffff" stroke="#f59e0b" strokeWidth={2.5} />,
+      )
+    })
+    return (
+      <>
+        {fieldEls}
+        {drawEls}
+      </>
+    )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [closedRings, selectedId, points, cursor, mapLoaded, mapTick])
 
   // --- Live preview callback (area + cursor) ---------------------------------
   useEffect(() => {
@@ -381,18 +356,29 @@ export default function FieldMap({
   }, [focus])
 
   // --- Click handling: select the topmost field under the cursor. -----------
+  // Point-in-polygon in screen pixels (the SVG overlay has no layer to
+  // query). Only when not drawing.
   useEffect(() => {
     const map = mapRef.current
     if (!map) return
     const handler = (e: maplibregl.MapMouseEvent) => {
       if (drawModeRef.current) return
-      const feats = map.queryRenderedFeatures(e.point, { layers: ['field-fill'] })
-      const id = feats[0]?.id as string | undefined
-      if (id && onSelect) onSelect(id)
+      const click: Pt = { x: e.point.x, y: e.point.y }
+      for (const f of fields) {
+        const ring = f.geometry.coordinates[0] as LngLat[]
+        const pts = ring.map(([lng, lat]) => {
+          const p = map.project([lng, lat] as never)
+          return { x: p.x, y: p.y }
+        })
+        if (pointInPolygon(click, pts)) {
+          if (onSelect) onSelect(f.id)
+          return
+        }
+      }
     }
-    map.on('click', 'field-fill', handler as never)
-    return () => { map.off('click', 'field-fill', handler as never) }
-  }, [onSelect])
+    map.on('click', handler)
+    return () => { map.off('click', handler) }
+  }, [fields, onSelect])
 
   // --- Drawing interactions --------------------------------------------------
   // Click a corner of the land to place it. Click on an edge to drop a new
@@ -572,6 +558,14 @@ export default function FieldMap({
       role="application"
       aria-label="Field map"
     >
+      {/* SVG overlay: field outlines + draw preview (plain DOM, always paints). */}
+      <svg
+        className="pointer-events-none absolute inset-0 z-[5] h-full w-full"
+        aria-hidden="true"
+      >
+        {overlay}
+      </svg>
+
       {/* Top-left toolbar: place search + basemap switch. */}
       <div className="pointer-events-none absolute left-3 top-3 z-10 flex flex-col gap-2">
         <form
