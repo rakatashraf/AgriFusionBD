@@ -27,7 +27,7 @@ export default function LoadingScreen() {
     <div
       role="status"
       aria-label="Loading AgriFusion BD"
-      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center gap-5 bg-white transition-opacity duration-500 ${fading ? 'opacity-0' : 'opacity-100'}`}
+      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center gap-5 bg-[#f4f1e8] transition-opacity duration-500 ${fading ? 'opacity-0' : 'opacity-100'}`}
     >
       <img
         src={`${import.meta.env.BASE_URL}agrifusion-logo.png`}

@@ -49,129 +49,129 @@
 :root {
   --radius: 1.25rem;
 
-  /* AgriFusion BD brand tokens — white primary, high-contrast cards/buttons.
-     The page is white; cards carry a visible tint + strong border, and
-     buttons are deep forest green / yellow so they pop against white. */
+  /* AgriFusion BD brand tokens — warm cream background, bright white cards
+     and bright white nav highlight. The page is off-white/cream; cards and
+     the selected nav pill are pure white so they stand out clearly. */
   --sea-ink: #0e2418;
   --sea-ink-soft: #43554b;
   --lagoon: #2e7d46;
   --lagoon-deep: #14532d;
   --palm: #2e7d46;
-  --sand: #f1d46a;
-  --foam: #ffffff;
-  --surface: #f2f7f3;
-  --surface-strong: #e8f1ea;
-  --line: rgba(14, 36, 24, 0.16);
+  --sand: #e7ddc7;
+  --foam: #f4f1e8;
+  --surface: #ffffff;
+  --surface-strong: #ffffff;
+  --line: rgba(14, 36, 24, 0.14);
   --inset-glint: rgba(255, 255, 255, 0.7);
   --kicker: #14532d;
-  --bg-base: #ffffff;
-  --header-bg: rgba(255, 255, 255, 0.96);
-  --chip-bg: #f2f7f3;
-  --chip-line: rgba(14, 36, 24, 0.2);
-  --link-bg-hover: #e8f1ea;
+  --bg-base: #f4f1e8;
+  --header-bg: rgba(244, 241, 232, 0.95);
+  --chip-bg: #ffffff;
+  --chip-line: rgba(14, 36, 24, 0.18);
+  --link-bg-hover: #ffffff;
   --hero-a: rgba(241, 212, 106, 0.35);
   --hero-b: rgba(20, 83, 45, 0.16);
   --grid-line: rgba(14, 36, 24, 0.08);
   --grid-dot: rgba(14, 36, 24, 0.14);
-  --shadow-tint: rgba(14, 36, 24, 0.12);
+  --shadow-tint: rgba(14, 36, 24, 0.10);
   --body-opacity-before: 0;
   --body-opacity-after: 0;
 
-  /* shadcn theme tokens — white primary, high-contrast actions */
-  --background: #ffffff;
+  /* shadcn theme tokens — cream background, white cards, deep green actions */
+  --background: #f4f1e8;
   --foreground: #0e2418;
-  --card: #f2f7f3;
+  --card: #ffffff;
   --card-foreground: #0e2418;
   --popover: #ffffff;
   --popover-foreground: #0e2418;
   --primary: #14532d;
   --primary-foreground: #ffffff;
-  --secondary: #d9e8dd;
+  --secondary: #e7ddc7;
   --secondary-foreground: #0e2418;
-  --muted: #eef3f0;
+  --muted: #ece7d8;
   --muted-foreground: #43554b;
   --accent: #f1d46a;
   --accent-foreground: #14532d;
   --destructive: #b91c1c;
   --destructive-foreground: #ffffff;
-  --border: #b9cec2;
-  --input: #8fa89a;
+  --border: #d9d2bd;
+  --input: #b9a98a;
   --ring: #14532d;
   --chart-1: #14532d;
   --chart-2: #2e7d46;
   --chart-3: #d9a521;
   --chart-4: #2e6f92;
   --chart-5: #d98b45;
-  --sidebar: #ffffff;
+  --sidebar: #f4f1e8;
   --sidebar-foreground: #0e2418;
   --sidebar-primary: #14532d;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #f1d46a;
   --sidebar-accent-foreground: #14532d;
-  --sidebar-border: #b9cec2;
+  --sidebar-border: #d9d2bd;
   --sidebar-ring: #14532d;
 }
 
 .dark {
-  /* Dark mode is disabled — the platform is always white (light theme).
-     These tokens mirror :root so the site stays white even if a `dark`
-     class is ever applied by the browser or an extension. */
+  /* Dark mode is disabled — the platform is always light (cream background,
+     white cards). These tokens mirror :root so the site stays cream/white
+     even if a `dark` class is ever applied by the browser or an extension. */
   --sea-ink: #0e2418;
   --sea-ink-soft: #43554b;
   --lagoon: #2e7d46;
   --lagoon-deep: #14532d;
   --palm: #2e7d46;
-  --sand: #f1d46a;
-  --foam: #ffffff;
-  --surface: #f2f7f3;
-  --surface-strong: #e8f1ea;
-  --line: rgba(14, 36, 24, 0.16);
+  --sand: #e7ddc7;
+  --foam: #f4f1e8;
+  --surface: #ffffff;
+  --surface-strong: #ffffff;
+  --line: rgba(14, 36, 24, 0.14);
   --inset-glint: rgba(255, 255, 255, 0.7);
   --kicker: #14532d;
-  --bg-base: #ffffff;
-  --header-bg: rgba(255, 255, 255, 0.96);
-  --chip-bg: #f2f7f3;
-  --chip-line: rgba(14, 36, 24, 0.2);
-  --link-bg-hover: #e8f1ea;
+  --bg-base: #f4f1e8;
+  --header-bg: rgba(244, 241, 232, 0.95);
+  --chip-bg: #ffffff;
+  --chip-line: rgba(14, 36, 24, 0.18);
+  --link-bg-hover: #ffffff;
   --hero-a: rgba(241, 212, 106, 0.35);
   --hero-b: rgba(20, 83, 45, 0.16);
   --grid-line: rgba(14, 36, 24, 0.08);
   --grid-dot: rgba(14, 36, 24, 0.14);
-  --shadow-tint: rgba(14, 36, 24, 0.12);
+  --shadow-tint: rgba(14, 36, 24, 0.10);
   --body-opacity-before: 0;
   --body-opacity-after: 0;
 
-  --background: #ffffff;
+  --background: #f4f1e8;
   --foreground: #0e2418;
-  --card: #f2f7f3;
+  --card: #ffffff;
   --card-foreground: #0e2418;
   --popover: #ffffff;
   --popover-foreground: #0e2418;
   --primary: #14532d;
   --primary-foreground: #ffffff;
-  --secondary: #d9e8dd;
+  --secondary: #e7ddc7;
   --secondary-foreground: #0e2418;
-  --muted: #eef3f0;
+  --muted: #ece7d8;
   --muted-foreground: #43554b;
   --accent: #f1d46a;
   --accent-foreground: #14532d;
   --destructive: #b91c1c;
   --destructive-foreground: #ffffff;
-  --border: #b9cec2;
-  --input: #8fa89a;
+  --border: #d9d2bd;
+  --input: #b9a98a;
   --ring: #14532d;
   --chart-1: #14532d;
   --chart-2: #2e7d46;
   --chart-3: #d9a521;
   --chart-4: #2e6f92;
   --chart-5: #d98b45;
-  --sidebar: #ffffff;
+  --sidebar: #f4f1e8;
   --sidebar-foreground: #0e2418;
   --sidebar-primary: #14532d;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #f1d46a;
   --sidebar-accent-foreground: #14532d;
-  --sidebar-border: #b9cec2;
+  --sidebar-border: #d9d2bd;
   --sidebar-ring: #14532d;
 }
 

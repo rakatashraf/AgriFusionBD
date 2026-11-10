@@ -74,8 +74,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             className={
               'rounded-full px-3.5 py-2 text-sm font-medium transition-all duration-200 ' +
               (isActive(item.path)
-                ? 'bg-gradient-to-b from-primary/90 to-primary text-primary-foreground shadow-md shadow-primary/20'
-                : 'text-muted-foreground hover:bg-accent/60 hover:text-foreground')
+                ? 'bg-white text-foreground shadow-md ring-1 ring-black/5'
+                : 'text-muted-foreground hover:bg-white/70 hover:text-foreground')
             }
           >
             {t((item.key ?? 'fields'), lang)}
@@ -210,8 +210,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
                 className={
                   'rounded-full px-3.5 py-1.5 text-sm font-medium transition-all duration-200 ' +
                   (isActive(item.path)
-                    ? 'bg-gradient-to-b from-primary/90 to-primary text-primary-foreground shadow-md shadow-primary/20'
-                    : 'text-muted-foreground hover:bg-accent/60 hover:text-foreground')
+                    ? 'bg-white text-foreground shadow-md ring-1 ring-black/5'
+                    : 'text-muted-foreground hover:bg-white/70 hover:text-foreground')
                 }
               >
                 {t((item.key ?? 'fields'), lang)}
