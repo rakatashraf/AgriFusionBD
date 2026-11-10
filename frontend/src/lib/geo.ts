@@ -150,11 +150,13 @@ export function isLocalField(field: Field): boolean {
 }
 
 /** Build a Field record from a drawn ring. The caller supplies the name and
- *  irrigation; everything else (area, centroid, timestamps) is derived. */
+ *  irrigation; everything else (area, centroid, timestamps) is derived.
+ *  Crop cycles are optional — the farmer gives them in the save form. */
 export function fieldFromRing(
   ring: LngLat[],
   name: string,
   irrigation: Field['irrigation'],
+  crops?: { current?: string[]; recent?: string[] },
 ): Field {
   const closed: LngLat[] = ring.slice()
   if (closed[0][0] !== closed[closed.length - 1][0] || closed[0][1] !== closed[closed.length - 1][1]) {
@@ -172,5 +174,7 @@ export function fieldFromRing(
     status: 'active',
     updatedAt: new Date().toISOString(),
     isPinEstimate: false,
+    currentCycleCrops: crops?.current?.length ? crops.current : undefined,
+    recentCycleCrops: crops?.recent?.length ? crops.recent : undefined,
   }
 }

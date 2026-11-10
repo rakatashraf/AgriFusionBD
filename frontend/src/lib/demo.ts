@@ -207,8 +207,8 @@ export function readDemoUser(): User | null {
 
 // --- Field helpers ------------------------------------------------------------
 
-function loadFieldOverrides(): Record<string, { name?: string; soilType?: string; irrigation?: Field['irrigation']; priorities?: string[] }> {
-  return readJson<Record<string, { name?: string; soilType?: string; irrigation?: Field['irrigation']; priorities?: string[] }>>(K.fieldOverrides, {})
+function loadFieldOverrides(): Record<string, { name?: string; soilType?: string; irrigation?: Field['irrigation']; priorities?: string[]; currentCycleCrops?: string[]; recentCycleCrops?: string[] }> {
+  return readJson<Record<string, { name?: string; soilType?: string; irrigation?: Field['irrigation']; priorities?: string[]; currentCycleCrops?: string[]; recentCycleCrops?: string[] }>>(K.fieldOverrides, {})
 }
 
 function applyFieldOverrides(f: Field): Field {
@@ -220,6 +220,8 @@ function applyFieldOverrides(f: Field): Field {
     soilType: o.soilType ?? f.soilType,
     irrigation: o.irrigation ?? f.irrigation,
     priorities: o.priorities ?? f.priorities,
+    currentCycleCrops: o.currentCycleCrops ?? f.currentCycleCrops,
+    recentCycleCrops: o.recentCycleCrops ?? f.recentCycleCrops,
   }
 }
 
@@ -315,7 +317,7 @@ export function demoFallback<T>(path: string, method: string, body?: unknown): T
   // --- Fields ---
   if (rawPath === '/fields' && m === 'GET') return allFields() as T
   if (rawPath === '/fields' && m === 'POST') {
-    const input = body as { name: string; geometry: Field['geometry']; areaHa: number; irrigation: Field['irrigation'] }
+    const input = body as { name: string; geometry: Field['geometry']; areaHa: number; irrigation: Field['irrigation']; currentCycleCrops?: string[]; recentCycleCrops?: string[] }
     const field: Field = {
       id: demoId('field'),
       farmId: 'local',
@@ -327,6 +329,8 @@ export function demoFallback<T>(path: string, method: string, body?: unknown): T
       status: 'active',
       updatedAt: new Date().toISOString(),
       isPinEstimate: false,
+      currentCycleCrops: input.currentCycleCrops?.length ? input.currentCycleCrops : undefined,
+      recentCycleCrops: input.recentCycleCrops?.length ? input.recentCycleCrops : undefined,
     }
     saveLocalField(field)
     return field as T
@@ -343,7 +347,7 @@ export function demoFallback<T>(path: string, method: string, body?: unknown): T
     return DEMO_VOID as unknown as T
   }
   if (parts[0] === 'fields' && parts.length === 2 && (m === 'PATCH' || m === 'PUT')) {
-    const b = (body ?? {}) as { name?: string; soilType?: string; irrigation?: Field['irrigation']; priorities?: string[] }
+    const b = (body ?? {}) as { name?: string; soilType?: string; irrigation?: Field['irrigation']; priorities?: string[]; currentCycleCrops?: string[]; recentCycleCrops?: string[] }
     const overrides = loadFieldOverrides()
     overrides[parts[1]] = {
       ...(overrides[parts[1]] ?? {}),
@@ -351,6 +355,8 @@ export function demoFallback<T>(path: string, method: string, body?: unknown): T
       ...(b.soilType !== undefined ? { soilType: b.soilType } : {}),
       ...(b.irrigation !== undefined ? { irrigation: b.irrigation } : {}),
       ...(b.priorities !== undefined ? { priorities: b.priorities } : {}),
+      ...(b.currentCycleCrops !== undefined ? { currentCycleCrops: b.currentCycleCrops } : {}),
+      ...(b.recentCycleCrops !== undefined ? { recentCycleCrops: b.recentCycleCrops } : {}),
     }
     writeJson(K.fieldOverrides, overrides)
     return findField(parts[1]) as T

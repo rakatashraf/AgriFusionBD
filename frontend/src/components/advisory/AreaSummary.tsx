@@ -21,6 +21,8 @@ export interface AreaField {
   areaHa: number
   soilType?: string
   irrigation: string
+  currentCycleCrops?: string[]
+  recentCycleCrops?: string[]
 }
 
 export default function AreaSummary({ fields, areaName }: { fields: AreaField[]; areaName: string }) {
@@ -58,6 +60,23 @@ export default function AreaSummary({ fields, areaName }: { fields: AreaField[];
                   <p className="text-xs text-muted-foreground">
                     {f.areaHa} ha · {f.soilType ?? '—'} · {f.irrigation}
                   </p>
+                  {(f.currentCycleCrops?.length || f.recentCycleCrops?.length) ? (
+                    <p className="mt-1 text-xs">
+                      {f.currentCycleCrops?.length ? (
+                        <span className="text-foreground">
+                          <span className="font-medium">{lang === 'bn' ? 'বর্তমান: ' : 'Current: '}</span>
+                          {f.currentCycleCrops.join(', ')}
+                        </span>
+                      ) : null}
+                      {f.recentCycleCrops?.length ? (
+                        <span className="text-muted-foreground">
+                          {' · '}
+                          <span className="font-medium">{lang === 'bn' ? 'সাম্প্রতিক: ' : 'Recent: '}</span>
+                          {f.recentCycleCrops.join(', ')}
+                        </span>
+                      ) : null}
+                    </p>
+                  ) : null}
                 </div>
                 {report && (
                   <Badge variant="outline" className={CONF_CLS[report.confidence]}>

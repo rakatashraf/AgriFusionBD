@@ -1,13 +1,13 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import { ArrowLeft, Scale, Info, AlertTriangle, FileText } from 'lucide-react'
-import { getAnalysis, listCrops, createCase } from '#/lib/api'
+import { getAnalysis, getField, listCrops, createCase } from '#/lib/api'
 import { getSeasonReport, getForecast } from '#/lib/advisory'
 import SeasonReport from '#/components/advisory/SeasonReport'
 import ForecastCard from '#/components/advisory/ForecastCard'
 import { toast } from 'sonner'
 import { useLocale, t } from '#/lib/i18n'
-import type { AnalysisRun, Crop, MetricValue, RotationPlan } from '#/lib/types'
+import type { AnalysisRun, Crop, Field, MetricValue, RotationPlan } from '#/lib/types'
 import { StatusBadge } from '#/components/StatusBadge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '#/components/ui/card'
 import { Badge } from '#/components/ui/badge'
@@ -49,6 +49,13 @@ export default function AnalysisDetail() {
   const navigate = useNavigate()
   const [run, setRun] = useState<AnalysisRun | null>(null)
   const [crops, setCrops] = useState<Crop[]>([])
+  const [field, setField] = useState<Field | null>(null)
+
+  // The field's crop cycles ground the season report below.
+  useEffect(() => {
+    if (!run?.fieldId) return
+    getField(run.fieldId).then(setField).catch(() => setField(null))
+  }, [run?.fieldId])
 
   const TERMINAL = new Set(['complete', 'partial', 'failed', 'cancelled'])
 
@@ -159,7 +166,7 @@ export default function AnalysisDetail() {
         if (!report && !forecast) return null
         return (
           <div className="mb-6 flex flex-col gap-4">
-            {report && <SeasonReport report={report} />}
+            {report && <SeasonReport report={report} crops={{ current: field?.currentCycleCrops, recent: field?.recentCycleCrops }} />}
             {forecast && <ForecastCard forecast={forecast} />}
           </div>
         )

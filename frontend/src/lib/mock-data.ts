@@ -153,6 +153,8 @@ export const FIELDS: Field[] = [
     status: 'active',
     updatedAt: '2026-10-28T06:12:00Z',
     isPinEstimate: false,
+    currentCycleCrops: ['T. Aman'],
+    recentCycleCrops: ['Boro'],
   },
   {
     id: 'f-2',
@@ -166,6 +168,8 @@ export const FIELDS: Field[] = [
     status: 'active',
     updatedAt: '2026-10-12T09:40:00Z',
     isPinEstimate: false,
+    currentCycleCrops: ['T. Aman'],
+    recentCycleCrops: ['Wheat'],
   },
   {
     id: 'f-3',
@@ -178,6 +182,8 @@ export const FIELDS: Field[] = [
     status: 'active',
     updatedAt: '2026-09-30T11:05:00Z',
     isPinEstimate: true,
+    currentCycleCrops: ['Lentil'],
+    recentCycleCrops: ['Fallow'],
   },
 ]
 

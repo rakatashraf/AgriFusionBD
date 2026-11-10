@@ -301,7 +301,7 @@ export function getField(id: string): Promise<Field> {
 
 export function updateField(
   id: string,
-  patch: { name?: string; soilType?: string; irrigation?: Field['irrigation']; priorities?: string[] },
+  patch: { name?: string; soilType?: string; irrigation?: Field['irrigation']; priorities?: string[]; currentCycleCrops?: string[]; recentCycleCrops?: string[] },
 ): Promise<Field> {
   return http<Field>(`/fields/${id}`, { method: 'PATCH', body: JSON.stringify(patch) })
 }
@@ -311,6 +311,8 @@ export interface CreateFieldInput {
   geometry: { type: 'Polygon'; coordinates: number[][][] }
   areaHa: number
   irrigation: Field['irrigation']
+  currentCycleCrops?: string[]
+  recentCycleCrops?: string[]
 }
 
 /** Create a field on the Django backend. On the static Pages site there is

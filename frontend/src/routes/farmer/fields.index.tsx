@@ -52,6 +52,8 @@ export default function FieldsPage() {
   const [pendingRing, setPendingRing] = useState<LngLat[] | null>(null)
   const [landName, setLandName] = useState('')
   const [irrigation, setIrrigation] = useState<Field['irrigation']>('rainfed')
+  const [currentCrops, setCurrentCrops] = useState('')
+  const [recentCrops, setRecentCrops] = useState('')
   const [saving, setSaving] = useState(false)
   const [notice, setNotice] = useState<string | null>(null)
 
@@ -112,6 +114,10 @@ export default function FieldsPage() {
     if (closed[0][0] !== closed[closed.length - 1][0] || closed[0][1] !== closed[closed.length - 1][1]) {
       closed.push(closed[0])
     }
+    // Crop cycles the farmer typed, comma-separated — these ground the
+    // season report and rotation advice for this field.
+    const currentCycleCrops = currentCrops.split(',').map((s) => s.trim()).filter(Boolean)
+    const recentCycleCrops = recentCrops.split(',').map((s) => s.trim()).filter(Boolean)
     setSaving(true)
     try {
       const created = await createField({
@@ -119,13 +125,15 @@ export default function FieldsPage() {
         geometry: { type: 'Polygon', coordinates: [closed] },
         areaHa,
         irrigation,
+        currentCycleCrops: currentCycleCrops.length ? currentCycleCrops : undefined,
+        recentCycleCrops: recentCycleCrops.length ? recentCycleCrops : undefined,
       })
       setFields((prev) => [...prev, created])
       setSelectedId(created.id)
       setNotice(lang === 'bn' ? 'জমি সংরক্ষণ করা হয়েছে।' : 'Land saved to your account.')
     } catch {
       // No backend on the static site — keep the land in this browser.
-      const local = fieldFromRing(pendingRing, name, irrigation)
+      const local = fieldFromRing(pendingRing, name, irrigation, { current: currentCycleCrops, recent: recentCycleCrops })
       saveLocalField(local)
       setFields((prev) => [...prev, local])
       setSelectedId(local.id)
@@ -138,6 +146,8 @@ export default function FieldsPage() {
       setSaving(false)
       setPendingRing(null)
       setDrawPreview(null)
+      setCurrentCrops('')
+      setRecentCrops('')
     }
   }
 
@@ -284,6 +294,34 @@ export default function FieldsPage() {
                       ))}
                     </select>
                   </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="land-current-crops" className="text-xs font-medium text-muted-foreground">
+                      {lang === 'bn' ? 'বর্তমান চক্রের ফসল' : 'Current cycle crop(s)'}
+                    </label>
+                    <Input
+                      id="land-current-crops"
+                      value={currentCrops}
+                      onChange={(e) => setCurrentCrops(e.target.value)}
+                      placeholder={lang === 'bn' ? 'যেমন: টি. আমন, সরিষা' : 'e.g. T. Aman, Mustard'}
+                    />
+                    <p className="text-[11px] text-muted-foreground">
+                      {lang === 'bn' ? 'একাধিক ফসল কমা দিয়ে আলাদা করুন।' : 'Separate multiple crops with commas.'}
+                    </p>
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="land-recent-crops" className="text-xs font-medium text-muted-foreground">
+                      {lang === 'bn' ? 'সাম্প্রতিক চক্রের ফসল' : 'Recent cycle crop(s)'}
+                    </label>
+                    <Input
+                      id="land-recent-crops"
+                      value={recentCrops}
+                      onChange={(e) => setRecentCrops(e.target.value)}
+                      placeholder={lang === 'bn' ? 'যেমন: বোরো' : 'e.g. Boro'}
+                    />
+                    <p className="text-[11px] text-muted-foreground">
+                      {lang === 'bn' ? 'আগের চক্রে যা চাষ হয়েছিল।' : 'What was grown in the previous cycle.'}
+                    </p>
+                  </div>
                 </div>
                 <div className="rounded-lg bg-muted/60 px-3 py-2 text-xs leading-relaxed">
                   <p className="font-medium text-foreground">{formatAreaLine(pendingAreaSqM)}</p>
@@ -376,6 +414,22 @@ export default function FieldsPage() {
                   <span className="inline-flex items-center gap-1"><Droplets className="size-3" /> {f.irrigation}</span>
                   <span className="inline-flex items-center gap-1"><Wheat className="size-3" /> {f.soilType ?? '—'}</span>
                 </div>
+                {(f.currentCycleCrops?.length || f.recentCycleCrops?.length) ? (
+                  <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs">
+                    {f.currentCycleCrops?.length ? (
+                      <span className="text-foreground">
+                        <span className="font-medium">{lang === 'bn' ? 'বর্তমান: ' : 'Current: '}</span>
+                        {f.currentCycleCrops.join(', ')}
+                      </span>
+                    ) : null}
+                    {f.recentCycleCrops?.length ? (
+                      <span className="text-muted-foreground">
+                        <span className="font-medium">{lang === 'bn' ? 'সাম্প্রতিক: ' : 'Recent: '}</span>
+                        {f.recentCycleCrops.join(', ')}
+                      </span>
+                    ) : null}
+                  </div>
+                ) : null}
                 </div>
               </div>
             ))}
@@ -441,7 +495,7 @@ export default function FieldsPage() {
               </h2>
             </div>
             <div className="flex flex-col gap-4">
-              {report && <SeasonReport report={report} />}
+              {report && <SeasonReport report={report} crops={{ current: advisoryField.currentCycleCrops, recent: advisoryField.recentCycleCrops }} />}
               {forecast && <ForecastCard forecast={forecast} />}
               <SmsPanel />
             </div>

@@ -50,6 +50,7 @@ const DICT = {
   analyses: { en: 'Analyses', bn: 'বিশ্লেষণ' },
   cases: { en: 'Cases', bn: 'কেস' },
   rover: { en: 'Rover', bn: 'রোভার' },
+  roverPaths: { en: 'Rover paths', bn: 'রোভার পথ' },
   research: { en: 'Research', bn: 'গবেষণা' },
   jobs: { en: 'Jobs', bn: 'কাজ' },
   login: { en: 'Sign in', bn: 'সাইন ইন' },

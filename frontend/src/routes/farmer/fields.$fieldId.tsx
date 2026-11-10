@@ -206,6 +206,18 @@ export default function FieldDetail() {
               <span className="inline-flex items-center gap-2 text-muted-foreground"><Wheat className="size-4" /> Soil</span>
               <span className="font-medium text-foreground">{field.soilType ?? '—'}</span>
             </div>
+            {field.currentCycleCrops?.length ? (
+              <div className="flex items-center justify-between gap-3">
+                <span className="inline-flex items-center gap-2 text-muted-foreground"><Leaf className="size-4" /> {lang === 'bn' ? 'বর্তমান চক্র' : 'Current cycle'}</span>
+                <span className="text-right font-medium text-foreground">{field.currentCycleCrops.join(', ')}</span>
+              </div>
+            ) : null}
+            {field.recentCycleCrops?.length ? (
+              <div className="flex items-center justify-between gap-3">
+                <span className="inline-flex items-center gap-2 text-muted-foreground"><Leaf className="size-4" /> {lang === 'bn' ? 'সাম্প্রতিক চক্র' : 'Recent cycle'}</span>
+                <span className="text-right font-medium text-foreground">{field.recentCycleCrops.join(', ')}</span>
+              </div>
+            ) : null}
             <Separator />
             <div>
               <div className="mb-1 flex items-center justify-between text-xs text-muted-foreground">

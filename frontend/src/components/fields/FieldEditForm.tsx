@@ -18,6 +18,8 @@ export default function FieldEditForm({ field, onSaved, onCancel }: { field: Fie
   const [soilType, setSoilType] = useState(field.soilType ?? '')
   const [irrigation, setIrrigation] = useState<Field['irrigation']>(field.irrigation)
   const [priorities, setPriorities] = useState<string[]>(field.priorities ?? [])
+  const [currentCrops, setCurrentCrops] = useState((field.currentCycleCrops ?? []).join(', '))
+  const [recentCrops, setRecentCrops] = useState((field.recentCycleCrops ?? []).join(', '))
   const [saving, setSaving] = useState(false)
 
   function togglePriority(p: string) {
@@ -36,6 +38,8 @@ export default function FieldEditForm({ field, onSaved, onCancel }: { field: Fie
         soilType: soilType.trim() || undefined,
         irrigation,
         priorities,
+        currentCycleCrops: currentCrops.split(',').map((s) => s.trim()).filter(Boolean),
+        recentCycleCrops: recentCrops.split(',').map((s) => s.trim()).filter(Boolean),
       })
       toast.success(lang === 'bn' ? 'জমি সংরক্ষণ করা হয়েছে।' : 'Field saved.')
       onSaved(updated)
@@ -55,7 +59,7 @@ export default function FieldEditForm({ field, onSaved, onCancel }: { field: Fie
               {lang === 'bn' ? 'জমি সম্পাদনা করুন' : 'Edit field'}
             </CardTitle>
             <CardDescription>
-              {lang === 'bn' ? 'নাম, মাটি, সেচ ও অগ্রাধিকার পরিবর্তন করুন।' : 'Change the name, soil, irrigation and priorities.'}
+              {lang === 'bn' ? 'নাম, মাটি, সেচ, ফসল চক্র ও অগ্রাধিকার পরিবর্তন করুন।' : 'Change the name, soil, irrigation, crop cycles and priorities.'}
             </CardDescription>
           </div>
           <Button variant="ghost" size="sm" onClick={onCancel} aria-label="Close">
@@ -102,6 +106,28 @@ export default function FieldEditForm({ field, onSaved, onCancel }: { field: Fie
               <option value="pump">{lang === 'bn' ? 'পাম্প' : 'Pump'}</option>
               <option value="tubewell">{lang === 'bn' ? 'নলকূপ' : 'Tubewell'}</option>
             </select>
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <label htmlFor="fe-current" className="text-xs font-medium text-muted-foreground">
+              {lang === 'bn' ? 'বর্তমান চক্রের ফসল' : 'Current cycle crop(s)'}
+            </label>
+            <Input
+              id="fe-current"
+              value={currentCrops}
+              onChange={(e) => setCurrentCrops(e.target.value)}
+              placeholder={lang === 'bn' ? 'যেমন: টি. আমন, সরিষা' : 'e.g. T. Aman, Mustard'}
+            />
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <label htmlFor="fe-recent" className="text-xs font-medium text-muted-foreground">
+              {lang === 'bn' ? 'সাম্প্রতিক চক্রের ফসল' : 'Recent cycle crop(s)'}
+            </label>
+            <Input
+              id="fe-recent"
+              value={recentCrops}
+              onChange={(e) => setRecentCrops(e.target.value)}
+              placeholder={lang === 'bn' ? 'যেমন: বোরো' : 'e.g. Boro'}
+            />
           </div>
         </div>
         <div>

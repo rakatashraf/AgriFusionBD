@@ -12,7 +12,7 @@ import { Separator } from '#/components/ui/separator'
 
 type Workspace = 'farmer' | 'professional'
 
-const NAV: Record<Workspace, Array<{ label: string; path: string; key?: 'fields' | 'analyses' | 'cases' | 'rover' | 'research' | 'jobs' }>> = {
+const NAV: Record<Workspace, Array<{ label: string; path: string; key?: 'fields' | 'analyses' | 'cases' | 'rover' | 'roverPaths' | 'research' | 'jobs' }>> = {
   farmer: [
     { label: 'Fields', path: '/farmer/fields', key: 'fields' },
     { label: 'Analyses', path: '/farmer/analyses', key: 'analyses' },
@@ -22,6 +22,7 @@ const NAV: Record<Workspace, Array<{ label: string; path: string; key?: 'fields'
   professional: [
     { label: 'Cases', path: '/professional/cases', key: 'cases' },
     { label: 'Research', path: '/professional/research', key: 'research' },
+    { label: 'Rover paths', path: '/professional/rover-paths', key: 'roverPaths' },
     { label: 'Jobs', path: '/professional/jobs', key: 'jobs' },
   ],
 }

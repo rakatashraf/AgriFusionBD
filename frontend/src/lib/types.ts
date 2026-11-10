@@ -30,6 +30,12 @@ export interface Field {
   status: FieldStatus
   updatedAt: string
   isPinEstimate: boolean
+  /** Crops growing on this field right now (current cycle). The farmer
+   *  gives these when the field is drawn/edited; the season report and
+   *  rotation advice are grounded in them. */
+  currentCycleCrops?: string[]
+  /** Crops grown in the most recent completed cycle, before the current one. */
+  recentCycleCrops?: string[]
 }
 
 export type CropFamily = 'grasses' | 'legumes' | 'brassicas' | 'pulses' | 'root' | 'tuber' | 'vegetable' | 'fiber'
@@ -207,7 +213,20 @@ export interface RoverDevice {
   fieldIds: string[]
 }
 
-export interface RoverObservation {
+export interface RoverPath {
+  id: string
+  name: string
+  /** Field the path was made for, when it was made by selecting a field. */
+  fieldId?: string
+  fieldName?: string
+  /** Waypoints in [lng, lat], in the order the rover should follow them. */
+  points: [number, number][]
+  /** Total path length in metres. */
+  lengthM: number
+  status: 'planned' | 'assigned' | 'completed'
+  createdBy: string
+  createdAt: string
+}
   id: string
   deviceId: string
   messageId: string

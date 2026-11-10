@@ -27,7 +27,7 @@ const WARN_CLS: Record<string, string> = {
   danger: 'tint-red',
 }
 
-export default function SeasonReport({ report }: { report: SeasonReport }) {
+export default function SeasonReport({ report, crops }: { report: SeasonReport; crops?: { current?: string[]; recent?: string[] } }) {
   const lang = useLocale()
   const conf = CONFIDENCE[report.confidence]
 
@@ -46,6 +46,32 @@ export default function SeasonReport({ report }: { report: SeasonReport }) {
           <Badge variant="outline" className={conf.cls + ' shrink-0'}>{conf[lang]}</Badge>
         </CardContent>
       </Card>
+
+      {/* Crop cycles — what the farmer actually grows, so the advice below
+       *  is read against the real current and recent crops. */}
+      {(crops?.current?.length || crops?.recent?.length) ? (
+        <Card>
+          <CardContent className="flex flex-col gap-1.5 p-4 text-sm sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
+            {crops.current?.length ? (
+              <p className="text-foreground">
+                <span className="font-semibold">{lang === 'bn' ? 'বর্তমান চক্র: ' : 'Current cycle: '}</span>
+                {crops.current.join(', ')}
+              </p>
+            ) : null}
+            {crops.recent?.length ? (
+              <p className="text-muted-foreground">
+                <span className="font-semibold">{lang === 'bn' ? 'সাম্প্রতিক চক্র: ' : 'Recent cycle: '}</span>
+                {crops.recent.join(', ')}
+              </p>
+            ) : null}
+            <p className="text-xs text-muted-foreground">
+              {lang === 'bn'
+                ? 'নিচের পরামর্শ এই ফসলগুলোর আলোকে দেওয়া।'
+                : 'The advice below is read against these crops.'}
+            </p>
+          </CardContent>
+        </Card>
+      ) : null}
 
       {/* Warnings */}
       {report.warnings.length > 0 && (
