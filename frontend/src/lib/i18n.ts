@@ -39,7 +39,7 @@ export function useLocale(): Language {
 }
 
 const DICT = {
-  app_name: { en: 'FieldShift', bn: 'ফিল্ডশিফট' },
+  app_name: { en: 'AgriFusion BD', bn: 'অ্যাগ্রিফিউশন বিডি' },
   tagline: {
     en: 'Agricultural decision support',
     bn: 'কৃষি সিদ্ধান্ত সহায়ক',

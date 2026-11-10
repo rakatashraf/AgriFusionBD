@@ -1,4 +1,4 @@
-// FieldShift domain types.
+// AgriFusion BD domain types.
 // These mirror the logical data model in the project report (section 8).
 // The API client in `api.ts` returns these shapes; the Django backend is
 // expected to conform to the same contracts via drf-spectacular / OpenAPI.

@@ -4,6 +4,7 @@ import { TanStackDevtools } from '@tanstack/react-devtools'
 import { Toaster } from '../components/ui/sonner'
 import { TooltipProvider } from '../components/ui/tooltip'
 import AppShell from '../components/layout/AppShell'
+import LoadingScreen from '../components/LoadingScreen'
 
 import appCss from '../styles.css?url'
 
@@ -21,7 +22,7 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'FieldShift — Agricultural Decision Support',
+        title: 'AgriFusion BD — Agricultural Decision Support',
       },
       {
         name: 'description',
@@ -33,6 +34,11 @@ export const Route = createRootRoute({
       {
         rel: 'stylesheet',
         href: appCss,
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        href: `${import.meta.env.BASE_URL}agrifusion-logo.png`,
       },
     ],
   }),
@@ -72,6 +78,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 
 export default function Root() {
   return <AppShell>
+    <LoadingScreen />
     <Outlet />
   </AppShell>
 }

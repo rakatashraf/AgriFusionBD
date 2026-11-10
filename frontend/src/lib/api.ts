@@ -100,7 +100,7 @@ async function http<T>(path: string, init: RequestInit = {}): Promise<T> {
     throw new ApiError(
       0,
       'network_error',
-      'Could not reach the FieldShift API. Is the backend running?',
+      'Could not reach the AgriFusion BD API. Is the backend running?',
       String(err),
     )
   }
@@ -396,7 +396,7 @@ export async function downloadExport(id: string): Promise<{ url: string; filenam
       setDemoMode(true)
       return demo
     }
-    throw new ApiError(0, 'network_error', 'Could not reach the FieldShift API. Is the backend running?', '')
+    throw new ApiError(0, 'network_error', 'Could not reach the AgriFusion BD API. Is the backend running?', '')
   }
   if (!res.ok) {
     const text = await res.text().catch(() => '')

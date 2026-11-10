@@ -78,8 +78,8 @@ function Home() {
         </h1>
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
           {lang === 'bn'
-            ? 'FieldShift আপনার বর্তমান ফসল চক্রকে স্থানীয়ভাবে সম্ভাব্য দুটি বিকল্পের সাথে তুলনা করে — NASA পর্যবেক্ষণ, স্থানীয় কৃষি নির্দেশনা এবং ঐচ্ছিক রোভার পঠন একত্র করে।'
-            : 'FieldShift compares your current crop rotation against two locally feasible alternatives — combining NASA observations, local agronomy guidance and optional rover measurements.'}
+            ? 'AgriFusion BD আপনার বর্তমান ফসল চক্রকে স্থানীয়ভাবে সম্ভাব্য দুটি বিকল্পের সাথে তুলনা করে — NASA পর্যবেক্ষণ, স্থানীয় কৃষি নির্দেশনা এবং ঐচ্ছিক রোভার পঠন একত্র করে।'
+            : 'AgriFusion BD compares your current crop rotation against two locally feasible alternatives — combining NASA observations, local agronomy guidance and optional rover measurements.'}
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Link to="/farmer/fields">

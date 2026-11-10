@@ -1,12 +1,11 @@
 import { Link, useRouterState, useNavigate } from '@tanstack/react-router'
-import { Sprout, Languages, FlaskConical } from 'lucide-react'
+import { Languages, FlaskConical } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useLocale, setLocale, t } from '#/lib/i18n'
 import { currentUser, listFields } from '#/lib/api'
 import { useDemoMode } from '#/lib/demo'
 import { Button } from '#/components/ui/button'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from '#/components/ui/sheet'
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from '#/components/ui/dropdown-menu'
 import { Avatar, AvatarFallback } from '#/components/ui/avatar'
 import { Badge } from '#/components/ui/badge'
 import { Separator } from '#/components/ui/separator'
@@ -103,44 +102,67 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   }
 
   function UserMenu() {
+    const [open, setOpen] = useState(false)
     if (!user) return null
     return (
-      <DropdownMenu>
-        <DropdownMenuTrigger>
-          <Button variant="ghost" size="sm" aria-label="Account menu">
-            <Avatar className="size-6">
-              <AvatarFallback>{initials(user.name)}</AvatarFallback>
-            </Avatar>
-            <span className="hidden sm:inline">{user.name.split(' ')[0]}</span>
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-56">
-          <DropdownMenuLabel>
-            <div className="flex flex-col gap-1">
-              <span className="font-semibold">{user.name}</span>
-              <span className="text-xs text-muted-foreground">
-                {user.organization ?? 'Pilot farmer'}
-              </span>
-              <div className="mt-1 flex flex-wrap gap-1">
-                {user.roles.map((r) => (
-                  <Badge key={r} variant="secondary" className="text-[10px]">
-                    {r.replace('_', ' ')}
-                  </Badge>
-                ))}
+      <div className="relative">
+        <Button
+          variant="ghost"
+          size="sm"
+          aria-label="Account menu"
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <Avatar className="size-6">
+            <AvatarFallback>{initials(user.name)}</AvatarFallback>
+          </Avatar>
+          <span className="hidden sm:inline">{user.name.split(' ')[0]}</span>
+        </Button>
+        {open && (
+          <>
+            <button
+              aria-label="Close account menu"
+              className="fixed inset-0 z-40 cursor-default"
+              onClick={() => setOpen(false)}
+            />
+            <div className="absolute right-0 z-50 mt-2 w-56 rounded-lg bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10">
+              <div className="px-1.5 py-1">
+                <div className="flex flex-col gap-1">
+                  <span className="font-semibold">{user.name}</span>
+                  <span className="text-xs text-muted-foreground">
+                    {user.organization ?? 'Pilot farmer'}
+                  </span>
+                  <div className="mt-1 flex flex-wrap gap-1">
+                    {user.roles.map((r) => (
+                      <Badge key={r} variant="secondary" className="text-[10px]">
+                        {r.replace('_', ' ')}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
               </div>
+              <div className="-mx-1 my-1 h-px bg-border" />
+              <button
+                className="flex w-full cursor-default items-center gap-1.5 rounded-md px-1.5 py-1 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground"
+                onClick={() => {
+                  setLocale(lang === 'en' ? 'bn' : 'en')
+                  setOpen(false)
+                }}
+              >
+                <Languages className="size-4" />
+                {lang === 'en' ? 'বাংলায় দেখুন' : 'Switch to English'}
+              </button>
+              <div className="-mx-1 my-1 h-px bg-border" />
+              <button
+                className="flex w-full cursor-default items-center gap-1.5 rounded-md px-1.5 py-1 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground"
+                onClick={() => setOpen(false)}
+              >
+                Sign out
+              </button>
             </div>
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={() => setLocale(lang === 'en' ? 'bn' : 'en')}>
-            <Languages className="size-4" />
-            {lang === 'en' ? 'বাংলায় দেখুন' : 'Switch to English'}
-          </DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>
-            Sign out
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+          </>
+        )}
+      </div>
     )
   }
 
@@ -155,9 +177,11 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-40 border-b border-border/70 bg-background/70 backdrop-blur-xl">
         <div className="mx-auto flex h-14 max-w-7xl items-center gap-4 px-4">
           <Link to="/" className="group flex items-center gap-2 font-semibold">
-            <span className="flex size-8 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-lg shadow-primary/20 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3">
-              <Sprout className="size-4" />
-            </span>
+            <img
+              src={`${import.meta.env.BASE_URL}agrifusion-logo.png`}
+              alt="AgriFusion BD logo"
+              className="size-8 rounded-full shadow-lg transition-transform duration-300 group-hover:scale-105"
+            />
             <span className="hidden bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent sm:inline">
               {t('app_name', lang)}
             </span>

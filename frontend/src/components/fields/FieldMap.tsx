@@ -222,6 +222,17 @@ export default function FieldMap({
       // The drawing preview source/layers are created lazily by the
       // "Render drawing preview" effect (self-healing), not here.
     })
+    // Fallback: if the 'load' event is ever missed (inline style racing
+    // the handler), poll until the style is loaded and mark the map
+    // loaded then. Without this, every data effect gated on mapLoaded
+    // would never run and no polygon would ever render.
+    const loadPoll = window.setInterval(() => {
+      if (map.isStyleLoaded()) {
+        setMapLoaded(true)
+        window.clearInterval(loadPoll)
+      }
+    }, 400)
+    window.setTimeout(() => window.clearInterval(loadPoll), 15000)
     mapRef.current = map
     return () => {
       map.remove()
