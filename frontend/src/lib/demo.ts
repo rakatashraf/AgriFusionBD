@@ -75,6 +75,10 @@ export function useDemoMode(): boolean {
       }
     },
     () => demoMode,
+    // Server snapshot: demo mode is a client-side (no-backend) state, so
+    // the server always renders as if it were off; the client corrects it
+    // after the first failed API call.
+    () => false,
   )
 }
 

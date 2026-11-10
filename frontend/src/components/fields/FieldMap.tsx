@@ -131,6 +131,11 @@ export default function FieldMap({
   const [searchQuery, setSearchQuery] = useState('')
   const [searching, setSearching] = useState(false)
   const [searchError, setSearchError] = useState<string | null>(null)
+  // True once the map style has loaded and the GeoJSON sources/layers exist.
+  // The data-setting effects below depend on this so they re-run (and actually
+  // push data into the sources) once the map is ready — otherwise a fetch
+  // that resolves before the map loads leaves every polygon invisible.
+  const [mapLoaded, setMapLoaded] = useState(false)
 
   const pointsRef = useRef<LngLat[]>([])
   const drawModeRef = useRef(drawMode)
@@ -200,14 +205,9 @@ export default function FieldMap({
       })
       map.addLayer({ id: 'field-fill', type: 'fill', source: srcRef.current, paint: { 'fill-color': '#4fb8b2', 'fill-opacity': 0.28 } })
       map.addLayer({ id: 'field-line', type: 'line', source: srcRef.current, paint: { 'line-color': '#2f6a4a', 'line-width': 2 } })
-      // Drawing preview: live boundary line, translucent fill, vertex dots.
-      map.addSource(DRAW_SOURCE, {
-        type: 'geojson',
-        data: { type: 'FeatureCollection', features: [] },
-      })
-      map.addLayer({ id: 'draw-fill', type: 'fill', source: DRAW_SOURCE, paint: { 'fill-color': '#f59e0b', 'fill-opacity': 0.25 } })
-      map.addLayer({ id: 'draw-line', type: 'line', source: DRAW_SOURCE, paint: { 'line-color': '#f59e0b', 'line-width': 3 } })
-      map.addLayer({ id: 'draw-points', type: 'circle', source: DRAW_SOURCE, paint: { 'circle-radius': 7, 'circle-color': '#ffffff', 'circle-stroke-color': '#f59e0b', 'circle-stroke-width': 2.5 } })
+      // The drawing preview source/layers are created lazily by the
+      // "Render drawing preview" effect (self-healing), not here.
+      setMapLoaded(true)
     })
     mapRef.current = map
     return () => {
@@ -247,7 +247,7 @@ export default function FieldMap({
 
   useEffect(() => {
     const map = mapRef.current
-    if (!map || !map.getSource(srcRef.current)) return
+    if (!map || !mapLoaded || !map.getSource(srcRef.current)) return
     ;(map.getSource(srcRef.current) as unknown as maplibregl.GeoJSONSource)?.setData({ type: 'FeatureCollection', features } as never)
     if (selectedId) {
       const f = fields.find((x) => x.id === selectedId)
@@ -256,12 +256,32 @@ export default function FieldMap({
         map.setPaintProperty('field-line', 'line-color', '#2f6a4a')
       }
     }
-  }, [features, fields, selectedId])
+  }, [features, fields, selectedId, mapLoaded])
 
   // --- Render drawing preview -----------------------------------------------
+  // Self-healing: the draw source/layers are (re)created here if they are
+  // missing, so the preview cannot silently disappear when the map style
+  // reloads or the load handler raced. Data is only set once the source
+  // exists and the style is loaded.
   useEffect(() => {
     const map = mapRef.current
-    if (!map || !map.getSource(DRAW_SOURCE)) return
+    if (!map || !mapLoaded) return
+    if (!map.isStyleLoaded()) {
+      map.once('load', () => {
+        // Re-run this effect's work once the style is ready.
+        setPoints((p) => p.slice())
+      })
+      return
+    }
+    if (!map.getSource(DRAW_SOURCE)) {
+      map.addSource(DRAW_SOURCE, {
+        type: 'geojson',
+        data: { type: 'FeatureCollection', features: [] },
+      })
+      map.addLayer({ id: 'draw-fill', type: 'fill', source: DRAW_SOURCE, paint: { 'fill-color': '#f59e0b', 'fill-opacity': 0.25 } })
+      map.addLayer({ id: 'draw-line', type: 'line', source: DRAW_SOURCE, paint: { 'line-color': '#f59e0b', 'line-width': 3 } })
+      map.addLayer({ id: 'draw-points', type: 'circle', source: DRAW_SOURCE, paint: { 'circle-radius': 7, 'circle-color': '#ffffff', 'circle-stroke-color': '#f59e0b', 'circle-stroke-width': 2.5 } })
+    }
     const lineCoords: LngLat[] = cursor && points.length > 0 ? [...points, [cursor.lng, cursor.lat]] : points
     const feats: Array<Record<string, unknown>> = []
     if (points.length >= 3) {
@@ -275,7 +295,7 @@ export default function FieldMap({
       feats.push({ type: 'Feature', geometry: { type: 'MultiPoint', coordinates: points }, properties: {} })
     }
     ;(map.getSource(DRAW_SOURCE) as unknown as maplibregl.GeoJSONSource)?.setData({ type: 'FeatureCollection', features: feats } as never)
-  }, [points, cursor])
+  }, [points, cursor, mapLoaded])
 
   // --- Live preview callback (area + cursor) ---------------------------------
   useEffect(() => {
