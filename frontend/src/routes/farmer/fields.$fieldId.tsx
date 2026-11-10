@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useEffect, useMemo, useState } from 'react'
-import { ArrowLeft, Droplets, Wheat, Ruler, Leaf, Pencil, Download, CalendarDays } from 'lucide-react'
+import { ArrowLeft, Droplets, Wheat, Ruler, Leaf, Pencil, Download, CalendarDays, Bot } from 'lucide-react'
 import {
   getField,
   getFieldCropHistory,
@@ -8,9 +8,11 @@ import {
   getFieldIndicators,
   listCrops,
   listObservations,
+  currentUser,
 } from '#/lib/api'
 import { useLocale, t } from '#/lib/i18n'
-import type { Crop, Field, FieldIndicator, SoilTest, CropHistory, RoverObservation } from '#/lib/types'
+import type { Crop, Field, FieldIndicator, SoilTest, CropHistory, RoverObservation, RoverRequest } from '#/lib/types'
+import { loadRoverRequests, saveRoverRequest, openRequestForField } from '#/lib/roverPaths'
 import FieldMap from '#/components/fields/FieldMap'
 import IndicatorChart from '#/components/fields/IndicatorChart'
 import FieldEditForm from '#/components/fields/FieldEditForm'
@@ -47,6 +49,7 @@ export default function FieldDetail() {
   const [crops, setCrops] = useState<Crop[]>([])
   const [rover, setRover] = useState<RoverObservation[]>([])
   const [editing, setEditing] = useState(false)
+  const [roverRequest, setRoverRequest] = useState<RoverRequest | undefined>(() => openRequestForField(fieldId))
   const [rangeDays, setRangeDays] = useState(90)
   const [extraHistory, setExtraHistory] = useState<LocalCropHistory[]>(() => loadExtraCropHistory(fieldId))
   const [showHistoryForm, setShowHistoryForm] = useState(false)
@@ -113,6 +116,29 @@ export default function FieldDetail() {
     toast.success(lang === 'bn' ? 'ফসলের ইতিহাস যোগ হয়েছে।' : 'Crop history added.')
   }
 
+  /** Ask for rover analysis on this field. A professional then sets the
+   *  rover path for it. */
+  function requestRoverAnalysis() {
+    if (!field) return
+    if (openRequestForField(field.id)) {
+      toast.error(lang === 'bn' ? 'এই জমির জন্য ইতিমধ্যে একটি অনুরোধ আছে।' : 'There is already an open request for this field.')
+      return
+    }
+    const user = currentUser()
+    const req: RoverRequest = {
+      id: `req-${Date.now().toString(36)}-${Math.floor(Math.random() * 1e6).toString(36)}`,
+      fieldId: field.id,
+      fieldName: field.name,
+      farmerId: user?.id ?? 'farmer',
+      farmerName: user?.name ?? 'Farmer',
+      status: 'requested',
+      createdAt: new Date().toISOString(),
+    }
+    saveRoverRequest(req)
+    setRoverRequest(req)
+    toast.success(lang === 'bn' ? 'রোভার বিশ্লেষণের অনুরোধ পাঠানো হয়েছে।' : 'Rover analysis requested.')
+  }
+
   if (!field) {
     return (
       <main className="mx-auto max-w-5xl px-4 py-8">
@@ -150,6 +176,14 @@ export default function FieldDetail() {
         <div className="flex gap-2">
           <Button variant="outline" onClick={() => setEditing((v) => !v)}>
             <Pencil className="size-4" /> {lang === 'bn' ? 'জমি সম্পাদনা করুন' : 'Edit field'}
+          </Button>
+          <Button variant="outline" onClick={requestRoverAnalysis} disabled={!!roverRequest}>
+            <Bot className="size-4" />
+            {roverRequest
+              ? roverRequest.status === 'path_assigned'
+                ? lang === 'bn' ? 'রোভার পথ নির্ধারিত' : 'Rover path assigned'
+                : lang === 'bn' ? 'রোভার অনুরোধ করা হয়েছে' : 'Rover requested'
+              : lang === 'bn' ? 'রোভার বিশ্লেষণ চান' : 'Request rover analysis'}
           </Button>
           <Button onClick={() => navigate({ to: '/farmer/analyses', search: { fieldId: field.id } as never })}>
             {t('request_comparison', lang)}

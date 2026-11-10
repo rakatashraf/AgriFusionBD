@@ -1,17 +1,25 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
-import { Bot, Battery, MapPin, Wrench, ShieldCheck, Leaf, Radar } from 'lucide-react'
-import { listDevices, listObservations, listFields, createCase } from '#/lib/api'
+import { Bot, Battery, MapPin, Wrench, ShieldCheck, Leaf, Radar, Send, Clock } from 'lucide-react'
+import { listDevices, listObservations, listFields, createCase, currentUser } from '#/lib/api'
 import { ROVER_CHECKS } from '#/lib/advisory'
+import { loadRoverRequests, saveRoverRequest, openRequestForField } from '#/lib/roverPaths'
 import RoverCheckCard from '#/components/advisory/RoverCheckCard'
 import { useLocale, t } from '#/lib/i18n'
-import type { RoverDevice, RoverObservation, Field } from '#/lib/types'
+import type { RoverDevice, RoverObservation, Field, RoverRequest } from '#/lib/types'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '#/components/ui/card'
 import { Badge } from '#/components/ui/badge'
 import { Button } from '#/components/ui/button'
+import { Input } from '#/components/ui/input'
 import { Progress } from '#/components/ui/progress'
 import { Separator } from '#/components/ui/separator'
 import { toast } from 'sonner'
+
+const REQUEST_STATUS: Record<RoverRequest['status'], { en: string; bn: string; cls: string }> = {
+  requested: { en: 'Requested', bn: 'অনুরোধ করা হয়েছে', cls: 'border-sky-300 bg-sky-100 text-sky-800' },
+  path_assigned: { en: 'Path assigned', bn: 'পথ নির্ধারিত', cls: 'border-amber-300 bg-amber-100 text-amber-800' },
+  completed: { en: 'Completed', bn: 'সম্পন্ন', cls: 'border-emerald-300 bg-emerald-100 text-emerald-800' },
+}
 
 const DEVICE_STATUS: Record<string, { en: string; bn: string; cls: string }> = {
   idle: { en: 'Idle', bn: 'অলস', cls: 'border-emerald-300 bg-emerald-100 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200' },
@@ -27,14 +35,45 @@ export default function RoverPage() {
   const [devices, setDevices] = useState<RoverDevice[]>([])
   const [obs, setObs] = useState<RoverObservation[]>([])
   const [fields, setFields] = useState<Field[]>([])
+  const [requests, setRequests] = useState<RoverRequest[]>([])
+  const [requestFieldId, setRequestFieldId] = useState('')
+  const [requestNote, setRequestNote] = useState('')
 
   useEffect(() => {
     listDevices().then(setDevices)
     listObservations().then(setObs)
     listFields().then(setFields)
+    setRequests(loadRoverRequests())
   }, [])
 
   const fieldLabel = (id: string) => fields.find((f) => f.id === id)?.name ?? id
+
+  /** Ask for rover analysis on any registered field. A professional then
+   *  sets the rover path for it. */
+  function requestRoverAnalysis(fieldId: string, note?: string) {
+    const field = fields.find((f) => f.id === fieldId)
+    if (!field) return
+    const existing = openRequestForField(fieldId)
+    if (existing) {
+      toast.error(lang === 'bn' ? 'এই জমির জন্য ইতিমধ্যে একটি অনুরোধ আছে।' : 'There is already an open request for this field.')
+      return
+    }
+    const user = currentUser()
+    const req: RoverRequest = {
+      id: `req-${Date.now().toString(36)}-${Math.floor(Math.random() * 1e6).toString(36)}`,
+      fieldId: field.id,
+      fieldName: field.name,
+      farmerId: user?.id ?? 'farmer',
+      farmerName: user?.name ?? 'Farmer',
+      note: note?.trim() || undefined,
+      status: 'requested',
+      createdAt: new Date().toISOString(),
+    }
+    setRequests(saveRoverRequest(req))
+    setRequestFieldId('')
+    setRequestNote('')
+    toast.success(lang === 'bn' ? 'রোভার বিশ্লেষণের অনুরোধ পাঠানো হয়েছে।' : 'Rover analysis requested.')
+  }
 
   async function requestInspection(fieldId: string) {
     const c = await createCase({
@@ -55,6 +94,77 @@ export default function RoverPage() {
             : 'Community service workflow: farmer request → officer approval → rover collection → refreshed comparison.'}
         </p>
       </header>
+
+      {/* Request rover analysis — any registered field can be requested.
+          The professional then sets the rover path for it. */}
+      <Card className="mb-4 border-primary/40">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-base">
+            <Send className="size-4 text-primary" />
+            {lang === 'bn' ? 'রোভার বিশ্লেষণের অনুরোধ করুন' : 'Request rover analysis'}
+          </CardTitle>
+          <CardDescription>
+            {lang === 'bn'
+              ? 'আপনার যেকোনো নিবন্ধিত জমির জন্য রোভার চান — পেশাজীবী সেই জমির জন্য রোভার পথ নির্ধারণ করবেন।'
+              : 'Ask for the rover on any of your registered fields — a professional will set the rover path for it.'}
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <select
+              value={requestFieldId}
+              onChange={(e) => setRequestFieldId(e.target.value)}
+              className="h-9 flex-1 rounded-md border border-input bg-background px-3 text-sm outline-none"
+              aria-label={lang === 'bn' ? 'জমি বেছে নিন' : 'Choose a field'}
+            >
+              <option value="">{lang === 'bn' ? 'জমি বেছে নিন' : 'Choose a field'}</option>
+              {fields.map((f) => {
+                const open = openRequestForField(f.id)
+                return (
+                  <option key={f.id} value={f.id} disabled={!!open}>
+                    {f.name} · {f.areaHa} ha{open ? ` — ${REQUEST_STATUS[open.status][lang]}` : ''}
+                  </option>
+                )
+              })}
+            </select>
+            <Input
+              value={requestNote}
+              onChange={(e) => setRequestNote(e.target.value)}
+              placeholder={lang === 'bn' ? 'কী পরীক্ষা করাতে চান? (ঐচ্ছিক)' : 'What should the rover check? (optional)'}
+              className="flex-1"
+            />
+            <Button
+              onClick={() => requestFieldId && requestRoverAnalysis(requestFieldId, requestNote)}
+              disabled={!requestFieldId}
+            >
+              <Send className="size-4" /> {lang === 'bn' ? 'অনুরোধ পাঠান' : 'Send request'}
+            </Button>
+          </div>
+          {requests.length > 0 && (
+            <div className="flex flex-col gap-2">
+              <p className="text-xs font-medium text-muted-foreground">
+                {lang === 'bn' ? 'আমার অনুরোধ' : 'My requests'}
+              </p>
+              {requests.map((r) => {
+                const st = REQUEST_STATUS[r.status]
+                return (
+                  <div key={r.id} className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-border px-3 py-2.5">
+                    <div className="flex items-center gap-2 text-sm">
+                      <Bot className="size-4 shrink-0 text-primary" />
+                      <span className="font-medium text-foreground">{r.fieldName}</span>
+                      {r.note && <span className="text-muted-foreground">— {r.note}</span>}
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <span className="inline-flex items-center gap-1"><Clock className="size-3" /> {new Date(r.createdAt).toISOString().slice(0, 10)}</span>
+                      <Badge variant="outline" className={st.cls}>{st[lang]}</Badge>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          )}
+        </CardContent>
+      </Card>
 
       <div className="grid gap-4 lg:grid-cols-3">
         {devices.map((d) => {

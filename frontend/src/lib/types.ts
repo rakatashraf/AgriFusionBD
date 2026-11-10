@@ -227,6 +227,22 @@ export interface RoverPath {
   createdBy: string
   createdAt: string
 }
+
+/** A farmer's request for rover analysis on one of their registered fields.
+ *  Any registered field can be requested — the professional then sets the
+ *  rover path for it. */
+export interface RoverRequest {
+  id: string
+  fieldId: string
+  fieldName: string
+  farmerId: string
+  farmerName: string
+  note?: string
+  status: 'requested' | 'path_assigned' | 'completed'
+  createdAt: string
+  /** The path the professional set for this request, once assigned. */
+  pathId?: string
+}
   id: string
   deviceId: string
   messageId: string

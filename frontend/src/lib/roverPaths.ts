@@ -5,10 +5,11 @@
 // browser on the demo site (localStorage); a real backend would send the
 // path to the rover.
 
-import type { RoverPath } from '#/lib/types'
+import type { RoverPath, RoverRequest } from '#/lib/types'
 import { geodesicAreaSqM, ringBounds, type LngLat } from '#/lib/geo'
 
 const ROVER_PATHS_KEY = 'fieldshift.demo.rover_paths'
+const ROVER_REQUESTS_KEY = 'fieldshift.demo.rover_requests'
 
 function readPaths(): RoverPath[] {
   try {
@@ -41,6 +42,65 @@ export function deleteRoverPath(id: string): RoverPath[] {
 export function updateRoverPathStatus(id: string, status: RoverPath['status']): RoverPath[] {
   const next = readPaths().map((p) => (p.id === id ? { ...p, status } : p))
   window.localStorage.setItem(ROVER_PATHS_KEY, JSON.stringify(next))
+  // When a path is completed, the request it was made for is completed too.
+  if (status === 'completed') {
+    const reqs = readRequests().map((r) => (r.pathId === id ? { ...r, status: 'completed' as const } : r))
+    window.localStorage.setItem(ROVER_REQUESTS_KEY, JSON.stringify(reqs))
+  }
+  return next
+}
+
+// --- Rover requests ---------------------------------------------------------
+
+function readRequests(): RoverRequest[] {
+  try {
+    const raw = window.localStorage.getItem(ROVER_REQUESTS_KEY)
+    if (!raw) return []
+    const parsed = JSON.parse(raw) as RoverRequest[]
+    return Array.isArray(parsed) ? parsed : []
+  } catch {
+    return []
+  }
+}
+
+export function loadRoverRequests(): RoverRequest[] {
+  return readRequests()
+}
+
+export function saveRoverRequest(req: RoverRequest): RoverRequest[] {
+  const reqs = readRequests()
+  const next = [...reqs.filter((r) => r.id !== req.id), req]
+  window.localStorage.setItem(ROVER_REQUESTS_KEY, JSON.stringify(next))
+  return next
+}
+
+export function updateRoverRequest(id: string, patch: Partial<RoverRequest>): RoverRequest[] {
+  const next = readRequests().map((r) => (r.id === id ? { ...r, ...patch } : r))
+  window.localStorage.setItem(ROVER_REQUESTS_KEY, JSON.stringify(next))
+  return next
+}
+
+export function deleteRoverRequest(id: string): RoverRequest[] {
+  const next = readRequests().filter((r) => r.id !== id)
+  window.localStorage.setItem(ROVER_REQUESTS_KEY, JSON.stringify(next))
+  return next
+}
+
+/** The open (not completed) request for a field, if the farmer already
+ *  asked for rover analysis on it. */
+export function openRequestForField(fieldId: string): RoverRequest | undefined {
+  return readRequests().find((r) => r.fieldId === fieldId && r.status !== 'completed')
+}
+
+/** When a path is saved for a field that has a pending request, link the
+ *  request to the path and move it to "path assigned". */
+export function linkPathToRequest(fieldId: string, pathId: string): RoverRequest[] {
+  const next = readRequests().map((r) =>
+    r.fieldId === fieldId && r.status === 'requested'
+      ? { ...r, status: 'path_assigned' as const, pathId }
+      : r,
+  )
+  window.localStorage.setItem(ROVER_REQUESTS_KEY, JSON.stringify(next))
   return next
 }
 
