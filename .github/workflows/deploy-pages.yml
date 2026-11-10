@@ -1,0 +1,69 @@
+name: Deploy frontend to GitHub Pages
+
+# Static frontend UI only (no Node server, no Django backend).
+# Builds the TanStack Start app as a prerendered SPA served from
+# https://rakatashraf.github.io/AgriFusionBD/
+# The Docker Compose stack in the repo remains the full-app deployment path.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        working-directory: frontend
+        # npm install (not npm ci) because the repo lockfile is currently
+        # out of sync with package.json; install tolerates that.
+        run: npm install
+
+      - name: Build static frontend (GitHub Pages)
+        working-directory: frontend
+        env:
+          PAGES_BUILD: 'true'
+        run: npm run build
+
+      - name: Prepare Pages output
+        working-directory: frontend
+        run: |
+          # SPA shell -> index.html (served at /AgriFusionBD/)
+          # and 404.html (fallback so client-side routes work on refresh).
+          cp .output/public/_shell.html .output/public/index.html
+          cp .output/public/_shell.html .output/public/404.html
+          touch .output/public/.nojekyll
+          ls -la .output/public/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend/.output/public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
