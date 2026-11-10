@@ -52,9 +52,10 @@ jobs:
       - name: Prepare Pages output
         working-directory: frontend
         run: |
-          # SPA shell -> index.html (served at /AgriFusionBD/)
-          # and 404.html (fallback so client-side routes work on refresh).
-          cp .output/public/_shell.html .output/public/index.html
+          # The prerender already writes a real index.html for the home
+          # route (and one per route) — do NOT overwrite it with the shell,
+          # or the home page loads blank on a fresh visit. Only the 404
+          # fallback needs the SPA shell so client-side routes work.
           cp .output/public/_shell.html .output/public/404.html
           touch .output/public/.nojekyll
           ls -la .output/public/
