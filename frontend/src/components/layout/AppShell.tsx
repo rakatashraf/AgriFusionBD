@@ -168,12 +168,6 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <div className="aurora" aria-hidden="true">
-        <span className="orb orb--a" />
-        <span className="orb orb--b" />
-        <span className="orb orb--c" />
-      </div>
-      <div className="grid-overlay" aria-hidden="true" />
       <header className="sticky top-0 z-40 border-b border-border/70 bg-background/70 backdrop-blur-xl">
         <div className="mx-auto flex h-14 max-w-7xl items-center gap-4 px-4">
           <Link to="/" className="group flex items-center gap-2 font-semibold">

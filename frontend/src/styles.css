@@ -47,128 +47,128 @@
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 1.25rem;
 
-  /* FieldShift brand tokens (kept from starter) — light */
-  --sea-ink: #173a40;
-  --sea-ink-soft: #416166;
-  --lagoon: #4fb8b2;
-  --lagoon-deep: #328f97;
-  --palm: #2f6a4a;
-  --sand: #e7f0e8;
-  --foam: #f3faf5;
-  --surface: rgba(255, 255, 255, 0.74);
-  --surface-strong: rgba(255, 255, 255, 0.9);
-  --line: rgba(23, 58, 64, 0.14);
-  --inset-glint: rgba(255, 255, 255, 0.82);
-  --kicker: rgba(47, 106, 74, 0.9);
-  --bg-base: #e7f3ec;
-  --header-bg: rgba(251, 255, 248, 0.84);
-  --chip-bg: rgba(255, 255, 255, 0.8);
-  --chip-line: rgba(47, 106, 74, 0.18);
-  --link-bg-hover: rgba(255, 255, 255, 0.9);
-  --hero-a: rgba(79, 184, 178, 0.36);
-  --hero-b: rgba(47, 106, 74, 0.2);
-  --grid-line: rgba(255, 255, 255, 0.07);
-  --grid-dot: rgba(255, 255, 255, 0.8);
-  --shadow-tint: rgba(30, 90, 72, 0.1);
-  --body-opacity-before: 0.28;
-  --body-opacity-after: 0.14;
+  /* AgriFusion BD brand tokens — Verda palette (warm cream / forest / yellow) */
+  --sea-ink: #1e2d24;
+  --sea-ink-soft: #6e7c72;
+  --lagoon: #4e7c51;
+  --lagoon-deep: #1d3a2a;
+  --palm: #4e7c51;
+  --sand: #e7ddc7;
+  --foam: #f4f1e8;
+  --surface: #fffdf8;
+  --surface-strong: #fffdf8;
+  --line: rgba(30, 45, 36, 0.11);
+  --inset-glint: rgba(255, 255, 255, 0.6);
+  --kicker: #4e7c51;
+  --bg-base: #f4f1e8;
+  --header-bg: rgba(255, 253, 248, 0.96);
+  --chip-bg: #fffdf8;
+  --chip-line: rgba(30, 45, 36, 0.14);
+  --link-bg-hover: #fffdf8;
+  --hero-a: rgba(241, 212, 106, 0.28);
+  --hero-b: rgba(78, 124, 81, 0.18);
+  --grid-line: rgba(30, 45, 36, 0.06);
+  --grid-dot: rgba(30, 45, 36, 0.12);
+  --shadow-tint: rgba(24, 51, 34, 0.08);
+  --body-opacity-before: 0;
+  --body-opacity-after: 0;
 
-  /* shadcn theme tokens — FieldShift green/lagoon palette */
-  --background: #f3faf5;
-  --foreground: #173a40;
-  --card: #ffffff;
-  --card-foreground: #173a40;
-  --popover: #ffffff;
-  --popover-foreground: #173a40;
-  --primary: #2f6a4a;
-  --primary-foreground: #f3faf5;
-  --secondary: #e7f0e8;
-  --secondary-foreground: #173a40;
-  --muted: #eef5f0;
-  --muted-foreground: #416166;
-  --accent: rgba(79, 184, 178, 0.28);
-  --accent-foreground: #173a40;
-  --destructive: #c44747;
-  --destructive-foreground: #ffffff;
-  --border: rgba(23, 58, 64, 0.14);
-  --input: rgba(23, 58, 64, 0.22);
-  --ring: #328f97;
-  --chart-1: #4fb8b2;
-  --chart-2: #2f6a4a;
-  --chart-3: #328f97;
-  --chart-4: #9db86a;
-  --chart-5: #c9a24a;
-  --sidebar: #f3faf5;
-  --sidebar-foreground: #173a40;
-  --sidebar-primary: #2f6a4a;
-  --sidebar-primary-foreground: #f3faf5;
-  --sidebar-accent: rgba(79, 184, 178, 0.28);
-  --sidebar-accent-foreground: #173a40;
-  --sidebar-border: rgba(23, 58, 64, 0.14);
-  --sidebar-ring: #328f97;
+  /* shadcn theme tokens — Verda palette */
+  --background: #f4f1e8;
+  --foreground: #1e2d24;
+  --card: #fffdf8;
+  --card-foreground: #1e2d24;
+  --popover: #fffdf8;
+  --popover-foreground: #1e2d24;
+  --primary: #1d3a2a;
+  --primary-foreground: #fffdf8;
+  --secondary: #dfeadf;
+  --secondary-foreground: #1e2d24;
+  --muted: #ece7d8;
+  --muted-foreground: #6e7c72;
+  --accent: #f1d46a;
+  --accent-foreground: #1d3a2a;
+  --destructive: #bd5b4d;
+  --destructive-foreground: #fffdf8;
+  --border: rgba(30, 45, 36, 0.11);
+  --input: rgba(30, 45, 36, 0.22);
+  --ring: #4e7c51;
+  --chart-1: #1d3a2a;
+  --chart-2: #4e7c51;
+  --chart-3: #f1d46a;
+  --chart-4: #2e6f92;
+  --chart-5: #d98b45;
+  --sidebar: #f4f1e8;
+  --sidebar-foreground: #1e2d24;
+  --sidebar-primary: #1d3a2a;
+  --sidebar-primary-foreground: #fffdf8;
+  --sidebar-accent: #f1d46a;
+  --sidebar-accent-foreground: #1d3a2a;
+  --sidebar-border: rgba(30, 45, 36, 0.11);
+  --sidebar-ring: #4e7c51;
 }
 
 .dark {
-  /* FieldShift brand tokens — dark */
-  --sea-ink: #d7ece8;
-  --sea-ink-soft: #afcdc8;
-  --lagoon: #60d7cf;
-  --lagoon-deep: #8de5db;
-  --palm: #6ec89a;
-  --sand: #101d22;
-  --foam: #0f1a1e;
-  --surface: rgba(16, 29, 34, 0.72);
-  --surface-strong: rgba(18, 33, 39, 0.9);
-  --line: rgba(141, 229, 219, 0.16);
-  --inset-glint: rgba(141, 229, 219, 0.14);
-  --kicker: rgba(110, 200, 154, 0.9);
-  --bg-base: #081015;
-  --header-bg: rgba(10, 20, 24, 0.84);
-  --chip-bg: rgba(16, 29, 34, 0.8);
-  --chip-line: rgba(110, 200, 154, 0.24);
-  --link-bg-hover: rgba(18, 33, 39, 0.9);
-  --hero-a: rgba(96, 215, 207, 0.22);
-  --hero-b: rgba(110, 200, 154, 0.16);
-  --grid-line: rgba(141, 229, 219, 0.05);
-  --grid-dot: rgba(141, 229, 219, 0.16);
+  /* AgriFusion BD brand tokens — dark (warm forest) */
+  --sea-ink: #e9efe6;
+  --sea-ink-soft: #a9b8a6;
+  --lagoon: #8fce9b;
+  --lagoon-deep: #c8e6c9;
+  --palm: #8fce9b;
+  --sand: #1a2a1e;
+  --foam: #131f16;
+  --surface: #1a2a1e;
+  --surface-strong: #1e3222;
+  --line: rgba(233, 239, 230, 0.14);
+  --inset-glint: rgba(233, 239, 230, 0.08);
+  --kicker: #8fce9b;
+  --bg-base: #131f16;
+  --header-bg: rgba(19, 31, 22, 0.92);
+  --chip-bg: #1a2a1e;
+  --chip-line: rgba(143, 206, 155, 0.24);
+  --link-bg-hover: #1e3222;
+  --hero-a: rgba(241, 212, 106, 0.14);
+  --hero-b: rgba(143, 206, 155, 0.12);
+  --grid-line: rgba(233, 239, 230, 0.05);
+  --grid-dot: rgba(233, 239, 230, 0.12);
   --shadow-tint: rgba(0, 0, 0, 0.42);
-  --body-opacity-before: 0.12;
-  --body-opacity-after: 0.08;
+  --body-opacity-before: 0;
+  --body-opacity-after: 0;
 
-  --background: #0a1418;
-  --foreground: #d7ece8;
-  --card: #101d22;
-  --card-foreground: #d7ece8;
-  --popover: #0f1a1e;
-  --popover-foreground: #d7ece8;
-  --primary: #6ec89a;
-  --primary-foreground: #0a1418;
-  --secondary: #13252b;
-  --secondary-foreground: #d7ece8;
-  --muted: #122127;
-  --muted-foreground: #afcdc8;
-  --accent: rgba(96, 215, 207, 0.18);
-  --accent-foreground: #d7ece8;
-  --destructive: #e06c6c;
+  --background: #131f16;
+  --foreground: #e9efe6;
+  --card: #1a2a1e;
+  --card-foreground: #e9efe6;
+  --popover: #1e3222;
+  --popover-foreground: #e9efe6;
+  --primary: #8fce9b;
+  --primary-foreground: #131f16;
+  --secondary: #223626;
+  --secondary-foreground: #e9efe6;
+  --muted: #1e3222;
+  --muted-foreground: #a9b8a6;
+  --accent: #f1d46a;
+  --accent-foreground: #1d3a2a;
+  --destructive: #d98b7a;
   --destructive-foreground: #1a0d0d;
-  --border: rgba(141, 229, 219, 0.18);
-  --input: rgba(141, 229, 219, 0.28);
-  --ring: #60d7cf;
-  --chart-1: #60d7cf;
-  --chart-2: #6ec89a;
-  --chart-3: #8de5db;
-  --chart-4: #b8d88a;
-  --chart-5: #d9b25c;
-  --sidebar: #0a1418;
-  --sidebar-foreground: #d7ece8;
-  --sidebar-primary: #6ec89a;
-  --sidebar-primary-foreground: #0a1418;
-  --sidebar-accent: rgba(96, 215, 207, 0.18);
-  --sidebar-accent-foreground: #d7ece8;
-  --sidebar-border: rgba(141, 229, 219, 0.18);
-  --sidebar-ring: #60d7cf;
+  --border: rgba(233, 239, 230, 0.14);
+  --input: rgba(233, 239, 230, 0.24);
+  --ring: #8fce9b;
+  --chart-1: #8fce9b;
+  --chart-2: #4e7c51;
+  --chart-3: #f1d46a;
+  --chart-4: #7fb3d5;
+  --chart-5: #d98b45;
+  --sidebar: #131f16;
+  --sidebar-foreground: #e9efe6;
+  --sidebar-primary: #8fce9b;
+  --sidebar-primary-foreground: #131f16;
+  --sidebar-accent: #f1d46a;
+  --sidebar-accent-foreground: #1d3a2a;
+  --sidebar-border: rgba(233, 239, 230, 0.14);
+  --sidebar-ring: #8fce9b;
 }
 
 @layer base {
@@ -195,9 +195,6 @@ body {
   color: var(--sea-ink);
   font-family: var(--font-sans);
   background-color: var(--bg-base);
-  background:
-    linear-gradient(180deg, color-mix(in oklab, var(--sand) 60%, transparent) 0%, transparent 34%),
-    var(--bg-base);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -341,6 +338,31 @@ pre code {
 .feature-card:hover {
   transform: translateY(-2px);
   border-color: color-mix(in oklab, var(--lagoon-deep) 35%, var(--line));
+}
+
+/* Verda tinted cards — warm tints from the old agri-fusion-bd theme.
+   Used for feature/entry cards so each card reads at a glance. */
+.tint-green { background: #e7f0df !important; }
+.tint-blue { background: #e5edf3 !important; }
+.tint-sand { background: #f2ead8 !important; }
+.tint-red { background: #f4dfda !important; }
+.dark .tint-green { background: #223626 !important; }
+.dark .tint-blue { background: #1d2a33 !important; }
+.dark .tint-sand { background: #2e2a1c !important; }
+.dark .tint-red { background: #33201d !important; }
+
+/* Verda dark forest panel — the "today board" treatment from the old theme. */
+.forest-panel {
+  background: #1d3a2a;
+  color: #fffdf8;
+  border-radius: 1.75rem;
+}
+.forest-panel .forest-eyebrow { color: #c8d9c6; }
+.forest-panel h2, .forest-panel .forest-title { color: #fffdf8; }
+.forest-panel p, .forest-panel .forest-copy { color: #d5dfd3; }
+.forest-panel .forest-icon {
+  background: #f1d46a;
+  color: #1d3a2a;
 }
 
 .demo-page {

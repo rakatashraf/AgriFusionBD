@@ -11,6 +11,7 @@ function Home() {
   const features = [
     {
       icon: Satellite,
+      tint: 'tint-blue',
       title: lang === 'bn' ? 'NASA পর্যবেক্ষণ' : 'NASA observations',
       body:
         lang === 'bn'
@@ -19,6 +20,7 @@ function Home() {
     },
     {
       icon: Scale,
+      tint: 'tint-green',
       title: lang === 'bn' ? 'ফসল চক্র তুলনা' : 'Rotation comparison',
       body:
         lang === 'bn'
@@ -27,6 +29,7 @@ function Home() {
     },
     {
       icon: Bot,
+      tint: 'tint-sand',
       title: lang === 'bn' ? 'রোভার প্রমাণ' : 'Rover evidence',
       body:
         lang === 'bn'
@@ -35,6 +38,7 @@ function Home() {
     },
     {
       icon: Globe2,
+      tint: 'tint-green',
       title: lang === 'bn' ? 'বাংলা ও ইংরেজি' : 'Bangla & English',
       body:
         lang === 'bn'
@@ -59,7 +63,7 @@ function Home() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
       <section className="rise-in relative mb-12">
-        <div className="mb-5 inline-flex items-center gap-2 rounded-full glass border border-border/80 px-3.5 py-1.5 text-xs font-medium text-muted-foreground shadow-sm">
+        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/80 bg-card px-3.5 py-1.5 text-xs font-medium text-muted-foreground shadow-sm">
           <span className="relative flex size-2 items-center justify-center text-primary">
             <span className="pulse-dot size-2 rounded-full bg-primary" />
           </span>
@@ -83,13 +87,13 @@ function Home() {
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Link to="/farmer/fields">
-            <button className="btn-glow inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-transform duration-200 hover:scale-[1.02]">
+            <button className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground shadow-lg transition-transform duration-200 hover:scale-[1.02]">
               {t('nav_farmer', lang)} workspace
               <ArrowRight className="size-4" />
             </button>
           </Link>
           <Link to="/professional/research">
-            <button className="glass inline-flex items-center gap-2 rounded-xl border border-border/80 px-6 py-3 text-sm font-semibold text-foreground shadow-sm transition-all duration-200 hover:border-primary/40 hover:bg-accent/40">
+            <button className="inline-flex items-center gap-2 rounded-xl border border-border/80 bg-card px-6 py-3 text-sm font-semibold text-foreground shadow-sm transition-all duration-200 hover:border-primary/40 hover:bg-accent/40">
               {t('nav_professional', lang)} workspace
             </button>
           </Link>
@@ -97,7 +101,7 @@ function Home() {
 
         <div className="mt-10 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
           {stats.map((s) => (
-            <div key={s.k} className="glass lift rounded-2xl border border-border/70 p-4 shadow-sm">
+            <div key={s.k} className="lift rounded-3xl border border-border/70 bg-card p-4 shadow-sm">
               <div className="text-2xl font-bold tracking-tight text-foreground">{s.v}</div>
               <div className="mt-0.5 text-xs font-medium text-muted-foreground">{s.k}</div>
             </div>
@@ -107,9 +111,9 @@ function Home() {
 
       <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {features.map((f, i) => (
-          <Card key={i} className="lift group glass overflow-hidden border-border/70 shadow-md">
+          <Card key={i} className={`lift group overflow-hidden rounded-3xl border-border/70 shadow-md ${f.tint}`}>
             <CardHeader className="relative">
-              <div className="mb-3 flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 ring-1 ring-primary/20 transition-all duration-300 group-hover:scale-110 group-hover:ring-primary/40">
+              <div className="mb-3 flex size-12 items-center justify-center rounded-2xl bg-card ring-1 ring-primary/20 transition-all duration-300 group-hover:scale-110 group-hover:ring-primary/40">
                 <f.icon className="size-6 text-primary" />
               </div>
               <CardTitle className="text-base font-semibold">{f.title}</CardTitle>
@@ -128,7 +132,7 @@ function Home() {
         </div>
         <div className="grid gap-3 sm:grid-cols-3">
           {steps.map((s, i) => (
-            <div key={i} className="lift relative glass rounded-2xl border border-border/70 p-5 shadow-sm">
+            <div key={i} className="lift relative rounded-3xl border border-border/70 bg-card p-5 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex size-9 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <s.icon className="size-5" />
