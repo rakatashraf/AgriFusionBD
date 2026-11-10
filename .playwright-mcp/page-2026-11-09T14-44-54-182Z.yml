@@ -1,0 +1,58 @@
+- generic [ref=f6e1]:
+  - main [ref=f6e2]:
+    - generic [ref=f6e3]:
+      - generic [ref=f6e4]: Agricultural decision support · Bangladesh pilot
+      - heading "Evidence-based help for crop rotation decisions" [level=1] [ref=f6e7]: Evidence-based help forcrop rotation decisions
+      - paragraph [ref=f6e8]: FieldShift compares your current crop rotation against two locally feasible alternatives — combining NASA observations, local agronomy guidance and optional rover measurements.
+      - generic [ref=f6e9]:
+        - link [ref=f6e10] [cursor=pointer]:
+          - /url: /farmer/fields
+          - button "Farmer workspace" [ref=f6e11]
+        - link [ref=f6e14] [cursor=pointer]:
+          - /url: /professional/research
+          - button "Professional workspace" [ref=f6e15]
+      - generic [ref=f6e16]:
+        - generic [ref=f6e17]:
+          - generic [ref=f6e18]: "3"
+          - generic [ref=f6e19]: Fields
+        - generic [ref=f6e20]:
+          - generic [ref=f6e21]: "6"
+          - generic [ref=f6e22]: Crops
+        - generic [ref=f6e23]:
+          - generic [ref=f6e24]: "2"
+          - generic [ref=f6e25]: Rovers
+        - generic [ref=f6e26]:
+          - generic [ref=f6e27]: "2"
+          - generic [ref=f6e28]: Languages
+    - generic [ref=f6e29]:
+      - generic [ref=f6e31]:
+        - generic [ref=f6e39]: NASA observations
+        - generic [ref=f6e40]: POWER rainfall and temperature, plus HLS vegetation — with coverage and units.
+      - generic [ref=f6e42]:
+        - generic [ref=f6e48]: Rotation comparison
+        - generic [ref=f6e49]: Your existing rotation and two locally feasible alternatives — with evidence and constraints.
+      - generic [ref=f6e51]:
+        - generic [ref=f6e56]: Rover evidence
+        - generic [ref=f6e57]: Local moisture, temperature and EC readings — with quality and calibration checks.
+      - generic [ref=f6e59]:
+        - generic [ref=f6e66]: Bangla & English
+        - generic [ref=f6e67]: Bilingual, with low-bandwidth readable reports.
+    - generic [ref=f6e68]:
+      - heading "How it works" [level=2] [ref=f6e70]
+      - generic [ref=f6e72]:
+        - generic [ref=f6e73]:
+          - generic [ref=f6e74]: "01"
+          - generic [ref=f6e80]: Pick a field
+          - generic [ref=f6e81]: Start from a boundary or a pin.
+        - generic [ref=f6e82]:
+          - generic [ref=f6e83]: "02"
+          - generic [ref=f6e90]: Build the comparison
+          - generic [ref=f6e91]: Baseline + two alternatives, with evidence.
+        - generic [ref=f6e92]:
+          - generic [ref=f6e93]: "03"
+          - generic [ref=f6e98]: Decide with confidence
+          - generic [ref=f6e99]: Share with officers & researchers.
+    - generic [ref=f6e107]:
+      - paragraph [ref=f6e108]: Supports decisions; does not guarantee yield, profit or soil-health improvement. Historical observations, scenarios, forecasts and rover readings are kept distinct.
+      - paragraph [ref=f6e109]: This is a design-baseline demonstration; it is not a promise of real yield or profit.
+  - region "Notifications alt+T"

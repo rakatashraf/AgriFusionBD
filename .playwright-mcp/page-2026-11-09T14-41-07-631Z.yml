@@ -1,0 +1,12 @@
+- generic [ref=f5e1]:
+  - main [ref=f5e2]:
+    - generic [ref=f5e3]:
+      - heading "Rover" [level=1] [ref=f5e4]
+      - paragraph [ref=f5e5]: "Community service workflow: farmer request → officer approval → rover collection → refreshed comparison."
+    - generic [ref=f5e7]:
+      - generic [ref=f5e8]: Observations
+      - generic [ref=f5e12]: Each reading includes measurement time, depth, units, calibration and quality.
+    - generic [ref=f5e18]:
+      - paragraph [ref=f5e19]: Control boundary
+      - paragraph [ref=f5e20]: Remote driving requires separate authorization, an end-to-end latency budget and local supervision. The MVP ships observation upload and safe missions only — no remote driving.
+  - region "Notifications alt+T"

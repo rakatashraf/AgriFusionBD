@@ -1,0 +1,32 @@
+[    1495ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/favicon.ico:0
+[    2666ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/node_modules/.vite/deps/react-dom_client.js?v=1a081370:15802
+[    2689ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/farmer/analyses.index.tsx" will not be code-split and will increase your bundle size:
+- AnalysesPage
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[    2690ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/farmer/analyses.$analysisId.tsx" will not be code-split and will increase your bundle size:
+- AnalysisDetail
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[    2690ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/farmer/analyses.new.tsx" will not be code-split and will increase your bundle size:
+- NewAnalysis
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[    2691ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/farmer/cases.index.tsx" will not be code-split and will increase your bundle size:
+- CasesPage
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[    2696ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/farmer/fields.index.tsx" will not be code-split and will increase your bundle size:
+- FieldsPage
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[    2709ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/farmer/fields.$fieldId.tsx" will not be code-split and will increase your bundle size:
+- FieldDetail
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[    2710ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/farmer/rover.index.tsx" will not be code-split and will increase your bundle size:
+- RoverPage
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[    2710ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/professional/cases.index.tsx" will not be code-split and will increase your bundle size:
+- OfficerCasesPage
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[    2711ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/professional/jobs.index.tsx" will not be code-split and will increase your bundle size:
+- JobsPage
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[    2711ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/professional/research.index.tsx" will not be code-split and will increase your bundle size:
+- ResearchPage
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363

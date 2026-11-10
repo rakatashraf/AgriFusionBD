@@ -1,0 +1,94 @@
+[     889ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/node_modules/.vite/deps/react-dom_client.js?v=1a081370:15802
+[     909ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/farmer/analyses.index.tsx" will not be code-split and will increase your bundle size:
+- AnalysesPage
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[     909ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/farmer/analyses.$analysisId.tsx" will not be code-split and will increase your bundle size:
+- AnalysisDetail
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[     909ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/farmer/analyses.new.tsx" will not be code-split and will increase your bundle size:
+- NewAnalysis
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[     909ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/farmer/cases.index.tsx" will not be code-split and will increase your bundle size:
+- CasesPage
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[     913ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/farmer/fields.index.tsx" will not be code-split and will increase your bundle size:
+- FieldsPage
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[     919ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/farmer/fields.$fieldId.tsx" will not be code-split and will increase your bundle size:
+- FieldDetail
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[     919ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/farmer/rover.index.tsx" will not be code-split and will increase your bundle size:
+- RoverPage
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[     919ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/professional/cases.index.tsx" will not be code-split and will increase your bundle size:
+- OfficerCasesPage
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[     919ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/professional/jobs.index.tsx" will not be code-split and will increase your bundle size:
+- JobsPage
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[     919ms] [WARNING] [tanstack-router] These exports from "D:/Nasa/frontend/src/routes/professional/research.index.tsx" will not be code-split and will increase your bundle size:
+- ResearchPage
+For the best optimization, these items should either have their export statements removed, or be imported from another location that is not a route file. @ http://localhost:3000/@vite/client:363
+[  104089ms] [ERROR] Error: Worker failed to load. Check that the worker URL is correct.
+    at Worker.<anonymous> (http://localhost:3000/node_modules/.vite/deps/maplibre-gl.js?v=1a081370:9424:32) @ http://localhost:3000/@vite/client:363
+[  104089ms] [ERROR] Error: Worker failed to load. Check that the worker URL is correct.
+    at Worker.<anonymous> (http://localhost:3000/node_modules/.vite/deps/maplibre-gl.js?v=1a081370:9424:32) @ http://localhost:3000/@vite/client:363
+[  124198ms] [ERROR] Error: Worker failed to load. Check that the worker URL is correct.
+    at Worker.<anonymous> (http://localhost:3000/node_modules/.vite/deps/maplibre-gl.js?v=1a081370:9424:32) @ http://localhost:3000/@vite/client:363
+[  124198ms] [ERROR] Error: Worker failed to load. Check that the worker URL is correct.
+    at Worker.<anonymous> (http://localhost:3000/node_modules/.vite/deps/maplibre-gl.js?v=1a081370:9424:32) @ http://localhost:3000/@vite/client:363
+[  128641ms] [ERROR] Error: Worker failed to load. Check that the worker URL is correct.
+    at Worker.<anonymous> (http://localhost:3000/node_modules/.vite/deps/maplibre-gl.js?v=1a081370:9424:32) @ http://localhost:3000/@vite/client:363
+[  128641ms] [ERROR] Error: Worker failed to load. Check that the worker URL is correct.
+    at Worker.<anonymous> (http://localhost:3000/node_modules/.vite/deps/maplibre-gl.js?v=1a081370:9424:32) @ http://localhost:3000/@vite/client:363
+[  142687ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/src/components/fields/FieldMap.tsx?t=1794235100084:0
+[  142688ms] [ERROR] [vite] Failed to reload /src/components/fields/FieldMap.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  145491ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/src/components/fields/FieldMap.tsx?t=1794235102900:0
+[  145491ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.$fieldId.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  145492ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.index.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  147271ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/src/components/fields/FieldMap.tsx?t=1794235104688:0
+[  147271ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.$fieldId.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  147271ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.index.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  149248ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/src/components/fields/FieldMap.tsx?t=1794235106663:0
+[  149248ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.index.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  149248ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.$fieldId.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  152005ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/src/components/fields/FieldMap.tsx?t=1794235109417:0
+[  152006ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.$fieldId.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  152006ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.index.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  153990ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/src/components/fields/FieldMap.tsx?t=1794235111403:0
+[  153990ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.$fieldId.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  153991ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.index.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  172330ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/src/components/fields/FieldMap.tsx?t=1794235129742:0
+[  172330ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.index.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  172331ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.$fieldId.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  180067ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/src/components/fields/FieldMap.tsx?t=1794235137498:0
+[  180067ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.$fieldId.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  180067ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.index.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  180109ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/src/components/fields/FieldMap.tsx?t=1794235137498:0
+[  180109ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.index.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  180109ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.$fieldId.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  197544ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/src/components/fields/FieldMap.tsx?t=1794235154949:0
+[  197544ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.$fieldId.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  197544ms] [ERROR] [vite] Failed to reload /src/routes/farmer/fields.index.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:3000/@vite/client:363
+[  205311ms] [ERROR] %c[Server]%c color: #9333ea; font-weight: bold; color: inherit; {name: Error, message: Cannot find module 'maplibre-gl/dist/maplibregl.cs…Nasa/frontend/src/components/fields/FieldMap.tsx', stack: Error: Cannot find module 'maplibre-gl/dist/maplib…mjs:55:9)
+    at Worker.emit (node:events:509:20)} @ http://localhost:3000/@vite/client:363
+[  207548ms] [ERROR] %c[Server]%c color: #9333ea; font-weight: bold; color: inherit; {name: Error, message: Cannot find module 'maplibre-gl/dist/maplibregl.cs…Nasa/frontend/src/components/fields/FieldMap.tsx', stack: Error: Cannot find module 'maplibre-gl/dist/maplib…mjs:55:9)
+    at Worker.emit (node:events:509:20)} @ http://localhost:3000/@vite/client:363
+[  211226ms] [ERROR] %c[Server]%c color: #9333ea; font-weight: bold; color: inherit; {name: Error, message: Cannot find module 'maplibre-gl/dist/maplibregl.cs…Nasa/frontend/src/components/fields/FieldMap.tsx', stack: Error: Cannot find module 'maplibre-gl/dist/maplib…mjs:55:9)
+    at Worker.emit (node:events:509:20)} @ http://localhost:3000/@vite/client:363
+[  211227ms] [ERROR] %c[Server]%c color: #9333ea; font-weight: bold; color: inherit; {name: Error, message: Cannot find module 'maplibre-gl/dist/maplibregl.cs…Nasa/frontend/src/components/fields/FieldMap.tsx', stack: Error: Cannot find module 'maplibre-gl/dist/maplib…mjs:55:9)
+    at Worker.emit (node:events:509:20)} @ http://localhost:3000/@vite/client:363
+[  211287ms] [ERROR] %c[Server]%c color: #9333ea; font-weight: bold; color: inherit; {name: Error, message: Cannot find module 'maplibre-gl/dist/maplibregl.cs…Nasa/frontend/src/components/fields/FieldMap.tsx', stack: Error: Cannot find module 'maplibre-gl/dist/maplib…mjs:55:9)
+    at Worker.emit (node:events:509:20)} @ http://localhost:3000/@vite/client:363
+[  216694ms] [ERROR] %c[Server]%c color: #9333ea; font-weight: bold; color: inherit; {name: Error, message: Cannot find module 'maplibre-gl/dist/maplibregl.cs…Nasa/frontend/src/components/fields/FieldMap.tsx', stack: Error: Cannot find module 'maplibre-gl/dist/maplib…mjs:55:9)
+    at Worker.emit (node:events:509:20)} @ http://localhost:3000/@vite/client:363
+[  216694ms] [ERROR] %c[Server]%c color: #9333ea; font-weight: bold; color: inherit; {name: Error, message: Cannot find module 'maplibre-gl/dist/maplibregl.cs…Nasa/frontend/src/components/fields/FieldMap.tsx', stack: Error: Cannot find module 'maplibre-gl/dist/maplib…mjs:55:9)
+    at Worker.emit (node:events:509:20)} @ http://localhost:3000/@vite/client:363
+[  220856ms] [ERROR] %c[Server]%c color: #9333ea; font-weight: bold; color: inherit; {name: Error, message: Cannot find module 'maplibre-gl/dist/maplibregl.cs…Nasa/frontend/src/components/fields/FieldMap.tsx', stack: Error: Cannot find module 'maplibre-gl/dist/maplib…mjs:55:9)
+    at Worker.emit (node:events:509:20)} @ http://localhost:3000/@vite/client:363
+[  222905ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:3000/src/routes/__root.tsx?t=1794234954756:193
+[  222906ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ http://localhost:3000/__tsd/console-pipe/sse:0
+[  223888ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/__tsd/console-pipe:0
+[  225919ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/__tsd/console-pipe/sse:0
+[  275279ms] [ERROR] %c[Server]%c color: #9333ea; font-weight: bold; color: inherit; {name: Error, message: Cannot find module 'maplibre-gl/dist/maplibregl.cs…Nasa/frontend/src/components/fields/FieldMap.tsx', stack: Error: Cannot find module 'maplibre-gl/dist/maplib…mjs:55:9)
+    at Worker.emit (node:events:509:20)} @ http://localhost:3000/@vite/client:363

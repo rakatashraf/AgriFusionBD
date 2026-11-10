@@ -1,0 +1,125 @@
+# FieldShift — full stack (plan §3, §7).
+#
+#   docker compose up -d                 # postgis + backend + frontend + nginx
+#   docker compose --profile workers up -d   # add the real Celery worker (Redis)
+#
+# Services:
+#   postgis    PostgreSQL 16 + PostGIS 3.4 (source of truth)
+#   redis      Celery broker/result backend (eager by default; workers profile)
+#   backend    Django + DRF (gunicorn), port 8000
+#   frontend   TanStack Start / Nitro SSR (node), port 3000
+#   nginx      single public origin: / → frontend, /api/ → backend (plan §3)
+#   worker     Celery worker (profile: workers)
+
+name: fieldshift
+
+services:
+  postgis:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-fieldshift}
+      POSTGRES_USER: ${POSTGRES_USER:-fieldshift}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fieldshift}
+    volumes:
+      - postgis_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-fieldshift} -d ${POSTGRES_DB:-fieldshift}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    ports:
+      # Host port is remapped to 5433 so it never collides with another local
+      # Postgres; the *container* stays 5432, and the backend reaches it via the
+      # service name `postgis:5432` regardless.
+      - "5433:5432"
+
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    ports:
+      # 6380 host port — avoids collision with another local Redis.
+      - "6380:6379"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - ./backend/.env.example
+    environment:
+      POSTGRES_HOST: postgis
+      POSTGRES_DB: ${POSTGRES_DB:-fieldshift}
+      POSTGRES_USER: ${POSTGRES_USER:-fieldshift}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fieldshift}
+      POSTGRES_PORT: "5432"
+      DJANGO_ALLOWED_HOSTS: localhost,127.0.0.1,pilot.fieldshift.example,backend
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/1
+      CELERY_TASK_ALWAYS_EAGER: "1"
+    depends_on:
+      postgis:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    volumes:
+      - media_data:/app/media
+
+  frontend:
+    image: node:26-alpine
+    working_dir: /app
+    command: sh -c "npm ci && npm run build && node .output/server/index.mjs"
+    environment:
+      NITRO_HOST: 0.0.0.0
+      NITRO_PORT: "3000"
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - frontend_node_modules:/app/node_modules
+
+  nginx:
+    image: nginx:1.27-alpine
+    depends_on:
+      - backend
+      - frontend
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - media_data:/app/media:ro
+
+  worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: celery -A config.celery worker --loglevel=info --concurrency=2
+    env_file:
+      - ./backend/.env.example
+    environment:
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/1
+      CELERY_TASK_ALWAYS_EAGER: "0"
+      POSTGRES_HOST: postgis
+    depends_on:
+      postgis:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    profiles: ["workers"]
+
+volumes:
+  postgis_data:
+  redis_data:
+  media_data:
+  frontend_node_modules:

@@ -1,0 +1,14 @@
+[
+  { "date": "2025-12-02", "ndvi": 0.41, "coverage_pct": 88.2, "cloud_pct": 11.8, "scene_id": "HLSL30.20251202T025141" },
+  { "date": "2026-01-10", "ndvi": 0.55, "coverage_pct": 74.5, "cloud_pct": 25.5, "scene_id": "HLSL30.20260110T024941" },
+  { "date": "2026-01-27", "ndvi": 0.62, "coverage_pct": 91.0, "cloud_pct": 9.0,  "scene_id": "HLSL30.20260127T025241" },
+  { "date": "2026-02-14", "ndvi": 0.68, "coverage_pct": 63.4, "cloud_pct": 36.6, "scene_id": "HLSL30.20260214T025041" },
+  { "date": "2026-03-03", "ndvi": 0.74, "coverage_pct": 95.1, "cloud_pct": 4.9,  "scene_id": "HLSL30.20260303T025341" },
+  { "date": "2026-03-21", "ndvi": 0.79, "coverage_pct": 88.7, "cloud_pct": 11.3, "scene_id": "HLSL30.20260321T025141" },
+  { "date": "2026-04-12", "ndvi": 0.61, "coverage_pct": 38.0, "cloud_pct": 62.0, "scene_id": "HLSL30.20260412T024941" },
+  { "date": "2026-04-30", "ndvi": 0.48, "coverage_pct": 44.6, "cloud_pct": 55.4, "scene_id": "HLSL30.20260430T025241" },
+  { "date": "2026-05-22", "ndvi": 0.35, "coverage_pct": 52.3, "cloud_pct": 47.7, "scene_id": "HLSL30.20260522T025041" },
+  { "date": "2026-07-02", "ndvi": 0.82, "coverage_pct": 96.4, "cloud_pct": 3.6,  "scene_id": "HLSL30.20260702T025341" },
+  { "date": "2026-08-14", "ndvi": 0.85, "coverage_pct": 93.8, "cloud_pct": 6.2,  "scene_id": "HLSL30.20260814T025141" },
+  { "date": "2026-09-05", "ndvi": 0.80, "coverage_pct": 71.2, "cloud_pct": 28.8, "scene_id": "HLSL30.20260905T025241" }
+]

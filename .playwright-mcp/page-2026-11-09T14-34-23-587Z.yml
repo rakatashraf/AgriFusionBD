@@ -1,0 +1,30 @@
+- generic [ref=f1e1]:
+  - main [ref=f1e2]:
+    - generic [ref=f1e3]:
+      - generic [ref=f1e4]: Agricultural decision support · Bangladesh pilot
+      - heading "Evidence-based help for crop rotation decisions" [level=1] [ref=f1e8]
+      - paragraph [ref=f1e9]: FieldShift compares your current crop rotation against two locally feasible alternatives — combining NASA observations, local agronomy guidance and optional rover measurements.
+      - generic [ref=f1e10]:
+        - link [ref=f1e11] [cursor=pointer]:
+          - /url: /farmer/fields
+          - button "Farmer workspace" [ref=f1e12]
+        - link [ref=f1e13] [cursor=pointer]:
+          - /url: /professional/research
+          - button "Professional workspace" [ref=f1e14]
+    - generic [ref=f1e15]:
+      - generic [ref=f1e17]:
+        - generic [ref=f1e25]: NASA observations
+        - generic [ref=f1e26]: POWER rainfall and temperature, plus HLS vegetation — with coverage and units.
+      - generic [ref=f1e28]:
+        - generic [ref=f1e34]: Rotation comparison
+        - generic [ref=f1e35]: Your existing rotation and two locally feasible alternatives — with evidence and constraints.
+      - generic [ref=f1e37]:
+        - generic [ref=f1e42]: Rover evidence
+        - generic [ref=f1e43]: Local moisture, temperature and EC readings — with quality and calibration checks.
+      - generic [ref=f1e45]:
+        - generic [ref=f1e52]: Bangla & English
+        - generic [ref=f1e53]: Bilingual, with low-bandwidth readable reports.
+    - generic [ref=f1e60]:
+      - paragraph [ref=f1e61]: Supports decisions; does not guarantee yield, profit or soil-health improvement. Historical observations, scenarios, forecasts and rover readings are kept distinct.
+      - paragraph [ref=f1e62]: This is a design-baseline demonstration; it is not a promise of real yield or profit.
+  - region "Notifications alt+T"
