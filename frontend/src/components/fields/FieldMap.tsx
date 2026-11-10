@@ -274,17 +274,27 @@ export default function FieldMap({
   // if they are missing, so the polygons cannot silently disappear when the
   // map style reloads or the load handler raced. Re-runs when the map
   // finishes loading (mapLoaded) so data lands once the source exists.
+  // Note: a style reload can drop LAYERS while the source survives, so
+  // check for each layer by id too — a present source alone is not enough.
   useEffect(() => {
     const map = mapRef.current
     if (!map || !mapLoaded) return
     if (!map.isStyleLoaded()) return
-    if (!map.getSource(srcRef.current)) {
-      map.addSource(srcRef.current, {
-        type: 'geojson',
-        data: { type: 'FeatureCollection', features: [] },
-      })
-      map.addLayer({ id: 'field-fill', type: 'fill', source: srcRef.current, paint: { 'fill-color': '#4fb8b2', 'fill-opacity': 0.28 } })
-      map.addLayer({ id: 'field-line', type: 'line', source: srcRef.current, paint: { 'line-color': '#2f6a4a', 'line-width': 2 } })
+    try {
+      if (!map.getSource(srcRef.current)) {
+        map.addSource(srcRef.current, {
+          type: 'geojson',
+          data: { type: 'FeatureCollection', features: [] },
+        })
+      }
+      if (!map.getLayer('field-fill')) {
+        map.addLayer({ id: 'field-fill', type: 'fill', source: srcRef.current, paint: { 'fill-color': '#4fb8b2', 'fill-opacity': 0.28 } })
+      }
+      if (!map.getLayer('field-line')) {
+        map.addLayer({ id: 'field-line', type: 'line', source: srcRef.current, paint: { 'line-color': '#2f6a4a', 'line-width': 2 } })
+      }
+    } catch {
+      return
     }
     ;(map.getSource(srcRef.current) as unknown as maplibregl.GeoJSONSource)?.setData({ type: 'FeatureCollection', features } as never)
     if (selectedId) {
@@ -300,7 +310,8 @@ export default function FieldMap({
   // Self-healing: the draw source/layers are (re)created here if they are
   // missing, so the preview cannot silently disappear when the map style
   // reloads or the load handler raced. Data is only set once the source
-  // exists and the style is loaded.
+  // exists and the style is loaded. Check layers by id too — a style
+  // reload can drop layers while the source survives.
   useEffect(() => {
     const map = mapRef.current
     if (!map || !mapLoaded) return
@@ -311,14 +322,24 @@ export default function FieldMap({
       })
       return
     }
-    if (!map.getSource(DRAW_SOURCE)) {
-      map.addSource(DRAW_SOURCE, {
-        type: 'geojson',
-        data: { type: 'FeatureCollection', features: [] },
-      })
-      map.addLayer({ id: 'draw-fill', type: 'fill', source: DRAW_SOURCE, paint: { 'fill-color': '#f59e0b', 'fill-opacity': 0.25 } })
-      map.addLayer({ id: 'draw-line', type: 'line', source: DRAW_SOURCE, paint: { 'line-color': '#f59e0b', 'line-width': 3 } })
-      map.addLayer({ id: 'draw-points', type: 'circle', source: DRAW_SOURCE, paint: { 'circle-radius': 7, 'circle-color': '#ffffff', 'circle-stroke-color': '#f59e0b', 'circle-stroke-width': 2.5 } })
+    try {
+      if (!map.getSource(DRAW_SOURCE)) {
+        map.addSource(DRAW_SOURCE, {
+          type: 'geojson',
+          data: { type: 'FeatureCollection', features: [] },
+        })
+      }
+      if (!map.getLayer('draw-fill')) {
+        map.addLayer({ id: 'draw-fill', type: 'fill', source: DRAW_SOURCE, paint: { 'fill-color': '#f59e0b', 'fill-opacity': 0.25 } })
+      }
+      if (!map.getLayer('draw-line')) {
+        map.addLayer({ id: 'draw-line', type: 'line', source: DRAW_SOURCE, paint: { 'line-color': '#f59e0b', 'line-width': 3 } })
+      }
+      if (!map.getLayer('draw-points')) {
+        map.addLayer({ id: 'draw-points', type: 'circle', source: DRAW_SOURCE, paint: { 'circle-radius': 7, 'circle-color': '#ffffff', 'circle-stroke-color': '#f59e0b', 'circle-stroke-width': 2.5 } })
+      }
+    } catch {
+      return
     }
     const lineCoords: LngLat[] = cursor && points.length > 0 ? [...points, [cursor.lng, cursor.lat]] : points
     const feats: Array<Record<string, unknown>> = []

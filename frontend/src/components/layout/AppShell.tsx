@@ -106,16 +106,14 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
     if (!user) return null
     return (
       <DropdownMenu>
-        <DropdownMenuTrigger
-          render={
-            <Button variant="ghost" size="sm" aria-label="Account menu">
-              <Avatar className="size-6">
-                <AvatarFallback>{initials(user.name)}</AvatarFallback>
-              </Avatar>
-              <span className="hidden sm:inline">{user.name.split(' ')[0]}</span>
-            </Button>
-          }
-        />
+        <DropdownMenuTrigger>
+          <Button variant="ghost" size="sm" aria-label="Account menu">
+            <Avatar className="size-6">
+              <AvatarFallback>{initials(user.name)}</AvatarFallback>
+            </Avatar>
+            <span className="hidden sm:inline">{user.name.split(' ')[0]}</span>
+          </Button>
+        </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-56">
           <DropdownMenuLabel>
             <div className="flex flex-col gap-1">
