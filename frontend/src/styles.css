@@ -113,64 +113,66 @@
 }
 
 .dark {
-  /* AgriFusion BD brand tokens — dark (warm forest) */
-  --sea-ink: #e9efe6;
-  --sea-ink-soft: #a9b8a6;
-  --lagoon: #8fce9b;
-  --lagoon-deep: #c8e6c9;
-  --palm: #8fce9b;
-  --sand: #1a2a1e;
-  --foam: #131f16;
-  --surface: #1a2a1e;
-  --surface-strong: #1e3222;
-  --line: rgba(233, 239, 230, 0.14);
-  --inset-glint: rgba(233, 239, 230, 0.08);
-  --kicker: #8fce9b;
-  --bg-base: #131f16;
-  --header-bg: rgba(19, 31, 22, 0.92);
-  --chip-bg: #1a2a1e;
-  --chip-line: rgba(143, 206, 155, 0.24);
-  --link-bg-hover: #1e3222;
-  --hero-a: rgba(241, 212, 106, 0.14);
-  --hero-b: rgba(143, 206, 155, 0.12);
-  --grid-line: rgba(233, 239, 230, 0.05);
-  --grid-dot: rgba(233, 239, 230, 0.12);
-  --shadow-tint: rgba(0, 0, 0, 0.42);
+  /* Dark mode is disabled — the platform is always white (light theme).
+     These tokens mirror :root so the site stays white even if a `dark`
+     class is ever applied by the browser or an extension. */
+  --sea-ink: #0e2418;
+  --sea-ink-soft: #43554b;
+  --lagoon: #2e7d46;
+  --lagoon-deep: #14532d;
+  --palm: #2e7d46;
+  --sand: #f1d46a;
+  --foam: #ffffff;
+  --surface: #f2f7f3;
+  --surface-strong: #e8f1ea;
+  --line: rgba(14, 36, 24, 0.16);
+  --inset-glint: rgba(255, 255, 255, 0.7);
+  --kicker: #14532d;
+  --bg-base: #ffffff;
+  --header-bg: rgba(255, 255, 255, 0.96);
+  --chip-bg: #f2f7f3;
+  --chip-line: rgba(14, 36, 24, 0.2);
+  --link-bg-hover: #e8f1ea;
+  --hero-a: rgba(241, 212, 106, 0.35);
+  --hero-b: rgba(20, 83, 45, 0.16);
+  --grid-line: rgba(14, 36, 24, 0.08);
+  --grid-dot: rgba(14, 36, 24, 0.14);
+  --shadow-tint: rgba(14, 36, 24, 0.12);
   --body-opacity-before: 0;
   --body-opacity-after: 0;
 
-  --background: #131f16;
-  --foreground: #e9efe6;
-  --card: #1a2a1e;
-  --card-foreground: #e9efe6;
-  --popover: #1e3222;
-  --popover-foreground: #e9efe6;
-  --primary: #8fce9b;
-  --primary-foreground: #131f16;
-  --secondary: #223626;
-  --secondary-foreground: #e9efe6;
-  --muted: #1e3222;
-  --muted-foreground: #a9b8a6;
+  --background: #ffffff;
+  --foreground: #0e2418;
+  --card: #f2f7f3;
+  --card-foreground: #0e2418;
+  --popover: #ffffff;
+  --popover-foreground: #0e2418;
+  --primary: #14532d;
+  --primary-foreground: #ffffff;
+  --secondary: #d9e8dd;
+  --secondary-foreground: #0e2418;
+  --muted: #eef3f0;
+  --muted-foreground: #43554b;
   --accent: #f1d46a;
-  --accent-foreground: #1d3a2a;
-  --destructive: #d98b7a;
-  --destructive-foreground: #1a0d0d;
-  --border: rgba(233, 239, 230, 0.14);
-  --input: rgba(233, 239, 230, 0.24);
-  --ring: #8fce9b;
-  --chart-1: #8fce9b;
-  --chart-2: #4e7c51;
-  --chart-3: #f1d46a;
-  --chart-4: #7fb3d5;
+  --accent-foreground: #14532d;
+  --destructive: #b91c1c;
+  --destructive-foreground: #ffffff;
+  --border: #b9cec2;
+  --input: #8fa89a;
+  --ring: #14532d;
+  --chart-1: #14532d;
+  --chart-2: #2e7d46;
+  --chart-3: #d9a521;
+  --chart-4: #2e6f92;
   --chart-5: #d98b45;
-  --sidebar: #131f16;
-  --sidebar-foreground: #e9efe6;
-  --sidebar-primary: #8fce9b;
-  --sidebar-primary-foreground: #131f16;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0e2418;
+  --sidebar-primary: #14532d;
+  --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #f1d46a;
-  --sidebar-accent-foreground: #1d3a2a;
-  --sidebar-border: rgba(233, 239, 230, 0.14);
-  --sidebar-ring: #8fce9b;
+  --sidebar-accent-foreground: #14532d;
+  --sidebar-border: #b9cec2;
+  --sidebar-ring: #14532d;
 }
 
 @layer base {
@@ -347,10 +349,11 @@ pre code {
 .tint-blue { background: #bdd7f2 !important; }
 .tint-sand { background: #f2dd9e !important; }
 .tint-red { background: #f2c4b8 !important; }
-.dark .tint-green { background: #223626 !important; }
-.dark .tint-blue { background: #1d2a33 !important; }
-.dark .tint-sand { background: #2e2a1c !important; }
-.dark .tint-red { background: #33201d !important; }
+/* Dark mode is disabled (always white), so these match the light tints. */
+.dark .tint-green { background: #cfe6c6 !important; }
+.dark .tint-blue { background: #bdd7f2 !important; }
+.dark .tint-sand { background: #f2dd9e !important; }
+.dark .tint-red { background: #f2c4b8 !important; }
 
 /* Verda dark forest panel — the "today board" treatment from the old theme. */
 .forest-panel {
