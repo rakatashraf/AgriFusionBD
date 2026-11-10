@@ -334,9 +334,13 @@ export default function FieldsPage() {
                     <span className="font-medium text-foreground">{f.name}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    {isLocalField(f) && (
+                    {isLocalField(f) ? (
                       <Badge variant="secondary" className="text-[10px]">
                         {lang === 'bn' ? 'এই ডিভাইসে' : 'On this device'}
+                      </Badge>
+                    ) : (
+                      <Badge variant="outline" className="text-[10px]">
+                        {lang === 'bn' ? 'নমুনা' : 'Demo'}
                       </Badge>
                     )}
                     {f.isPinEstimate && (

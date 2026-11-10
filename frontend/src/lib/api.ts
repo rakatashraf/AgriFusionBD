@@ -11,6 +11,8 @@
 //   - Errors: the Django error envelope { error: { code, message, details } }
 //     is parsed into an ApiError so the UI can surface a human message.
 
+import { demoFallback, demoDownload, setDemoMode, DEMO_VOID } from './demo'
+
 import type {
   AnalysisRun,
   AnalysisRequest,
@@ -76,6 +78,25 @@ async function http<T>(path: string, init: RequestInit = {}): Promise<T> {
       ...init,
     })
   } catch (err) {
+    // The backend cannot be reached at all (static Pages site). Fall back
+    // to labelled demo data so the app stays usable; the UI shows a Demo
+    // banner while this is active. A reachable backend that returns an HTTP
+    // error is never masked — only a network failure triggers the fallback.
+    let parsedBody: unknown
+    try {
+      parsedBody = init.body ? JSON.parse(init.body as string) : undefined
+    } catch {
+      parsedBody = undefined
+    }
+    const demo = demoFallback<T>(path, method, parsedBody)
+    if (demo === DEMO_VOID) {
+      setDemoMode(true)
+      return undefined as T
+    }
+    if (demo !== undefined) {
+      setDemoMode(true)
+      return demo
+    }
     throw new ApiError(
       0,
       'network_error',
@@ -339,9 +360,20 @@ export function createExportJob(input: {
  * blob URL the UI hands to <a download>.
  */
 export async function downloadExport(id: string): Promise<{ url: string; filename: string }> {
-  const res = await fetch(`${API_BASE}/research/exports/${id}/download`, {
-    credentials: 'include',
-  })
+  let res: Response
+  try {
+    res = await fetch(`${API_BASE}/research/exports/${id}/download`, {
+      credentials: 'include',
+    })
+  } catch {
+    // Backend unreachable — build the file from the demo research series.
+    const demo = demoDownload(id)
+    if (demo) {
+      setDemoMode(true)
+      return demo
+    }
+    throw new ApiError(0, 'network_error', 'Could not reach the FieldShift API. Is the backend running?', '')
+  }
   if (!res.ok) {
     const text = await res.text().catch(() => '')
     let code = 'download_failed'

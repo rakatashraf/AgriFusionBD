@@ -24,7 +24,7 @@ const WEIGHT_LABELS = [
 
 export const Route = createFileRoute('/farmer/analyses/new')({
   component: NewAnalysis,
-  validateSearch: (s: Record<string, unknown>) => ({ fieldId: (s.fieldId as string) ?? '' }),
+  validateSearch: (s: Record<string, unknown>) => ({ fieldId: (s.fieldId as string) || undefined }),
 })
 
 export default function NewAnalysis() {
@@ -32,7 +32,7 @@ export default function NewAnalysis() {
   const lang = useLocale()
   const navigate = useNavigate()
   const [fields, setFields] = useState<Field[]>([])
-  const [selectedField, setSelectedField] = useState(fieldId)
+  const [selectedField, setSelectedField] = useState(fieldId ?? '')
   const [start, setStart] = useState('2026-12-01')
   const [end, setEnd] = useState('2027-11-30')
   const [weights, setWeights] = useState<Record<string, number>>({
@@ -69,7 +69,7 @@ export default function NewAnalysis() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-8">
       <button
-        onClick={() => navigate({ to: '/farmer/analyses', search: { fieldId: '' } as never })}
+        onClick={() => navigate({ to: '/farmer/analyses' })}
         className="mb-4 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
       >
         <ArrowLeft className="size-4" /> {t('analyses', lang)}

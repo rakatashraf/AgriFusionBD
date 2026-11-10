@@ -1,8 +1,9 @@
-import { Link, useRouterState } from '@tanstack/react-router'
-import { Sprout, Languages } from 'lucide-react'
+import { Link, useRouterState, useNavigate } from '@tanstack/react-router'
+import { Sprout, Languages, FlaskConical } from 'lucide-react'
 import { useState } from 'react'
 import { useLocale, setLocale, t } from '#/lib/i18n'
 import { currentUser } from '#/lib/api'
+import { useDemoMode } from '#/lib/demo'
 import { Button } from '#/components/ui/button'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from '#/components/ui/sheet'
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from '#/components/ui/dropdown-menu'
@@ -31,14 +32,26 @@ function initials(name: string) {
 }
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
-  const [workspace, setWorkspace] = useState<Workspace>('farmer')
+  const pathname = useRouterState({ select: (s) => s.location.pathname })
+  const navigate = useNavigate()
+  // The workspace follows the URL, so the header nav always matches the
+  // section the user is actually in (farmer vs professional).
+  const workspace: Workspace = pathname.startsWith('/professional') ? 'professional' : 'farmer'
   const [mobileOpen, setMobileOpen] = useState(false)
   const lang = useLocale()
   const user = currentUser()
-  const pathname = useRouterState({ select: (s) => s.location.pathname })
+  const demoMode = useDemoMode()
   const isActive = (p: string) => pathname === p || pathname.startsWith(p + '/')
 
   const nav = NAV[workspace]
+
+  function switchWorkspace() {
+    if (workspace === 'farmer') {
+      navigate({ to: '/professional/research' })
+    } else {
+      navigate({ to: '/farmer/fields' })
+    }
+  }
 
   function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
     return (
@@ -69,7 +82,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         <Button
           variant="ghost"
           size="sm"
-          onClick={() => setWorkspace((w) => (w === 'farmer' ? 'professional' : 'farmer'))}
+          onClick={switchWorkspace}
           aria-label={t('switch_workspace', lang)}
         >
           {workspace === 'farmer' ? 'Professional' : 'Farmer'}
@@ -199,6 +212,17 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           </Sheet>
         </div>
       </header>
+
+      {demoMode && (
+        <div className="border-b border-amber-300/60 bg-amber-100/90 px-4 py-2 text-center text-xs font-medium text-amber-900 dark:border-amber-500/40 dark:bg-amber-950/80 dark:text-amber-200" role="status">
+          <span className="inline-flex items-center gap-1.5">
+            <FlaskConical className="size-3.5" />
+            {lang === 'bn'
+              ? 'ডেমো মোড — ব্যাকএন্ড সংযুক্ত নেই, তাই নমুনা তথ্য দেখানো হচ্ছে। আপনার আঁকা জমি এই ডিভাইসে সংরক্ষিত হয়।'
+              : 'Demo mode — the backend is not connected, so you are seeing sample data. Lands you draw are saved on this device.'}
+          </span>
+        </div>
+      )}
 
       <main className="flex-1">{children}</main>
 

@@ -13,7 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '#
 export const Route = createFileRoute('/farmer/analyses/')({
   component: AnalysesPage,
   validateSearch: (s: Record<string, unknown>) => ({
-    fieldId: (s.fieldId as string) ?? '',
+    fieldId: (s.fieldId as string) || undefined,
   }),
 })
 
@@ -23,7 +23,7 @@ export default function AnalysesPage() {
   const navigate = useNavigate()
   const [analyses, setAnalyses] = useState<AnalysisRun[]>([])
   const [fields, setFields] = useState<Field[]>([])
-  const [filter, setFilter] = useState<string>(fieldId)
+  const [filter, setFilter] = useState<string>(fieldId ?? '')
 
   useEffect(() => {
     listFields().then(setFields)
@@ -58,7 +58,7 @@ export default function AnalysesPage() {
               ))}
             </SelectContent>
           </Select>
-          <Button size="sm" onClick={() => navigate({ to: '/farmer/analyses/new', search: { fieldId: '' } as never })}>
+          <Button size="sm" onClick={() => navigate({ to: '/farmer/analyses/new' })}>
             + {lang === 'bn' ? 'নতুন' : 'New'}
           </Button>
         </div>

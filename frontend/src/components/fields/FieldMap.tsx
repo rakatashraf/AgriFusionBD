@@ -52,6 +52,10 @@ const STYLE = {
       type: 'raster',
       tiles: ESRI_SAT_TILES,
       tileSize: 256,
+      // Esri has no imagery beyond ~z18 in this region; capping the source
+      // (and the map) stops the grey "Map data not yet available" tiles
+      // that appear when a user zooms in further.
+      maxzoom: 18,
       attribution: 'Esri, Maxar, Earthstar Geographics',
     },
     satRef: {
@@ -153,6 +157,9 @@ export default function FieldMap({
       style: STYLE,
       center: [88.61, 25.34],
       zoom: 11.5,
+      // Keep the user inside the zoom range where satellite imagery exists.
+      // Beyond ~z18 Esri returns blank "not yet available" tiles.
+      maxZoom: 18,
     })
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
     map.addControl(
@@ -480,7 +487,7 @@ export default function FieldMap({
       {/* Hint to recenter on the user's own location (Geolocate control sits top-right). */}
       {!drawMode && (
         <p className="pointer-events-none absolute bottom-3 left-3 z-10 hidden items-center gap-1 rounded-lg bg-black/55 px-2 py-1 text-[11px] text-white sm:flex">
-          <Crosshair className="size-3" /> Use the target button (top-right) to jump to your location
+          <Crosshair className="size-3" /> Use the search box to jump to a village, or the target button (top-right) for your location
         </p>
       )}
     </div>
