@@ -30,6 +30,11 @@ export default function OfficerCasesPage() {
   const shown = cases.filter((c) => (filter === 'all' ? true : c.status === filter))
   const [deciding, setDeciding] = useState<string | null>(null)
 
+  // Officer dashboard summary — assigned cases, pending review, open, resolved.
+  const openCount = cases.filter((c) => c.status === 'open').length
+  const reviewCount = cases.filter((c) => c.status === 'in_review').length
+  const resolvedCount = cases.filter((c) => c.status === 'resolved').length
+
   async function decide(caseId: string, decision: 'accept' | 'question' | 'reject') {
     const note = drafts[caseId]?.trim()
     setDeciding(caseId)
@@ -88,6 +93,20 @@ export default function OfficerCasesPage() {
           ))}
         </div>
       </header>
+
+      <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {[
+          { label: lang === 'bn' ? 'মোট কেস' : 'Assigned cases', value: cases.length, tint: 'tint-blue' },
+          { label: lang === 'bn' ? 'খোলা' : 'Open', value: openCount, tint: 'tint-sand' },
+          { label: lang === 'bn' ? 'পর্যালোচনায়' : 'Pending review', value: reviewCount, tint: 'tint-red' },
+          { label: lang === 'bn' ? 'সমাধান হয়েছে' : 'Resolved', value: resolvedCount, tint: 'tint-green' },
+        ].map((s) => (
+          <div key={s.label} className={`rounded-2xl border border-border p-4 ${s.tint}`}>
+            <div className="text-2xl font-bold text-foreground">{s.value}</div>
+            <div className="mt-0.5 text-xs font-medium text-foreground/70">{s.label}</div>
+          </div>
+        ))}
+      </div>
 
       <div className="flex flex-col gap-4">
         {shown.map((c) => (

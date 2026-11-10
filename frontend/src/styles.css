@@ -49,65 +49,67 @@
 :root {
   --radius: 1.25rem;
 
-  /* AgriFusion BD brand tokens — Verda palette (warm cream / forest / yellow) */
-  --sea-ink: #1e2d24;
-  --sea-ink-soft: #6e7c72;
-  --lagoon: #4e7c51;
-  --lagoon-deep: #1d3a2a;
-  --palm: #4e7c51;
-  --sand: #e7ddc7;
-  --foam: #f4f1e8;
-  --surface: #fffdf8;
-  --surface-strong: #fffdf8;
-  --line: rgba(30, 45, 36, 0.11);
-  --inset-glint: rgba(255, 255, 255, 0.6);
-  --kicker: #4e7c51;
-  --bg-base: #f4f1e8;
-  --header-bg: rgba(255, 253, 248, 0.96);
-  --chip-bg: #fffdf8;
-  --chip-line: rgba(30, 45, 36, 0.14);
-  --link-bg-hover: #fffdf8;
-  --hero-a: rgba(241, 212, 106, 0.28);
-  --hero-b: rgba(78, 124, 81, 0.18);
-  --grid-line: rgba(30, 45, 36, 0.06);
-  --grid-dot: rgba(30, 45, 36, 0.12);
-  --shadow-tint: rgba(24, 51, 34, 0.08);
+  /* AgriFusion BD brand tokens — white primary, high-contrast cards/buttons.
+     The page is white; cards carry a visible tint + strong border, and
+     buttons are deep forest green / yellow so they pop against white. */
+  --sea-ink: #0e2418;
+  --sea-ink-soft: #43554b;
+  --lagoon: #2e7d46;
+  --lagoon-deep: #14532d;
+  --palm: #2e7d46;
+  --sand: #f1d46a;
+  --foam: #ffffff;
+  --surface: #f2f7f3;
+  --surface-strong: #e8f1ea;
+  --line: rgba(14, 36, 24, 0.16);
+  --inset-glint: rgba(255, 255, 255, 0.7);
+  --kicker: #14532d;
+  --bg-base: #ffffff;
+  --header-bg: rgba(255, 255, 255, 0.96);
+  --chip-bg: #f2f7f3;
+  --chip-line: rgba(14, 36, 24, 0.2);
+  --link-bg-hover: #e8f1ea;
+  --hero-a: rgba(241, 212, 106, 0.35);
+  --hero-b: rgba(20, 83, 45, 0.16);
+  --grid-line: rgba(14, 36, 24, 0.08);
+  --grid-dot: rgba(14, 36, 24, 0.14);
+  --shadow-tint: rgba(14, 36, 24, 0.12);
   --body-opacity-before: 0;
   --body-opacity-after: 0;
 
-  /* shadcn theme tokens — Verda palette */
-  --background: #f4f1e8;
-  --foreground: #1e2d24;
-  --card: #fffdf8;
-  --card-foreground: #1e2d24;
-  --popover: #fffdf8;
-  --popover-foreground: #1e2d24;
-  --primary: #1d3a2a;
-  --primary-foreground: #fffdf8;
-  --secondary: #dfeadf;
-  --secondary-foreground: #1e2d24;
-  --muted: #ece7d8;
-  --muted-foreground: #6e7c72;
+  /* shadcn theme tokens — white primary, high-contrast actions */
+  --background: #ffffff;
+  --foreground: #0e2418;
+  --card: #f2f7f3;
+  --card-foreground: #0e2418;
+  --popover: #ffffff;
+  --popover-foreground: #0e2418;
+  --primary: #14532d;
+  --primary-foreground: #ffffff;
+  --secondary: #d9e8dd;
+  --secondary-foreground: #0e2418;
+  --muted: #eef3f0;
+  --muted-foreground: #43554b;
   --accent: #f1d46a;
-  --accent-foreground: #1d3a2a;
-  --destructive: #bd5b4d;
-  --destructive-foreground: #fffdf8;
-  --border: rgba(30, 45, 36, 0.11);
-  --input: rgba(30, 45, 36, 0.22);
-  --ring: #4e7c51;
-  --chart-1: #1d3a2a;
-  --chart-2: #4e7c51;
-  --chart-3: #f1d46a;
+  --accent-foreground: #14532d;
+  --destructive: #b91c1c;
+  --destructive-foreground: #ffffff;
+  --border: #b9cec2;
+  --input: #8fa89a;
+  --ring: #14532d;
+  --chart-1: #14532d;
+  --chart-2: #2e7d46;
+  --chart-3: #d9a521;
   --chart-4: #2e6f92;
   --chart-5: #d98b45;
-  --sidebar: #f4f1e8;
-  --sidebar-foreground: #1e2d24;
-  --sidebar-primary: #1d3a2a;
-  --sidebar-primary-foreground: #fffdf8;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0e2418;
+  --sidebar-primary: #14532d;
+  --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #f1d46a;
-  --sidebar-accent-foreground: #1d3a2a;
-  --sidebar-border: rgba(30, 45, 36, 0.11);
-  --sidebar-ring: #4e7c51;
+  --sidebar-accent-foreground: #14532d;
+  --sidebar-border: #b9cec2;
+  --sidebar-ring: #14532d;
 }
 
 .dark {
@@ -340,12 +342,11 @@ pre code {
   border-color: color-mix(in oklab, var(--lagoon-deep) 35%, var(--line));
 }
 
-/* Verda tinted cards — warm tints from the old agri-fusion-bd theme.
-   Used for feature/entry cards so each card reads at a glance. */
-.tint-green { background: #e7f0df !important; }
-.tint-blue { background: #e5edf3 !important; }
-.tint-sand { background: #f2ead8 !important; }
-.tint-red { background: #f4dfda !important; }
+/* High-contrast tinted cards — saturated tints that read clearly on white. */
+.tint-green { background: #cfe6c6 !important; }
+.tint-blue { background: #bdd7f2 !important; }
+.tint-sand { background: #f2dd9e !important; }
+.tint-red { background: #f2c4b8 !important; }
 .dark .tint-green { background: #223626 !important; }
 .dark .tint-blue { background: #1d2a33 !important; }
 .dark .tint-sand { background: #2e2a1c !important; }

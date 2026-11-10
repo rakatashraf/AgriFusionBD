@@ -148,26 +148,29 @@ function Login() {
       </div>
 
       {mode === 'signin' ? (
-        <div className="grid w-full gap-3 sm:grid-cols-2">
-          {ROLES.map(({ role: r, label, desc, icon: Icon }) => (
-            <button
-              key={r}
-              onClick={() => choose(r)}
-              disabled={busy !== null}
-              className="lift glass group flex flex-col gap-3 rounded-2xl border border-border/70 p-5 text-left shadow-sm transition-all hover:border-primary/40 hover:bg-accent/30 disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              <div className="flex items-center gap-3">
-                <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <Icon className="size-5" />
-                </span>
-                <span className="font-semibold text-foreground">{label}</span>
-              </div>
-              <span className="text-sm text-muted-foreground">{desc}</span>
-              {busy === r && (
-                <span className="text-xs font-medium text-primary">Signing in…</span>
-              )}
-            </button>
-          ))}
+        <div className="w-full">
+          <div className="grid w-full gap-3 sm:grid-cols-2">
+            {ROLES.map(({ role: r, label, desc, icon: Icon }) => (
+              <button
+                key={r}
+                onClick={() => choose(r)}
+                disabled={busy !== null}
+                className="lift glass group flex flex-col gap-3 rounded-2xl border border-border/70 p-5 text-left shadow-sm transition-all hover:border-primary/40 hover:bg-accent/30 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <Icon className="size-5" />
+                  </span>
+                  <span className="font-semibold text-foreground">{label}</span>
+                </div>
+                <span className="text-sm text-muted-foreground">{desc}</span>
+                {busy === r && (
+                  <span className="text-xs font-medium text-primary">Signing in…</span>
+                )}
+              </button>
+            ))}
+          </div>
+          <PasswordReset />
         </div>
       ) : (
         <form onSubmit={doSignup} className="w-full rounded-2xl border border-border bg-card p-6 shadow-sm">
@@ -258,5 +261,79 @@ function Login() {
           : 'Demo: passwordless, Django session-based. Production uses verified identities.'}
       </p>
     </main>
+  )
+}
+
+function PasswordReset() {
+  const lang = useLocale()
+  const [open, setOpen] = useState(false)
+  const [contact, setContact] = useState('')
+  const [sent, setSent] = useState(false)
+
+  if (!open) {
+    return (
+      <div className="mt-5 text-center">
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="text-sm font-medium text-primary underline underline-offset-4 hover:text-primary/80"
+        >
+          {lang === 'bn' ? 'পাসওয়ার্ড ভুলে গেছেন?' : 'Forgot your password?'}
+        </button>
+      </div>
+    )
+  }
+  if (sent) {
+    return (
+      <div className="mt-5 rounded-2xl border border-primary/30 bg-primary/5 p-4 text-center">
+        <p className="text-sm font-medium text-foreground">
+          {lang === 'bn' ? 'পাসওয়ার্ড রিসেট লিংক পাঠানো হয়েছে।' : 'Password reset link sent.'}
+        </p>
+        <p className="mt-1 text-xs text-muted-foreground">
+          {lang === 'bn'
+            ? 'ডেমো: আসলে কোনো SMS/ইমেইল পাঠানো হয়নি — লিংকটি আপনার ফোনে যেত।'
+            : 'Demo: no SMS or email was really sent — the link would go to your phone.'}
+        </p>
+        <button
+          type="button"
+          onClick={() => { setSent(false); setOpen(false) }}
+          className="mt-2 text-xs font-medium text-primary underline underline-offset-4"
+        >
+          {lang === 'bn' ? 'বন্ধ করুন' : 'Close'}
+        </button>
+      </div>
+    )
+  }
+  return (
+    <form
+      className="mx-auto mt-5 flex w-full max-w-md flex-col gap-3 rounded-2xl border border-border bg-card p-4 shadow-sm"
+      onSubmit={(e) => {
+        e.preventDefault()
+        if (!contact.trim()) return
+        setSent(true)
+      }}
+    >
+      <p className="text-sm font-medium text-foreground">
+        {lang === 'bn' ? 'পাসওয়ার্ড রিসেট করুন' : 'Reset your password'}
+      </p>
+      <p className="text-xs text-muted-foreground">
+        {lang === 'bn'
+          ? 'আপনার ফোন নম্বর বা ইমেইল দিন — আমরা সেখানে একটি রিসেট লিংক পাঠাব।'
+          : 'Enter your phone number or email — we will send a reset link there.'}
+      </p>
+      <Input
+        value={contact}
+        onChange={(e) => setContact(e.target.value)}
+        placeholder={lang === 'bn' ? 'ফোন বা ইমেইল' : 'Phone or email'}
+      />
+      <div className="flex gap-2">
+        <Button type="submit" size="sm" className="flex-1" disabled={!contact.trim()}>
+          {lang === 'bn' ? 'লিংক পাঠান' : 'Send reset link'}
+        </Button>
+        <Button type="button" size="sm" variant="outline" className="flex-1" onClick={() => setOpen(false)}>
+          {lang === 'bn' ? 'বাতিল' : 'Cancel'}
+        </Button>
+      </div>
+    </form>
   )
 }

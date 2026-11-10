@@ -299,6 +299,13 @@ export function getField(id: string): Promise<Field> {
   return http<Field>(`/fields/${id}`)
 }
 
+export function updateField(
+  id: string,
+  patch: { name?: string; soilType?: string; irrigation?: Field['irrigation']; priorities?: string[] },
+): Promise<Field> {
+  return http<Field>(`/fields/${id}`, { method: 'PATCH', body: JSON.stringify(patch) })
+}
+
 export interface CreateFieldInput {
   name: string
   geometry: { type: 'Polygon'; coordinates: number[][][] }

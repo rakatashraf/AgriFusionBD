@@ -111,6 +111,7 @@ const K = {
   hiddenFields: 'fieldshift.demo.hidden_fields',
   user: 'fieldshift_user',
   profile: 'fieldshift_profile',
+  fieldOverrides: 'fieldshift.demo.field_overrides',
 }
 
 // --- Signup profile (extra account details collected at sign-up) -----------
@@ -206,12 +207,28 @@ export function readDemoUser(): User | null {
 
 // --- Field helpers ------------------------------------------------------------
 
+function loadFieldOverrides(): Record<string, { name?: string; soilType?: string; irrigation?: Field['irrigation']; priorities?: string[] }> {
+  return readJson<Record<string, { name?: string; soilType?: string; irrigation?: Field['irrigation']; priorities?: string[] }>>(K.fieldOverrides, {})
+}
+
+function applyFieldOverrides(f: Field): Field {
+  const o = loadFieldOverrides()[f.id]
+  if (!o) return f
+  return {
+    ...f,
+    name: o.name ?? f.name,
+    soilType: o.soilType ?? f.soilType,
+    irrigation: o.irrigation ?? f.irrigation,
+    priorities: o.priorities ?? f.priorities,
+  }
+}
+
 function allFields(): Field[] {
   const hidden = new Set(loadHiddenFieldIds())
   const seed = FIELDS.filter((f) => !hidden.has(f.id))
   const local = loadLocalFields()
   const localIds = new Set(local.map((f) => f.id))
-  return [...seed.filter((f) => !localIds.has(f.id)), ...local]
+  return [...seed.filter((f) => !localIds.has(f.id)), ...local].map(applyFieldOverrides)
 }
 
 function findField(id: string): Field | undefined {
@@ -324,6 +341,19 @@ export function demoFallback<T>(path: string, method: string, body?: unknown): T
       else hideFieldId(f.id)
     }
     return DEMO_VOID as unknown as T
+  }
+  if (parts[0] === 'fields' && parts.length === 2 && (m === 'PATCH' || m === 'PUT')) {
+    const b = (body ?? {}) as { name?: string; soilType?: string; irrigation?: Field['irrigation']; priorities?: string[] }
+    const overrides = loadFieldOverrides()
+    overrides[parts[1]] = {
+      ...(overrides[parts[1]] ?? {}),
+      ...(b.name !== undefined ? { name: b.name } : {}),
+      ...(b.soilType !== undefined ? { soilType: b.soilType } : {}),
+      ...(b.irrigation !== undefined ? { irrigation: b.irrigation } : {}),
+      ...(b.priorities !== undefined ? { priorities: b.priorities } : {}),
+    }
+    writeJson(K.fieldOverrides, overrides)
+    return findField(parts[1]) as T
   }
   if (parts[0] === 'fields' && parts[2] === 'crop-history' && m === 'GET') {
     const rows: CropHistory[] = CROP_HISTORY.filter((r) => r.fieldId === parts[1])

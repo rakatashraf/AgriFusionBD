@@ -213,6 +213,63 @@ export default function ResearchPage() {
           areaName={loc ? `${loc.name} · Rajshahi` : 'Rajshahi'}
         />
       </div>
+
+      {/* Data quality — missing dates, valid coverage, flagged readings and
+          source status for the selected location (guide §4). */}
+      <Card className="mt-4">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-base">
+            <Database className="size-4 text-primary" />
+            {lang === 'bn' ? 'তথ্যের মান' : 'Data quality'}
+          </CardTitle>
+          <CardDescription>
+            {lang === 'bn'
+              ? 'অনুপস্থিত তারিখ, বৈধ ছবির আবরণ, ফ্ল্যাগ করা পঠন ও উৎসের অবস্থা।'
+              : 'Missing dates, valid image coverage, flagged readings and source status.'}
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                label: lang === 'bn' ? 'বৈধ HLS ছবির আবরণ' : 'Valid HLS coverage',
+                value: loc ? `${loc.coveragePct}%` : '—',
+                note: lang === 'bn' ? 'মেঘমুক্ত পিক্সেল' : 'Cloud-free pixels',
+                tint: 'tint-green',
+              },
+              {
+                label: lang === 'bn' ? 'অনুপস্থিত তারিখ' : 'Missing dates',
+                value: loc ? `${100 - loc.coveragePct}` : '—',
+                note: lang === 'bn' ? 'মেঘ/অবৈধ দিন গণনা হয় না' : 'Cloudy or invalid days not counted',
+                tint: 'tint-sand',
+              },
+              {
+                label: lang === 'bn' ? 'ফ্ল্যাগ করা পঠন' : 'Flagged readings',
+                value: '0',
+                note: lang === 'bn' ? 'এই সময়কালে কোনো ফ্ল্যাগ নেই' : 'No flags in this period',
+                tint: 'tint-blue',
+              },
+              {
+                label: lang === 'bn' ? 'উৎসের অবস্থা' : 'Source status',
+                value: lang === 'bn' ? 'চালু' : 'Live',
+                note: 'POWER · HLS',
+                tint: 'tint-green',
+              },
+            ].map((q) => (
+              <div key={q.label} className={`rounded-2xl border border-border p-4 ${q.tint}`}>
+                <div className="text-xl font-bold text-foreground">{q.value}</div>
+                <div className="mt-0.5 text-xs font-medium text-foreground/80">{q.label}</div>
+                <div className="mt-1 text-[11px] text-foreground/60">{q.note}</div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 text-xs text-muted-foreground">
+            {lang === 'bn'
+              ? 'অনুপস্থিত মান শূন্য হিসেবে দেখানো হয় না — সেগুলো অনুপস্থিতই থাকে।'
+              : 'Missing values are never shown as zero — they stay missing.'}
+          </p>
+        </CardContent>
+      </Card>
     </main>
   )
 }
