@@ -119,6 +119,30 @@ async function http<T>(path: string, init: RequestInit = {}): Promise<T> {
   }
 
   if (!res.ok) {
+    // No API backend at all (static Pages site): the fetch succeeds but
+    // returns the site's HTML 404 page instead of a JSON error envelope.
+    // Treat that as "backend unreachable" and serve labelled demo data.
+    // A real Django backend always answers errors as JSON, so a genuine
+    // backend error is never masked by this.
+    const contentType = res.headers.get('content-type') ?? ''
+    const isHtml = !contentType.includes('application/json') || typeof body === 'string'
+    if (isHtml) {
+      let parsedBody: unknown
+      try {
+        parsedBody = init.body ? JSON.parse(init.body as string) : undefined
+      } catch {
+        parsedBody = undefined
+      }
+      const demo = demoFallback<T>(path, method, parsedBody)
+      if (demo === DEMO_VOID) {
+        setDemoMode(true)
+        return undefined as T
+      }
+      if (demo !== undefined) {
+        setDemoMode(true)
+        return demo
+      }
+    }
     const env = (body ?? {}) as { error?: { code?: string; message?: string; details?: unknown } }
     const code = env.error?.code ?? 'error'
     const message = env.error?.message ?? res.statusText ?? 'Request failed'

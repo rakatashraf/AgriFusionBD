@@ -89,6 +89,25 @@ function boundsOf(field: Field) {
   return [[minX, minY], [maxX, maxY]]
 }
 
+// --- Screen-pixel geometry for precise corner / edge picking ------------------
+// Drawing works by clicking the land's real corners and edges in the
+// satellite view. A click is matched in screen pixels (not degrees) so the
+// tolerance feels the same at any zoom: near a corner it grabs that corner
+// (drag to move it), near an edge it drops a new point onto that edge.
+
+type Pt = { x: number; y: number }
+
+function distToSegment(p: Pt, a: Pt, b: Pt): { d: number; t: number } {
+  const dx = b.x - a.x
+  const dy = b.y - a.y
+  const len2 = dx * dx + dy * dy
+  let t = len2 === 0 ? 0 : ((p.x - a.x) * dx + (p.y - a.y) * dy) / len2
+  t = Math.max(0, Math.min(1, t))
+  const cx = a.x + t * dx
+  const cy = a.y + t * dy
+  return { d: Math.hypot(p.x - cx, p.y - cy), t }
+}
+
 const DRAW_SOURCE = 'fieldshift-draw'
 
 export default function FieldMap({
@@ -116,6 +135,10 @@ export default function FieldMap({
   const pointsRef = useRef<LngLat[]>([])
   const drawModeRef = useRef(drawMode)
   drawModeRef.current = drawMode
+  // Which corner is being dragged (index into points), or -1.
+  const dragIndexRef = useRef(-1)
+  // Screen position where the current press started (to tell a click from a pan).
+  const downPosRef = useRef<Pt | null>(null)
   const previewRef = useRef(onDrawPreview)
   previewRef.current = onDrawPreview
   const completeRef = useRef(onDrawComplete)
@@ -184,7 +207,7 @@ export default function FieldMap({
       })
       map.addLayer({ id: 'draw-fill', type: 'fill', source: DRAW_SOURCE, paint: { 'fill-color': '#f59e0b', 'fill-opacity': 0.25 } })
       map.addLayer({ id: 'draw-line', type: 'line', source: DRAW_SOURCE, paint: { 'line-color': '#f59e0b', 'line-width': 3 } })
-      map.addLayer({ id: 'draw-points', type: 'circle', source: DRAW_SOURCE, paint: { 'circle-radius': 5, 'circle-color': '#ffffff', 'circle-stroke-color': '#f59e0b', 'circle-stroke-width': 2 } })
+      map.addLayer({ id: 'draw-points', type: 'circle', source: DRAW_SOURCE, paint: { 'circle-radius': 7, 'circle-color': '#ffffff', 'circle-stroke-color': '#f59e0b', 'circle-stroke-width': 2.5 } })
     })
     mapRef.current = map
     return () => {
@@ -282,6 +305,10 @@ export default function FieldMap({
   }, [onSelect])
 
   // --- Drawing interactions --------------------------------------------------
+  // Click a corner of the land to place it. Click on an edge to drop a new
+  // point onto that edge. Drag a corner to move it exactly where it belongs.
+  // A press that moves is a map pan, not a point — so tracing a boundary
+  // never drops stray corners while panning.
   useEffect(() => {
     const map = mapRef.current
     if (!map) return
@@ -293,13 +320,88 @@ export default function FieldMap({
     map.doubleClickZoom.disable()
     map.getCanvas().style.cursor = 'crosshair'
 
-    const onClick = (e: maplibregl.MapMouseEvent) => {
-      const next = [...pointsRef.current, [e.lngLat.lng, e.lngLat.lat] as LngLat]
-      setDrawPoints(next)
+    const GRAB_PX = 14 // how close a click must be to a corner / edge to grab it
+    const CLICK_PX = 6 // a press that moves less than this is a click, not a pan
+
+    const onMouseDown = (e: maplibregl.MapMouseEvent) => {
+      downPosRef.current = { x: e.point.x, y: e.point.y }
+      // Grab a corner: the nearest vertex within GRAB_PX starts a drag.
+      const pts = pointsRef.current
+      let best = -1
+      let bestD = GRAB_PX
+      for (let i = 0; i < pts.length; i++) {
+        const s = map.project(pts[i] as never)
+        const d = Math.hypot(s.x - e.point.x, s.y - e.point.y)
+        if (d < bestD) {
+          bestD = d
+          best = i
+        }
+      }
+      if (best >= 0) {
+        dragIndexRef.current = best
+        map.dragPan.disable()
+        map.getCanvas().style.cursor = 'grabbing'
+      }
     }
+
     const onMouseMove = (e: maplibregl.MapMouseEvent) => {
+      if (dragIndexRef.current >= 0) {
+        const pts = pointsRef.current.slice()
+        pts[dragIndexRef.current] = [e.lngLat.lng, e.lngLat.lat]
+        setDrawPoints(pts)
+        return
+      }
       setCursor({ lng: e.lngLat.lng, lat: e.lngLat.lat })
     }
+
+    const onMouseUp = (e: maplibregl.MapMouseEvent) => {
+      if (dragIndexRef.current >= 0) {
+        dragIndexRef.current = -1
+        map.dragPan.enable()
+        map.getCanvas().style.cursor = 'crosshair'
+        return
+      }
+      const down = downPosRef.current
+      downPosRef.current = null
+      if (!down) return
+      // A press that moved is a pan — do not drop a point.
+      if (Math.hypot(e.point.x - down.x, e.point.y - down.y) > CLICK_PX) return
+      const pts = pointsRef.current
+      const click: Pt = { x: e.point.x, y: e.point.y }
+      // Click on an edge: drop a new point onto the nearest edge segment.
+      if (pts.length >= 2) {
+        let bestEdge = -1
+        let bestD = GRAB_PX
+        let bestT = 0
+        for (let i = 0; i < pts.length; i++) {
+          const a = map.project(pts[i] as never)
+          const b = map.project(pts[(i + 1) % pts.length] as never)
+          const { d, t } = distToSegment(click, a, b)
+          if (d < bestD) {
+            bestD = d
+            bestEdge = i
+            bestT = t
+          }
+        }
+        // Only insert on an edge when the click is clearly on the edge and
+        // not on top of an existing corner (corners are handled by drag).
+        if (bestEdge >= 0 && bestT > 0.02 && bestT < 0.98) {
+          const a = pts[bestEdge]
+          const b = pts[(bestEdge + 1) % pts.length]
+          const inserted: LngLat = [
+            a[0] + (b[0] - a[0]) * bestT,
+            a[1] + (b[1] - a[1]) * bestT,
+          ]
+          const next = pts.slice()
+          next.splice(bestEdge + 1, 0, inserted)
+          setDrawPoints(next)
+          return
+        }
+      }
+      // Otherwise this click places a new corner exactly where it landed.
+      setDrawPoints([...pts, [e.lngLat.lng, e.lngLat.lat] as LngLat])
+    }
+
     const onDblClick = (e: maplibregl.MapMouseEvent) => {
       e.preventDefault()
       finishDrawing()
@@ -308,15 +410,20 @@ export default function FieldMap({
       if (e.key === 'Escape') cancelDrawing()
       if (e.key === 'Enter' && pointsRef.current.length >= 3) finishDrawing()
     }
-    map.on('click', onClick)
+    map.on('mousedown', onMouseDown)
     map.on('mousemove', onMouseMove)
+    map.on('mouseup', onMouseUp)
     map.on('dblclick', onDblClick)
     window.addEventListener('keydown', onKeyDown)
     return () => {
-      map.off('click', onClick)
+      map.off('mousedown', onMouseDown)
       map.off('mousemove', onMouseMove)
+      map.off('mouseup', onMouseUp)
       map.off('dblclick', onDblClick)
       window.removeEventListener('keydown', onKeyDown)
+      dragIndexRef.current = -1
+      downPosRef.current = null
+      map.dragPan.enable()
       map.doubleClickZoom.enable()
       map.getCanvas().style.cursor = ''
     }
@@ -443,6 +550,9 @@ export default function FieldMap({
             <p className="font-medium text-foreground">
               Click each corner of your land to mark it
               {points.length > 0 ? ` — ${points.length} corner${points.length === 1 ? '' : 's'} placed` : ''}
+            </p>
+            <p className="mt-0.5 text-muted-foreground">
+              Click on an edge to add a point there · Drag a corner to move it
             </p>
             <p className="mt-0.5 text-muted-foreground">
               Double-click or press Enter to finish · Esc to cancel
