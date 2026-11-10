@@ -177,6 +177,24 @@ export function getField(id: string): Promise<Field> {
   return http<Field>(`/fields/${id}`)
 }
 
+export interface CreateFieldInput {
+  name: string
+  geometry: { type: 'Polygon'; coordinates: number[][][] }
+  areaHa: number
+  irrigation: Field['irrigation']
+}
+
+/** Create a field on the Django backend. On the static Pages site there is
+ *  no backend, so callers should fall back to on-device storage when this
+ *  rejects. */
+export function createField(input: CreateFieldInput): Promise<Field> {
+  return http<Field>('/fields', { method: 'POST', body: JSON.stringify(input) })
+}
+
+export function deleteField(id: string): Promise<void> {
+  return http<void>(`/fields/${id}`, { method: 'DELETE' })
+}
+
 export function getFieldCropHistory(fieldId: string): Promise<CropHistory[]> {
   return http<CropHistory[]>(`/fields/${fieldId}/crop-history`)
 }
