@@ -10,7 +10,7 @@ import { toast } from 'sonner'
 
 const PRIORITY_OPTIONS = ['water_efficiency', 'heat_resilience', 'soil_cover', 'rotation_diversity', 'economics']
 
-const SOIL_TYPES = ['Clay', 'Loam', 'Sandy loam', 'Silt loam', 'Sandy', 'Clay loam']
+const SOIL_TYPES = ['Clay', 'Loam', 'Sandy loam', 'Silt loam', 'Sandy', 'Clay loam', 'Alluvial, medium-heavy clay', 'Alluvial, sandy-loam']
 
 export default function FieldEditForm({ field, onSaved, onCancel }: { field: Field; onSaved: (f: Field) => void; onCancel: () => void }) {
   const lang = useLocale()
