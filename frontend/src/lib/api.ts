@@ -241,7 +241,9 @@ export async function signup(input: SignupInput): Promise<User> {
   return u
 }
 
-/** Extra account details collected at sign-up (phone, district, SMS opt-in). */
+/** Extra account details collected at sign-up (phone, district, SMS opt-in).
+    The built-in demo identities (Rafiqul Islam etc.) never went through
+    sign-up, so they get sensible defaults here instead of blank fields. */
 export function readProfile(): {
   name: string
   phone: string
@@ -258,7 +260,22 @@ export function readProfile(): {
   } catch {
     /* ignore */
   }
-  return null
+  const u = currentUser()
+  if (!u) return null
+  const base = { name: u.name, district: 'Rajshahi', upazila: 'Paba', smsOptIn: true }
+  if (u.name === 'Rafiqul Islam') {
+    return { ...base, phone: '+880 1XXX-XXXX55', farmSizeHa: '3.80' }
+  }
+  if (u.name === 'Nasrin Akter') {
+    return { ...base, phone: '+880 1XXX-XXXX66', district: 'Dinajpur', upazila: 'Dinajpur Sadar', assignedArea: 'Dinajpur' }
+  }
+  if (u.name === 'Dr. Tanvir Hasan') {
+    return { ...base, phone: '+880 1XXX-XXXX77', upazila: 'Rajshahi', assignedArea: 'Rajshahi' }
+  }
+  if (u.name === 'Kamal Uddin') {
+    return { ...base, phone: '+880 1XXX-XXXX88' }
+  }
+  return { ...base, phone: '' }
 }
 
 export async function logout(): Promise<void> {

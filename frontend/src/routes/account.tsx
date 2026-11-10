@@ -96,7 +96,11 @@ export default function AccountPage() {
                 <p className="flex items-center gap-2 text-foreground">
                   <Ruler className="size-4 text-muted-foreground" />
                   {lang === 'bn' ? 'মোট জমি: ' : 'Total farm size: '}
-                  {profile?.farmSizeHa ? `${profile.farmSizeHa} ha` : '—'}
+                  {profile?.farmSizeHa
+                    ? `${profile.farmSizeHa} ha`
+                    : fields.length > 0
+                      ? `${fields.reduce((s, f) => s + (f.areaHa || 0), 0).toFixed(2)} ha`
+                      : '—'}
                 </p>
               )}
               {isProfessional && (
