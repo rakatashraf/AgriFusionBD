@@ -110,6 +110,29 @@ const K = {
   observations: 'fieldshift.demo.observations',
   hiddenFields: 'fieldshift.demo.hidden_fields',
   user: 'fieldshift_user',
+  profile: 'fieldshift_profile',
+}
+
+// --- Signup profile (extra account details collected at sign-up) -----------
+
+export interface SignupProfile {
+  name: string
+  phone: string
+  district: string
+  upazila: string
+  /** Farmer: total farm size in hectares. */
+  farmSizeHa?: string
+  /** Officer / researcher: the area they are assigned to. */
+  assignedArea?: string
+  smsOptIn: boolean
+}
+
+export function readDemoProfile(): SignupProfile | null {
+  return readJson<SignupProfile | null>(K.profile, null)
+}
+
+export function writeDemoProfile(p: SignupProfile): void {
+  writeJson(K.profile, p)
 }
 
 function loadDemoAnalyses(): AnalysisRun[] {
@@ -243,6 +266,28 @@ export function demoFallback<T>(path: string, method: string, body?: unknown): T
     const role = ((body as { role?: string } | undefined)?.role ?? 'farmer') as string
     const user = demoUser(role)
     writeJson(K.user, user)
+    return user as T
+  }
+  if (rawPath === '/auth/signup/' && m === 'POST') {
+    const b = (body ?? {}) as { name?: string; phone?: string; role?: string; district?: string; upazila?: string; farmSizeHa?: string; assignedArea?: string; smsOptIn?: boolean }
+    const role = (b.role ?? 'farmer') as string
+    const user: User = {
+      id: `demo-${role}-${Date.now().toString(36)}`,
+      name: (b.name ?? '').trim() || (role === 'farmer' ? 'Demo Farmer' : `Demo ${role}`),
+      roles: [role as User['roles'][number]],
+      organization: (b.district ?? '').trim() ? `${b.district} · ${b.upazila ?? ''}`.trim() : undefined,
+      locale: 'en',
+    }
+    writeJson(K.user, user)
+    writeJson(K.profile, {
+      name: user.name,
+      phone: (b.phone ?? '').trim(),
+      district: (b.district ?? '').trim(),
+      upazila: (b.upazila ?? '').trim(),
+      farmSizeHa: (b.farmSizeHa ?? '').trim() || undefined,
+      assignedArea: (b.assignedArea ?? '').trim() || undefined,
+      smsOptIn: b.smsOptIn !== false,
+    } as SignupProfile)
     return user as T
   }
   if (rawPath === '/auth/logout/' && m === 'POST') {

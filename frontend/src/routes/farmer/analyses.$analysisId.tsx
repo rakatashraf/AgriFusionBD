@@ -2,6 +2,9 @@ import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import { ArrowLeft, Scale, Info, AlertTriangle, FileText } from 'lucide-react'
 import { getAnalysis, listCrops, createCase } from '#/lib/api'
+import { getSeasonReport, getForecast } from '#/lib/advisory'
+import SeasonReport from '#/components/advisory/SeasonReport'
+import ForecastCard from '#/components/advisory/ForecastCard'
 import { toast } from 'sonner'
 import { useLocale, t } from '#/lib/i18n'
 import type { AnalysisRun, Crop, MetricValue, RotationPlan } from '#/lib/types'
@@ -147,6 +150,20 @@ export default function AnalysisDetail() {
           </AlertDescription>
         </Alert>
       )}
+
+      {/* Season report — the model-training advisory for this field, in cards.
+          Same content a farmer gets by SMS when they cannot check the site. */}
+      {(() => {
+        const report = getSeasonReport(run.fieldId)
+        const forecast = getForecast(run.fieldId)
+        if (!report && !forecast) return null
+        return (
+          <div className="mb-6 flex flex-col gap-4">
+            {report && <SeasonReport report={report} />}
+            {forecast && <ForecastCard forecast={forecast} />}
+          </div>
+        )
+      })()}
 
       {/* Trade-off matrix */}
       <Card className="mb-4">

@@ -1,8 +1,8 @@
 import { Link, useRouterState, useNavigate } from '@tanstack/react-router'
-import { Languages, FlaskConical } from 'lucide-react'
+import { Languages, FlaskConical, User as UserIcon, LogOut } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useLocale, setLocale, t } from '#/lib/i18n'
-import { currentUser, listFields } from '#/lib/api'
+import { currentUser, listFields, logout } from '#/lib/api'
 import { useDemoMode } from '#/lib/demo'
 import { Button } from '#/components/ui/button'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from '#/components/ui/sheet'
@@ -145,6 +145,16 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
               <button
                 className="flex w-full cursor-default items-center gap-1.5 rounded-md px-1.5 py-1 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground"
                 onClick={() => {
+                  setOpen(false)
+                  navigate({ to: '/account' })
+                }}
+              >
+                <UserIcon className="size-4" />
+                {lang === 'bn' ? 'আমার প্রোফাইল' : 'My profile'}
+              </button>
+              <button
+                className="flex w-full cursor-default items-center gap-1.5 rounded-md px-1.5 py-1 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground"
+                onClick={() => {
                   setLocale(lang === 'en' ? 'bn' : 'en')
                   setOpen(false)
                 }}
@@ -155,8 +165,17 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
               <div className="-mx-1 my-1 h-px bg-border" />
               <button
                 className="flex w-full cursor-default items-center gap-1.5 rounded-md px-1.5 py-1 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground"
-                onClick={() => setOpen(false)}
+                onClick={async () => {
+                  setOpen(false)
+                  try {
+                    await logout()
+                  } catch {
+                    /* demo logout clears local storage either way */
+                  }
+                  navigate({ to: '/login' })
+                }}
               >
+                <LogOut className="size-4" />
                 Sign out
               </button>
             </div>

@@ -1,7 +1,11 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useEffect, useMemo, useState } from 'react'
-import { MapPin, Ruler, Droplets, Wheat, MapPinned, PenLine, Trash2, Satellite } from 'lucide-react'
+import { MapPin, Ruler, Droplets, Wheat, MapPinned, PenLine, Trash2, Satellite, Sprout } from 'lucide-react'
 import { listFields, getFieldIndicators, createField, deleteField } from '#/lib/api'
+import { getSeasonReport, getForecast } from '#/lib/advisory'
+import SeasonReport from '#/components/advisory/SeasonReport'
+import ForecastCard from '#/components/advisory/ForecastCard'
+import SmsPanel from '#/components/advisory/SmsPanel'
 import { useLocale, t } from '#/lib/i18n'
 import type { Field } from '#/lib/types'
 import FieldMap, { type DrawPreview } from '#/components/fields/FieldMap'
@@ -407,6 +411,34 @@ export default function FieldsPage() {
           </div>
         </div>
       </div>
+
+      {/* Season advice for the selected field (defaults to the first field).
+          The same advisory a farmer receives by SMS when they cannot check
+          the website — suggestions, forecast and warnings, in cards. */}
+      {(() => {
+        const advisoryField = selected ?? fields[0]
+        if (!advisoryField) return null
+        const report = getSeasonReport(advisoryField.id)
+        const forecast = getForecast(advisoryField.id)
+        if (!report && !forecast) return null
+        return (
+          <section className="mt-8">
+            <div className="mb-4 flex items-center gap-2">
+              <Sprout className="size-5 text-primary" />
+              <h2 className="text-xl font-bold text-foreground">
+                {lang === 'bn' ? 'মৌসুমের পরামর্শ' : 'Season advice'}
+                {' — '}
+                {advisoryField.name}
+              </h2>
+            </div>
+            <div className="flex flex-col gap-4">
+              {report && <SeasonReport report={report} />}
+              {forecast && <ForecastCard forecast={forecast} />}
+              <SmsPanel />
+            </div>
+          </section>
+        )
+      })()}
     </main>
   )
 }

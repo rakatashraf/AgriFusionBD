@@ -201,6 +201,66 @@ export async function login(role: string): Promise<User> {
   return u
 }
 
+export interface SignupInput {
+  name: string
+  phone: string
+  role: string
+  district: string
+  upazila: string
+  farmSizeHa?: string
+  assignedArea?: string
+  smsOptIn: boolean
+}
+
+/** Create a demo account (sign up). On the static demo site the account is
+    stored in this browser; a real backend would create a verified account. */
+export async function signup(input: SignupInput): Promise<User> {
+  const u = await http<User>('/auth/signup/', {
+    method: 'POST',
+    body: JSON.stringify(input),
+  })
+  if (typeof window !== 'undefined') {
+    try {
+      window.localStorage.setItem('fieldshift_user', JSON.stringify(u))
+      window.localStorage.setItem(
+        'fieldshift_profile',
+        JSON.stringify({
+          name: input.name,
+          phone: input.phone,
+          district: input.district,
+          upazila: input.upazila,
+          farmSizeHa: input.farmSizeHa || undefined,
+          assignedArea: input.assignedArea || undefined,
+          smsOptIn: input.smsOptIn,
+        }),
+      )
+    } catch {
+      /* ignore */
+    }
+  }
+  return u
+}
+
+/** Extra account details collected at sign-up (phone, district, SMS opt-in). */
+export function readProfile(): {
+  name: string
+  phone: string
+  district: string
+  upazila: string
+  farmSizeHa?: string
+  assignedArea?: string
+  smsOptIn: boolean
+} | null {
+  if (typeof window === 'undefined') return null
+  try {
+    const raw = window.localStorage.getItem('fieldshift_profile')
+    if (raw) return JSON.parse(raw)
+  } catch {
+    /* ignore */
+  }
+  return null
+}
+
 export async function logout(): Promise<void> {
   await http<void>('/auth/logout/', { method: 'POST' })
   if (typeof window !== 'undefined') {

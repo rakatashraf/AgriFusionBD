@@ -1,9 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import { Globe2, Download, Database, FileDown } from 'lucide-react'
-import { listResearchLocations, listExportJobs, createExportJob, downloadExport } from '#/lib/api'
+import { listResearchLocations, listExportJobs, createExportJob, downloadExport, listFields } from '#/lib/api'
+import AreaSummary from '#/components/advisory/AreaSummary'
 import { useLocale, t } from '#/lib/i18n'
-import type { ResearchLocation, ResearchExportJob } from '#/lib/types'
+import type { ResearchLocation, ResearchExportJob, Field } from '#/lib/types'
 import EChart from '#/components/EChart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '#/components/ui/card'
 import { Badge } from '#/components/ui/badge'
@@ -19,6 +20,7 @@ export default function ResearchPage() {
   const [selected, setSelected] = useState('')
   const [jobs, setJobs] = useState<ResearchExportJob[]>([])
   const [format, setFormat] = useState<'csv' | 'geojson'>('csv')
+  const [fields, setFields] = useState<Field[]>([])
 
   const load = () => {
     listResearchLocations().then((l) => {
@@ -26,6 +28,7 @@ export default function ResearchPage() {
       if (l.length && !selected) setSelected(l[0].id)
     })
     listExportJobs().then(setJobs)
+    listFields().then(setFields).catch(() => {})
   }
   useEffect(load, [])
 
@@ -200,6 +203,15 @@ export default function ResearchPage() {
             </CardContent>
           </Card>
         </div>
+      </div>
+
+      {/* Assigned-area summary — every registered field, its condition and
+          the next step, so a professional can review the whole area. */}
+      <div className="mt-4">
+        <AreaSummary
+          fields={fields}
+          areaName={loc ? `${loc.name} · Rajshahi` : 'Rajshahi'}
+        />
       </div>
     </main>
   )

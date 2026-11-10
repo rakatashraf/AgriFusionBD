@@ -1,7 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
-import { Bot, Battery, MapPin, Wrench, ShieldCheck, Leaf } from 'lucide-react'
+import { Bot, Battery, MapPin, Wrench, ShieldCheck, Leaf, Radar } from 'lucide-react'
 import { listDevices, listObservations, listFields, createCase } from '#/lib/api'
+import { ROVER_CHECKS } from '#/lib/advisory'
+import RoverCheckCard from '#/components/advisory/RoverCheckCard'
 import { useLocale, t } from '#/lib/i18n'
 import type { RoverDevice, RoverObservation, Field } from '#/lib/types'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '#/components/ui/card'
@@ -103,6 +105,28 @@ export default function RoverPage() {
             </Card>
           )
         })}
+      </div>
+
+      {/* Field checks — what the rover actually measured in each field:
+          nutrition (N/P/K), soil moisture, temperature, crop health through
+          the camera, harmful insects and crop diseases. */}
+      <div className="mt-6">
+        <div className="mb-3 flex items-center gap-2">
+          <Radar className="size-5 text-primary" />
+          <h2 className="text-lg font-semibold text-foreground">
+            {lang === 'bn' ? 'জমি পরীক্ষার ফলাফল' : 'Field check results'}
+          </h2>
+        </div>
+        <p className="mb-4 text-sm text-muted-foreground">
+          {lang === 'bn'
+            ? 'রোভার প্রতিটি জমিতে গিয়ে পুষ্টি, আর্দ্রতা, তাপমাত্রা, ক্যামেরায় ফসলের স্বাস্থ্য, ক্ষতিকর পোকা ও রোগ পরীক্ষা করে।'
+            : 'The rover visits each field and checks nutrition, soil moisture, temperature, crop health through its camera, harmful insects and crop diseases.'}
+        </p>
+        <div className="grid gap-4 lg:grid-cols-2">
+          {ROVER_CHECKS.map((c) => (
+            <RoverCheckCard key={c.id} check={c} />
+          ))}
+        </div>
       </div>
 
       <Card className="mt-4">
