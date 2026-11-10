@@ -199,15 +199,28 @@ export default function FieldMap({
       'top-right',
     )
     map.on('load', () => {
-      map.addSource(srcRef.current, {
-        type: 'geojson',
-        data: { type: 'FeatureCollection', features: [] },
-      })
-      map.addLayer({ id: 'field-fill', type: 'fill', source: srcRef.current, paint: { 'fill-color': '#4fb8b2', 'fill-opacity': 0.28 } })
-      map.addLayer({ id: 'field-line', type: 'line', source: srcRef.current, paint: { 'line-color': '#2f6a4a', 'line-width': 2 } })
+      // Idempotent: only add the fields source/layers if they are missing
+      // (the load handler can fire again after a style reload, and a
+      // duplicate add would throw and block setMapLoaded below).
+      try {
+        if (!map.getSource(srcRef.current)) {
+          map.addSource(srcRef.current, {
+            type: 'geojson',
+            data: { type: 'FeatureCollection', features: [] },
+          })
+          map.addLayer({ id: 'field-fill', type: 'fill', source: srcRef.current, paint: { 'fill-color': '#4fb8b2', 'fill-opacity': 0.28 } })
+          map.addLayer({ id: 'field-line', type: 'line', source: srcRef.current, paint: { 'line-color': '#2f6a4a', 'line-width': 2 } })
+        }
+      } catch {
+        // A failed source/layer add must not block the map from being
+        // marked loaded — the data effects below are self-healing and will
+        // (re)create the source/layers when they run.
+      } finally {
+        // Always mark the map loaded, even if the setup above threw.
+        setMapLoaded(true)
+      }
       // The drawing preview source/layers are created lazily by the
       // "Render drawing preview" effect (self-healing), not here.
-      setMapLoaded(true)
     })
     mapRef.current = map
     return () => {
@@ -237,12 +250,24 @@ export default function FieldMap({
 
   // --- Render saved fields ---------------------------------------------------
   const features = useMemo(() => {
-    return fields.map((f) => ({
-      type: 'Feature' as const,
-      id: f.id,
-      properties: { selected: f.id === selectedId },
-      geometry: { type: 'Polygon', coordinates: f.geometry.coordinates },
-    }))
+    return fields.map((f) => {
+      // GeoJSON linear rings must be closed (first point == last point).
+      // The seed polygons are generated open, so close each ring here;
+      // an unclosed ring is ignored by the map renderer.
+      const ring = f.geometry.coordinates[0] as LngLat[]
+      const closed =
+        ring.length > 0 &&
+        (ring[0][0] !== ring[ring.length - 1][0] ||
+          ring[0][1] !== ring[ring.length - 1][1])
+          ? [...ring, ring[0]]
+          : ring
+      return {
+        type: 'Feature' as const,
+        id: f.id,
+        properties: { selected: f.id === selectedId },
+        geometry: { type: 'Polygon', coordinates: [closed] },
+      }
+    })
   }, [fields, selectedId])
 
   // Self-healing like the draw preview: (re)create the fields source/layers

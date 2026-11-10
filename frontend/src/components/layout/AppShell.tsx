@@ -1,8 +1,8 @@
 import { Link, useRouterState, useNavigate } from '@tanstack/react-router'
 import { Sprout, Languages, FlaskConical } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocale, setLocale, t } from '#/lib/i18n'
-import { currentUser } from '#/lib/api'
+import { currentUser, listFields } from '#/lib/api'
 import { useDemoMode } from '#/lib/demo'
 import { Button } from '#/components/ui/button'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from '#/components/ui/sheet'
@@ -42,6 +42,16 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   const user = currentUser()
   const demoMode = useDemoMode()
   const isActive = (p: string) => pathname === p || pathname.startsWith(p + '/')
+
+  // Probe the backend once on mount. On the static site there is no
+  // backend, so this fails and the demo fallback switches demo mode on —
+  // which is what makes the Demo banner appear on the home page too
+  // (the home page itself makes no API calls, so without this probe the
+  // banner would only appear after visiting a data page). On a real
+  // backend the call succeeds and demo mode stays off.
+  useEffect(() => {
+    void listFields().catch(() => {})
+  }, [])
 
   const nav = NAV[workspace]
 
