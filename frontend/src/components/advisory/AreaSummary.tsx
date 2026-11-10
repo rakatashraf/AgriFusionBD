@@ -1,5 +1,6 @@
 import { MapPin, AlertTriangle, ArrowRight } from 'lucide-react'
 import { SEASON_REPORTS, type LangText } from '#/lib/advisory'
+import { fieldPhoto } from '#/lib/images'
 import { useLocale } from '#/lib/i18n'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '#/components/ui/card'
 import { Badge } from '#/components/ui/badge'
@@ -39,11 +40,18 @@ export default function AreaSummary({ fields, areaName }: { fields: AreaField[];
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
-        {fields.map((f) => {
+        {fields.map((f, idx) => {
           const report = SEASON_REPORTS.find((r) => r.fieldId === f.id)
           const topWarning = report?.warnings[0]
           return (
-            <div key={f.id} className="rounded-xl border border-border p-4">
+            <div key={f.id} className="flex gap-3 rounded-xl border border-border p-3">
+              <img
+                src={fieldPhoto(f.name, idx)}
+                alt={f.name}
+                loading="lazy"
+                className="h-20 w-24 shrink-0 rounded-lg object-cover"
+              />
+              <div className="min-w-0 flex-1">
               <div className="flex flex-wrap items-start justify-between gap-2">
                 <div>
                   <p className="font-medium text-foreground">{f.name}</p>
@@ -87,6 +95,7 @@ export default function AreaSummary({ fields, areaName }: { fields: AreaField[];
                   {lang === 'bn' ? 'পূর্ণ প্রতিবেদন দেখুন' : 'View full report'}
                   <ArrowRight className="size-3.5" />
                 </a>
+              </div>
               </div>
             </div>
           )

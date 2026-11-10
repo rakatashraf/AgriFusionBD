@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { Satellite, Bot, Scale, Globe2, ShieldCheck, ArrowRight, Check, Layers, Compass } from 'lucide-react'
 import { useLocale, t } from '#/lib/i18n'
+import { farmPhotos } from '#/lib/images'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '#/components/ui/card'
 
 export const Route = createFileRoute('/')({ component: Home })
@@ -12,6 +13,8 @@ function Home() {
     {
       icon: Satellite,
       tint: 'tint-blue',
+      photo: farmPhotos.aerial,
+      photoAlt: 'Satellite view of farmland',
       title: lang === 'bn' ? 'NASA পর্যবেক্ষণ' : 'NASA observations',
       body:
         lang === 'bn'
@@ -21,6 +24,8 @@ function Home() {
     {
       icon: Scale,
       tint: 'tint-green',
+      photo: farmPhotos.rice,
+      photoAlt: 'Rice field',
       title: lang === 'bn' ? 'ফসল চক্র তুলনা' : 'Rotation comparison',
       body:
         lang === 'bn'
@@ -30,6 +35,8 @@ function Home() {
     {
       icon: Bot,
       tint: 'tint-sand',
+      photo: farmPhotos.greenField,
+      photoAlt: 'Green field',
       title: lang === 'bn' ? 'রোভার প্রমাণ' : 'Rover evidence',
       body:
         lang === 'bn'
@@ -39,6 +46,8 @@ function Home() {
     {
       icon: Globe2,
       tint: 'tint-green',
+      photo: farmPhotos.farmer,
+      photoAlt: 'Farmer in a rice field',
       title: lang === 'bn' ? 'বাংলা ও ইংরেজি' : 'Bangla & English',
       body:
         lang === 'bn'
@@ -111,7 +120,8 @@ function Home() {
 
       <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {features.map((f, i) => (
-          <Card key={i} className={`lift group overflow-hidden rounded-3xl border-border/70 shadow-md ${f.tint}`}>
+          <Card key={i} className={`lift group overflow-hidden rounded-3xl border-border/70 p-0 shadow-md ${f.tint}`}>
+            <img src={f.photo} alt={f.photoAlt} loading="lazy" className="h-32 w-full object-cover" />
             <CardHeader className="relative">
               <div className="mb-3 flex size-12 items-center justify-center rounded-2xl bg-card ring-1 ring-primary/20 transition-all duration-300 group-hover:scale-110 group-hover:ring-primary/40">
                 <f.icon className="size-6 text-primary" />

@@ -1,5 +1,6 @@
 import { Bot, FlaskConical, Droplets, Thermometer, Camera, Bug, ShieldAlert } from 'lucide-react'
 import type { RoverCheck, LangText } from '#/lib/advisory'
+import { fieldPhoto } from '#/lib/images'
 import { useLocale } from '#/lib/i18n'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '#/components/ui/card'
 import { Badge } from '#/components/ui/badge'
@@ -18,7 +19,13 @@ const SEV_CLS: Record<string, string> = {
 export default function RoverCheckCard({ check }: { check: RoverCheck }) {
   const lang = useLocale()
   return (
-    <Card>
+    <Card className="overflow-hidden p-0">
+      <img
+        src={fieldPhoto(check.fieldName)}
+        alt={check.fieldName}
+        loading="lazy"
+        className="h-28 w-full object-cover"
+      />
       <CardHeader>
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-3">

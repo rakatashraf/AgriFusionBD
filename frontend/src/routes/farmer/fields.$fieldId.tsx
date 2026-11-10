@@ -16,6 +16,7 @@ import IndicatorChart from '#/components/fields/IndicatorChart'
 import FieldEditForm from '#/components/fields/FieldEditForm'
 import LocalObservations from '#/components/fields/LocalObservations'
 import { loadExtraCropHistory, addExtraCropHistory, type LocalCropHistory } from '#/lib/fieldSetup'
+import { fieldPhoto } from '#/lib/images'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '#/components/ui/card'
 import { Badge } from '#/components/ui/badge'
 import { Button } from '#/components/ui/button'
@@ -181,7 +182,13 @@ export default function FieldDetail() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="overflow-hidden p-0">
+          <img
+            src={fieldPhoto(field.name)}
+            alt={field.name}
+            loading="lazy"
+            className="h-32 w-full object-cover"
+          />
           <CardHeader>
             <CardTitle className="text-base">{lang === 'bn' ? 'প্রোফাইল' : 'Profile'}</CardTitle>
             <CardDescription>{lang === 'bn' ? 'স্থানীয় ইনপুট' : 'Local inputs'}</CardDescription>

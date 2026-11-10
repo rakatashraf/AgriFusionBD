@@ -1,5 +1,6 @@
 import { AlertTriangle, Info, Droplets, Satellite, Leaf, Scale, ShieldCheck, CloudOff, FlaskConical } from 'lucide-react'
 import type { SeasonReport, LangText } from '#/lib/advisory'
+import { rotationPhoto } from '#/lib/images'
 import { useLocale } from '#/lib/i18n'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '#/components/ui/card'
 import { Badge } from '#/components/ui/badge'
@@ -127,11 +128,21 @@ export default function SeasonReport({ report }: { report: SeasonReport }) {
           {report.rotations.map((r, i) => (
             <Card key={i} className="tint-green">
               <CardHeader>
-                <CardTitle className="text-base leading-snug">{txt(r.title, lang)}</CardTitle>
-                <CardDescription>
-                  {WATER_NEED[r.waterNeed][lang]} · {lang === 'bn' ? 'উপযুক্ততা' : 'Suitability'}{' '}
-                  {(r.suitability * 100).toFixed(0)} / 100
-                </CardDescription>
+                <div className="flex items-start gap-3">
+                  <img
+                    src={rotationPhoto(i)}
+                    alt={txt(r.title, lang)}
+                    loading="lazy"
+                    className="h-[78px] w-[92px] shrink-0 rounded-[14px] object-cover"
+                  />
+                  <div className="min-w-0">
+                    <CardTitle className="text-base leading-snug">{txt(r.title, lang)}</CardTitle>
+                    <CardDescription>
+                      {WATER_NEED[r.waterNeed][lang]} · {lang === 'bn' ? 'উপযুক্ততা' : 'Suitability'}{' '}
+                      {(r.suitability * 100).toFixed(0)} / 100
+                    </CardDescription>
+                  </div>
+                </div>
               </CardHeader>
               <CardContent className="flex flex-col gap-2 text-sm">
                 <p className="leading-relaxed text-foreground">

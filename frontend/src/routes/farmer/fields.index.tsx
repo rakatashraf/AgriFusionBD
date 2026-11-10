@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { MapPin, Ruler, Droplets, Wheat, MapPinned, PenLine, Trash2, Satellite, Sprout } from 'lucide-react'
 import { listFields, getFieldIndicators, createField, deleteField } from '#/lib/api'
 import { getSeasonReport, getForecast } from '#/lib/advisory'
+import { fieldPhoto } from '#/lib/images'
 import SeasonReport from '#/components/advisory/SeasonReport'
 import ForecastCard from '#/components/advisory/ForecastCard'
 import SmsPanel from '#/components/advisory/SmsPanel'
@@ -318,7 +319,7 @@ export default function FieldsPage() {
               </Card>
             )}
 
-            {fields.map((f) => (
+            {fields.map((f, idx) => (
               <div
                 key={f.id}
                 role="button"
@@ -326,15 +327,22 @@ export default function FieldsPage() {
                 onClick={() => setSelectedId(f.id)}
                 onKeyDown={(e) => { if (e.key === 'Enter') setSelectedId(f.id) }}
                 className={
-                  'rounded-xl border p-4 text-left transition cursor-pointer ' +
+                  'flex gap-3 rounded-xl border p-3 text-left transition cursor-pointer ' +
                   (f.id === selectedId
                     ? 'border-primary bg-accent/40'
                     : 'border-border bg-card hover:border-primary/40')
                 }
               >
+                <img
+                  src={fieldPhoto(f.name, idx)}
+                  alt={f.name}
+                  loading="lazy"
+                  className="h-20 w-24 shrink-0 rounded-lg object-cover"
+                />
+                <div className="min-w-0 flex-1">
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex items-center gap-2">
-                    <MapPin className="size-4 text-primary" />
+                    <MapPin className="size-4 shrink-0 text-primary" />
                     <span className="font-medium text-foreground">{f.name}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
@@ -367,6 +375,7 @@ export default function FieldsPage() {
                   <span className="inline-flex items-center gap-1"><Ruler className="size-3" /> {f.areaHa} ha</span>
                   <span className="inline-flex items-center gap-1"><Droplets className="size-3" /> {f.irrigation}</span>
                   <span className="inline-flex items-center gap-1"><Wheat className="size-3" /> {f.soilType ?? '—'}</span>
+                </div>
                 </div>
               </div>
             ))}
