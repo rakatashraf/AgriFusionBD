@@ -62,25 +62,25 @@ function Home() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
-      <section className="rise-in relative mb-12">
-        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/80 bg-card px-3.5 py-1.5 text-xs font-medium text-muted-foreground shadow-sm">
-          <span className="relative flex size-2 items-center justify-center text-primary">
-            <span className="pulse-dot size-2 rounded-full bg-primary" />
+      <section className="rise-in relative mb-12 rounded-[2rem] bg-[#1d3a2a] px-6 py-10 text-[#fffdf8] shadow-lg sm:px-10 sm:py-14">
+        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-xs font-medium text-[#d5dfd3] shadow-sm">
+          <span className="relative flex size-2 items-center justify-center text-[#f1d46a]">
+            <span className="pulse-dot size-2 rounded-full bg-[#f1d46a]" />
           </span>
           {t('tagline', lang)} · {lang === 'bn' ? 'বাংলাদেশ পাইলট' : 'Bangladesh pilot'}
         </div>
         <h1 className="max-w-4xl text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl">
-          <span className="text-gradient">
+          <span className="text-[#fffdf8]">
             {lang === 'bn'
               ? 'ফসল চক্রের সিদ্ধান্তে'
               : 'Evidence-based help for'}
           </span>
           <br />
-          <span className="text-foreground">
+          <span className="text-[#f1d46a]">
             {lang === 'bn' ? 'প্রমাণভিত্তিক সহায়তা' : 'crop rotation decisions'}
           </span>
         </h1>
-        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[#d5dfd3]">
           {lang === 'bn'
             ? 'AgriFusion BD আপনার বর্তমান ফসল চক্রকে স্থানীয়ভাবে সম্ভাব্য দুটি বিকল্পের সাথে তুলনা করে — NASA পর্যবেক্ষণ, স্থানীয় কৃষি নির্দেশনা এবং ঐচ্ছিক রোভার পঠন একত্র করে।'
             : 'AgriFusion BD compares your current crop rotation against two locally feasible alternatives — combining NASA observations, local agronomy guidance and optional rover measurements.'}
@@ -93,7 +93,7 @@ function Home() {
             </button>
           </Link>
           <Link to="/professional/research">
-            <button className="inline-flex items-center gap-2 rounded-xl border border-border/80 bg-card px-6 py-3 text-sm font-semibold text-foreground shadow-sm transition-all duration-200 hover:border-primary/40 hover:bg-accent/40">
+            <button className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 px-6 py-3 text-sm font-semibold text-[#fffdf8] shadow-sm transition-all duration-200 hover:border-white/50 hover:bg-white/15">
               {t('nav_professional', lang)} workspace
             </button>
           </Link>
@@ -101,9 +101,9 @@ function Home() {
 
         <div className="mt-10 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
           {stats.map((s) => (
-            <div key={s.k} className="lift rounded-3xl border border-border/70 bg-card p-4 shadow-sm">
-              <div className="text-2xl font-bold tracking-tight text-foreground">{s.v}</div>
-              <div className="mt-0.5 text-xs font-medium text-muted-foreground">{s.k}</div>
+            <div key={s.k} className="lift rounded-3xl border border-white/15 bg-white/10 p-4 shadow-sm">
+              <div className="text-2xl font-bold tracking-tight text-[#fffdf8]">{s.v}</div>
+              <div className="mt-0.5 text-xs font-medium text-[#d5dfd3]">{s.k}</div>
             </div>
           ))}
         </div>

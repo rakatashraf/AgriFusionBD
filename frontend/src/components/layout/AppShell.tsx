@@ -252,12 +252,12 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
       <main className="flex-1">{children}</main>
 
-      <footer className="border-t border-border">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>
+      <footer className="forest-panel mt-10">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-8 text-xs sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-semibold text-[#fffdf8]">
             {t('app_name', lang)} · Bangladesh pilot · Design baseline 1.0
           </p>
-          <p className="max-w-2xl">
+          <p className="max-w-2xl text-[#d5dfd3]">
             {t('disclaimer', lang)}
           </p>
         </div>
