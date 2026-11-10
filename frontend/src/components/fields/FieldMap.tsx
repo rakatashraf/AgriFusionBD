@@ -245,9 +245,22 @@ export default function FieldMap({
     }))
   }, [fields, selectedId])
 
+  // Self-healing like the draw preview: (re)create the fields source/layers
+  // if they are missing, so the polygons cannot silently disappear when the
+  // map style reloads or the load handler raced. Re-runs when the map
+  // finishes loading (mapLoaded) so data lands once the source exists.
   useEffect(() => {
     const map = mapRef.current
-    if (!map || !mapLoaded || !map.getSource(srcRef.current)) return
+    if (!map || !mapLoaded) return
+    if (!map.isStyleLoaded()) return
+    if (!map.getSource(srcRef.current)) {
+      map.addSource(srcRef.current, {
+        type: 'geojson',
+        data: { type: 'FeatureCollection', features: [] },
+      })
+      map.addLayer({ id: 'field-fill', type: 'fill', source: srcRef.current, paint: { 'fill-color': '#4fb8b2', 'fill-opacity': 0.28 } })
+      map.addLayer({ id: 'field-line', type: 'line', source: srcRef.current, paint: { 'line-color': '#2f6a4a', 'line-width': 2 } })
+    }
     ;(map.getSource(srcRef.current) as unknown as maplibregl.GeoJSONSource)?.setData({ type: 'FeatureCollection', features } as never)
     if (selectedId) {
       const f = fields.find((x) => x.id === selectedId)
