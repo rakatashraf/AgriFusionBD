@@ -3,7 +3,7 @@ import * as maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { Search, Satellite, Map as MapIcon, Undo2, Check, X, Crosshair } from 'lucide-react'
 import type { Field } from '#/lib/types'
-import { geodesicAreaSqM, formatAreaLine, formatCoord, type LngLat } from '#/lib/geo'
+import { geodesicAreaSqM, formatAreaLine, formatCoord, polygonCentroid, type LngLat } from '#/lib/geo'
 
 export interface DrawPreview {
   points: LngLat[]
@@ -142,6 +142,9 @@ export default function FieldMap({
   const [searchQuery, setSearchQuery] = useState('')
   const [searching, setSearching] = useState(false)
   const [searchError, setSearchError] = useState<string | null>(null)
+  // Draw readout panel: collapsible so it never hides the land corners
+  // being drawn underneath it.
+  const [drawHelpOpen, setDrawHelpOpen] = useState(true)
   // True once the map style has loaded and the GeoJSON sources/layers exist.
   // The data-setting effects below depend on this so they re-run (and actually
   // push data into the sources) once the map is ready — otherwise a fetch
@@ -289,15 +292,23 @@ export default function FieldMap({
     const fieldEls = closedRings.map(({ id, ring }) => {
       const pts = ring.map(project).join(' ')
       const isSel = id === selectedId
+      // White outline reads clearly on green/brown satellite imagery;
+      // the selected field gets a yellow outline instead. A centre dot
+      // keeps small fields (e.g. a 0.3 ha pin estimate) visible and
+      // clickable even when the polygon itself is only a few pixels.
+      const centre = polygonCentroid(ring)
+      const cp = map.project(centre as never)
       return (
-        <polygon
-          key={id}
-          points={pts}
-          fill={isSel ? 'rgba(50,143,151,0.45)' : 'rgba(79,184,178,0.28)'}
-          stroke={isSel ? '#1d3a2a' : '#2f6a4a'}
-          strokeWidth={isSel ? 3 : 2}
-          strokeLinejoin="round"
-        />
+        <g key={id}>
+          <polygon
+            points={pts}
+            fill={isSel ? 'rgba(50,143,151,0.45)' : 'rgba(79,184,178,0.28)'}
+            stroke={isSel ? '#f1d46a' : '#ffffff'}
+            strokeWidth={isSel ? 3 : 2.5}
+            strokeLinejoin="round"
+          />
+          <circle cx={cp.x} cy={cp.y} r={5} fill="#ffffff" stroke="#1d3a2a" strokeWidth={2} />
+        </g>
       )
     })
     const drawEls: ReactNode[] = []
@@ -627,29 +638,51 @@ export default function FieldMap({
         )}
       </div>
 
-      {/* Drawing overlay: live readout + controls. */}
+      {/* Drawing overlay: live readout + controls. The readout is
+          collapsible so it never hides the corners being drawn. */}
       {drawMode && (
         <>
-          <div className="pointer-events-none absolute bottom-3 left-3 z-10 max-w-[calc(100%-1.5rem)] rounded-lg border border-border bg-card/95 px-3 py-2 text-xs shadow-sm backdrop-blur">
-            <p className="font-medium text-foreground">
-              Click each corner of your land to mark it
-              {points.length > 0 ? ` — ${points.length} corner${points.length === 1 ? '' : 's'} placed` : ''}
-            </p>
-            <p className="mt-0.5 text-muted-foreground">
-              Click on an edge to add a point there · Drag a corner to move it
-            </p>
-            <p className="mt-0.5 text-muted-foreground">
-              Double-click or press Enter to finish · Esc to cancel
-            </p>
-            {points.length >= 3 && (
-              <p className="mt-1 font-medium text-foreground">{formatAreaLine(drawAreaSqM)}</p>
-            )}
-            {cursor && (
-              <p className="mt-0.5 tabular-nums text-muted-foreground">
-                {formatCoord(cursor.lat)}, {formatCoord(cursor.lng)}
+          {drawHelpOpen ? (
+            <div className="pointer-events-none absolute bottom-3 left-3 z-10 max-w-[calc(100%-1.5rem)] rounded-lg border border-border bg-card/95 px-3 py-2 text-xs shadow-sm backdrop-blur">
+              <div className="flex items-start justify-between gap-2">
+                <p className="font-medium text-foreground">
+                  Click each corner of your land to mark it
+                  {points.length > 0 ? ` — ${points.length} corner${points.length === 1 ? '' : 's'} placed` : ''}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setDrawHelpOpen(false)}
+                  aria-label="Hide drawing help"
+                  className="pointer-events-auto shrink-0 rounded px-1 text-muted-foreground hover:bg-accent"
+                >
+                  ✕
+                </button>
+              </div>
+              <p className="mt-0.5 text-muted-foreground">
+                Click on an edge to add a point there · Drag a corner to move it
               </p>
-            )}
-          </div>
+              <p className="mt-0.5 text-muted-foreground">
+                Double-click or press Enter to finish · Esc to cancel
+              </p>
+              {points.length >= 3 && (
+                <p className="mt-1 font-medium text-foreground">{formatAreaLine(drawAreaSqM)}</p>
+              )}
+              {cursor && (
+                <p className="mt-0.5 tabular-nums text-muted-foreground">
+                  {formatCoord(cursor.lat)}, {formatCoord(cursor.lng)}
+                </p>
+              )}
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setDrawHelpOpen(true)}
+              className="pointer-events-auto absolute bottom-3 left-3 z-10 rounded-lg border border-border bg-card/95 px-3 py-1.5 text-xs font-medium shadow-sm backdrop-blur"
+            >
+              Drawing · {points.length} corner{points.length === 1 ? '' : 's'}
+              {points.length >= 3 ? ` · ${formatAreaLine(drawAreaSqM)}` : ''} — show help
+            </button>
+          )}
           <div className="pointer-events-auto absolute bottom-3 right-3 z-10 flex gap-2">
             <button
               type="button"
