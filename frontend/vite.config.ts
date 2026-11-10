@@ -7,7 +7,13 @@ import viteReact from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { nitro } from 'nitro/vite'
 
+// GitHub Pages static build: set PAGES_BUILD=true to build the frontend as a
+// prerendered static SPA (no Node server, no Django backend) served from
+// https://<user>.github.io/AgriFusionBD/. Normal (server) builds are unaffected.
+const isPages = process.env.PAGES_BUILD === 'true'
+
 const config = defineConfig({
+  base: isPages ? '/AgriFusionBD/' : '/',
   resolve: { tsconfigPaths: true },
   server: {
     port: 3000,
@@ -32,7 +38,18 @@ const config = defineConfig({
     devtools(),
     nitro({ rollupConfig: { external: [/^@sentry\//] } }),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart(
+      isPages
+        ? {
+            // Serve the SPA from the /AgriFusionBD/ subpath on GitHub Pages.
+            router: { basepath: '/AgriFusionBD' },
+            spa: {
+              enabled: true,
+              prerender: { enabled: true, crawlLinks: true },
+            },
+          }
+        : undefined,
+    ),
     viteReact(),
   ],
 })
