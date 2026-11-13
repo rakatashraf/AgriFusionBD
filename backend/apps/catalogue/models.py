@@ -86,7 +86,7 @@ class CropCalendar(models.Model):
 
     class Meta:
         ordering = ["season", "crop__name"]
-        indexes = [models.Index(fields=["crop", "season"])]
+        indexes = [models.Index(fields=["crop", "season"], name="soiltest_crop_season_idx")]
 
 
 class SoilTest(models.Model):

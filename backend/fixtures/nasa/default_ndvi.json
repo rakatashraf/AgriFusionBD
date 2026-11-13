@@ -1,14 +1,258 @@
-[
-  { "date": "2025-12-02", "ndvi": 0.41, "coverage_pct": 88.2, "cloud_pct": 11.8, "scene_id": "HLSL30.20251202T025141" },
-  { "date": "2026-01-10", "ndvi": 0.55, "coverage_pct": 74.5, "cloud_pct": 25.5, "scene_id": "HLSL30.20260110T024941" },
-  { "date": "2026-01-27", "ndvi": 0.62, "coverage_pct": 91.0, "cloud_pct": 9.0,  "scene_id": "HLSL30.20260127T025241" },
-  { "date": "2026-02-14", "ndvi": 0.68, "coverage_pct": 63.4, "cloud_pct": 36.6, "scene_id": "HLSL30.20260214T025041" },
-  { "date": "2026-03-03", "ndvi": 0.74, "coverage_pct": 95.1, "cloud_pct": 4.9,  "scene_id": "HLSL30.20260303T025341" },
-  { "date": "2026-03-21", "ndvi": 0.79, "coverage_pct": 88.7, "cloud_pct": 11.3, "scene_id": "HLSL30.20260321T025141" },
-  { "date": "2026-04-12", "ndvi": 0.61, "coverage_pct": 38.0, "cloud_pct": 62.0, "scene_id": "HLSL30.20260412T024941" },
-  { "date": "2026-04-30", "ndvi": 0.48, "coverage_pct": 44.6, "cloud_pct": 55.4, "scene_id": "HLSL30.20260430T025241" },
-  { "date": "2026-05-22", "ndvi": 0.35, "coverage_pct": 52.3, "cloud_pct": 47.7, "scene_id": "HLSL30.20260522T025041" },
-  { "date": "2026-07-02", "ndvi": 0.82, "coverage_pct": 96.4, "cloud_pct": 3.6,  "scene_id": "HLSL30.20260702T025341" },
-  { "date": "2026-08-14", "ndvi": 0.85, "coverage_pct": 93.8, "cloud_pct": 6.2,  "scene_id": "HLSL30.20260814T025141" },
-  { "date": "2026-09-05", "ndvi": 0.80, "coverage_pct": 71.2, "cloud_pct": 28.8, "scene_id": "HLSL30.20260905T025241" }
-]
+{
+  "_source": "USGS HLS (CMR metadata, real scene IDs and cloud data). NDVI values are seasonal estimates \u2014 not derived from downloaded band data.",
+  "_note": "To get real NDVI, run: python scripts/ingest_hls.py (requires Earthdata auth)",
+  "rows": [
+    {
+      "date": "2025-11-06",
+      "ndvi": 0.42,
+      "coverage_pct": 28.0,
+      "cloud_pct": 72.0,
+      "scene_id": "HLS.L30.T45RYH.2025310T043033"
+    },
+    {
+      "date": "2025-11-14",
+      "ndvi": 0.5,
+      "coverage_pct": 82.0,
+      "cloud_pct": 18.0,
+      "scene_id": "HLS.L30.T45RYH.2025318T043028"
+    },
+    {
+      "date": "2025-11-22",
+      "ndvi": 0.5,
+      "coverage_pct": 80.0,
+      "cloud_pct": 20.0,
+      "scene_id": "HLS.L30.T45RYH.2025326T043031"
+    },
+    {
+      "date": "2025-11-30",
+      "ndvi": 0.5,
+      "coverage_pct": 75.0,
+      "cloud_pct": 25.0,
+      "scene_id": "HLS.L30.T45RYH.2025334T043028"
+    },
+    {
+      "date": "2025-12-08",
+      "ndvi": 0.38,
+      "coverage_pct": 81.0,
+      "cloud_pct": 19.0,
+      "scene_id": "HLS.L30.T45RYH.2025342T043032"
+    },
+    {
+      "date": "2025-12-16",
+      "ndvi": 0.38,
+      "coverage_pct": 98.0,
+      "cloud_pct": 2.0,
+      "scene_id": "HLS.L30.T45RYH.2025350T043027"
+    },
+    {
+      "date": "2025-12-24",
+      "ndvi": 0.32,
+      "coverage_pct": 0.0,
+      "cloud_pct": 100.0,
+      "scene_id": "HLS.L30.T45RYH.2025358T043037"
+    },
+    {
+      "date": "2026-01-01",
+      "ndvi": 0.42,
+      "coverage_pct": 69.0,
+      "cloud_pct": 31.0,
+      "scene_id": "HLS.L30.T45RYH.2026001T043024"
+    },
+    {
+      "date": "2026-01-09",
+      "ndvi": 0.42,
+      "coverage_pct": 76.0,
+      "cloud_pct": 24.0,
+      "scene_id": "HLS.L30.T45RYH.2026009T043029"
+    },
+    {
+      "date": "2026-01-17",
+      "ndvi": 0.42,
+      "coverage_pct": 98.0,
+      "cloud_pct": 2.0,
+      "scene_id": "HLS.L30.T45RYH.2026017T043020"
+    },
+    {
+      "date": "2026-01-25",
+      "ndvi": 0.42,
+      "coverage_pct": 98.0,
+      "cloud_pct": 2.0,
+      "scene_id": "HLS.L30.T45RYH.2026025T043030"
+    },
+    {
+      "date": "2026-02-02",
+      "ndvi": 0.42,
+      "coverage_pct": 6.0,
+      "cloud_pct": 94.0,
+      "scene_id": "HLS.L30.T45RYH.2026033T043015"
+    },
+    {
+      "date": "2026-02-10",
+      "ndvi": 0.5,
+      "coverage_pct": 94.0,
+      "cloud_pct": 6.0,
+      "scene_id": "HLS.L30.T45RYH.2026041T043026"
+    },
+    {
+      "date": "2026-02-18",
+      "ndvi": 0.5,
+      "coverage_pct": 74.0,
+      "cloud_pct": 26.0,
+      "scene_id": "HLS.L30.T45RYH.2026049T043013"
+    },
+    {
+      "date": "2026-02-26",
+      "ndvi": 0.5,
+      "coverage_pct": 81.0,
+      "cloud_pct": 19.0,
+      "scene_id": "HLS.L30.T45RYH.2026057T043020"
+    },
+    {
+      "date": "2026-03-06",
+      "ndvi": 0.58,
+      "coverage_pct": 73.0,
+      "cloud_pct": 27.0,
+      "scene_id": "HLS.L30.T45RYH.2026065T043007.v2.0"
+    },
+    {
+      "date": "2026-03-14",
+      "ndvi": 0.49,
+      "coverage_pct": 26.0,
+      "cloud_pct": 74.0,
+      "scene_id": "HLS.L30.T45RYH.2026073T043012.v2.0"
+    },
+    {
+      "date": "2026-03-22",
+      "ndvi": 0.49,
+      "coverage_pct": 4.0,
+      "cloud_pct": 96.0,
+      "scene_id": "HLS.L30.T45RYH.2026081T042958.v2.0"
+    },
+    {
+      "date": "2026-03-30",
+      "ndvi": 0.49,
+      "coverage_pct": 5.0,
+      "cloud_pct": 95.0,
+      "scene_id": "HLS.L30.T45RYH.2026089T043007.v2.0"
+    },
+    {
+      "date": "2026-04-07",
+      "ndvi": 0.65,
+      "coverage_pct": 93.0,
+      "cloud_pct": 7.0,
+      "scene_id": "HLS.L30.T45RYH.2026097T042948.v2.0"
+    },
+    {
+      "date": "2026-04-15",
+      "ndvi": 0.55,
+      "coverage_pct": 23.0,
+      "cloud_pct": 77.0,
+      "scene_id": "HLS.L30.T45RYH.2026105T042959.v2.0"
+    },
+    {
+      "date": "2026-04-23",
+      "ndvi": 0.55,
+      "coverage_pct": 10.0,
+      "cloud_pct": 90.0,
+      "scene_id": "HLS.L30.T45RYH.2026113T042944.v2.0"
+    },
+    {
+      "date": "2026-05-09",
+      "ndvi": 0.72,
+      "coverage_pct": 67.0,
+      "cloud_pct": 33.0,
+      "scene_id": "HLS.L30.T45RYH.2026129T042927.v2.0"
+    },
+    {
+      "date": "2026-05-17",
+      "ndvi": 0.61,
+      "coverage_pct": 21.0,
+      "cloud_pct": 79.0,
+      "scene_id": "HLS.L30.T45RYH.2026137T042936.v2.0"
+    },
+    {
+      "date": "2026-05-25",
+      "ndvi": 0.61,
+      "coverage_pct": 29.0,
+      "cloud_pct": 71.0,
+      "scene_id": "HLS.L30.T45RYH.2026145T042917.v2.0"
+    },
+    {
+      "date": "2026-06-02",
+      "ndvi": 0.78,
+      "coverage_pct": 63.0,
+      "cloud_pct": 37.0,
+      "scene_id": "HLS.L30.T45RYH.2026153T042927.v2.0"
+    },
+    {
+      "date": "2026-06-26",
+      "ndvi": 0.66,
+      "coverage_pct": 16.0,
+      "cloud_pct": 84.0,
+      "scene_id": "HLS.L30.T45RYH.2026177T042931.v2.0"
+    },
+    {
+      "date": "2026-07-04",
+      "ndvi": 0.82,
+      "coverage_pct": 70.0,
+      "cloud_pct": 30.0,
+      "scene_id": "HLS.L30.T45RYH.2026185T042942.v2.0"
+    },
+    {
+      "date": "2026-08-13",
+      "ndvi": 0.68,
+      "coverage_pct": 0.0,
+      "cloud_pct": 100.0,
+      "scene_id": "HLS.L30.T45RYH.2026225T042952.v2.0"
+    },
+    {
+      "date": "2026-08-21",
+      "ndvi": 0.68,
+      "coverage_pct": 0.0,
+      "cloud_pct": 100.0,
+      "scene_id": "HLS.L30.T45RYH.2026233T043000.v2.0"
+    },
+    {
+      "date": "2026-08-29",
+      "ndvi": 0.68,
+      "coverage_pct": 23.0,
+      "cloud_pct": 77.0,
+      "scene_id": "HLS.L30.T45RYH.2026241T043000.v2.0"
+    },
+    {
+      "date": "2026-09-22",
+      "ndvi": 0.75,
+      "coverage_pct": 36.0,
+      "cloud_pct": 64.0,
+      "scene_id": "HLS.L30.T45RYH.2026265T043013.v2.0"
+    },
+    {
+      "date": "2026-09-30",
+      "ndvi": 0.75,
+      "coverage_pct": 31.0,
+      "cloud_pct": 69.0,
+      "scene_id": "HLS.L30.T45RYH.2026273T043013.v2.0"
+    },
+    {
+      "date": "2026-10-08",
+      "ndvi": 0.53,
+      "coverage_pct": 10.0,
+      "cloud_pct": 90.0,
+      "scene_id": "HLS.L30.T45RYH.2026281T043020.v2.0"
+    },
+    {
+      "date": "2026-10-16",
+      "ndvi": 0.62,
+      "coverage_pct": 100.0,
+      "cloud_pct": 0.0,
+      "scene_id": "HLS.L30.T45RYH.2026289T043014.v2.0"
+    },
+    {
+      "date": "2026-10-24",
+      "ndvi": 0.62,
+      "coverage_pct": 62.0,
+      "cloud_pct": 38.0,
+      "scene_id": "HLS.L30.T45RYH.2026297T043018.v2.0"
+    }
+  ]
+}

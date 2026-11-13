@@ -18,5 +18,8 @@ celery[redis]>=5.4
 pytest>=8.3
 pytest-django>=4.9
 
+# Static file serving in production (no separate nginx needed)
+whitenoise>=6.6
+
 # Local server for dev (gunicorn for the Compose profile)
 gunicorn>=23.0

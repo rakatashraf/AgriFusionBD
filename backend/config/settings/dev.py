@@ -41,6 +41,18 @@ DATABASES = {"default": _database()}
 CELERY_TASK_ALWAYS_EAGER = os.environ.get("CELERY_TASK_ALWAYS_EAGER", "1") == "1"
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL", "redis://localhost:6379/0")
 CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND", "redis://localhost:6379/1")
+CELERY_TASK_TIME_LIMIT = 300
+CELERY_TASK_SOFT_TIME_LIMIT = 240
+
+# Beat schedule (only used when a worker + beat are running, i.e. the
+# `workers` Compose profile). The rover outbox drain re-enqueues any row left
+# in "retry" after a transient failure so nothing is silently stuck.
+CELERY_BEAT_SCHEDULE = {
+    "drain-rover-inbox": {
+        "task": "fieldshift.rover.drain_inbox",
+        "schedule": 60.0,  # every 60 s
+    },
+}
 
 # --- CORS --------------------------------------------------------------------
 CORS_ALLOWED_ORIGINS = [

@@ -59,8 +59,8 @@ class DataAsset(models.Model):
     class Meta:
         ordering = ["-fetched_at"]
         indexes = [
-            models.Index(fields=["product", "field", "acquired_at"]),
-            models.Index(fields=["status"]),
+            models.Index(fields=["product", "field", "acquired_at"], name="asset_product_field_acq_idx"),
+            models.Index(fields=["status"], name="asset_status_idx"),
         ]
 
     def __str__(self):
@@ -108,7 +108,7 @@ class FieldIndicator(models.Model):
     class Meta:
         unique_together = ("field", "kind", "provider", "product", "version", "period_start")
         ordering = ["period_start"]
-        indexes = [models.Index(fields=["field", "kind", "period_start"])]
+        indexes = [models.Index(fields=["field", "kind", "period_start"], name="fieldind_field_kind_per_idx")]
 
     def __str__(self):
         return f"{self.field.name} {self.kind} {self.period_start:%Y-%m-%d} = {self.value}"

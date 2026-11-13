@@ -55,6 +55,11 @@ class Field(models.Model):
     slope_pct = models.FloatField(null=True, blank=True)
     drainage = models.CharField(max_length=80, blank=True, default="moderate")
 
+    # Farmer-editable planning fields (PATCH /fields/{id}).
+    priorities = models.JSONField(default=list, blank=True)
+    current_cycle_crops = models.JSONField(default=list, blank=True)
+    recent_cycle_crops = models.JSONField(default=list, blank=True)
+
     status = models.CharField(max_length=16, choices=STATUS_CHOICES, default="active")
     version = models.PositiveIntegerField(default=1)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -102,7 +107,7 @@ class CropHistory(models.Model):
 
     class Meta:
         ordering = ["-year", "-season"]
-        indexes = [models.Index(fields=["field", "year"])]
+        indexes = [models.Index(fields=["field", "year"], name="crop_hist_field_year_idx")]
 
     def __str__(self):
         return f"{self.field.name} · {self.crop.name} {self.season} {self.year}"

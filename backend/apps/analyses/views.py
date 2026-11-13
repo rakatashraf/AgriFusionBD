@@ -13,6 +13,7 @@ plan §2 + plan §7 check 3).
 """
 
 from django.db import transaction
+from django.http import Http404
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
@@ -20,7 +21,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ReadOnlyModelViewSet
 
-from apps.accounts.permissions import CanSubmitAnalysis, user_roles
+from apps.accounts.permissions import (
+    CanSubmitAnalysis,
+    ROLE_FARMER,
+    ROLE_OFFICER,
+    ROLE_RESEARCHER,
+    user_roles,
+)
 from apps.audit.services import record
 from apps.farms.models import Field
 
@@ -52,9 +59,19 @@ class AnalysisViewSet(ReadOnlyModelViewSet):
     permission_classes = [IsAuthenticated]
     lookup_field = "run_id"
 
+    def get_queryset(self):
+        user = self.request.user
+        roles = user_roles(user)
+        qs = AnalysisRun.objects.select_related("field")
+        # A pure farmer sees only runs on their own fields; officers and
+        # researchers (who hold a broader role) see the pilot's full set.
+        if ROLE_FARMER in roles and ROLE_OFFICER not in roles and ROLE_RESEARCHER not in roles:
+            qs = qs.filter(field__farmer=user)
+        return qs
+
     def list(self, request, *args, **kwargs):
         field_slug = request.query_params.get("field")
-        qs = AnalysisRun.objects.select_related("field").all()
+        qs = self.get_queryset()
         if field_slug:
             qs = qs.filter(field__slug=field_slug)
         qs = qs.order_by("-submitted_at")[:50]
@@ -64,32 +81,30 @@ class AnalysisViewSet(ReadOnlyModelViewSet):
         try:
             run = AnalysisRun.objects.select_related("field").get(run_id=run_id)
         except AnalysisRun.DoesNotExist:
-            return Response(
-                {"error": {"code": "not_found", "message": "Analysis not found.", "details": None}},
-                status=status.HTTP_404_NOT_FOUND,
-            )
-        self._check_access(request, run)
+            run = None
+        self._check_access(request, run)  # raises 404 when not visible
         return Response(_serialize_run(run))
 
     def _check_access(self, request, run):
+        """Object-level authorization (report §2, §11).
+
+        Raises ``Http404`` when the caller may not see this run — 404 rather
+        than 403 so the existence of another farmer's runs is not leaked.
+        """
         roles = user_roles(request.user)
-        if "officer" in roles or "researcher" in roles or "farmer" in roles:
-            if "farmer" in roles and run.field.farmer_id != request.user.pk and \
-               "officer" not in roles and "researcher" not in roles:
-                return False
-        return True
+        if ROLE_OFFICER in roles or ROLE_RESEARCHER in roles:
+            return
+        if run is None or (run.field.farmer_id != request.user.pk):
+            raise Http404
 
     @action(detail=True, methods=["get"])
     def evidence(self, request, run_id=None):
         try:
             run = AnalysisRun.objects.get(run_id=run_id)
         except AnalysisRun.DoesNotExist:
-            return Response(
-                {"error": {"code": "not_found", "message": "Analysis not found.", "details": None}},
-                status=status.HTTP_404_NOT_FOUND,
-            )
-        self._check_access(request, run)
-        snap = run.snapshot
+            run = None
+        self._check_access(request, run)  # raises 404 when not visible
+        snap = getattr(run, "snapshot", None)  # reverse FK — may not exist
         return Response({
             "evidence": run.evidence,
             "warnings": run.warnings,
@@ -110,11 +125,8 @@ class AnalysisViewSet(ReadOnlyModelViewSet):
         try:
             run = AnalysisRun.objects.get(run_id=run_id)
         except AnalysisRun.DoesNotExist:
-            return Response(
-                {"error": {"code": "not_found", "message": "Analysis not found.", "details": None}},
-                status=status.HTTP_404_NOT_FOUND,
-            )
-        self._check_access(request, run)
+            run = None
+        self._check_access(request, run)  # raises 404 when not visible
         if run.status in ("queued", "running"):
             run.status = "cancelled"
             run.save(update_fields=["status"])

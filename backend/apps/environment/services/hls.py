@@ -67,9 +67,12 @@ def load_ndvi_series(field_model=None) -> HlsSeries:
     for path in candidates:
         if path.exists():
             import json
-            raw = json.loads(path.read_text(encoding="utf-8"))
-            used = path
-            break
+            data = json.loads(path.read_text(encoding="utf-8"))
+            # Support both flat list format and {_source, _note, rows: [...]} wrapper.
+            raw = data.get("rows") if isinstance(data, dict) else data
+            if raw is not None:
+                used = path
+                break
 
     if raw is None:
         return HlsSeries(rows=[], source="missing", asset_id=None, stale=False)
