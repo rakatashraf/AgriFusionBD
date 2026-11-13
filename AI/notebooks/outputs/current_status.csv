@@ -1,0 +1,8 @@
+region,rain 30d mm,same window avg mm,anomaly %,soil moisture pct,NDVI latest,NDVI age d
+Central Dhaka,78.8,282.2,-72.0,41.0,0.34,0
+North Rangpur,32.4,201.6,-84.0,1.0,0.5,0
+Northeast Sylhet,51.9,273.9,-81.0,43.0,0.32,0
+Northwest Rajshahi,17.1,140.3,-88.0,23.0,0.41,68
+South Barishal,9.7,268.6,-96.0,15.0,0.64,299
+Southeast Chattogram,101.6,213.7,-52.0,6.0,0.3,0
+Southwest Khulna,8.6,219.8,-96.0,44.0,0.64,68

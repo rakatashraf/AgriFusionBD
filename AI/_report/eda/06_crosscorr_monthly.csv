@@ -1,0 +1,43 @@
+driver,response,region,best_lag_months,max_corr,corr_lag0,n
+GPM monthly rain total,HLS NDVI,Central_Dhaka,0,0.542,0.542,59
+GPM monthly rain total,HLS NDVI,Northeast_Sylhet,2,0.645,0.5,59
+GPM monthly rain total,HLS NDVI,Southeast_Chattogram,1,0.771,0.501,59
+GPM monthly rain total,HLS NDVI,Southwest_Khulna,1,0.654,0.425,59
+GPM monthly rain total,HLS NDVI,POOLED,2,0.548,0.247,59
+GPM monthly rain total,SMAP SM (any pass),Central_Dhaka,1,0.605,0.42,59
+GPM monthly rain total,SMAP SM (any pass),North_Rangpur,0,0.334,0.334,59
+GPM monthly rain total,SMAP SM (any pass),Northeast_Sylhet,0,0.778,0.778,59
+GPM monthly rain total,SMAP SM (any pass),Northwest_Rajshahi,2,0.559,0.321,59
+GPM monthly rain total,SMAP SM (any pass),South_Barishal,1,0.635,0.631,59
+GPM monthly rain total,SMAP SM (any pass),Southeast_Chattogram,0,0.435,0.435,59
+GPM monthly rain total,SMAP SM (any pass),Southwest_Khulna,2,0.576,0.243,59
+GPM monthly rain total,SMAP SM (any pass),POOLED,1,0.589,0.559,59
+GPM monthly rain total,GRACE LWE,Central_Dhaka,1,0.855,0.603,59
+GPM monthly rain total,GRACE LWE,North_Rangpur,1,0.829,0.69,59
+GPM monthly rain total,GRACE LWE,Northeast_Sylhet,1,0.855,0.603,59
+GPM monthly rain total,GRACE LWE,Northwest_Rajshahi,2,0.809,0.293,59
+GPM monthly rain total,GRACE LWE,South_Barishal,1,0.855,0.603,59
+GPM monthly rain total,GRACE LWE,Southeast_Chattogram,-1,0.509,0.357,59
+GPM monthly rain total,GRACE LWE,Southwest_Khulna,1,0.855,0.603,59
+GPM monthly rain total,GRACE LWE,POOLED,1,0.851,0.612,59
+POWER monthly rain total,HLS NDVI,Central_Dhaka,0,0.484,0.484,59
+POWER monthly rain total,HLS NDVI,Northeast_Sylhet,2,0.689,0.495,59
+POWER monthly rain total,HLS NDVI,Southeast_Chattogram,1,0.766,0.467,59
+POWER monthly rain total,HLS NDVI,Southwest_Khulna,1,0.678,0.439,59
+POWER monthly rain total,HLS NDVI,POOLED,2,0.558,0.251,59
+POWER monthly rain total,SMAP SM (any pass),Central_Dhaka,1,0.585,0.384,59
+POWER monthly rain total,SMAP SM (any pass),North_Rangpur,0,0.328,0.328,59
+POWER monthly rain total,SMAP SM (any pass),Northeast_Sylhet,0,0.771,0.771,59
+POWER monthly rain total,SMAP SM (any pass),Northwest_Rajshahi,2,0.582,0.278,59
+POWER monthly rain total,SMAP SM (any pass),South_Barishal,1,0.652,0.607,59
+POWER monthly rain total,SMAP SM (any pass),Southeast_Chattogram,0,0.403,0.403,59
+POWER monthly rain total,SMAP SM (any pass),Southwest_Khulna,2,0.596,0.196,59
+POWER monthly rain total,SMAP SM (any pass),POOLED,1,0.594,0.528,59
+POWER monthly rain total,GRACE LWE,Central_Dhaka,1,0.863,0.594,59
+POWER monthly rain total,GRACE LWE,North_Rangpur,1,0.821,0.661,59
+POWER monthly rain total,GRACE LWE,Northeast_Sylhet,1,0.863,0.594,59
+POWER monthly rain total,GRACE LWE,Northwest_Rajshahi,2,0.826,0.277,59
+POWER monthly rain total,GRACE LWE,South_Barishal,1,0.863,0.594,59
+POWER monthly rain total,GRACE LWE,Southeast_Chattogram,-1,0.443,0.299,59
+POWER monthly rain total,GRACE LWE,Southwest_Khulna,1,0.863,0.594,59
+POWER monthly rain total,GRACE LWE,POOLED,1,0.852,0.596,59

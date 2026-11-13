@@ -1,0 +1,326 @@
+{
+ "rain_next_day": {
+  "rows": {
+   "train": 7672,
+   "valid": 2555,
+   "test": 2079
+  },
+  "persistence": {
+   "n": 2079,
+   "mae": 5.7004,
+   "rmse": 12.56,
+   "r2": -0.1488
+  },
+  "climatology": {
+   "n": 2079,
+   "mae": 7.358,
+   "rmse": 12.2252,
+   "r2": -0.0883
+  },
+  "ridge": {
+   "n": 2079,
+   "mae": 6.8609,
+   "rmse": 11.3109,
+   "r2": 0.0684
+  },
+  "gradient_boosting": {
+   "n": 2079,
+   "mae": 7.6336,
+   "rmse": 12.8106,
+   "r2": -0.1951
+  },
+  "top_features": [
+   {
+    "feature": "gpm_rain_sum_30d",
+    "importance": 0.6133
+   },
+   {
+    "feature": "gpm_rain_sum_7d",
+    "importance": 0.4102
+   },
+   {
+    "feature": "power_rain_sum_3d",
+    "importance": 0.3877
+   },
+   {
+    "feature": "power_rain_mm",
+    "importance": 0.3822
+   },
+   {
+    "feature": "doy_sin",
+    "importance": 0.34
+   },
+   {
+    "feature": "power_rain_sum_30d",
+    "importance": 0.2834
+   },
+   {
+    "feature": "power_rain_sum_14d",
+    "importance": 0.1937
+   },
+   {
+    "feature": "power_rain_sum_60d",
+    "importance": 0.1728
+   },
+   {
+    "feature": "power_rain_sum_7d",
+    "importance": 0.1429
+   },
+   {
+    "feature": "et0_sum_60d",
+    "importance": 0.1426
+   },
+   {
+    "feature": "doy_cos",
+    "importance": 0.1422
+   },
+   {
+    "feature": "et0_sum_14d",
+    "importance": 0.1317
+   }
+  ]
+ },
+ "soil_moisture_next_day": {
+  "rows": {
+   "train": 4914,
+   "valid": 1711,
+   "test": 1400
+  },
+  "persistence": {
+   "n": 734,
+   "mae": 0.0742,
+   "rmse": 0.0978,
+   "r2": 0.2139
+  },
+  "climatology": {
+   "n": 1400,
+   "mae": 0.0907,
+   "rmse": 0.1117,
+   "r2": 0.0722
+  },
+  "ridge": {
+   "n": 1400,
+   "mae": 0.0538,
+   "rmse": 0.0697,
+   "r2": 0.6387
+  },
+  "gradient_boosting": {
+   "n": 1400,
+   "mae": 0.0509,
+   "rmse": 0.0662,
+   "r2": 0.6741
+  },
+  "top_features": [
+   {
+    "feature": "sm_7d_mean",
+    "importance": 0.0576
+   },
+   {
+    "feature": "sm_anomaly_30d",
+    "importance": 0.0053
+   },
+   {
+    "feature": "sm_am",
+    "importance": 0.0021
+   },
+   {
+    "feature": "power_rain_mm",
+    "importance": 0.0015
+   },
+   {
+    "feature": "elevation_mean_m",
+    "importance": 0.0014
+   },
+   {
+    "feature": "power_rain_sum_3d",
+    "importance": 0.0013
+   },
+   {
+    "feature": "grace_lwe_cm_last",
+    "importance": 0.0008
+   },
+   {
+    "feature": "doy_cos",
+    "importance": 0.0007
+   },
+   {
+    "feature": "gpm_rain_mm",
+    "importance": 0.0006
+   },
+   {
+    "feature": "sm_pm",
+    "importance": 0.0006
+   },
+   {
+    "feature": "doy_sin",
+    "importance": 0.0005
+   },
+   {
+    "feature": "slope_mean_deg",
+    "importance": 0.0004
+   }
+  ]
+ },
+ "et0_next_day": {
+  "rows": {
+   "train": 7672,
+   "valid": 2555,
+   "test": 2058
+  },
+  "persistence": {
+   "n": 2058,
+   "mae": 0.4675,
+   "rmse": 0.6918,
+   "r2": 0.4599
+  },
+  "climatology": {
+   "n": 2058,
+   "mae": 0.7449,
+   "rmse": 1.013,
+   "r2": -0.1581
+  },
+  "ridge": {
+   "n": 2058,
+   "mae": 0.4462,
+   "rmse": 0.6101,
+   "r2": 0.5799
+  },
+  "gradient_boosting": {
+   "n": 2058,
+   "mae": 0.5003,
+   "rmse": 0.6724,
+   "r2": 0.4897
+  },
+  "top_features": [
+   {
+    "feature": "et0_fao56_mm",
+    "importance": 0.1793
+   },
+   {
+    "feature": "power_rain_mm",
+    "importance": 0.0723
+   },
+   {
+    "feature": "doy_cos",
+    "importance": 0.045
+   },
+   {
+    "feature": "gpm_rain_mm",
+    "importance": 0.0334
+   },
+   {
+    "feature": "wind_ms",
+    "importance": 0.0221
+   },
+   {
+    "feature": "et0_hargreaves_mm",
+    "importance": 0.0114
+   },
+   {
+    "feature": "power_rain_sum_3d",
+    "importance": 0.0095
+   },
+   {
+    "feature": "tmin_c",
+    "importance": 0.0049
+   },
+   {
+    "feature": "latitude",
+    "importance": 0.0046
+   },
+   {
+    "feature": "et0_sum_3d",
+    "importance": 0.0041
+   },
+   {
+    "feature": "et0_sum_14d",
+    "importance": 0.0029
+   },
+   {
+    "feature": "solar_mj_m2",
+    "importance": 0.0027
+   }
+  ]
+ },
+ "ndvi_next_month": {
+  "rows": {
+   "train": 142,
+   "valid": 46,
+   "test": 26
+  },
+  "persistence": {
+   "n": 15,
+   "mae": 0.087,
+   "rmse": 0.1287,
+   "r2": 0.2726
+  },
+  "climatology": {
+   "n": 26,
+   "mae": 0.1041,
+   "rmse": 0.1275,
+   "r2": 0.1164
+  },
+  "ridge": {
+   "n": 26,
+   "mae": 0.0673,
+   "rmse": 0.0894,
+   "r2": 0.5655
+  },
+  "gradient_boosting": {
+   "n": 26,
+   "mae": 0.0892,
+   "rmse": 0.1149,
+   "r2": 0.2822
+  },
+  "top_features": [
+   {
+    "feature": "index",
+    "importance": 0.0142
+   },
+   {
+    "feature": "elevation_mean_m",
+    "importance": 0.0076
+   },
+   {
+    "feature": "rain_3m_sum",
+    "importance": 0.006
+   },
+   {
+    "feature": "t2m_c",
+    "importance": 0.0041
+   },
+   {
+    "feature": "water_deficit_3m",
+    "importance": 0.0034
+   },
+   {
+    "feature": "ndvi",
+    "importance": 0.0028
+   },
+   {
+    "feature": "grace_lwe_cm",
+    "importance": 0.002
+   },
+   {
+    "feature": "et0_3m_sum",
+    "importance": 0.0019
+   },
+   {
+    "feature": "tmin_c",
+    "importance": 0.0018
+   },
+   {
+    "feature": "wind_ms",
+    "importance": 0.0017
+   },
+   {
+    "feature": "et0_mm",
+    "importance": 0.0013
+   },
+   {
+    "feature": "rh_pct",
+    "importance": 0.0013
+   }
+  ]
+ }
+}

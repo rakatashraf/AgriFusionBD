@@ -1,0 +1,4 @@
+model,AUC,Brier,log loss
+seasonal base rate,0.864,0.1504,0.4623
+logistic regression,0.9,0.1269,0.3961
+gradient boosting,0.904,0.1256,0.389

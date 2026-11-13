@@ -1,0 +1,355 @@
+
+=== gpm === (12418, 11)
+cols: ['date', 'region', 'latitude', 'longitude', 'precipitation_mm_day', 'run', 'product', 'version', 'grid_lat', 'grid_lon', 'source_file']
+dtypes: {'date': 'str', 'region': 'str', 'latitude': 'float64', 'longitude': 'float64', 'precipitation_mm_day': 'float64', 'run': 'str', 'product': 'str', 'version': 'str', 'grid_lat': 'float64', 'grid_lon': 'float64', 'source_file': 'str'}
+
+=== smap === (24206, 13)
+cols: ['date', 'region', 'latitude', 'longitude', 'pass', 'soil_moisture_m3_m3', 'soil_moisture_error_m3_m3', 'retrieval_qual_flag', 'surface_flag', 'freeze_thaw_fraction', 'grid_lat', 'grid_lon', 'source_file']
+dtypes: {'date': 'str', 'region': 'str', 'latitude': 'float64', 'longitude': 'float64', 'pass': 'str', 'soil_moisture_m3_m3': 'float64', 'soil_moisture_error_m3_m3': 'float64', 'retrieval_qual_flag': 'int64', 'surface_flag': 'int64', 'freeze_thaw_fraction': 'float64', 'grid_lat': 'float64', 'grid_lon': 'float64', 'source_file': 'str'}
+
+=== eco === (2819, 9)
+cols: ['observed_utc', 'region', 'latitude', 'longitude', 'lst_kelvin', 'lst_celsius', 'granule_id', 'tile_zone', 'qc']
+dtypes: {'observed_utc': 'str', 'region': 'str', 'latitude': 'float64', 'longitude': 'float64', 'lst_kelvin': 'float64', 'lst_celsius': 'float64', 'granule_id': 'str', 'tile_zone': 'str', 'qc': 'int64'}
+
+=== hls === (413, 11)
+cols: ['observed_utc', 'region', 'latitude', 'longitude', 'product', 'ndvi', 'ndmi', 'valid_coverage', 'valid_pixels', 'window_pixels', 'granule_id']
+dtypes: {'observed_utc': 'str', 'region': 'str', 'latitude': 'float64', 'longitude': 'float64', 'product': 'str', 'ndvi': 'float64', 'ndmi': 'float64', 'valid_coverage': 'float64', 'valid_pixels': 'int64', 'window_pixels': 'int64', 'granule_id': 'str'}
+
+=== grace === (399, 10)
+cols: ['date', 'region', 'latitude', 'longitude', 'lwe_thickness_cm', 'uncertainty_cm', 'grid_lat', 'grid_lon', 'mascon_id', 'cri_scale_factor']
+dtypes: {'date': 'str', 'region': 'str', 'latitude': 'float64', 'longitude': 'float64', 'lwe_thickness_cm': 'float64', 'uncertainty_cm': 'float64', 'grid_lat': 'float64', 'grid_lon': 'float64', 'mascon_id': 'int64', 'cri_scale_factor': 'float64'}
+
+=== power === (12313, 12)
+cols: ['date', 'region', 'latitude', 'longitude', 'T2M', 'T2M_MAX', 'T2M_MIN', 'PRECTOTCORR', 'RH2M', 'WS2M', 'ALLSKY_SFC_SW_DWN', 'PS']
+dtypes: {'date': 'str', 'region': 'str', 'latitude': 'float64', 'longitude': 'float64', 'T2M': 'float64', 'T2M_MAX': 'float64', 'T2M_MIN': 'float64', 'PRECTOTCORR': 'float64', 'RH2M': 'float64', 'WS2M': 'float64', 'ALLSKY_SFC_SW_DWN': 'float64', 'PS': 'float64'}
+
+--- GPM run values ---
+run
+final    9583
+late     2835
+run by year-month (min/max date per run):
+             min        max  count
+run                               
+final 2022-01-01 2025-09-30   9583
+late  2025-10-01 2026-11-09   2835
+nulls:
+date                    0
+region                  0
+latitude                0
+longitude               0
+precipitation_mm_day    0
+run                     0
+product                 0
+version                 0
+grid_lat                0
+grid_lon                0
+source_file             0
+dup region+date: 0
+regions: ['Central_Dhaka', 'North_Rangpur', 'Northeast_Sylhet', 'Northwest_Rajshahi', 'South_Barishal', 'Southeast_Chattogram', 'Southwest_Khulna']
+precip desc:
+count    12418.000000
+mean         6.193008
+std         14.985904
+min          0.000000
+25%          0.000000
+50%          0.030000
+75%          5.050000
+max        194.970000
+neg precip: 0
+days per region:
+                            min        max  count
+region                                           
+Central_Dhaka        2022-01-01 2026-11-09   1774
+North_Rangpur        2022-01-01 2026-11-09   1774
+Northeast_Sylhet     2022-01-01 2026-11-09   1774
+Northwest_Rajshahi   2022-01-01 2026-11-09   1774
+South_Barishal       2022-01-01 2026-11-09   1774
+Southeast_Chattogram 2022-01-01 2026-11-09   1774
+Southwest_Khulna     2022-01-01 2026-11-09   1774
+
+--- SMAP ---
+pass values: {'am': 12103, 'pm': 12103}
+nulls:
+date                             0
+region                           0
+latitude                         0
+longitude                        0
+pass                             0
+soil_moisture_m3_m3          14588
+soil_moisture_error_m3_m3        0
+retrieval_qual_flag              0
+surface_flag                     0
+freeze_thaw_fraction             0
+grid_lat                         0
+grid_lon                         0
+source_file                      0
+error uniq: [-9999.]
+ftf uniq: [-9999.]
+surface_flag: {2047: 14570, 131: 2540, 136: 2417, 139: 1505, 128: 1432, 143: 1253, 152: 145, 147: 129, 155: 88, 159: 86, 144: 41}
+retrieval_qual_flag: {7: 14570, 9: 6919, 13: 2079, 8: 638}
+sm desc:
+count    9618.000000
+mean        0.379989
+std         0.119878
+min         0.036727
+25%         0.291452
+50%         0.371906
+75%         0.482421
+max         0.592472
+dup region+date+pass: 56
+per region/pass counts:
+region                pass
+Central_Dhaka         am      1729
+                      pm      1729
+North_Rangpur         am      1729
+                      pm      1729
+Northeast_Sylhet      am      1729
+                      pm      1729
+Northwest_Rajshahi    am      1729
+                      pm      1729
+South_Barishal        am      1729
+                      pm      1729
+Southeast_Chattogram  am      1729
+                      pm      1729
+Southwest_Khulna      am      1729
+                      pm      1729
+dates per region (unique):
+region
+Central_Dhaka           1725
+North_Rangpur           1725
+Northeast_Sylhet        1725
+Northwest_Rajshahi      1725
+South_Barishal          1725
+Southeast_Chattogram    1725
+Southwest_Khulna        1725
+
+--- ECOSTRESS ---
+nulls:
+observed_utc       0
+region             0
+latitude           0
+longitude          0
+lst_kelvin      1886
+lst_celsius     1886
+granule_id         0
+tile_zone          0
+qc                 0
+qc values: {0: 1047, 15: 268, 18880: 149, 35520: 148, 65535: 146, 2496: 130, 36544: 123, 449: 97, 19136: 85, 40640: 77, 448: 71, 20160: 56, 1472: 45, 2497: 45, 19904: 43, 3520: 27, 192: 24, 1473: 22, 39616: 19, 16576: 14, 17856: 14, 16832: 14, 36549: 13, 44736: 11, 43712: 11, 2501: 9, 18885: 9, 193: 7, 453: 7, 51904: 7, 61120: 6, 18112: 6, 34496: 6, 3521: 4, 52928: 4, 20165: 3, 16512: 3, 33216: 3, 19141: 3, 35264: 3, 35525: 3, 16448: 3, 128: 2, 18881: 2, 60096: 2, 16833: 2, 17088: 2, 40645: 2, 32896: 2, 2752: 2, 52933: 2, 1477: 2, 39621: 1, 19909: 1, 37312: 1, 34240: 1, 16837: 1, 51909: 1, 35521: 1, 3525: 1, 16384: 1, 56000: 1, 16453: 1, 17600: 1, 37569: 1, 32832: 1}
+dt range: 2022-01-01 18:09:32 2026-11-03 14:25:44
+dup region+dt: 0
+lst desc:
+count    933.000000
+mean      25.427921
+std        7.010756
+min        9.990015
+25%       20.249994
+50%       25.209985
+75%       29.350000
+max       54.670007
+per region counts:
+region
+Central_Dhaka           402
+North_Rangpur           383
+Northeast_Sylhet        423
+Northwest_Rajshahi      478
+South_Barishal          382
+Southeast_Chattogram    380
+Southwest_Khulna        371
+hour of day dist:
+dt
+0      88
+1      96
+2      94
+3      85
+4      85
+5     107
+6      74
+7      80
+8      66
+9     114
+10    125
+11    111
+12    149
+13    121
+14    155
+15    121
+16    131
+17    144
+18    138
+19    125
+20    170
+21    100
+22    181
+23    159
+
+--- HLS ---
+nulls:
+observed_utc        0
+region              0
+latitude            0
+longitude           0
+product             0
+ndvi              193
+ndmi              193
+valid_coverage      0
+valid_pixels        0
+window_pixels       0
+granule_id          0
+dt range: 2022-01-01 04:41:53.827000+00:00 2026-11-03 04:18:46.931000+00:00
+dup region+dt: 0
+product: {'HLSL30': 370, 'HLSS30': 43}
+per region counts:
+region
+Central_Dhaka           59
+North_Rangpur           59
+Northeast_Sylhet        59
+Northwest_Rajshahi      59
+South_Barishal          59
+Southeast_Chattogram    59
+Southwest_Khulna        59
+valid_coverage desc:
+count    413.000000
+mean       0.228074
+std        0.346648
+min        0.000000
+25%        0.000000
+50%        0.008900
+75%        0.404400
+max        1.000000
+valid_coverage==0 count: 193
+ndvi desc:
+count    220.000000
+mean       0.399154
+std        0.132617
+min        0.161619
+25%        0.299159
+50%        0.383914
+75%        0.490521
+max        0.983274
+ndmi desc:
+count    220.000000
+mean       0.027308
+std        0.099630
+min       -0.230583
+25%       -0.040400
+50%        0.015029
+75%        0.083163
+max        0.507687
+unique dates per region:
+region
+Central_Dhaka           59
+North_Rangpur           59
+Northeast_Sylhet        59
+Northwest_Rajshahi      59
+South_Barishal          59
+Southeast_Chattogram    59
+Southwest_Khulna        59
+months covered overall: ['2022-01', '2022-02', '2022-03', '2022-04', '2022-05', '2022-06', '2022-07', '2022-08', '2022-09', '2022-10', '2022-11', '2022-12', '2023-01', '2023-02', '2023-03', '2023-04', '2023-05', '2023-06', '2023-07', '2023-08', '2023-09', '2023-10', '2023-11', '2023-12', '2024-01', '2024-02', '2024-03', '2024-04', '2024-05', '2024-06', '2024-07', '2024-08', '2024-09', '2024-10', '2024-11', '2024-12', '2025-01', '2025-02', '2025-03', '2025-04', '2025-05', '2025-06', '2025-07', '2025-08', '2025-09', '2025-10', '2025-11', '2025-12', '2026-01', '2026-02', '2026-03', '2026-04', '2026-05', '2026-06', '2026-07', '2026-08', '2026-09', '2026-10', '2026-11']
+
+--- GRACE ---
+nulls:
+date                 0
+region               0
+latitude             0
+longitude            0
+lwe_thickness_cm     0
+uncertainty_cm       0
+grid_lat             0
+grid_lon             0
+mascon_id            0
+cri_scale_factor    57
+dup region+date: 0
+per region counts:
+region
+Central_Dhaka           57
+North_Rangpur           57
+Northeast_Sylhet        57
+Northwest_Rajshahi      57
+South_Barishal          57
+Southeast_Chattogram    57
+Southwest_Khulna        57
+mascon per region:
+region
+Central_Dhaka           [1321]
+North_Rangpur           [1214]
+Northeast_Sylhet        [1321]
+Northwest_Rajshahi      [1320]
+South_Barishal          [1321]
+Southeast_Chattogram    [1431]
+Southwest_Khulna        [1321]
+lwe desc:
+count    399.000000
+mean      -3.708194
+std       26.193185
+min      -77.295792
+25%      -17.077826
+50%       -5.816643
+75%       16.088410
+max       45.519645
+dates:
+['2022-01-16', '2022-02-15', '2022-03-16', '2022-04-16', '2022-05-16', '2022-06-16', '2022-07-16', '2022-08-16', '2022-09-16', '2022-10-16', '2022-11-16', '2022-12-16', '2023-01-16', '2023-02-15', '2023-03-16', '2023-04-16', '2023-05-16', '2023-06-16', '2023-07-16', '2023-08-16', '2023-09-16', '2023-10-16', '2023-11-16', '2023-12-16', '2024-01-16', '2024-02-15', '2024-03-16', '2024-04-16', '2024-05-16', '2024-06-16', '2024-07-16', '2024-08-16', '2024-09-16', '2024-10-16', '2024-11-16', '2024-12-16', '2025-01-16', '2025-02-15', '2025-03-16', '2025-04-16', '2025-05-16', '2025-06-16', '2025-07-16', '2025-08-16', '2025-09-16', '2025-10-16', '2025-11-16', '2025-12-16', '2026-01-16', '2026-02-15', '2026-03-16', '2026-04-16', '2026-05-16', '2026-06-16', '2026-07-16', '2026-08-16', '2026-09-16']
+
+--- POWER ---
+nulls:
+date                   0
+region                 0
+latitude               0
+longitude              0
+T2M                   21
+T2M_MAX               21
+T2M_MIN               21
+PRECTOTCORR           21
+RH2M                  21
+WS2M                  21
+ALLSKY_SFC_SW_DWN    602
+PS                    21
+dup region+date: 0
+per region:
+                            min        max  count
+region                                           
+Central_Dhaka        2022-01-01 2026-10-25   1759
+North_Rangpur        2022-01-01 2026-10-25   1759
+Northeast_Sylhet     2022-01-01 2026-10-25   1759
+Northwest_Rajshahi   2022-01-01 2026-10-25   1759
+South_Barishal       2022-01-01 2026-10-25   1759
+Southeast_Chattogram 2022-01-01 2026-10-25   1759
+Southwest_Khulna     2022-01-01 2026-10-25   1759
+rows with all-null params: 21
+last non-null T2M date per region:
+region
+Central_Dhaka          2026-10-22
+North_Rangpur          2026-10-22
+Northeast_Sylhet       2026-10-22
+Northwest_Rajshahi     2026-10-22
+South_Barishal         2026-10-22
+Southeast_Chattogram   2026-10-22
+Southwest_Khulna       2026-10-22
+first non-null T2M date per region:
+region
+Central_Dhaka          2022-01-01
+North_Rangpur          2022-01-01
+Northeast_Sylhet       2022-01-01
+Northwest_Rajshahi     2022-01-01
+South_Barishal         2022-01-01
+Southeast_Chattogram   2022-01-01
+Southwest_Khulna       2022-01-01
+-999 counts:
+latitude             0
+longitude            0
+T2M                  0
+T2M_MAX              0
+T2M_MIN              0
+PRECTOTCORR          0
+RH2M                 0
+WS2M                 0
+ALLSKY_SFC_SW_DWN    0
+PS                   0
+PRECTOTCORR desc:
+count    12292.000000
+mean       204.757546
+std        391.482556
+min          0.000000
+25%          0.000000
+50%         39.600000
+75%        249.180000
+max       4856.400000

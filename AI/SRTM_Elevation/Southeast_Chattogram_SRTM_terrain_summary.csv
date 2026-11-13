@@ -1,0 +1,2 @@
+region,latitude,longitude,tile,window_deg,pixel_size_m,elevation_mean_m,elevation_min_m,elevation_max_m,elevation_std_m,slope_mean_deg,slope_max_deg,valid_pixels
+Southeast_Chattogram,22.36,91.78,N22E091.hgt,+/-0.05,30,13.101065829758827,-6.0,73.0,13.887577254652662,2.618026236358286,27.017123217850244,130321

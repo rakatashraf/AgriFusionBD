@@ -1,0 +1,8 @@
+dataset,cadence,region_days,valid,usable_pct,impute,never_interpolate
+GPM IMERG precipitation,daily,12418,12418,100.0,none needed; late-run period (2025-10-01+) is a different retrieval,do not gap-fill; do not splice final and late run without a run indicator
+POWER weather (8 params),daily,12418,12292,99.0,3 trailing days per region; SW_DWN 86 days/region (2026-08-01..2026-10-22),PRECTOTCORR rescaled /24 - never mix raw and rescaled columns
+SMAP soil moisture,2 passes/day,24206,9592,39.6,"~60% of pass-days; model as irregular observations, not a daily grid",no linear interpolation across the 60% gap structure; ceiling values are clipped
+ECOSTRESS LST,per-overpass,2819,933,33.1,cannot be imputed at 92.5% day-level missing,never interpolate LST in time; overpass hour varies 0-23 local
+HLS NDVI/NDMI,monthly attempt,413,220,53.3,no - use as sparse labels only,"never interpolate; 19% of values come from <=5 valid pixels, 32% from <10% coverage"
+GRACE LWE,monthly,399,399,100.0,none within 2022-01..2026-09,do not upsample to daily; only 4 independent mascon series exist
+SRTM terrain,static,7,7,100.0,none,static covariate

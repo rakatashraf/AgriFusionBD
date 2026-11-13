@@ -1,0 +1,14 @@
+field,value
+source,NASA ECOSTRESS ECO_L2T_LSTE v002 (LP DAAC)
+collection,C2076090826-LPCLOUD
+variable,"LST 3x3-pixel median around the region coordinate, in kelvin and celsius"
+requested_period,2022-01-01 to 2026-11-11
+returned_period,2022-01-01 to 2026-11-03
+overpass_records,2819
+records_with_lst,933
+grid_resolution,"70 m product grid, irregular overpass times"
+note,"Empty lst values mean the source pixel had no retrieval (cloud or quality), not a missing download."
+note,Roughly a third of overpasses yield a usable surface temperature at these points.
+note,Surface temperature is not 2 m air temperature.
+note,qc is the raw QC band value at the centre pixel; it does not flag the cloudy pixels - an empty lst does.
+note,"Granules are sampled then discarded; no imagery is stored, only point records."

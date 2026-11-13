@@ -1,0 +1,8 @@
+region,rainfall (GPM) · last,rainfall (GPM) · age d,rainfall (GPM) · 30d %,soil moisture (SMAP) · last,soil moisture (SMAP) · age d,soil moisture (SMAP) · 30d %,vegetation (HLS NDVI) · last,vegetation (HLS NDVI) · age d,vegetation (HLS NDVI) · 30d %,surface temp (ECOSTRESS) · last,surface temp (ECOSTRESS) · age d,surface temp (ECOSTRESS) · 30d %,water storage (GRACE) · last,water storage (GRACE) · age d,water storage (GRACE) · 30d %,weather (POWER) · last,weather (POWER) · age d,weather (POWER) · 30d %
+Central Dhaka,2026-10-25,0,100.0,2026-10-25,0,60.0,2026-10-25,0,83.0,2026-10-25,0,90.0,2026-10-25,0,100.0,2026-10-22,3,90.0
+North Rangpur,2026-10-25,0,100.0,2026-10-25,0,67.0,2026-10-25,0,100.0,2026-10-25,0,97.0,2026-10-25,0,100.0,2026-10-22,3,90.0
+Northeast Sylhet,2026-10-25,0,100.0,2026-10-25,0,60.0,2026-10-25,0,100.0,2026-10-25,0,100.0,2026-10-25,0,100.0,2026-10-22,3,90.0
+Northwest Rajshahi,2026-10-25,0,100.0,2026-10-25,0,67.0,2026-08-18,68,0.0,2026-10-25,0,97.0,2026-10-25,0,100.0,2026-10-22,3,90.0
+South Barishal,2026-10-25,0,100.0,2026-10-25,0,67.0,2025-12-30,299,0.0,2026-10-25,0,100.0,2026-10-25,0,100.0,2026-10-22,3,90.0
+Southeast Chattogram,2026-10-25,0,100.0,2026-10-25,0,57.0,2026-10-25,0,100.0,2026-10-25,0,97.0,2026-10-25,0,100.0,2026-10-22,3,90.0
+Southwest Khulna,2026-10-25,0,100.0,2026-10-25,0,67.0,2026-08-18,68,0.0,2026-10-25,0,100.0,2026-10-25,0,100.0,2026-10-22,3,90.0

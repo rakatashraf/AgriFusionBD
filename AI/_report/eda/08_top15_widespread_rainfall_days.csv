@@ -1,0 +1,16 @@
+date,mean_mm_across_7_regions,daily_uniform,n_regions_gt_50mm,max_region_mm,argmax_region
+2024-05-27,84.58,,5,171.3,Southeast_Chattogram
+2024-07-01,78.94,,5,142.19,Northeast_Sylhet
+2022-10-24,75.85,,4,152.44,Central_Dhaka
+2022-06-17,70.52,,3,159.63,Northeast_Sylhet
+2025-05-29,63.2,,4,124.64,Southeast_Chattogram
+2023-10-05,62.94,,4,175.25,Central_Dhaka
+2023-08-07,59.9,,4,108.43,South_Barishal
+2023-08-06,57.56,,3,173.6,Southeast_Chattogram
+2024-08-02,57.29,,4,88.73,Southwest_Khulna
+2024-08-01,56.78,,3,119.73,Southeast_Chattogram
+2023-06-15,53.66,,2,172.24,North_Rangpur
+2024-09-15,51.0,,4,88.15,South_Barishal
+2024-06-18,50.28,,3,129.57,North_Rangpur
+2025-06-01,49.09,,3,138.73,Southeast_Chattogram
+2022-06-16,48.5,,3,144.25,Northeast_Sylhet

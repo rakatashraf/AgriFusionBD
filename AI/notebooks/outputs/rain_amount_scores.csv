@@ -1,0 +1,4 @@
+model,MAE mm
+climatology (mean wet-day amount),11.27
+"gradient boosting, squared error",10.85
+"gradient boosting, gamma loss",8.23

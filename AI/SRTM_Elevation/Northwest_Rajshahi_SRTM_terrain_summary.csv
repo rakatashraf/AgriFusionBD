@@ -1,0 +1,2 @@
+region,latitude,longitude,tile,window_deg,pixel_size_m,elevation_mean_m,elevation_min_m,elevation_max_m,elevation_std_m,slope_mean_deg,slope_max_deg,valid_pixels
+Northwest_Rajshahi,24.37,88.6,N24E088.hgt,+/-0.05,30,18.48945296613746,1.0,43.0,3.92161571068887,1.7310445173954787,36.16893488396254,130321

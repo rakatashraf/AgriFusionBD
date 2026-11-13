@@ -1,0 +1,4 @@
+season,n_months,corr,mean_sm,mean_rain
+dry (Nov-Mar),24,-0.086,0.365,19.2
+wet (Apr-Oct),35,0.655,0.407,300.7
+all,59,0.552,0.39,186.2

@@ -1,0 +1,8 @@
+region,n_valid,max,n_at_max,pct_at_max,second_distinct_max
+Central_Dhaka,1053,0.5389,116,11.02,0.5387
+North_Rangpur,1255,0.5059,236,18.8,0.5052
+Northeast_Sylhet,1053,0.5925,133,12.63,0.5922
+Northwest_Rajshahi,1252,0.5001,16,1.28,0.4988
+South_Barishal,1202,0.569,139,11.56,0.5688
+Southeast_Chattogram,1012,0.5686,13,1.28,0.565
+Southwest_Khulna,1258,0.5862,127,10.1,0.5861

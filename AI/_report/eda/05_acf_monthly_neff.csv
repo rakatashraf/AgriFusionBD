@@ -1,0 +1,9 @@
+,lag1_acf,n_months,n_eff
+GPM precip (monthly mean),0.7114671167412985,59,9.9
+GPM precip (monthly total),0.7120427427355212,59,9.9
+POWER PRECTOTCORR (monthly mean),0.692248239480007,59,10.7
+POWER T2M (monthly mean),0.7884921013348033,59,7.0
+SMAP soil moisture am (monthly mean),0.6955151159535147,59,10.6
+HLS NDVI (monthly mean),0.48671237765076647,59,20.4
+ECOSTRESS LST (monthly mean),0.6308187956135447,59,13.4
+"GRACE LWE (monthly, mascon 1321)",0.8138554418555637,59,6.1

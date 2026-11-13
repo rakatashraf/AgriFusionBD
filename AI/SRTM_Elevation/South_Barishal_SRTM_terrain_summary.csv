@@ -1,0 +1,2 @@
+region,latitude,longitude,tile,window_deg,pixel_size_m,elevation_mean_m,elevation_min_m,elevation_max_m,elevation_std_m,slope_mean_deg,slope_max_deg,valid_pixels
+South_Barishal,22.7,90.35,N22E090.hgt,+/-0.05,30,6.627581126602773,-6.0,29.0,3.1800952423481075,2.4882400138524656,26.842795672040804,130321

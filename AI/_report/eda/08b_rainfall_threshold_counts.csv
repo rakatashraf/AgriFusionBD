@@ -1,0 +1,8 @@
+region,days_ge_10,days_ge_25,days_ge_50,days_ge_100,days_ge_150,days_eq_0,max_mm,max_date,annual_mean_mm
+Central_Dhaka,288,118,34,5,2,861,175.25,2023-10-05,2051.2
+North_Rangpur,282,142,45,6,1,953,172.24,2023-06-15,2216.6
+Northeast_Sylhet,466,208,71,16,5,737,194.97,2022-06-18,3474.3
+Northwest_Rajshahi,190,65,11,0,0,993,85.25,2024-07-11,1226.6
+South_Barishal,302,121,41,7,0,855,134.28,2022-10-24,2180.1
+Southeast_Chattogram,377,178,63,18,2,818,173.6,2023-08-06,2952.5
+Southwest_Khulna,243,93,24,1,0,817,112.45,2022-10-24,1722.6

@@ -1,0 +1,14 @@
+field,value
+source,"NASA SMAP SPL3SMP_E v006 (NSIDC DAAC), Harmony HOSS spatial subset"
+collection,C2938664763-NSIDC_CPRD
+variable,"soil_moisture (m3/m3 volumetric), soil_moisture_error, retrieval_qual_flag, surface_flag"
+requested_period,2022-01-01 to 2026-11-11
+returned_period,2022-01-01 to 2026-11-09
+days_on_disk,1725
+rows,24206
+retrieved_values,9618
+grid_resolution,9 km EASE-Grid 2.0 enhanced product
+note,Grid spacing is not independent 9 km measurement detail; a point selects a grid cell.
+note,Not a rover-depth or field moisture substitute. AM and PM overpasses are separate retrievals.
+note,Values are volumetric fraction: 0.30 means 30 percent.
+note,"soil_moisture_error and freeze_thaw_fraction are empty: the source subsets carry only the -9999 fill, which is stored as null rather than as a number."

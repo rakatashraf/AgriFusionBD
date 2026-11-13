@@ -1,0 +1,12 @@
+field,value
+source,"NASA GPM IMERG (GES DISC), OPeNDAP point extraction"
+products,GPM_3IMERGDF v07 Final Run; GPM_3IMERGDL v07 Late Run
+variable,"precipitation - daily accumulated rate, mm/day"
+requested_period,2022-01-01 to 2026-11-11
+returned_period,2022-01-01 to 2026-11-09
+returned_days,1774
+final_run_days,1369
+late_run_days,405
+grid_resolution,0.1 degree global grid (about 11 km)
+note,A coordinate selects a grid cell; it is not a measurement at that exact point.
+note,Final Run ends before present; the Late Run covers recent months and may be revised.

@@ -1,0 +1,281 @@
+region,crop,year,days,et0_mm,etc_mm,rain_mm,effective_rain_mm,irrigation_demand_mm,heat_days_35,paddy
+Northwest_Rajshahi,Boro rice (paddy),2022,120,485.0,582.0,79.0,20.0,563.0,46,True
+Northwest_Rajshahi,Boro rice (paddy),2023,151,571.0,685.0,96.0,30.0,655.0,42,True
+Northwest_Rajshahi,Boro rice (paddy),2024,152,563.0,675.0,80.0,20.0,655.0,37,True
+Northwest_Rajshahi,Boro rice (paddy),2025,151,534.0,641.0,77.0,18.0,623.0,34,True
+Northwest_Rajshahi,Boro rice (paddy),2026,151,508.0,610.0,90.0,26.0,584.0,29,True
+Northwest_Rajshahi,Aman rice (paddy),2022,153,601.0,662.0,761.0,645.0,17.0,16,True
+Northwest_Rajshahi,Aman rice (paddy),2023,153,596.0,655.0,1026.0,906.0,0.0,21,True
+Northwest_Rajshahi,Aman rice (paddy),2024,153,552.0,607.0,1198.0,1076.0,0.0,16,True
+Northwest_Rajshahi,Aman rice (paddy),2025,153,530.0,583.0,1219.0,1098.0,0.0,4,True
+Northwest_Rajshahi,Aman rice (paddy),2026,147,549.0,604.0,542.0,430.0,174.0,4,True
+Northwest_Rajshahi,Aus rice,2022,122,628.0,691.0,448.0,339.0,352.0,63,True
+Northwest_Rajshahi,Aus rice,2023,122,650.0,715.0,477.0,367.0,348.0,67,True
+Northwest_Rajshahi,Aus rice,2024,122,666.0,733.0,577.0,464.0,269.0,69,True
+Northwest_Rajshahi,Aus rice,2025,122,551.0,606.0,830.0,712.0,0.0,39,True
+Northwest_Rajshahi,Aus rice,2026,122,537.0,591.0,371.0,266.0,325.0,37,True
+Northwest_Rajshahi,Wheat,2022,151,444.0,510.0,55.0,8.0,503.0,17,False
+Northwest_Rajshahi,Wheat,2023,151,463.0,532.0,94.0,29.0,503.0,17,False
+Northwest_Rajshahi,Wheat,2024,152,410.0,471.0,44.0,4.0,467.0,7,False
+Northwest_Rajshahi,Wheat,2025,151,436.0,502.0,25.0,0.0,502.0,16,False
+Northwest_Rajshahi,Maize,2022,151,444.0,533.0,55.0,8.0,525.0,17,False
+Northwest_Rajshahi,Maize,2023,151,463.0,555.0,94.0,29.0,526.0,17,False
+Northwest_Rajshahi,Maize,2024,152,410.0,491.0,44.0,4.0,488.0,7,False
+Northwest_Rajshahi,Maize,2025,151,436.0,524.0,25.0,0.0,524.0,16,False
+Northwest_Rajshahi,Potato,2022,120,282.0,325.0,53.0,7.0,318.0,0,False
+Northwest_Rajshahi,Potato,2023,120,320.0,368.0,38.0,2.0,366.0,1,False
+Northwest_Rajshahi,Potato,2024,121,273.0,314.0,13.0,0.0,314.0,0,False
+Northwest_Rajshahi,Potato,2025,120,279.0,321.0,8.0,0.0,321.0,0,False
+Northwest_Rajshahi,Mustard,2022,123,302.0,332.0,93.0,28.0,304.0,0,False
+Northwest_Rajshahi,Mustard,2023,123,300.0,330.0,189.0,101.0,229.0,0,False
+Northwest_Rajshahi,Mustard,2024,123,268.0,295.0,143.0,64.0,231.0,0,False
+Northwest_Rajshahi,Mustard,2025,123,279.0,307.0,141.0,62.0,245.0,0,False
+Northwest_Rajshahi,Lentil,2022,120,282.0,311.0,53.0,7.0,304.0,0,False
+Northwest_Rajshahi,Lentil,2023,120,320.0,352.0,38.0,2.0,350.0,1,False
+Northwest_Rajshahi,Lentil,2024,121,273.0,300.0,13.0,0.0,300.0,0,False
+Northwest_Rajshahi,Lentil,2025,120,279.0,307.0,8.0,0.0,307.0,0,False
+Northwest_Rajshahi,Jute,2022,122,628.0,691.0,448.0,339.0,352.0,63,False
+Northwest_Rajshahi,Jute,2023,122,650.0,715.0,477.0,367.0,348.0,67,False
+Northwest_Rajshahi,Jute,2024,122,666.0,733.0,577.0,464.0,269.0,69,False
+Northwest_Rajshahi,Jute,2025,122,551.0,606.0,830.0,712.0,0.0,39,False
+Northwest_Rajshahi,Jute,2026,122,537.0,591.0,371.0,266.0,325.0,37,False
+North_Rangpur,Boro rice (paddy),2022,120,407.0,489.0,332.0,229.0,259.0,17,True
+North_Rangpur,Boro rice (paddy),2023,151,534.0,640.0,125.0,50.0,590.0,23,True
+North_Rangpur,Boro rice (paddy),2024,152,565.0,679.0,93.0,28.0,650.0,34,True
+North_Rangpur,Boro rice (paddy),2025,151,520.0,624.0,174.0,89.0,535.0,22,True
+North_Rangpur,Boro rice (paddy),2026,151,437.0,524.0,419.0,312.0,212.0,1,True
+North_Rangpur,Aman rice (paddy),2022,153,534.0,588.0,1610.0,1486.0,0.0,0,True
+North_Rangpur,Aman rice (paddy),2023,153,552.0,608.0,1815.0,1690.0,0.0,11,True
+North_Rangpur,Aman rice (paddy),2024,153,523.0,575.0,1953.0,1828.0,0.0,4,True
+North_Rangpur,Aman rice (paddy),2025,153,553.0,608.0,1593.0,1469.0,0.0,0,True
+North_Rangpur,Aman rice (paddy),2026,147,530.0,584.0,906.0,787.0,0.0,0,True
+North_Rangpur,Aus rice,2022,122,470.0,516.0,1586.0,1463.0,0.0,3,True
+North_Rangpur,Aus rice,2023,122,599.0,659.0,1070.0,950.0,0.0,47,True
+North_Rangpur,Aus rice,2024,122,606.0,666.0,1387.0,1265.0,0.0,50,True
+North_Rangpur,Aus rice,2025,122,525.0,577.0,1238.0,1116.0,0.0,16,True
+North_Rangpur,Aus rice,2026,122,449.0,494.0,1140.0,1019.0,0.0,1,True
+North_Rangpur,Wheat,2022,151,424.0,487.0,87.0,25.0,462.0,14,False
+North_Rangpur,Wheat,2023,151,441.0,507.0,85.0,23.0,484.0,3,False
+North_Rangpur,Wheat,2024,152,429.0,493.0,80.0,20.0,473.0,4,False
+North_Rangpur,Wheat,2025,151,439.0,505.0,18.0,0.0,505.0,10,False
+North_Rangpur,Maize,2022,151,424.0,508.0,87.0,25.0,484.0,14,False
+North_Rangpur,Maize,2023,151,441.0,529.0,85.0,23.0,506.0,3,False
+North_Rangpur,Maize,2024,152,429.0,515.0,80.0,20.0,495.0,4,False
+North_Rangpur,Maize,2025,151,439.0,527.0,18.0,0.0,527.0,10,False
+North_Rangpur,Potato,2022,120,275.0,317.0,73.0,16.0,300.0,0,False
+North_Rangpur,Potato,2023,120,304.0,350.0,14.0,0.0,350.0,0,False
+North_Rangpur,Potato,2024,121,284.0,327.0,12.0,0.0,327.0,0,False
+North_Rangpur,Potato,2025,120,278.0,320.0,14.0,0.0,320.0,0,False
+North_Rangpur,Mustard,2022,123,295.0,325.0,119.0,46.0,279.0,0,False
+North_Rangpur,Mustard,2023,123,298.0,327.0,178.0,92.0,236.0,0,False
+North_Rangpur,Mustard,2024,123,269.0,296.0,156.0,74.0,222.0,0,False
+North_Rangpur,Mustard,2025,123,280.0,308.0,270.0,173.0,135.0,0,False
+North_Rangpur,Lentil,2022,120,275.0,303.0,73.0,16.0,286.0,0,False
+North_Rangpur,Lentil,2023,120,304.0,335.0,14.0,0.0,335.0,0,False
+North_Rangpur,Lentil,2024,121,284.0,313.0,12.0,0.0,313.0,0,False
+North_Rangpur,Lentil,2025,120,278.0,306.0,14.0,0.0,306.0,0,False
+North_Rangpur,Jute,2022,122,470.0,516.0,1586.0,1463.0,0.0,3,False
+North_Rangpur,Jute,2023,122,599.0,659.0,1070.0,950.0,0.0,47,False
+North_Rangpur,Jute,2024,122,606.0,666.0,1387.0,1265.0,0.0,50,False
+North_Rangpur,Jute,2025,122,525.0,577.0,1238.0,1116.0,0.0,16,False
+North_Rangpur,Jute,2026,122,449.0,494.0,1140.0,1019.0,0.0,1,False
+Central_Dhaka,Boro rice (paddy),2022,120,480.0,576.0,166.0,82.0,493.0,42,True
+Central_Dhaka,Boro rice (paddy),2023,151,534.0,641.0,125.0,50.0,591.0,26,True
+Central_Dhaka,Boro rice (paddy),2024,152,522.0,627.0,167.0,83.0,544.0,32,True
+Central_Dhaka,Boro rice (paddy),2025,151,528.0,633.0,136.0,59.0,574.0,32,True
+Central_Dhaka,Boro rice (paddy),2026,151,490.0,589.0,312.0,211.0,378.0,11,True
+Central_Dhaka,Aman rice (paddy),2022,153,544.0,598.0,1393.0,1271.0,0.0,0,True
+Central_Dhaka,Aman rice (paddy),2023,153,530.0,583.0,1545.0,1422.0,0.0,1,True
+Central_Dhaka,Aman rice (paddy),2024,153,493.0,542.0,1882.0,1757.0,0.0,0,True
+Central_Dhaka,Aman rice (paddy),2025,153,515.0,566.0,1667.0,1544.0,0.0,0,True
+Central_Dhaka,Aman rice (paddy),2026,147,519.0,571.0,926.0,807.0,0.0,0,True
+Central_Dhaka,Aus rice,2022,122,533.0,586.0,993.0,873.0,0.0,32,True
+Central_Dhaka,Aus rice,2023,122,552.0,607.0,826.0,708.0,0.0,36,True
+Central_Dhaka,Aus rice,2024,122,546.0,600.0,1025.0,905.0,0.0,39,True
+Central_Dhaka,Aus rice,2025,122,493.0,543.0,1393.0,1271.0,0.0,25,True
+Central_Dhaka,Aus rice,2026,122,447.0,491.0,876.0,758.0,0.0,11,True
+Central_Dhaka,Wheat,2022,151,450.0,517.0,61.0,10.0,507.0,14,False
+Central_Dhaka,Wheat,2023,151,445.0,511.0,180.0,94.0,418.0,5,False
+Central_Dhaka,Wheat,2024,152,423.0,487.0,115.0,43.0,444.0,2,False
+Central_Dhaka,Wheat,2025,151,458.0,526.0,54.0,7.0,519.0,15,False
+Central_Dhaka,Maize,2022,151,450.0,540.0,61.0,10.0,529.0,14,False
+Central_Dhaka,Maize,2023,151,445.0,534.0,180.0,94.0,440.0,5,False
+Central_Dhaka,Maize,2024,152,423.0,508.0,115.0,43.0,465.0,2,False
+Central_Dhaka,Maize,2025,151,458.0,549.0,54.0,7.0,542.0,15,False
+Central_Dhaka,Potato,2022,120,294.0,338.0,50.0,6.0,333.0,0,False
+Central_Dhaka,Potato,2023,120,310.0,357.0,97.0,31.0,326.0,0,False
+Central_Dhaka,Potato,2024,121,292.0,336.0,36.0,2.0,334.0,0,False
+Central_Dhaka,Potato,2025,120,302.0,347.0,45.0,4.0,343.0,0,False
+Central_Dhaka,Mustard,2022,123,310.0,342.0,302.0,202.0,140.0,0,False
+Central_Dhaka,Mustard,2023,123,302.0,332.0,339.0,236.0,96.0,0,False
+Central_Dhaka,Mustard,2024,123,284.0,313.0,275.0,177.0,136.0,0,False
+Central_Dhaka,Mustard,2025,123,305.0,335.0,202.0,112.0,223.0,0,False
+Central_Dhaka,Lentil,2022,120,294.0,323.0,50.0,6.0,318.0,0,False
+Central_Dhaka,Lentil,2023,120,310.0,341.0,97.0,31.0,310.0,0,False
+Central_Dhaka,Lentil,2024,121,292.0,321.0,36.0,2.0,319.0,0,False
+Central_Dhaka,Lentil,2025,120,302.0,332.0,45.0,4.0,328.0,0,False
+Central_Dhaka,Jute,2022,122,533.0,586.0,993.0,873.0,0.0,32,False
+Central_Dhaka,Jute,2023,122,552.0,607.0,826.0,708.0,0.0,36,False
+Central_Dhaka,Jute,2024,122,546.0,600.0,1025.0,905.0,0.0,39,False
+Central_Dhaka,Jute,2025,122,493.0,543.0,1393.0,1271.0,0.0,25,False
+Central_Dhaka,Jute,2026,122,447.0,491.0,876.0,758.0,0.0,11,False
+Northeast_Sylhet,Boro rice (paddy),2022,120,393.0,472.0,426.0,318.0,154.0,0,True
+Northeast_Sylhet,Boro rice (paddy),2023,151,478.0,573.0,286.0,187.0,387.0,1,True
+Northeast_Sylhet,Boro rice (paddy),2024,152,462.0,555.0,362.0,258.0,296.0,0,True
+Northeast_Sylhet,Boro rice (paddy),2025,151,466.0,560.0,315.0,213.0,346.0,0,True
+Northeast_Sylhet,Boro rice (paddy),2026,151,436.0,523.0,609.0,496.0,28.0,0,True
+Northeast_Sylhet,Aman rice (paddy),2022,153,521.0,574.0,2879.0,2752.0,0.0,1,True
+Northeast_Sylhet,Aman rice (paddy),2023,153,528.0,581.0,2770.0,2644.0,0.0,2,True
+Northeast_Sylhet,Aman rice (paddy),2024,153,501.0,551.0,2866.0,2739.0,0.0,6,True
+Northeast_Sylhet,Aman rice (paddy),2025,153,538.0,592.0,2104.0,1979.0,0.0,3,True
+Northeast_Sylhet,Aman rice (paddy),2026,147,519.0,571.0,1329.0,1207.0,0.0,0,True
+Northeast_Sylhet,Aus rice,2022,122,434.0,478.0,2948.0,2822.0,0.0,0,True
+Northeast_Sylhet,Aus rice,2023,122,503.0,553.0,1923.0,1798.0,0.0,1,True
+Northeast_Sylhet,Aus rice,2024,122,470.0,517.0,2459.0,2333.0,0.0,3,True
+Northeast_Sylhet,Aus rice,2025,122,466.0,512.0,2003.0,1878.0,0.0,2,True
+Northeast_Sylhet,Aus rice,2026,122,408.0,448.0,1434.0,1311.0,0.0,0,True
+Northeast_Sylhet,Wheat,2022,151,424.0,487.0,70.0,15.0,473.0,0,False
+Northeast_Sylhet,Wheat,2023,151,420.0,483.0,248.0,152.0,331.0,0,False
+Northeast_Sylhet,Wheat,2024,152,412.0,473.0,154.0,73.0,401.0,0,False
+Northeast_Sylhet,Wheat,2025,151,427.0,491.0,51.0,6.0,484.0,0,False
+Northeast_Sylhet,Maize,2022,151,424.0,509.0,70.0,15.0,494.0,0,False
+Northeast_Sylhet,Maize,2023,151,420.0,504.0,248.0,152.0,352.0,0,False
+Northeast_Sylhet,Maize,2024,152,412.0,494.0,154.0,73.0,421.0,0,False
+Northeast_Sylhet,Maize,2025,151,427.0,512.0,51.0,6.0,506.0,0,False
+Northeast_Sylhet,Potato,2022,120,293.0,337.0,58.0,9.0,328.0,0,False
+Northeast_Sylhet,Potato,2023,120,307.0,353.0,103.0,35.0,319.0,0,False
+Northeast_Sylhet,Potato,2024,121,294.0,338.0,53.0,7.0,331.0,0,False
+Northeast_Sylhet,Potato,2025,120,300.0,345.0,27.0,0.0,345.0,0,False
+Northeast_Sylhet,Mustard,2022,123,313.0,344.0,315.0,214.0,130.0,0,False
+Northeast_Sylhet,Mustard,2023,123,314.0,345.0,413.0,306.0,39.0,0,False
+Northeast_Sylhet,Mustard,2024,123,297.0,327.0,219.0,127.0,199.0,0,False
+Northeast_Sylhet,Mustard,2025,123,318.0,350.0,148.0,67.0,282.0,0,False
+Northeast_Sylhet,Lentil,2022,120,293.0,323.0,58.0,9.0,313.0,0,False
+Northeast_Sylhet,Lentil,2023,120,307.0,338.0,103.0,35.0,303.0,0,False
+Northeast_Sylhet,Lentil,2024,121,294.0,323.0,53.0,7.0,316.0,0,False
+Northeast_Sylhet,Lentil,2025,120,300.0,330.0,27.0,0.0,330.0,0,False
+Northeast_Sylhet,Jute,2022,122,434.0,478.0,2948.0,2822.0,0.0,0,False
+Northeast_Sylhet,Jute,2023,122,503.0,553.0,1923.0,1798.0,0.0,1,False
+Northeast_Sylhet,Jute,2024,122,470.0,517.0,2459.0,2333.0,0.0,3,False
+Northeast_Sylhet,Jute,2025,122,466.0,512.0,2003.0,1878.0,0.0,2,False
+Northeast_Sylhet,Jute,2026,122,408.0,448.0,1434.0,1311.0,0.0,0,False
+Southwest_Khulna,Boro rice (paddy),2022,120,519.0,623.0,97.0,31.0,592.0,48,True
+Southwest_Khulna,Boro rice (paddy),2023,151,560.0,672.0,111.0,40.0,631.0,44,True
+Southwest_Khulna,Boro rice (paddy),2024,152,559.0,670.0,105.0,36.0,634.0,41,True
+Southwest_Khulna,Boro rice (paddy),2025,151,568.0,682.0,98.0,31.0,651.0,43,True
+Southwest_Khulna,Boro rice (paddy),2026,151,537.0,645.0,126.0,51.0,594.0,35,True
+Southwest_Khulna,Aman rice (paddy),2022,153,548.0,602.0,1141.0,1020.0,0.0,2,True
+Southwest_Khulna,Aman rice (paddy),2023,153,519.0,570.0,1385.0,1263.0,0.0,10,True
+Southwest_Khulna,Aman rice (paddy),2024,153,496.0,546.0,1865.0,1740.0,0.0,1,True
+Southwest_Khulna,Aman rice (paddy),2025,153,493.0,542.0,1567.0,1443.0,0.0,1,True
+Southwest_Khulna,Aman rice (paddy),2026,147,511.0,563.0,702.0,587.0,0.0,0,True
+Southwest_Khulna,Aus rice,2022,122,598.0,658.0,582.0,469.0,188.0,47,True
+Southwest_Khulna,Aus rice,2023,122,565.0,621.0,760.0,643.0,0.0,54,True
+Southwest_Khulna,Aus rice,2024,122,594.0,654.0,854.0,736.0,0.0,47,True
+Southwest_Khulna,Aus rice,2025,122,497.0,546.0,1289.0,1167.0,0.0,30,True
+Southwest_Khulna,Aus rice,2026,122,485.0,534.0,585.0,472.0,62.0,29,True
+Southwest_Khulna,Wheat,2022,151,464.0,533.0,72.0,16.0,517.0,18,False
+Southwest_Khulna,Wheat,2023,151,468.0,538.0,146.0,67.0,472.0,18,False
+Southwest_Khulna,Wheat,2024,152,437.0,503.0,82.0,22.0,481.0,11,False
+Southwest_Khulna,Wheat,2025,151,490.0,563.0,42.0,3.0,560.0,24,False
+Southwest_Khulna,Maize,2022,151,464.0,556.0,72.0,16.0,540.0,18,False
+Southwest_Khulna,Maize,2023,151,468.0,562.0,146.0,67.0,495.0,18,False
+Southwest_Khulna,Maize,2024,152,437.0,525.0,82.0,22.0,503.0,11,False
+Southwest_Khulna,Maize,2025,151,490.0,588.0,42.0,3.0,585.0,24,False
+Southwest_Khulna,Potato,2022,120,305.0,351.0,70.0,15.0,336.0,0,False
+Southwest_Khulna,Potato,2023,120,329.0,378.0,86.0,24.0,354.0,3,False
+Southwest_Khulna,Potato,2024,121,301.0,347.0,54.0,7.0,340.0,0,False
+Southwest_Khulna,Potato,2025,120,320.0,368.0,39.0,2.0,366.0,0,False
+Southwest_Khulna,Mustard,2022,123,320.0,352.0,243.0,148.0,204.0,0,False
+Southwest_Khulna,Mustard,2023,123,316.0,348.0,274.0,176.0,171.0,0,False
+Southwest_Khulna,Mustard,2024,123,298.0,328.0,299.0,199.0,128.0,0,False
+Southwest_Khulna,Mustard,2025,123,318.0,350.0,160.0,77.0,273.0,0,False
+Southwest_Khulna,Lentil,2022,120,305.0,336.0,70.0,15.0,321.0,0,False
+Southwest_Khulna,Lentil,2023,120,329.0,361.0,86.0,24.0,337.0,3,False
+Southwest_Khulna,Lentil,2024,121,301.0,332.0,54.0,7.0,324.0,0,False
+Southwest_Khulna,Lentil,2025,120,320.0,352.0,39.0,2.0,350.0,0,False
+Southwest_Khulna,Jute,2022,122,598.0,658.0,582.0,469.0,188.0,47,False
+Southwest_Khulna,Jute,2023,122,565.0,621.0,760.0,643.0,0.0,54,False
+Southwest_Khulna,Jute,2024,122,594.0,654.0,854.0,736.0,0.0,47,False
+Southwest_Khulna,Jute,2025,122,497.0,546.0,1289.0,1167.0,0.0,30,False
+Southwest_Khulna,Jute,2026,122,485.0,534.0,585.0,472.0,62.0,29,False
+South_Barishal,Boro rice (paddy),2022,120,468.0,561.0,78.0,19.0,542.0,16,True
+South_Barishal,Boro rice (paddy),2023,151,523.0,628.0,81.0,21.0,607.0,16,True
+South_Barishal,Boro rice (paddy),2024,152,514.0,617.0,86.0,24.0,593.0,25,True
+South_Barishal,Boro rice (paddy),2025,151,531.0,637.0,121.0,47.0,590.0,18,True
+South_Barishal,Boro rice (paddy),2026,151,513.0,616.0,188.0,101.0,515.0,3,True
+South_Barishal,Aman rice (paddy),2022,153,551.0,606.0,1639.0,1515.0,0.0,0,True
+South_Barishal,Aman rice (paddy),2023,153,512.0,564.0,1735.0,1610.0,0.0,0,True
+South_Barishal,Aman rice (paddy),2024,153,494.0,543.0,2411.0,2285.0,0.0,0,True
+South_Barishal,Aman rice (paddy),2025,153,508.0,558.0,1907.0,1782.0,0.0,0,True
+South_Barishal,Aman rice (paddy),2026,147,450.0,495.0,967.0,847.0,0.0,0,True
+South_Barishal,Aus rice,2022,122,532.0,585.0,848.0,730.0,0.0,17,True
+South_Barishal,Aus rice,2023,122,539.0,593.0,791.0,674.0,0.0,23,True
+South_Barishal,Aus rice,2024,122,538.0,591.0,1058.0,938.0,0.0,29,True
+South_Barishal,Aus rice,2025,122,464.0,511.0,1624.0,1500.0,0.0,7,True
+South_Barishal,Aus rice,2026,122,451.0,496.0,668.0,553.0,0.0,3,True
+South_Barishal,Wheat,2022,151,460.0,529.0,54.0,7.0,522.0,1,False
+South_Barishal,Wheat,2023,151,446.0,513.0,205.0,115.0,398.0,0,False
+South_Barishal,Wheat,2024,152,431.0,496.0,72.0,16.0,480.0,0,False
+South_Barishal,Wheat,2025,151,474.0,545.0,20.0,0.0,545.0,12,False
+South_Barishal,Maize,2022,151,460.0,552.0,54.0,7.0,545.0,1,False
+South_Barishal,Maize,2023,151,446.0,535.0,205.0,115.0,420.0,0,False
+South_Barishal,Maize,2024,152,431.0,518.0,72.0,16.0,501.0,0,False
+South_Barishal,Maize,2025,151,474.0,568.0,20.0,0.0,568.0,12,False
+South_Barishal,Potato,2022,120,311.0,358.0,49.0,6.0,352.0,0,False
+South_Barishal,Potato,2023,120,315.0,362.0,156.0,74.0,288.0,0,False
+South_Barishal,Potato,2024,121,304.0,350.0,37.0,2.0,348.0,0,False
+South_Barishal,Potato,2025,120,319.0,367.0,19.0,0.0,367.0,0,False
+South_Barishal,Mustard,2022,123,329.0,362.0,354.0,250.0,112.0,0,False
+South_Barishal,Mustard,2023,123,317.0,349.0,394.0,288.0,61.0,0,False
+South_Barishal,Mustard,2024,123,315.0,347.0,333.0,231.0,116.0,0,False
+South_Barishal,Mustard,2025,123,329.0,362.0,147.0,67.0,295.0,0,False
+South_Barishal,Lentil,2022,120,311.0,342.0,49.0,6.0,337.0,0,False
+South_Barishal,Lentil,2023,120,315.0,346.0,156.0,74.0,272.0,0,False
+South_Barishal,Lentil,2024,121,304.0,335.0,37.0,2.0,333.0,0,False
+South_Barishal,Lentil,2025,120,319.0,351.0,19.0,0.0,351.0,0,False
+South_Barishal,Jute,2022,122,532.0,585.0,848.0,730.0,0.0,17,False
+South_Barishal,Jute,2023,122,539.0,593.0,791.0,674.0,0.0,23,False
+South_Barishal,Jute,2024,122,538.0,591.0,1058.0,938.0,0.0,29,False
+South_Barishal,Jute,2025,122,464.0,511.0,1624.0,1500.0,0.0,7,False
+South_Barishal,Jute,2026,122,451.0,496.0,668.0,553.0,0.0,3,False
+Southeast_Chattogram,Boro rice (paddy),2022,120,485.0,582.0,87.0,25.0,558.0,2,True
+Southeast_Chattogram,Boro rice (paddy),2023,151,566.0,679.0,68.0,14.0,665.0,9,True
+Southeast_Chattogram,Boro rice (paddy),2024,152,555.0,666.0,112.0,41.0,625.0,15,True
+Southeast_Chattogram,Boro rice (paddy),2025,151,561.0,673.0,122.0,48.0,625.0,3,True
+Southeast_Chattogram,Boro rice (paddy),2026,151,546.0,656.0,322.0,221.0,435.0,0,True
+Southeast_Chattogram,Aman rice (paddy),2022,153,601.0,661.0,1974.0,1849.0,0.0,0,True
+Southeast_Chattogram,Aman rice (paddy),2023,153,565.0,622.0,2297.0,2171.0,0.0,0,True
+Southeast_Chattogram,Aman rice (paddy),2024,153,533.0,586.0,3166.0,3039.0,0.0,1,True
+Southeast_Chattogram,Aman rice (paddy),2025,153,549.0,604.0,2434.0,2308.0,0.0,0,True
+Southeast_Chattogram,Aman rice (paddy),2026,147,487.0,536.0,1818.0,1694.0,0.0,0,True
+Southeast_Chattogram,Aus rice,2022,122,544.0,599.0,1365.0,1243.0,0.0,3,True
+Southeast_Chattogram,Aus rice,2023,122,566.0,622.0,903.0,784.0,0.0,14,True
+Southeast_Chattogram,Aus rice,2024,122,549.0,604.0,1758.0,1633.0,0.0,17,True
+Southeast_Chattogram,Aus rice,2025,122,484.0,533.0,2090.0,1964.0,0.0,3,True
+Southeast_Chattogram,Aus rice,2026,122,472.0,520.0,1656.0,1532.0,0.0,0,True
+Southeast_Chattogram,Wheat,2022,151,498.0,573.0,28.0,0.0,573.0,1,False
+Southeast_Chattogram,Wheat,2023,151,494.0,568.0,148.0,68.0,500.0,1,False
+Southeast_Chattogram,Wheat,2024,152,479.0,551.0,84.0,23.0,529.0,0,False
+Southeast_Chattogram,Wheat,2025,151,512.0,589.0,28.0,0.0,588.0,0,False
+Southeast_Chattogram,Maize,2022,151,498.0,598.0,28.0,0.0,598.0,1,False
+Southeast_Chattogram,Maize,2023,151,494.0,593.0,148.0,68.0,525.0,1,False
+Southeast_Chattogram,Maize,2024,152,479.0,575.0,84.0,23.0,553.0,0,False
+Southeast_Chattogram,Maize,2025,151,512.0,614.0,28.0,0.0,614.0,0,False
+Southeast_Chattogram,Potato,2022,120,343.0,395.0,22.0,0.0,395.0,0,False
+Southeast_Chattogram,Potato,2023,120,356.0,410.0,115.0,43.0,366.0,0,False
+Southeast_Chattogram,Potato,2024,121,339.0,389.0,33.0,1.0,388.0,0,False
+Southeast_Chattogram,Potato,2025,120,356.0,409.0,27.0,0.0,409.0,0,False
+Southeast_Chattogram,Mustard,2022,123,364.0,400.0,211.0,120.0,280.0,0,False
+Southeast_Chattogram,Mustard,2023,123,355.0,391.0,306.0,206.0,185.0,0,False
+Southeast_Chattogram,Mustard,2024,123,348.0,383.0,208.0,117.0,266.0,0,False
+Southeast_Chattogram,Mustard,2025,123,366.0,402.0,150.0,69.0,333.0,0,False
+Southeast_Chattogram,Lentil,2022,120,343.0,378.0,22.0,0.0,378.0,0,False
+Southeast_Chattogram,Lentil,2023,120,356.0,392.0,115.0,43.0,349.0,0,False
+Southeast_Chattogram,Lentil,2024,121,339.0,373.0,33.0,1.0,372.0,0,False
+Southeast_Chattogram,Lentil,2025,120,356.0,392.0,27.0,0.0,391.0,0,False
+Southeast_Chattogram,Jute,2022,122,544.0,599.0,1365.0,1243.0,0.0,3,False
+Southeast_Chattogram,Jute,2023,122,566.0,622.0,903.0,784.0,0.0,14,False
+Southeast_Chattogram,Jute,2024,122,549.0,604.0,1758.0,1633.0,0.0,17,False
+Southeast_Chattogram,Jute,2025,122,484.0,533.0,2090.0,1964.0,0.0,3,False
+Southeast_Chattogram,Jute,2026,122,472.0,520.0,1656.0,1532.0,0.0,0,False

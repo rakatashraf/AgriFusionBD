@@ -1,0 +1,71 @@
+variable,region,peak_month,trough_month,peak_value,trough_value,amplitude,amplitude_pct_of_mean,cv_of_monthly_means
+GPM precipitation (mm/day),Central_Dhaka,8,1,11.205,0.106,11.099,203.8,0.854
+GPM precipitation (mm/day),North_Rangpur,6,11,16.636,0.021,16.615,282.5,0.943
+GPM precipitation (mm/day),Northeast_Sylhet,6,1,28.083,0.113,27.97,303.0,0.976
+GPM precipitation (mm/day),Northwest_Rajshahi,8,11,8.047,0.076,7.971,245.3,0.974
+GPM precipitation (mm/day),South_Barishal,8,1,15.806,0.109,15.697,271.4,0.977
+GPM precipitation (mm/day),Southeast_Chattogram,8,1,22.248,0.069,22.179,283.4,1.06
+GPM precipitation (mm/day),Southwest_Khulna,7,1,11.112,0.181,10.931,238.9,0.93
+POWER PRECTOTCORR (mm/day),Central_Dhaka,6,1,14.561,0.422,14.139,197.4,0.821
+POWER PRECTOTCORR (mm/day),North_Rangpur,6,1,21.7,0.106,21.593,300.7,0.953
+POWER PRECTOTCORR (mm/day),Northeast_Sylhet,6,1,38.99,0.202,38.788,283.1,0.944
+POWER PRECTOTCORR (mm/day),Northwest_Rajshahi,9,11,10.067,0.297,9.77,216.6,0.886
+POWER PRECTOTCORR (mm/day),South_Barishal,8,1,23.561,0.265,23.297,247.2,0.923
+POWER PRECTOTCORR (mm/day),Southeast_Chattogram,8,1,25.816,0.23,25.585,262.1,0.991
+POWER PRECTOTCORR (mm/day),Southwest_Khulna,7,12,13.082,0.606,12.476,212.5,0.85
+POWER T2M (C),Central_Dhaka,4,1,29.621,17.509,12.112,47.6,0.171
+POWER T2M (C),North_Rangpur,7,1,29.255,16.935,12.321,49.4,0.189
+POWER T2M (C),Northeast_Sylhet,7,1,28.436,17.263,11.173,45.6,0.17
+POWER T2M (C),Northwest_Rajshahi,4,1,30.979,16.531,14.448,56.5,0.204
+POWER T2M (C),South_Barishal,4,1,29.41,17.988,11.422,44.4,0.158
+POWER T2M (C),Southeast_Chattogram,5,1,28.756,18.363,10.393,40.5,0.146
+POWER T2M (C),Southwest_Khulna,4,1,31.133,17.381,13.752,53.5,0.181
+POWER RH2M (%),Central_Dhaka,8,3,89.211,57.513,31.698,41.0,0.15
+POWER RH2M (%),North_Rangpur,7,3,87.057,53.935,33.122,43.8,0.162
+POWER RH2M (%),Northeast_Sylhet,8,2,88.878,66.653,22.225,28.1,0.1
+POWER RH2M (%),Northwest_Rajshahi,9,4,88.119,47.825,40.294,55.6,0.196
+POWER RH2M (%),South_Barishal,8,3,89.391,66.512,22.879,28.5,0.102
+POWER RH2M (%),Southeast_Chattogram,8,2,88.599,64.491,24.108,30.5,0.107
+POWER RH2M (%),Southwest_Khulna,9,3,89.716,55.302,34.414,45.2,0.171
+POWER ALLSKY_SFC_SW_DWN (MJ/m2/d),Central_Dhaka,4,1,19.214,11.776,7.438,47.7,0.14
+POWER ALLSKY_SFC_SW_DWN (MJ/m2/d),North_Rangpur,4,1,18.622,11.649,6.973,44.5,0.133
+POWER ALLSKY_SFC_SW_DWN (MJ/m2/d),Northeast_Sylhet,4,12,18.915,13.358,5.557,34.8,0.111
+POWER ALLSKY_SFC_SW_DWN (MJ/m2/d),Northwest_Rajshahi,4,1,19.525,10.985,8.54,55.0,0.174
+POWER ALLSKY_SFC_SW_DWN (MJ/m2/d),South_Barishal,4,1,19.568,12.784,6.784,43.1,0.137
+POWER ALLSKY_SFC_SW_DWN (MJ/m2/d),Southeast_Chattogram,4,8,21.08,15.14,5.94,34.0,0.112
+POWER ALLSKY_SFC_SW_DWN (MJ/m2/d),Southwest_Khulna,4,1,19.489,12.599,6.89,44.1,0.14
+SMAP soil moisture am (m3/m3),Central_Dhaka,8,4,0.501,0.323,0.178,40.5,0.123
+SMAP soil moisture am (m3/m3),North_Rangpur,2,10,0.484,0.253,0.231,63.8,0.244
+SMAP soil moisture am (m3/m3),Northeast_Sylhet,6,3,0.556,0.245,0.311,77.0,0.261
+SMAP soil moisture am (m3/m3),Northwest_Rajshahi,8,4,0.441,0.235,0.207,62.3,0.161
+SMAP soil moisture am (m3/m3),South_Barishal,8,4,0.555,0.304,0.251,57.8,0.197
+SMAP soil moisture am (m3/m3),Southeast_Chattogram,8,4,0.428,0.24,0.188,61.8,0.196
+SMAP soil moisture am (m3/m3),Southwest_Khulna,8,4,0.553,0.242,0.311,68.9,0.224
+ECOSTRESS LST (C),Central_Dhaka,9,12,38.07,18.987,19.083,67.5,0.237
+ECOSTRESS LST (C),North_Rangpur,6,12,41.06,16.13,24.93,92.9,0.282
+ECOSTRESS LST (C),Northeast_Sylhet,7,2,37.166,19.677,17.489,63.2,0.223
+ECOSTRESS LST (C),Northwest_Rajshahi,9,12,38.685,17.272,21.413,78.0,0.236
+ECOSTRESS LST (C),South_Barishal,7,12,37.115,17.369,19.746,74.2,0.207
+ECOSTRESS LST (C),Southeast_Chattogram,9,12,33.092,21.908,11.184,40.1,0.15
+ECOSTRESS LST (C),Southwest_Khulna,6,12,33.418,16.928,16.489,61.6,0.189
+HLS NDVI,Central_Dhaka,9,2,0.651,0.297,0.354,82.8,0.256
+HLS NDVI,North_Rangpur,9,3,0.57,0.343,0.227,49.0,0.156
+HLS NDVI,Northeast_Sylhet,8,4,0.562,0.169,0.393,103.5,0.3
+HLS NDVI,Northwest_Rajshahi,11,2,0.319,0.2,0.119,46.4,0.16
+HLS NDVI,South_Barishal,10,1,0.841,0.285,0.557,101.3,0.271
+HLS NDVI,Southeast_Chattogram,9,2,0.481,0.22,0.261,74.8,0.25
+HLS NDVI,Southwest_Khulna,7,1,0.647,0.359,0.288,61.7,0.201
+HLS NDMI,Central_Dhaka,7,5,0.186,-0.045,0.231,653.6,2.264
+HLS NDMI,North_Rangpur,9,3,0.123,-0.015,0.137,257.6,0.748
+HLS NDMI,Northeast_Sylhet,8,3,0.11,-0.095,0.205,-1728.9,-5.416
+HLS NDMI,Northwest_Rajshahi,11,10,0.043,-0.046,0.089,-2777.9,-8.218
+HLS NDMI,South_Barishal,10,6,0.395,-0.217,0.612,494.4,1.385
+HLS NDMI,Southeast_Chattogram,7,4,0.107,-0.098,0.205,-825.4,-2.823
+HLS NDMI,Southwest_Khulna,7,1,0.234,-0.006,0.24,284.0,0.808
+GRACE LWE (cm),Central_Dhaka,9,4,35.286,-14.869,50.156,505.5,1.967
+GRACE LWE (cm),North_Rangpur,8,3,-20.444,-66.649,46.206,-103.2,-0.404
+GRACE LWE (cm),Northeast_Sylhet,9,4,35.286,-14.869,50.156,505.5,1.967
+GRACE LWE (cm),Northwest_Rajshahi,9,5,13.395,-29.895,43.29,-385.2,-1.387
+GRACE LWE (cm),South_Barishal,9,4,35.286,-14.869,50.156,505.5,1.967
+GRACE LWE (cm),Southeast_Chattogram,6,10,0.267,-12.696,12.962,-160.0,-0.46
+GRACE LWE (cm),Southwest_Khulna,9,4,35.286,-14.869,50.156,505.5,1.967

@@ -1,0 +1,8 @@
+region,days,valid,no_granule_row,row_but_not_mapped_surface_flag_2047,row_but_retrieval_qual_flag_7,row_but_null_other,pct_valid
+Central_Dhaka,1774,623,49,1099,0,3,35.1
+North_Rangpur,1774,634,49,1091,0,0,35.7
+Northeast_Sylhet,1774,625,49,1099,0,1,35.2
+Northwest_Rajshahi,1774,628,49,1097,0,0,35.4
+South_Barishal,1774,627,49,1098,0,0,35.3
+Southeast_Chattogram,1774,751,49,973,0,1,42.3
+Southwest_Khulna,1774,797,49,928,0,0,44.9

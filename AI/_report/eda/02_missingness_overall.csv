@@ -1,0 +1,10 @@
+,pct_missing,pct_valid,region_days_valid,region_days_total,days_with_any_obs,pct_days_covered,mean_regions_per_covered_day
+GPM precipitation_mm_day,0.0,100.0,12418,12418,1774,100.0,7.0
+POWER PRECTOTCORR (mm/day),1.01,98.99,12292,12418,1756,99.0,7.0
+POWER ALLSKY_SFC_SW_DWN,5.69,94.31,11711,12418,1673,94.3,7.0
+SMAP soil_moisture (am),62.27,37.73,4685,12418,973,54.8,4.82
+SMAP soil_moisture (pm),60.48,39.52,4907,12418,869,49.0,5.65
+SMAP soil_moisture (any pass),34.89,65.11,8085,12418,1264,71.3,6.4
+ECOSTRESS lst_celsius,92.55,7.45,925,12418,375,21.1,2.47
+HLS ndvi,98.23,1.77,220,12418,162,9.1,1.36
+GRACE lwe_thickness_cm (daily-interp view),96.79,3.21,399,12418,57,3.2,7.0
