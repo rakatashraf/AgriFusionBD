@@ -1,0 +1,15 @@
+dataset,variable,rule,why,n_flagged,pct_of_valid,n_Central_Dhaka,n_North_Rangpur,n_Northeast_Sylhet,n_Northwest_Rajshahi,n_South_Barishal,n_Southeast_Chattogram,n_Southwest_Khulna
+GPM,precipitation_mm_day,> 300 mm/day,physically impossible for a daily total,0,0.0,0,0,0,0,0,0,0
+POWER,PRECTOTCORR,> 300 mm/day,physically impossible for a daily total,0,0.0,0,0,0,0,0,0,0
+POWER,PRECTOTCORR,< 0 mm/day,negative precipitation,0,0.0,0,0,0,0,0,0,0
+POWER,RH2M,outside 0-100 %,invalid humidity,0,0.0,0,0,0,0,0,0,0
+POWER,WS2M,< 0 m/s,negative wind speed,0,0.0,0,0,0,0,0,0,0
+POWER,ALLSKY_SFC_SW_DWN,< 0 MJ/m2/day,negative irradiance,0,0.0,0,0,0,0,0,0,0
+POWER,PS,outside 50-110 kPa,invalid pressure,0,0.0,0,0,0,0,0,0,0
+POWER,T2M,outside -10..50 C,implausible air temp,0,0.0,0,0,0,0,0,0,0
+POWER,T2M,"T2M outside [MIN,MAX]",internal inconsistency,0,0.0,0,0,0,0,0,0,0
+SMAP,soil_moisture_m3_m3,outside 0-0.65,invalid volumetric SM,0,0.0,0,0,0,0,0,0,0
+ECOSTRESS,lst_celsius,outside -20..70 C,invalid LST,0,0.0,0,0,0,0,0,0,0
+HLS,ndvi,outside -1..1,invalid NDVI,0,0.0,0,0,0,0,0,0,0
+HLS,ndmi,outside -1..1,invalid NDMI,0,0.0,0,0,0,0,0,0,0
+HLS,valid_coverage,outside 0..1,invalid coverage,0,0.0,0,0,0,0,0,0,0

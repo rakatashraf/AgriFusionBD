@@ -1,0 +1,4542 @@
+{
+ "precipitation": {
+  "Central_Dhaka": {
+   "annual_mean_mm": 2117.2,
+   "annual_min_mm": 1916.8,
+   "annual_max_mm": 2323.2,
+   "annual_cv": 0.103,
+   "monsoon_share": 0.64,
+   "wettest_month": 8,
+   "wettest_month_mm_day": 11.2,
+   "driest_month": 1,
+   "driest_month_mm_day": 0.11,
+   "max_daily_mm": 175.2,
+   "max_daily_date": "2023-10-05",
+   "wet_days_per_year": 135.0,
+   "heavy_days_per_year": 6.8
+  },
+  "North_Rangpur": {
+   "annual_mean_mm": 2231.6,
+   "annual_min_mm": 2121.5,
+   "annual_max_mm": 2313.4,
+   "annual_cv": 0.036,
+   "monsoon_share": 0.663,
+   "wettest_month": 6,
+   "wettest_month_mm_day": 16.64,
+   "driest_month": 11,
+   "driest_month_mm_day": 0.02,
+   "max_daily_mm": 172.2,
+   "max_daily_date": "2023-06-15",
+   "wet_days_per_year": 123.0,
+   "heavy_days_per_year": 9.0
+  },
+  "Northeast_Sylhet": {
+   "annual_mean_mm": 3638.2,
+   "annual_min_mm": 3264.8,
+   "annual_max_mm": 4078.6,
+   "annual_cv": 0.103,
+   "monsoon_share": 0.65,
+   "wettest_month": 6,
+   "wettest_month_mm_day": 28.08,
+   "driest_month": 1,
+   "driest_month_mm_day": 0.11,
+   "max_daily_mm": 195.0,
+   "max_daily_date": "2022-06-18",
+   "wet_days_per_year": 168.0,
+   "heavy_days_per_year": 14.2
+  },
+  "Northwest_Rajshahi": {
+   "annual_mean_mm": 1294.8,
+   "annual_min_mm": 1020.6,
+   "annual_max_mm": 1522.8,
+   "annual_cv": 0.164,
+   "monsoon_share": 0.708,
+   "wettest_month": 8,
+   "wettest_month_mm_day": 8.05,
+   "driest_month": 11,
+   "driest_month_mm_day": 0.08,
+   "max_daily_mm": 85.2,
+   "max_daily_date": "2024-07-11",
+   "wet_days_per_year": 105.0,
+   "heavy_days_per_year": 2.2
+  },
+  "South_Barishal": {
+   "annual_mean_mm": 2336.1,
+   "annual_min_mm": 1977.5,
+   "annual_max_mm": 2846.4,
+   "annual_cv": 0.162,
+   "monsoon_share": 0.72,
+   "wettest_month": 8,
+   "wettest_month_mm_day": 15.81,
+   "driest_month": 1,
+   "driest_month_mm_day": 0.11,
+   "max_daily_mm": 134.3,
+   "max_daily_date": "2022-10-24",
+   "wet_days_per_year": 139.0,
+   "heavy_days_per_year": 8.2
+  },
+  "Southeast_Chattogram": {
+   "annual_mean_mm": 2983.5,
+   "annual_min_mm": 2436.7,
+   "annual_max_mm": 3699.3,
+   "annual_cv": 0.186,
+   "monsoon_share": 0.763,
+   "wettest_month": 8,
+   "wettest_month_mm_day": 22.25,
+   "driest_month": 1,
+   "driest_month_mm_day": 0.07,
+   "max_daily_mm": 173.6,
+   "max_daily_date": "2023-08-06",
+   "wet_days_per_year": 153.0,
+   "heavy_days_per_year": 12.6
+  },
+  "Southwest_Khulna": {
+   "annual_mean_mm": 1848.2,
+   "annual_min_mm": 1464.5,
+   "annual_max_mm": 2237.5,
+   "annual_cv": 0.177,
+   "monsoon_share": 0.698,
+   "wettest_month": 7,
+   "wettest_month_mm_day": 11.11,
+   "driest_month": 1,
+   "driest_month_mm_day": 0.18,
+   "max_daily_mm": 112.5,
+   "max_daily_date": "2022-10-24",
+   "wet_days_per_year": 143.0,
+   "heavy_days_per_year": 4.8
+  }
+ },
+ "precipitation_monthly": {
+  "1": {
+   "Central_Dhaka": 0.11,
+   "North_Rangpur": 0.07,
+   "Northeast_Sylhet": 0.11,
+   "Northwest_Rajshahi": 0.11,
+   "South_Barishal": 0.11,
+   "Southeast_Chattogram": 0.07,
+   "Southwest_Khulna": 0.18
+  },
+  "2": {
+   "Central_Dhaka": 0.46,
+   "North_Rangpur": 0.62,
+   "Northeast_Sylhet": 0.68,
+   "Northwest_Rajshahi": 0.38,
+   "South_Barishal": 0.36,
+   "Southeast_Chattogram": 0.22,
+   "Southwest_Khulna": 0.59
+  },
+  "3": {
+   "Central_Dhaka": 1.99,
+   "North_Rangpur": 2.27,
+   "Northeast_Sylhet": 3.16,
+   "Northwest_Rajshahi": 1.1,
+   "South_Barishal": 0.96,
+   "Southeast_Chattogram": 0.81,
+   "Southwest_Khulna": 0.9
+  },
+  "4": {
+   "Central_Dhaka": 3.14,
+   "North_Rangpur": 4.53,
+   "Northeast_Sylhet": 9.03,
+   "Northwest_Rajshahi": 0.98,
+   "South_Barishal": 2.12,
+   "Southeast_Chattogram": 3.49,
+   "Southwest_Khulna": 1.67
+  },
+  "5": {
+   "Central_Dhaka": 9.72,
+   "North_Rangpur": 10.78,
+   "Northeast_Sylhet": 18.21,
+   "Northwest_Rajshahi": 4.68,
+   "South_Barishal": 7.75,
+   "Southeast_Chattogram": 11.41,
+   "Southwest_Khulna": 6.37
+  },
+  "6": {
+   "Central_Dhaka": 10.39,
+   "North_Rangpur": 16.64,
+   "Northeast_Sylhet": 28.08,
+   "Northwest_Rajshahi": 4.57,
+   "South_Barishal": 10.19,
+   "Southeast_Chattogram": 17.16,
+   "Southwest_Khulna": 7.39
+  },
+  "7": {
+   "Central_Dhaka": 10.19,
+   "North_Rangpur": 10.16,
+   "Northeast_Sylhet": 15.33,
+   "Northwest_Rajshahi": 7.39,
+   "South_Barishal": 12.53,
+   "Southeast_Chattogram": 18.74,
+   "Southwest_Khulna": 11.11
+  },
+  "8": {
+   "Central_Dhaka": 11.2,
+   "North_Rangpur": 10.48,
+   "Northeast_Sylhet": 16.92,
+   "Northwest_Rajshahi": 8.05,
+   "South_Barishal": 15.81,
+   "Southeast_Chattogram": 22.25,
+   "Southwest_Khulna": 10.75
+  },
+  "9": {
+   "Central_Dhaka": 10.06,
+   "North_Rangpur": 9.68,
+   "Northeast_Sylhet": 11.74,
+   "Northwest_Rajshahi": 7.64,
+   "South_Barishal": 11.41,
+   "Southeast_Chattogram": 13.45,
+   "Southwest_Khulna": 8.99
+  },
+  "10": {
+   "Central_Dhaka": 6.78,
+   "North_Rangpur": 5.22,
+   "Northeast_Sylhet": 6.45,
+   "Northwest_Rajshahi": 3.75,
+   "South_Barishal": 6.68,
+   "Southeast_Chattogram": 5.08,
+   "Southwest_Khulna": 5.43
+  },
+  "11": {
+   "Central_Dhaka": 0.96,
+   "North_Rangpur": 0.02,
+   "Northeast_Sylhet": 0.7,
+   "Northwest_Rajshahi": 0.08,
+   "South_Barishal": 1.35,
+   "Southeast_Chattogram": 1.05,
+   "Southwest_Khulna": 1.23
+  },
+  "12": {
+   "Central_Dhaka": 0.37,
+   "North_Rangpur": 0.1,
+   "Northeast_Sylhet": 0.32,
+   "Northwest_Rajshahi": 0.28,
+   "South_Barishal": 0.16,
+   "Southeast_Chattogram": 0.17,
+   "Southwest_Khulna": 0.29
+  }
+ },
+ "soil_moisture": {
+  "Central_Dhaka": {
+   "mean": 0.421,
+   "median": 0.43,
+   "p10": 0.306,
+   "p90": 0.539,
+   "filled_share": 0.611,
+   "monthly_climatology": {
+    "1": 0.428,
+    "2": 0.42,
+    "3": 0.34,
+    "4": 0.312,
+    "5": 0.392,
+    "6": 0.448,
+    "7": 0.485,
+    "8": 0.48,
+    "9": 0.466,
+    "10": 0.458,
+    "11": 0.427,
+    "12": 0.412
+   }
+  },
+  "North_Rangpur": {
+   "mean": 0.358,
+   "median": 0.341,
+   "p10": 0.227,
+   "p90": 0.506,
+   "filled_share": 0.728,
+   "monthly_climatology": {
+    "1": 0.352,
+    "2": 0.475,
+    "3": 0.397,
+    "4": 0.274,
+    "5": 0.292,
+    "6": 0.417,
+    "7": 0.484,
+    "8": 0.471,
+    "9": 0.317,
+    "10": 0.253,
+    "11": 0.255,
+    "12": 0.31
+   }
+  },
+  "Northeast_Sylhet": {
+   "mean": 0.392,
+   "median": 0.384,
+   "p10": 0.218,
+   "p90": 0.592,
+   "filled_share": 0.611,
+   "monthly_climatology": {
+    "1": 0.343,
+    "2": 0.303,
+    "3": 0.237,
+    "4": 0.335,
+    "5": 0.453,
+    "6": 0.541,
+    "7": 0.541,
+    "8": 0.526,
+    "9": 0.434,
+    "10": 0.351,
+    "11": 0.317,
+    "12": 0.324
+   }
+  },
+  "Northwest_Rajshahi": {
+   "mean": 0.319,
+   "median": 0.318,
+   "p10": 0.225,
+   "p90": 0.418,
+   "filled_share": 0.726,
+   "monthly_climatology": {
+    "1": 0.313,
+    "2": 0.356,
+    "3": 0.306,
+    "4": 0.23,
+    "5": 0.272,
+    "6": 0.288,
+    "7": 0.384,
+    "8": 0.428,
+    "9": 0.35,
+    "10": 0.314,
+    "11": 0.317,
+    "12": 0.294
+   }
+  },
+  "South_Barishal": {
+   "mean": 0.411,
+   "median": 0.408,
+   "p10": 0.267,
+   "p90": 0.569,
+   "filled_share": 0.697,
+   "monthly_climatology": {
+    "1": 0.432,
+    "2": 0.384,
+    "3": 0.322,
+    "4": 0.293,
+    "5": 0.401,
+    "6": 0.478,
+    "7": 0.53,
+    "8": 0.537,
+    "9": 0.496,
+    "10": 0.369,
+    "11": 0.328,
+    "12": 0.374
+   }
+  },
+  "Southeast_Chattogram": {
+   "mean": 0.3,
+   "median": 0.302,
+   "p10": 0.155,
+   "p90": 0.444,
+   "filled_share": 0.587,
+   "monthly_climatology": {
+    "1": 0.28,
+    "2": 0.31,
+    "3": 0.279,
+    "4": 0.235,
+    "5": 0.284,
+    "6": 0.332,
+    "7": 0.371,
+    "8": 0.407,
+    "9": 0.329,
+    "10": 0.263,
+    "11": 0.251,
+    "12": 0.244
+   }
+  },
+  "Southwest_Khulna": {
+   "mean": 0.44,
+   "median": 0.467,
+   "p10": 0.256,
+   "p90": 0.586,
+   "filled_share": 0.73,
+   "monthly_climatology": {
+    "1": 0.534,
+    "2": 0.451,
+    "3": 0.286,
+    "4": 0.243,
+    "5": 0.364,
+    "6": 0.441,
+    "7": 0.525,
+    "8": 0.542,
+    "9": 0.517,
+    "10": 0.47,
+    "11": 0.464,
+    "12": 0.49
+   }
+  }
+ },
+ "vegetation": {
+  "Central_Dhaka": {
+   "months_total": 59,
+   "months_with_ndvi": 30,
+   "ndvi_mean": 0.413,
+   "ndvi_min": 0.264,
+   "ndvi_max": 0.666,
+   "ndmi_mean": 0.021,
+   "monthly_climatology": {
+    "1": 0.355,
+    "2": 0.297,
+    "3": 0.332,
+    "4": 0.416,
+    "5": 0.388,
+    "6": 0.374,
+    "7": 0.61,
+    "9": 0.651,
+    "10": 0.424,
+    "11": 0.435,
+    "12": 0.419
+   },
+   "peak_month": 9,
+   "trough_month": 2
+  },
+  "North_Rangpur": {
+   "months_total": 59,
+   "months_with_ndvi": 23,
+   "ndvi_mean": 0.475,
+   "ndvi_min": 0.307,
+   "ndvi_max": 0.602,
+   "ndmi_mean": 0.058,
+   "monthly_climatology": {
+    "3": 0.343,
+    "4": 0.387,
+    "5": 0.462,
+    "6": 0.435,
+    "7": 0.51,
+    "8": 0.487,
+    "9": 0.57,
+    "10": 0.531,
+    "11": 0.518,
+    "12": 0.396
+   },
+   "peak_month": 9,
+   "trough_month": 3
+  },
+  "Northeast_Sylhet": {
+   "months_total": 59,
+   "months_with_ndvi": 36,
+   "ndvi_mean": 0.396,
+   "ndvi_min": 0.169,
+   "ndvi_max": 0.728,
+   "ndmi_mean": -0.003,
+   "monthly_climatology": {
+    "1": 0.364,
+    "2": 0.283,
+    "3": 0.234,
+    "4": 0.169,
+    "5": 0.372,
+    "7": 0.482,
+    "8": 0.562,
+    "9": 0.456,
+    "10": 0.432,
+    "11": 0.426,
+    "12": 0.402
+   },
+   "peak_month": 8,
+   "trough_month": 4
+  },
+  "Northwest_Rajshahi": {
+   "months_total": 59,
+   "months_with_ndvi": 29,
+   "ndvi_mean": 0.255,
+   "ndvi_min": 0.162,
+   "ndvi_max": 0.411,
+   "ndmi_mean": -0.005,
+   "monthly_climatology": {
+    "2": 0.2,
+    "3": 0.217,
+    "4": 0.253,
+    "5": 0.246,
+    "6": 0.265,
+    "7": 0.28,
+    "8": 0.205,
+    "9": 0.312,
+    "10": 0.268,
+    "11": 0.319
+   },
+   "peak_month": 11,
+   "trough_month": 2
+  },
+  "South_Barishal": {
+   "months_total": 59,
+   "months_with_ndvi": 20,
+   "ndvi_mean": 0.559,
+   "ndvi_min": 0.285,
+   "ndvi_max": 0.983,
+   "ndmi_mean": 0.142,
+   "monthly_climatology": {
+    "1": 0.285,
+    "2": 0.492,
+    "3": 0.542,
+    "4": 0.487,
+    "5": 0.611,
+    "6": 0.412,
+    "9": 0.663,
+    "10": 0.841,
+    "11": 0.58,
+    "12": 0.584
+   },
+   "peak_month": 10,
+   "trough_month": 1
+  },
+  "Southeast_Chattogram": {
+   "months_total": 59,
+   "months_with_ndvi": 44,
+   "ndvi_mean": 0.337,
+   "ndvi_min": 0.174,
+   "ndvi_max": 0.583,
+   "ndmi_mean": -0.027,
+   "monthly_climatology": {
+    "1": 0.257,
+    "2": 0.22,
+    "3": 0.29,
+    "4": 0.265,
+    "5": 0.312,
+    "6": 0.396,
+    "7": 0.471,
+    "8": 0.397,
+    "9": 0.481,
+    "10": 0.413,
+    "11": 0.403,
+    "12": 0.29
+   },
+   "peak_month": 9,
+   "trough_month": 2
+  },
+  "Southwest_Khulna": {
+   "months_total": 59,
+   "months_with_ndvi": 38,
+   "ndvi_mean": 0.444,
+   "ndvi_min": 0.264,
+   "ndvi_max": 0.729,
+   "ndmi_mean": 0.07,
+   "monthly_climatology": {
+    "1": 0.359,
+    "2": 0.379,
+    "3": 0.378,
+    "4": 0.405,
+    "5": 0.41,
+    "6": 0.485,
+    "7": 0.647,
+    "8": 0.546,
+    "9": 0.456,
+    "10": 0.602,
+    "11": 0.418,
+    "12": 0.518
+   },
+   "peak_month": 7,
+   "trough_month": 1
+  }
+ },
+ "surface_temperature": {
+  "Central_Dhaka": {
+   "observations": 402,
+   "with_lst": 143,
+   "mean_c": 25.6,
+   "min_c": 11.5,
+   "max_c": 50.7,
+   "monthly_climatology": {
+    "1": 19.7,
+    "2": 20.8,
+    "3": 26.1,
+    "4": 28.2,
+    "5": 28.8,
+    "6": 32.2,
+    "7": 36.2,
+    "8": 38.5,
+    "9": 38.1,
+    "10": 27.7,
+    "11": 25.1,
+    "12": 19.0
+   }
+  },
+  "North_Rangpur": {
+   "observations": 383,
+   "with_lst": 136,
+   "mean_c": 24.3,
+   "min_c": 10.0,
+   "max_c": 45.4,
+   "monthly_climatology": {
+    "1": 17.0,
+    "2": 17.9,
+    "3": 25.0,
+    "4": 27.0,
+    "5": 30.4,
+    "6": 41.1,
+    "7": 32.8,
+    "8": 29.0,
+    "9": 35.7,
+    "10": 25.2,
+    "11": 24.3,
+    "12": 16.1
+   }
+  },
+  "Northeast_Sylhet": {
+   "observations": 423,
+   "with_lst": 128,
+   "mean_c": 25.4,
+   "min_c": 15.0,
+   "max_c": 54.7,
+   "monthly_climatology": {
+    "1": 21.0,
+    "2": 19.7,
+    "3": 26.5,
+    "4": 26.8,
+    "5": 34.2,
+    "6": 33.7,
+    "7": 37.2,
+    "8": 24.0,
+    "9": 35.9,
+    "10": 26.5,
+    "11": 26.3,
+    "12": 20.1
+   }
+  },
+  "Northwest_Rajshahi": {
+   "observations": 478,
+   "with_lst": 137,
+   "mean_c": 25.4,
+   "min_c": 11.0,
+   "max_c": 46.4,
+   "monthly_climatology": {
+    "1": 18.2,
+    "2": 19.5,
+    "3": 28.5,
+    "4": 27.8,
+    "5": 33.3,
+    "6": 30.3,
+    "7": 32.3,
+    "8": 31.2,
+    "9": 38.7,
+    "10": 26.8,
+    "11": 25.6,
+    "12": 17.3
+   }
+  },
+  "South_Barishal": {
+   "observations": 382,
+   "with_lst": 124,
+   "mean_c": 25.2,
+   "min_c": 12.5,
+   "max_c": 42.6,
+   "monthly_climatology": {
+    "1": 19.2,
+    "2": 21.4,
+    "3": 26.5,
+    "4": 26.4,
+    "5": 29.9,
+    "6": 31.0,
+    "7": 37.1,
+    "8": 27.5,
+    "9": 31.2,
+    "10": 27.3,
+    "11": 24.8,
+    "12": 17.4
+   }
+  },
+  "Southeast_Chattogram": {
+   "observations": 380,
+   "with_lst": 140,
+   "mean_c": 26.5,
+   "min_c": 14.9,
+   "max_c": 44.7,
+   "monthly_climatology": {
+    "1": 22.0,
+    "2": 22.5,
+    "3": 27.2,
+    "4": 29.4,
+    "5": 31.3,
+    "6": 32.6,
+    "7": 31.2,
+    "8": 31.3,
+    "9": 33.1,
+    "10": 26.0,
+    "11": 26.0,
+    "12": 21.9
+   }
+  },
+  "Southwest_Khulna": {
+   "observations": 371,
+   "with_lst": 125,
+   "mean_c": 25.6,
+   "min_c": 12.1,
+   "max_c": 46.0,
+   "monthly_climatology": {
+    "1": 20.4,
+    "2": 21.7,
+    "3": 27.7,
+    "4": 26.8,
+    "5": 28.4,
+    "6": 33.4,
+    "7": 33.1,
+    "8": 29.3,
+    "9": 30.7,
+    "10": 28.0,
+    "11": 25.1,
+    "12": 16.9
+   }
+  }
+ },
+ "water_storage": {
+  "Central_Dhaka": {
+   "slope_cm_per_year": 3.22,
+   "seasonal_amplitude_cm": 50.2,
+   "first_cm": -10.4,
+   "last_cm": 36.2,
+   "mean_uncertainty_cm": 5.4
+  },
+  "North_Rangpur": {
+   "slope_cm_per_year": -1.85,
+   "seasonal_amplitude_cm": 46.2,
+   "first_cm": -53.6,
+   "last_cm": -28.2,
+   "mean_uncertainty_cm": 3.8
+  },
+  "Northeast_Sylhet": {
+   "slope_cm_per_year": 3.22,
+   "seasonal_amplitude_cm": 50.2,
+   "first_cm": -10.4,
+   "last_cm": 36.2,
+   "mean_uncertainty_cm": 5.4
+  },
+  "Northwest_Rajshahi": {
+   "slope_cm_per_year": 2.67,
+   "seasonal_amplitude_cm": 43.3,
+   "first_cm": -8.9,
+   "last_cm": 15.5,
+   "mean_uncertainty_cm": 4.4
+  },
+  "South_Barishal": {
+   "slope_cm_per_year": 3.22,
+   "seasonal_amplitude_cm": 50.2,
+   "first_cm": -10.4,
+   "last_cm": 36.2,
+   "mean_uncertainty_cm": 5.4
+  },
+  "Southeast_Chattogram": {
+   "slope_cm_per_year": -1.67,
+   "seasonal_amplitude_cm": 13.0,
+   "first_cm": -8.4,
+   "last_cm": -18.7,
+   "mean_uncertainty_cm": 4.3
+  },
+  "Southwest_Khulna": {
+   "slope_cm_per_year": 3.22,
+   "seasonal_amplitude_cm": 50.2,
+   "first_cm": -10.4,
+   "last_cm": 36.2,
+   "mean_uncertainty_cm": 5.4
+  }
+ },
+ "terrain": {
+  "North_Rangpur": {
+   "elevation_mean_m": 34.4,
+   "elevation_min_m": 18.0,
+   "elevation_max_m": 43.0,
+   "slope_mean_deg": 1.93
+  },
+  "Northwest_Rajshahi": {
+   "elevation_mean_m": 18.5,
+   "elevation_min_m": 1.0,
+   "elevation_max_m": 43.0,
+   "slope_mean_deg": 1.73
+  },
+  "Central_Dhaka": {
+   "elevation_mean_m": 10.4,
+   "elevation_min_m": -23.0,
+   "elevation_max_m": 55.0,
+   "slope_mean_deg": 2.76
+  },
+  "Northeast_Sylhet": {
+   "elevation_mean_m": 21.5,
+   "elevation_min_m": -14.0,
+   "elevation_max_m": 82.0,
+   "slope_mean_deg": 3.89
+  },
+  "Southwest_Khulna": {
+   "elevation_mean_m": 5.4,
+   "elevation_min_m": -7.0,
+   "elevation_max_m": 25.0,
+   "slope_mean_deg": 1.99
+  },
+  "South_Barishal": {
+   "elevation_mean_m": 6.6,
+   "elevation_min_m": -6.0,
+   "elevation_max_m": 29.0,
+   "slope_mean_deg": 2.49
+  },
+  "Southeast_Chattogram": {
+   "elevation_mean_m": 13.1,
+   "elevation_min_m": -6.0,
+   "elevation_max_m": 73.0,
+   "slope_mean_deg": 2.62
+  }
+ },
+ "relationships": {
+  "rain_vs_sm_lag0": 0.41,
+  "rain_vs_ndvi_lag0": 0.329,
+  "rain_vs_sm_lag1": 0.199,
+  "rain_vs_ndvi_lag1": 0.082,
+  "rain_vs_sm_lag2": -0.047,
+  "rain_vs_ndvi_lag2": -0.22,
+  "ndvi_vs_sm": 0.397,
+  "lst_vs_ndvi": 0.125,
+  "lst_vs_rain": 0.554,
+  "sm_vs_ndvi": 0.397,
+  "pairs_rain_sm": 413,
+  "pairs_rain_ndvi": 220
+ },
+ "monthly_pooled": [
+  {
+   "region": "Central_Dhaka",
+   "year": 2022,
+   "month": 1,
+   "rain": 0.4069,
+   "sm": 0.4488,
+   "ndvi": 0.3313,
+   "lst": 19.078
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2022,
+   "month": 2,
+   "rain": 1.3027,
+   "sm": 0.4579,
+   "ndvi": 0.3472,
+   "lst": 23.88
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2022,
+   "month": 3,
+   "rain": 0.369,
+   "sm": 0.373,
+   "ndvi": 0.3077,
+   "lst": 23.915
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2022,
+   "month": 4,
+   "rain": 3.5157,
+   "sm": 0.3368,
+   "ndvi": NaN,
+   "lst": 26.585
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2022,
+   "month": 5,
+   "rain": 11.5168,
+   "sm": 0.4469,
+   "ndvi": NaN,
+   "lst": 28.4
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2022,
+   "month": 6,
+   "rain": 13.114,
+   "sm": 0.4831,
+   "ndvi": NaN,
+   "lst": 24.38
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2022,
+   "month": 7,
+   "rain": 4.4252,
+   "sm": 0.5055,
+   "ndvi": 0.6074,
+   "lst": NaN
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2022,
+   "month": 8,
+   "rain": 8.2681,
+   "sm": 0.5005,
+   "ndvi": NaN,
+   "lst": 45.4033
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2022,
+   "month": 9,
+   "rain": 10.586,
+   "sm": 0.4911,
+   "ndvi": NaN,
+   "lst": 49.95
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2022,
+   "month": 10,
+   "rain": 9.3177,
+   "sm": 0.5145,
+   "ndvi": 0.3841,
+   "lst": 27.955
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2022,
+   "month": 11,
+   "rain": 0.0012,
+   "sm": 0.4962,
+   "ndvi": 0.3318,
+   "lst": 24.712
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2022,
+   "month": 12,
+   "rain": 0.0132,
+   "sm": 0.4826,
+   "ndvi": 0.5181,
+   "lst": 22.262
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2023,
+   "month": 1,
+   "rain": 0.0119,
+   "sm": 0.4975,
+   "ndvi": 0.3795,
+   "lst": 24.278
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2023,
+   "month": 2,
+   "rain": 0.0836,
+   "sm": 0.4697,
+   "ndvi": 0.2639,
+   "lst": 21.095
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2023,
+   "month": 3,
+   "rain": 2.6711,
+   "sm": 0.3963,
+   "ndvi": 0.3295,
+   "lst": 28.0925
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2023,
+   "month": 4,
+   "rain": 1.3033,
+   "sm": 0.3487,
+   "ndvi": 0.4473,
+   "lst": 36.91
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2023,
+   "month": 5,
+   "rain": 5.6832,
+   "sm": 0.3991,
+   "ndvi": 0.4794,
+   "lst": 33.17
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2023,
+   "month": 6,
+   "rain": 12.0943,
+   "sm": 0.4681,
+   "ndvi": 0.3736,
+   "lst": 33.1433
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2023,
+   "month": 7,
+   "rain": 7.9855,
+   "sm": 0.5089,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2023,
+   "month": 8,
+   "rain": 13.6752,
+   "sm": 0.5229,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2023,
+   "month": 9,
+   "rain": 8.8933,
+   "sm": 0.5139,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2023,
+   "month": 10,
+   "rain": 7.8753,
+   "sm": 0.502,
+   "ndvi": NaN,
+   "lst": 25.79
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2023,
+   "month": 11,
+   "rain": 1.6915,
+   "sm": 0.4802,
+   "ndvi": 0.5295,
+   "lst": 24.718
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2023,
+   "month": 12,
+   "rain": 1.4127,
+   "sm": 0.4702,
+   "ndvi": NaN,
+   "lst": 15.84
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2024,
+   "month": 1,
+   "rain": 0.1124,
+   "sm": 0.4451,
+   "ndvi": NaN,
+   "lst": 17.6233
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2024,
+   "month": 2,
+   "rain": 0.7571,
+   "sm": 0.4401,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2024,
+   "month": 3,
+   "rain": 2.5334,
+   "sm": 0.3627,
+   "ndvi": 0.3915,
+   "lst": 29.71
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2024,
+   "month": 4,
+   "rain": 0.63,
+   "sm": 0.3056,
+   "ndvi": NaN,
+   "lst": 27.21
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2024,
+   "month": 5,
+   "rain": 9.9118,
+   "sm": 0.3631,
+   "ndvi": 0.3671,
+   "lst": 30.05
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2024,
+   "month": 6,
+   "rain": 11.5452,
+   "sm": 0.4442,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2024,
+   "month": 7,
+   "rain": 11.3852,
+   "sm": 0.5118,
+   "ndvi": NaN,
+   "lst": 39.53
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2024,
+   "month": 8,
+   "rain": 16.45,
+   "sm": 0.486,
+   "ndvi": NaN,
+   "lst": 30.71
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2024,
+   "month": 9,
+   "rain": 13.7537,
+   "sm": 0.4824,
+   "ndvi": 0.6659,
+   "lst": 32.33
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2024,
+   "month": 10,
+   "rain": 8.3919,
+   "sm": 0.4758,
+   "ndvi": NaN,
+   "lst": 25.25
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2024,
+   "month": 11,
+   "rain": 0.329,
+   "sm": 0.3751,
+   "ndvi": 0.313,
+   "lst": 25.55
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2024,
+   "month": 12,
+   "rain": 0.0373,
+   "sm": 0.3437,
+   "ndvi": 0.4509,
+   "lst": 15.94
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2025,
+   "month": 1,
+   "rain": 0.0,
+   "sm": 0.3773,
+   "ndvi": NaN,
+   "lst": 17.4733
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2025,
+   "month": 2,
+   "rain": 0.1289,
+   "sm": 0.3874,
+   "ndvi": 0.2949,
+   "lst": 20.195
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2025,
+   "month": 3,
+   "rain": 0.2913,
+   "sm": 0.2597,
+   "ndvi": 0.3013,
+   "lst": 26.4967
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2025,
+   "month": 4,
+   "rain": 4.088,
+   "sm": 0.2791,
+   "ndvi": 0.3837,
+   "lst": NaN
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2025,
+   "month": 5,
+   "rain": 14.3118,
+   "sm": 0.3317,
+   "ndvi": NaN,
+   "lst": 27.72
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2025,
+   "month": 6,
+   "rain": 9.6027,
+   "sm": 0.4233,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2025,
+   "month": 7,
+   "rain": 17.3865,
+   "sm": 0.4387,
+   "ndvi": 0.6136,
+   "lst": NaN
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2025,
+   "month": 8,
+   "rain": 11.6073,
+   "sm": 0.4535,
+   "ndvi": NaN,
+   "lst": 25.61
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2025,
+   "month": 9,
+   "rain": 10.6847,
+   "sm": 0.4261,
+   "ndvi": 0.6358,
+   "lst": 29.75
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2025,
+   "month": 10,
+   "rain": 5.1632,
+   "sm": 0.4054,
+   "ndvi": 0.5438,
+   "lst": 26.2633
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2025,
+   "month": 11,
+   "rain": 1.3698,
+   "sm": 0.3776,
+   "ndvi": 0.5649,
+   "lst": 24.9433
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2025,
+   "month": 12,
+   "rain": 0.0181,
+   "sm": 0.3535,
+   "ndvi": 0.2887,
+   "lst": 17.6567
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2026,
+   "month": 1,
+   "rain": 0.0,
+   "sm": 0.37,
+   "ndvi": NaN,
+   "lst": 19.4986
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2026,
+   "month": 2,
+   "rain": 0.0198,
+   "sm": 0.3547,
+   "ndvi": 0.2827,
+   "lst": 19.704
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2026,
+   "month": 3,
+   "rain": 4.0706,
+   "sm": 0.3031,
+   "ndvi": NaN,
+   "lst": 21.95
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2026,
+   "month": 4,
+   "rain": 6.1503,
+   "sm": 0.2871,
+   "ndvi": NaN,
+   "lst": 25.995
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2026,
+   "month": 5,
+   "rain": 7.1545,
+   "sm": 0.4222,
+   "ndvi": 0.317,
+   "lst": 27.37
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2026,
+   "month": 6,
+   "rain": 5.5853,
+   "sm": 0.4241,
+   "ndvi": NaN,
+   "lst": 33.8367
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2026,
+   "month": 7,
+   "rain": 9.7558,
+   "sm": 0.4625,
+   "ndvi": NaN,
+   "lst": 29.67
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2026,
+   "month": 8,
+   "rain": 6.0239,
+   "sm": 0.4564,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2026,
+   "month": 9,
+   "rain": 6.3697,
+   "sm": 0.4326,
+   "ndvi": NaN,
+   "lst": 43.32
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2026,
+   "month": 10,
+   "rain": 3.1432,
+   "sm": 0.3902,
+   "ndvi": 0.3434,
+   "lst": 30.21
+  },
+  {
+   "region": "Central_Dhaka",
+   "year": 2026,
+   "month": 11,
+   "rain": 2.425,
+   "sm": 0.3521,
+   "ndvi": NaN,
+   "lst": 27.53
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2022,
+   "month": 1,
+   "rain": 0.2885,
+   "sm": 0.3855,
+   "ndvi": NaN,
+   "lst": 16.91
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2022,
+   "month": 2,
+   "rain": 2.2761,
+   "sm": 0.5059,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2022,
+   "month": 3,
+   "rain": 0.4626,
+   "sm": 0.4092,
+   "ndvi": NaN,
+   "lst": 22.64
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2022,
+   "month": 4,
+   "rain": 8.1522,
+   "sm": 0.326,
+   "ndvi": NaN,
+   "lst": 28.42
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2022,
+   "month": 5,
+   "rain": 11.9903,
+   "sm": 0.3273,
+   "ndvi": NaN,
+   "lst": 32.24
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2022,
+   "month": 6,
+   "rain": 24.0105,
+   "sm": 0.4722,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2022,
+   "month": 7,
+   "rain": 8.0597,
+   "sm": 0.4854,
+   "ndvi": NaN,
+   "lst": 31.19
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2022,
+   "month": 8,
+   "rain": 9.719,
+   "sm": 0.5059,
+   "ndvi": 0.505,
+   "lst": 25.27
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2022,
+   "month": 9,
+   "rain": 7.611,
+   "sm": 0.3101,
+   "ndvi": NaN,
+   "lst": 34.35
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2022,
+   "month": 10,
+   "rain": 3.5437,
+   "sm": 0.2667,
+   "ndvi": 0.5627,
+   "lst": 28.9433
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2022,
+   "month": 11,
+   "rain": 0.0,
+   "sm": 0.2655,
+   "ndvi": 0.4343,
+   "lst": 25.0733
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2022,
+   "month": 12,
+   "rain": 0.0155,
+   "sm": 0.3396,
+   "ndvi": 0.3666,
+   "lst": 19.3167
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2023,
+   "month": 1,
+   "rain": 0.001,
+   "sm": 0.409,
+   "ndvi": NaN,
+   "lst": 15.58
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2023,
+   "month": 2,
+   "rain": 0.0,
+   "sm": 0.5045,
+   "ndvi": NaN,
+   "lst": 23.79
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2023,
+   "month": 3,
+   "rain": 2.2918,
+   "sm": 0.3838,
+   "ndvi": NaN,
+   "lst": 27.505
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2023,
+   "month": 4,
+   "rain": 1.7807,
+   "sm": 0.2572,
+   "ndvi": 0.3938,
+   "lst": 29.66
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2023,
+   "month": 5,
+   "rain": 5.445,
+   "sm": 0.2848,
+   "ndvi": 0.5076,
+   "lst": 27.9367
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2023,
+   "month": 6,
+   "rain": 17.8528,
+   "sm": 0.4184,
+   "ndvi": 0.4349,
+   "lst": 41.93
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2023,
+   "month": 7,
+   "rain": 10.0865,
+   "sm": 0.5059,
+   "ndvi": 0.4721,
+   "lst": 27.15
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2023,
+   "month": 8,
+   "rain": 15.1105,
+   "sm": 0.5003,
+   "ndvi": NaN,
+   "lst": 28.39
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2023,
+   "month": 9,
+   "rain": 11.1342,
+   "sm": 0.36,
+   "ndvi": 0.5545,
+   "lst": 39.69
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2023,
+   "month": 10,
+   "rain": 5.2858,
+   "sm": 0.2982,
+   "ndvi": NaN,
+   "lst": 22.5233
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2023,
+   "month": 11,
+   "rain": 0.0733,
+   "sm": 0.2818,
+   "ndvi": 0.5395,
+   "lst": 22.79
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2023,
+   "month": 12,
+   "rain": 0.3703,
+   "sm": 0.3325,
+   "ndvi": 0.4254,
+   "lst": 15.01
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2024,
+   "month": 1,
+   "rain": 0.0,
+   "sm": 0.3588,
+   "ndvi": NaN,
+   "lst": 16.48
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2024,
+   "month": 2,
+   "rain": 0.4066,
+   "sm": 0.4987,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2024,
+   "month": 3,
+   "rain": 2.1921,
+   "sm": 0.4305,
+   "ndvi": 0.307,
+   "lst": NaN
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2024,
+   "month": 4,
+   "rain": 0.0612,
+   "sm": 0.2473,
+   "ndvi": 0.3795,
+   "lst": 24.9033
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2024,
+   "month": 5,
+   "rain": 6.8761,
+   "sm": 0.2396,
+   "ndvi": NaN,
+   "lst": 26.93
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2024,
+   "month": 6,
+   "rain": 23.3308,
+   "sm": 0.4243,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2024,
+   "month": 7,
+   "rain": 15.2334,
+   "sm": 0.5059,
+   "ndvi": NaN,
+   "lst": 32.69
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2024,
+   "month": 8,
+   "rain": 9.4453,
+   "sm": 0.4614,
+   "ndvi": 0.4081,
+   "lst": 30.49
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2024,
+   "month": 9,
+   "rain": 11.0747,
+   "sm": 0.3072,
+   "ndvi": NaN,
+   "lst": 34.29
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2024,
+   "month": 10,
+   "rain": 5.0335,
+   "sm": 0.2521,
+   "ndvi": NaN,
+   "lst": 24.83
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2024,
+   "month": 11,
+   "rain": 0.0,
+   "sm": 0.2359,
+   "ndvi": 0.4943,
+   "lst": 24.425
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2024,
+   "month": 12,
+   "rain": 0.0,
+   "sm": 0.279,
+   "ndvi": NaN,
+   "lst": 14.49
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2025,
+   "month": 1,
+   "rain": 0.054,
+   "sm": 0.3108,
+   "ndvi": NaN,
+   "lst": 16.89
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2025,
+   "month": 2,
+   "rain": 0.4264,
+   "sm": 0.4482,
+   "ndvi": NaN,
+   "lst": 17.71
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2025,
+   "month": 3,
+   "rain": 0.1244,
+   "sm": 0.3648,
+   "ndvi": 0.3781,
+   "lst": 32.13
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2025,
+   "month": 4,
+   "rain": 5.2333,
+   "sm": 0.2542,
+   "ndvi": NaN,
+   "lst": 29.13
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2025,
+   "month": 5,
+   "rain": 15.3405,
+   "sm": 0.2696,
+   "ndvi": NaN,
+   "lst": 29.97
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2025,
+   "month": 6,
+   "rain": 10.4673,
+   "sm": 0.3828,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2025,
+   "month": 7,
+   "rain": 9.394,
+   "sm": 0.4338,
+   "ndvi": NaN,
+   "lst": 31.91
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2025,
+   "month": 8,
+   "rain": 13.8513,
+   "sm": 0.4816,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2025,
+   "month": 9,
+   "rain": 9.6735,
+   "sm": 0.3089,
+   "ndvi": 0.5851,
+   "lst": 39.44
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2025,
+   "month": 10,
+   "rain": 8.6474,
+   "sm": 0.231,
+   "ndvi": NaN,
+   "lst": 25.594
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2025,
+   "month": 11,
+   "rain": 0.0162,
+   "sm": 0.2482,
+   "ndvi": 0.6022,
+   "lst": 24.93
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2025,
+   "month": 12,
+   "rain": 0.0,
+   "sm": 0.2899,
+   "ndvi": NaN,
+   "lst": 16.25
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2026,
+   "month": 1,
+   "rain": 0.005,
+   "sm": 0.2933,
+   "ndvi": NaN,
+   "lst": 18.5533
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2026,
+   "month": 2,
+   "rain": 0.008,
+   "sm": 0.4295,
+   "ndvi": NaN,
+   "lst": 16.81
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2026,
+   "month": 3,
+   "rain": 6.3031,
+   "sm": 0.3961,
+   "ndvi": NaN,
+   "lst": 21.42
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2026,
+   "month": 4,
+   "rain": 7.4433,
+   "sm": 0.2882,
+   "ndvi": NaN,
+   "lst": 25.05
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2026,
+   "month": 5,
+   "rain": 14.2597,
+   "sm": 0.34,
+   "ndvi": 0.4169,
+   "lst": 34.15
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2026,
+   "month": 6,
+   "rain": 7.5183,
+   "sm": 0.3893,
+   "ndvi": NaN,
+   "lst": 40.19
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2026,
+   "month": 7,
+   "rain": 8.0432,
+   "sm": 0.4913,
+   "ndvi": 0.5473,
+   "lst": 43.21
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2026,
+   "month": 8,
+   "rain": 4.2542,
+   "sm": 0.4329,
+   "ndvi": 0.5486,
+   "lst": NaN
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2026,
+   "month": 9,
+   "rain": 8.8957,
+   "sm": 0.293,
+   "ndvi": 0.5691,
+   "lst": 31.5
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2026,
+   "month": 10,
+   "rain": 3.6035,
+   "sm": 0.2112,
+   "ndvi": 0.5002,
+   "lst": 24.57
+  },
+  {
+   "region": "North_Rangpur",
+   "year": 2026,
+   "month": 11,
+   "rain": 0.0,
+   "sm": 0.2043,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2022,
+   "month": 1,
+   "rain": 0.541,
+   "sm": 0.4288,
+   "ndvi": 0.3721,
+   "lst": 21.23
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2022,
+   "month": 2,
+   "rain": 1.4689,
+   "sm": 0.3901,
+   "ndvi": 0.3572,
+   "lst": 23.49
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2022,
+   "month": 3,
+   "rain": 0.3821,
+   "sm": 0.2623,
+   "ndvi": 0.2955,
+   "lst": 24.94
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2022,
+   "month": 4,
+   "rain": 11.8617,
+   "sm": 0.3799,
+   "ndvi": NaN,
+   "lst": 27.13
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2022,
+   "month": 5,
+   "rain": 24.9719,
+   "sm": 0.5377,
+   "ndvi": NaN,
+   "lst": 34.34
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2022,
+   "month": 6,
+   "rain": 45.045,
+   "sm": 0.5925,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2022,
+   "month": 7,
+   "rain": 15.0674,
+   "sm": 0.5925,
+   "ndvi": 0.4869,
+   "lst": NaN
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2022,
+   "month": 8,
+   "rain": 10.6287,
+   "sm": 0.5733,
+   "ndvi": 0.511,
+   "lst": 23.95
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2022,
+   "month": 9,
+   "rain": 14.409,
+   "sm": 0.4568,
+   "ndvi": 0.4451,
+   "lst": 33.47
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2022,
+   "month": 10,
+   "rain": 9.6268,
+   "sm": 0.4192,
+   "ndvi": 0.4568,
+   "lst": 27.6867
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2022,
+   "month": 11,
+   "rain": 0.0063,
+   "sm": 0.3833,
+   "ndvi": 0.4558,
+   "lst": 26.2783
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2022,
+   "month": 12,
+   "rain": 0.0005,
+   "sm": 0.3776,
+   "ndvi": 0.4031,
+   "lst": 23.61
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2023,
+   "month": 1,
+   "rain": 0.0,
+   "sm": 0.3961,
+   "ndvi": 0.296,
+   "lst": 22.0275
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2023,
+   "month": 2,
+   "rain": 0.13,
+   "sm": 0.343,
+   "ndvi": NaN,
+   "lst": 18.5367
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2023,
+   "month": 3,
+   "rain": 4.6631,
+   "sm": 0.285,
+   "ndvi": NaN,
+   "lst": 27.064
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2023,
+   "month": 4,
+   "rain": 4.5868,
+   "sm": 0.3493,
+   "ndvi": 0.1686,
+   "lst": 30.81
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2023,
+   "month": 5,
+   "rain": 7.8761,
+   "sm": 0.4475,
+   "ndvi": NaN,
+   "lst": 41.95
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2023,
+   "month": 6,
+   "rain": 30.9063,
+   "sm": 0.5357,
+   "ndvi": NaN,
+   "lst": 33.69
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2023,
+   "month": 7,
+   "rain": 19.7952,
+   "sm": 0.5879,
+   "ndvi": 0.5765,
+   "lst": 35.43
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2023,
+   "month": 8,
+   "rain": 18.676,
+   "sm": 0.5829,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2023,
+   "month": 9,
+   "rain": 11.2232,
+   "sm": 0.503,
+   "ndvi": 0.4337,
+   "lst": NaN
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2023,
+   "month": 10,
+   "rain": 10.1279,
+   "sm": 0.4017,
+   "ndvi": NaN,
+   "lst": 25.4167
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2023,
+   "month": 11,
+   "rain": 2.0032,
+   "sm": 0.3744,
+   "ndvi": 0.4096,
+   "lst": 24.85
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2023,
+   "month": 12,
+   "rain": 1.2694,
+   "sm": 0.3935,
+   "ndvi": 0.4095,
+   "lst": 16.41
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2024,
+   "month": 1,
+   "rain": 0.0242,
+   "sm": 0.3617,
+   "ndvi": 0.494,
+   "lst": 18.325
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2024,
+   "month": 2,
+   "rain": 1.5828,
+   "sm": 0.3472,
+   "ndvi": 0.1985,
+   "lst": NaN
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2024,
+   "month": 3,
+   "rain": 3.2485,
+   "sm": 0.2364,
+   "ndvi": 0.1704,
+   "lst": 26.375
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2024,
+   "month": 4,
+   "rain": 5.8557,
+   "sm": 0.3267,
+   "ndvi": NaN,
+   "lst": 20.59
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2024,
+   "month": 5,
+   "rain": 19.8058,
+   "sm": 0.4322,
+   "ndvi": NaN,
+   "lst": 36.55
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2024,
+   "month": 6,
+   "rain": 36.1387,
+   "sm": 0.5752,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2024,
+   "month": 7,
+   "rain": 18.886,
+   "sm": 0.5547,
+   "ndvi": NaN,
+   "lst": 40.8967
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2024,
+   "month": 8,
+   "rain": 22.2295,
+   "sm": 0.5357,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2024,
+   "month": 9,
+   "rain": 9.851,
+   "sm": 0.4273,
+   "ndvi": 0.4531,
+   "lst": 27.8
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2024,
+   "month": 10,
+   "rain": 6.8324,
+   "sm": 0.336,
+   "ndvi": NaN,
+   "lst": 24.21
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2024,
+   "month": 11,
+   "rain": 0.2128,
+   "sm": 0.2581,
+   "ndvi": 0.3786,
+   "lst": 28.2167
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2024,
+   "month": 12,
+   "rain": 0.009,
+   "sm": 0.2645,
+   "ndvi": 0.3906,
+   "lst": 18.76
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2025,
+   "month": 1,
+   "rain": 0.0,
+   "sm": 0.2673,
+   "ndvi": 0.3123,
+   "lst": 19.7967
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2025,
+   "month": 2,
+   "rain": 0.1773,
+   "sm": 0.218,
+   "ndvi": 0.273,
+   "lst": 18.56
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2025,
+   "month": 3,
+   "rain": 0.7702,
+   "sm": 0.1557,
+   "ndvi": 0.2355,
+   "lst": 28.6
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2025,
+   "month": 4,
+   "rain": 9.5157,
+   "sm": 0.2578,
+   "ndvi": NaN,
+   "lst": 27.13
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2025,
+   "month": 5,
+   "rain": 26.5898,
+   "sm": 0.3888,
+   "ndvi": NaN,
+   "lst": 30.8367
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2025,
+   "month": 6,
+   "rain": 14.7352,
+   "sm": 0.5004,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2025,
+   "month": 7,
+   "rain": 14.5466,
+   "sm": 0.4543,
+   "ndvi": 0.464,
+   "lst": 27.71
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2025,
+   "month": 8,
+   "rain": 21.2206,
+   "sm": 0.4948,
+   "ndvi": 0.4471,
+   "lst": NaN
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2025,
+   "month": 9,
+   "rain": 14.2602,
+   "sm": 0.4104,
+   "ndvi": NaN,
+   "lst": 30.45
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2025,
+   "month": 10,
+   "rain": 4.0402,
+   "sm": 0.2918,
+   "ndvi": 0.5196,
+   "lst": 25.21
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2025,
+   "month": 11,
+   "rain": 0.7412,
+   "sm": 0.2678,
+   "ndvi": 0.4584,
+   "lst": 26.502
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2025,
+   "month": 12,
+   "rain": 0.0035,
+   "sm": 0.2635,
+   "ndvi": 0.4067,
+   "lst": 16.97
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2026,
+   "month": 1,
+   "rain": 0.0,
+   "sm": 0.2582,
+   "ndvi": 0.3466,
+   "lst": 22.3767
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2026,
+   "month": 2,
+   "rain": 0.027,
+   "sm": 0.222,
+   "ndvi": 0.3037,
+   "lst": 19.4625
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2026,
+   "month": 3,
+   "rain": 6.7245,
+   "sm": 0.2402,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2026,
+   "month": 4,
+   "rain": 13.3272,
+   "sm": 0.3627,
+   "ndvi": NaN,
+   "lst": 28.41
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2026,
+   "month": 5,
+   "rain": 11.8302,
+   "sm": 0.4568,
+   "ndvi": 0.3717,
+   "lst": NaN
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2026,
+   "month": 6,
+   "rain": 13.589,
+   "sm": 0.5035,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2026,
+   "month": 7,
+   "rain": 8.3771,
+   "sm": 0.5191,
+   "ndvi": 0.3986,
+   "lst": NaN
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2026,
+   "month": 8,
+   "rain": 11.8476,
+   "sm": 0.487,
+   "ndvi": 0.7281,
+   "lst": NaN
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2026,
+   "month": 9,
+   "rain": 8.9742,
+   "sm": 0.3846,
+   "ndvi": 0.4908,
+   "lst": 44.03
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2026,
+   "month": 10,
+   "rain": 1.6371,
+   "sm": 0.3004,
+   "ndvi": 0.3201,
+   "lst": 27.79
+  },
+  {
+   "region": "Northeast_Sylhet",
+   "year": 2026,
+   "month": 11,
+   "rain": 0.205,
+   "sm": 0.2588,
+   "ndvi": NaN,
+   "lst": 24.77
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2022,
+   "month": 1,
+   "rain": 0.4368,
+   "sm": 0.363,
+   "ndvi": NaN,
+   "lst": 16.55
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2022,
+   "month": 2,
+   "rain": 1.3961,
+   "sm": 0.4427,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2022,
+   "month": 3,
+   "rain": 0.0737,
+   "sm": 0.3307,
+   "ndvi": 0.23,
+   "lst": 31.4767
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2022,
+   "month": 4,
+   "rain": 0.7908,
+   "sm": 0.2444,
+   "ndvi": NaN,
+   "lst": 27.29
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2022,
+   "month": 5,
+   "rain": 5.816,
+   "sm": 0.3174,
+   "ndvi": 0.278,
+   "lst": 32.386
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2022,
+   "month": 6,
+   "rain": 3.4,
+   "sm": 0.3191,
+   "ndvi": NaN,
+   "lst": 26.61
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2022,
+   "month": 7,
+   "rain": 4.5745,
+   "sm": 0.3576,
+   "ndvi": 0.2607,
+   "lst": 30.96
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2022,
+   "month": 8,
+   "rain": 6.7315,
+   "sm": 0.4554,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2022,
+   "month": 9,
+   "rain": 7.6585,
+   "sm": 0.3361,
+   "ndvi": NaN,
+   "lst": 41.19
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2022,
+   "month": 10,
+   "rain": 2.5503,
+   "sm": 0.3213,
+   "ndvi": NaN,
+   "lst": 31.04
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2022,
+   "month": 11,
+   "rain": 0.0125,
+   "sm": 0.3164,
+   "ndvi": 0.3151,
+   "lst": 27.338
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2022,
+   "month": 12,
+   "rain": 0.0,
+   "sm": 0.3181,
+   "ndvi": NaN,
+   "lst": 18.2033
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2023,
+   "month": 1,
+   "rain": 0.0623,
+   "sm": 0.3387,
+   "ndvi": NaN,
+   "lst": 17.525
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2023,
+   "month": 2,
+   "rain": 0.0,
+   "sm": 0.3928,
+   "ndvi": 0.1876,
+   "lst": 21.485
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2023,
+   "month": 3,
+   "rain": 1.8379,
+   "sm": 0.3246,
+   "ndvi": 0.2051,
+   "lst": 33.585
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2023,
+   "month": 4,
+   "rain": 1.2508,
+   "sm": 0.2467,
+   "ndvi": 0.2924,
+   "lst": 30.3433
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2023,
+   "month": 5,
+   "rain": 3.2965,
+   "sm": 0.2851,
+   "ndvi": 0.1764,
+   "lst": 33.6033
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2023,
+   "month": 6,
+   "rain": 5.4303,
+   "sm": 0.2858,
+   "ndvi": 0.2928,
+   "lst": 30.9
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2023,
+   "month": 7,
+   "rain": 5.6276,
+   "sm": 0.3942,
+   "ndvi": NaN,
+   "lst": 27.17
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2023,
+   "month": 8,
+   "rain": 9.9055,
+   "sm": 0.4169,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2023,
+   "month": 9,
+   "rain": 7.6957,
+   "sm": 0.3489,
+   "ndvi": 0.2704,
+   "lst": NaN
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2023,
+   "month": 10,
+   "rain": 4.8739,
+   "sm": 0.3364,
+   "ndvi": NaN,
+   "lst": 25.3367
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2023,
+   "month": 11,
+   "rain": 0.0302,
+   "sm": 0.3219,
+   "ndvi": 0.3002,
+   "lst": 24.33
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2023,
+   "month": 12,
+   "rain": 1.1184,
+   "sm": 0.3162,
+   "ndvi": NaN,
+   "lst": 15.49
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2024,
+   "month": 1,
+   "rain": 0.0335,
+   "sm": 0.3087,
+   "ndvi": NaN,
+   "lst": 18.56
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2024,
+   "month": 2,
+   "rain": 0.3916,
+   "sm": 0.3294,
+   "ndvi": 0.191,
+   "lst": NaN
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2024,
+   "month": 3,
+   "rain": 1.0116,
+   "sm": 0.3275,
+   "ndvi": 0.273,
+   "lst": NaN
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2024,
+   "month": 4,
+   "rain": 0.0372,
+   "sm": 0.2208,
+   "ndvi": 0.2849,
+   "lst": 28.0567
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2024,
+   "month": 5,
+   "rain": 4.2727,
+   "sm": 0.2336,
+   "ndvi": 0.2396,
+   "lst": NaN
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2024,
+   "month": 6,
+   "rain": 5.5322,
+   "sm": 0.2455,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2024,
+   "month": 7,
+   "rain": 8.9532,
+   "sm": 0.4004,
+   "ndvi": 0.1676,
+   "lst": 39.92
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2024,
+   "month": 8,
+   "rain": 9.9189,
+   "sm": 0.4272,
+   "ndvi": 0.205,
+   "lst": 29.53
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2024,
+   "month": 9,
+   "rain": 10.1523,
+   "sm": 0.3356,
+   "ndvi": NaN,
+   "lst": 34.33
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2024,
+   "month": 10,
+   "rain": 4.5839,
+   "sm": 0.3207,
+   "ndvi": 0.2729,
+   "lst": 26.17
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2024,
+   "month": 11,
+   "rain": 0.0,
+   "sm": 0.2943,
+   "ndvi": 0.3404,
+   "lst": 26.5633
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2024,
+   "month": 12,
+   "rain": 0.0076,
+   "sm": 0.2577,
+   "ndvi": NaN,
+   "lst": 18.1967
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2025,
+   "month": 1,
+   "rain": 0.0,
+   "sm": 0.2679,
+   "ndvi": NaN,
+   "lst": 18.24
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2025,
+   "month": 2,
+   "rain": 0.11,
+   "sm": 0.3007,
+   "ndvi": 0.22,
+   "lst": 18.98
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2025,
+   "month": 3,
+   "rain": 0.5505,
+   "sm": 0.2649,
+   "ndvi": 0.1616,
+   "lst": 25.8233
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2025,
+   "month": 4,
+   "rain": 1.8765,
+   "sm": 0.2092,
+   "ndvi": 0.1986,
+   "lst": 26.566
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2025,
+   "month": 5,
+   "rain": 7.1519,
+   "sm": 0.25,
+   "ndvi": 0.2934,
+   "lst": 33.68
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2025,
+   "month": 6,
+   "rain": 6.1245,
+   "sm": 0.3003,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2025,
+   "month": 7,
+   "rain": 11.8668,
+   "sm": 0.3966,
+   "ndvi": NaN,
+   "lst": 19.45
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2025,
+   "month": 8,
+   "rain": 10.5242,
+   "sm": 0.4508,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2025,
+   "month": 9,
+   "rain": 6.8727,
+   "sm": 0.3553,
+   "ndvi": 0.3528,
+   "lst": NaN
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2025,
+   "month": 10,
+   "rain": 4.3665,
+   "sm": 0.2905,
+   "ndvi": 0.2635,
+   "lst": 25.626
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2025,
+   "month": 11,
+   "rain": 0.171,
+   "sm": 0.3457,
+   "ndvi": NaN,
+   "lst": 24.67
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2025,
+   "month": 12,
+   "rain": 0.0031,
+   "sm": 0.2816,
+   "ndvi": NaN,
+   "lst": 14.25
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2026,
+   "month": 1,
+   "rain": 0.0,
+   "sm": 0.2882,
+   "ndvi": NaN,
+   "lst": 19.8333
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2026,
+   "month": 2,
+   "rain": 0.0,
+   "sm": 0.3405,
+   "ndvi": NaN,
+   "lst": 18.175
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2026,
+   "month": 3,
+   "rain": 2.0065,
+   "sm": 0.2809,
+   "ndvi": NaN,
+   "lst": 22.85
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2026,
+   "month": 4,
+   "rain": 0.9217,
+   "sm": 0.2282,
+   "ndvi": 0.2359,
+   "lst": 27.555
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2026,
+   "month": 5,
+   "rain": 2.8719,
+   "sm": 0.2754,
+   "ndvi": 0.241,
+   "lst": 35.89
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2026,
+   "month": 6,
+   "rain": 2.3417,
+   "sm": 0.2847,
+   "ndvi": 0.2368,
+   "lst": 33.29
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2026,
+   "month": 7,
+   "rain": 5.9345,
+   "sm": 0.373,
+   "ndvi": 0.4107,
+   "lst": 37.51
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2026,
+   "month": 8,
+   "rain": 3.1547,
+   "sm": 0.4114,
+   "ndvi": NaN,
+   "lst": 32.87
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2026,
+   "month": 9,
+   "rain": 5.7998,
+   "sm": 0.3625,
+   "ndvi": NaN,
+   "lst": 39.61
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2026,
+   "month": 10,
+   "rain": 2.3856,
+   "sm": 0.2957,
+   "ndvi": NaN,
+   "lst": 27.475
+  },
+  {
+   "region": "Northwest_Rajshahi",
+   "year": 2026,
+   "month": 11,
+   "rain": 0.3811,
+   "sm": 0.2776,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2022,
+   "month": 1,
+   "rain": 0.191,
+   "sm": 0.5141,
+   "ndvi": NaN,
+   "lst": 20.28
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2022,
+   "month": 2,
+   "rain": 1.3064,
+   "sm": 0.4856,
+   "ndvi": 0.4938,
+   "lst": 24.15
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2022,
+   "month": 3,
+   "rain": 0.1637,
+   "sm": 0.3839,
+   "ndvi": 0.5999,
+   "lst": 24.16
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2022,
+   "month": 4,
+   "rain": 1.0102,
+   "sm": 0.336,
+   "ndvi": NaN,
+   "lst": 26.77
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2022,
+   "month": 5,
+   "rain": 8.2023,
+   "sm": 0.4602,
+   "ndvi": NaN,
+   "lst": 24.49
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2022,
+   "month": 6,
+   "rain": 11.4137,
+   "sm": 0.5284,
+   "ndvi": NaN,
+   "lst": 27.39
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2022,
+   "month": 7,
+   "rain": 7.1187,
+   "sm": 0.5572,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2022,
+   "month": 8,
+   "rain": 12.4119,
+   "sm": 0.5554,
+   "ndvi": NaN,
+   "lst": 28.0567
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2022,
+   "month": 9,
+   "rain": 11.6375,
+   "sm": 0.5,
+   "ndvi": NaN,
+   "lst": 33.0
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2022,
+   "month": 10,
+   "rain": 11.019,
+   "sm": 0.4272,
+   "ndvi": 0.9833,
+   "lst": 29.094
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2022,
+   "month": 11,
+   "rain": 0.2095,
+   "sm": 0.3586,
+   "ndvi": 0.6299,
+   "lst": 23.6
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2022,
+   "month": 12,
+   "rain": 0.0148,
+   "sm": 0.4162,
+   "ndvi": 0.6347,
+   "lst": 19.4167
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2023,
+   "month": 1,
+   "rain": 0.0,
+   "sm": 0.494,
+   "ndvi": 0.2845,
+   "lst": 23.9767
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2023,
+   "month": 2,
+   "rain": 0.0005,
+   "sm": 0.4487,
+   "ndvi": 0.5319,
+   "lst": 20.2175
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2023,
+   "month": 3,
+   "rain": 1.5802,
+   "sm": 0.3732,
+   "ndvi": 0.4781,
+   "lst": 31.25
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2023,
+   "month": 4,
+   "rain": 1.0417,
+   "sm": 0.3338,
+   "ndvi": 0.5611,
+   "lst": 24.7633
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2023,
+   "month": 5,
+   "rain": 5.4189,
+   "sm": 0.4175,
+   "ndvi": 0.6111,
+   "lst": 34.63
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2023,
+   "month": 6,
+   "rain": 11.4143,
+   "sm": 0.4893,
+   "ndvi": 0.4122,
+   "lst": 36.73
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2023,
+   "month": 7,
+   "rain": 8.0429,
+   "sm": 0.5503,
+   "ndvi": NaN,
+   "lst": 40.25
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2023,
+   "month": 8,
+   "rain": 17.5556,
+   "sm": 0.5658,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2023,
+   "month": 9,
+   "rain": 12.0258,
+   "sm": 0.5252,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2023,
+   "month": 10,
+   "rain": 7.6723,
+   "sm": 0.3951,
+   "ndvi": NaN,
+   "lst": 24.7925
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2023,
+   "month": 11,
+   "rain": 4.6387,
+   "sm": 0.3968,
+   "ndvi": 0.4657,
+   "lst": 23.83
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2023,
+   "month": 12,
+   "rain": 0.5487,
+   "sm": 0.4265,
+   "ndvi": NaN,
+   "lst": 19.96
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2024,
+   "month": 1,
+   "rain": 0.3353,
+   "sm": 0.4153,
+   "ndvi": NaN,
+   "lst": 17.86
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2024,
+   "month": 2,
+   "rain": 0.4384,
+   "sm": 0.3707,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2024,
+   "month": 3,
+   "rain": 1.1374,
+   "sm": 0.3129,
+   "ndvi": 0.5421,
+   "lst": 30.79
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2024,
+   "month": 4,
+   "rain": 0.3587,
+   "sm": 0.2655,
+   "ndvi": NaN,
+   "lst": 25.13
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2024,
+   "month": 5,
+   "rain": 11.3555,
+   "sm": 0.3858,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2024,
+   "month": 6,
+   "rain": 9.5,
+   "sm": 0.4853,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2024,
+   "month": 7,
+   "rain": 13.2381,
+   "sm": 0.5335,
+   "ndvi": NaN,
+   "lst": 36.07
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2024,
+   "month": 8,
+   "rain": 27.8331,
+   "sm": 0.5236,
+   "ndvi": NaN,
+   "lst": 25.99
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2024,
+   "month": 9,
+   "rain": 18.146,
+   "sm": 0.4851,
+   "ndvi": 0.6627,
+   "lst": 29.9367
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2024,
+   "month": 10,
+   "rain": 9.9569,
+   "sm": 0.383,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2024,
+   "month": 11,
+   "rain": 0.3672,
+   "sm": 0.2759,
+   "ndvi": NaN,
+   "lst": 24.705
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2024,
+   "month": 12,
+   "rain": 0.0961,
+   "sm": 0.3125,
+   "ndvi": 0.5328,
+   "lst": 16.22
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2025,
+   "month": 1,
+   "rain": 0.0173,
+   "sm": 0.3591,
+   "ndvi": NaN,
+   "lst": 17.404
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2025,
+   "month": 2,
+   "rain": 0.0388,
+   "sm": 0.3036,
+   "ndvi": 0.451,
+   "lst": 20.95
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2025,
+   "month": 3,
+   "rain": 0.0473,
+   "sm": 0.2374,
+   "ndvi": 0.5486,
+   "lst": 26.582
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2025,
+   "month": 4,
+   "rain": 3.8268,
+   "sm": 0.2579,
+   "ndvi": 0.412,
+   "lst": 28.0175
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2025,
+   "month": 5,
+   "rain": 10.9574,
+   "sm": 0.3344,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2025,
+   "month": 6,
+   "rain": 13.6202,
+   "sm": 0.4692,
+   "ndvi": NaN,
+   "lst": 25.825
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2025,
+   "month": 7,
+   "rain": 24.5381,
+   "sm": 0.4867,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2025,
+   "month": 8,
+   "rain": 11.6768,
+   "sm": 0.5329,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2025,
+   "month": 9,
+   "rain": 8.2207,
+   "sm": 0.4807,
+   "ndvi": NaN,
+   "lst": 31.45
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2025,
+   "month": 10,
+   "rain": 4.1623,
+   "sm": 0.3186,
+   "ndvi": 0.6989,
+   "lst": 25.31
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2025,
+   "month": 11,
+   "rain": 0.5695,
+   "sm": 0.2933,
+   "ndvi": 0.643,
+   "lst": 28.17
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2025,
+   "month": 12,
+   "rain": 0.0,
+   "sm": 0.3374,
+   "ndvi": NaN,
+   "lst": 15.4
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2026,
+   "month": 1,
+   "rain": 0.0,
+   "sm": 0.3837,
+   "ndvi": NaN,
+   "lst": 17.88
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2026,
+   "month": 2,
+   "rain": 0.002,
+   "sm": 0.3437,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2026,
+   "month": 3,
+   "rain": 1.8494,
+   "sm": 0.285,
+   "ndvi": NaN,
+   "lst": 21.31
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2026,
+   "month": 4,
+   "rain": 4.3617,
+   "sm": 0.2713,
+   "ndvi": NaN,
+   "lst": 25.33
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2026,
+   "month": 5,
+   "rain": 2.8006,
+   "sm": 0.4137,
+   "ndvi": NaN,
+   "lst": 35.87
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2026,
+   "month": 6,
+   "rain": 4.9835,
+   "sm": 0.4244,
+   "ndvi": NaN,
+   "lst": 32.4
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2026,
+   "month": 7,
+   "rain": 9.699,
+   "sm": 0.5222,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2026,
+   "month": 8,
+   "rain": 9.5515,
+   "sm": 0.5212,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2026,
+   "month": 9,
+   "rain": 7.0325,
+   "sm": 0.49,
+   "ndvi": NaN,
+   "lst": 31.64
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2026,
+   "month": 10,
+   "rain": 0.5856,
+   "sm": 0.3152,
+   "ndvi": NaN,
+   "lst": 28.425
+  },
+  {
+   "region": "South_Barishal",
+   "year": 2026,
+   "month": 11,
+   "rain": 0.0556,
+   "sm": 0.2776,
+   "ndvi": NaN,
+   "lst": 26.99
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2022,
+   "month": 1,
+   "rain": 0.1539,
+   "sm": 0.4032,
+   "ndvi": 0.3473,
+   "lst": 20.7233
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2022,
+   "month": 2,
+   "rain": 0.5434,
+   "sm": 0.4442,
+   "ndvi": 0.2747,
+   "lst": 25.87
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2022,
+   "month": 3,
+   "rain": 0.1889,
+   "sm": 0.3656,
+   "ndvi": 0.3158,
+   "lst": 25.47
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2022,
+   "month": 4,
+   "rain": 2.0458,
+   "sm": 0.2765,
+   "ndvi": 0.2808,
+   "lst": 31.12
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2022,
+   "month": 5,
+   "rain": 12.0716,
+   "sm": 0.3628,
+   "ndvi": 0.3653,
+   "lst": 30.71
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2022,
+   "month": 6,
+   "rain": 20.8968,
+   "sm": 0.4364,
+   "ndvi": NaN,
+   "lst": 32.61
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2022,
+   "month": 7,
+   "rain": 9.7705,
+   "sm": 0.4319,
+   "ndvi": 0.389,
+   "lst": NaN
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2022,
+   "month": 8,
+   "rain": 10.5598,
+   "sm": 0.4676,
+   "ndvi": 0.3974,
+   "lst": 31.33
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2022,
+   "month": 9,
+   "rain": 17.0623,
+   "sm": 0.3785,
+   "ndvi": NaN,
+   "lst": 30.21
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2022,
+   "month": 10,
+   "rain": 6.5987,
+   "sm": 0.3295,
+   "ndvi": 0.4878,
+   "lst": 24.19
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2022,
+   "month": 11,
+   "rain": 0.0558,
+   "sm": 0.3172,
+   "ndvi": 0.3575,
+   "lst": 27.0867
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2022,
+   "month": 12,
+   "rain": 0.001,
+   "sm": 0.3425,
+   "ndvi": 0.301,
+   "lst": 29.502
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2023,
+   "month": 1,
+   "rain": 0.0,
+   "sm": 0.41,
+   "ndvi": 0.2679,
+   "lst": 23.3617
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2023,
+   "month": 2,
+   "rain": 0.0054,
+   "sm": 0.4218,
+   "ndvi": 0.2339,
+   "lst": 20.71
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2023,
+   "month": 3,
+   "rain": 1.0652,
+   "sm": 0.3896,
+   "ndvi": 0.3357,
+   "lst": 31.045
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2023,
+   "month": 4,
+   "rain": 1.1495,
+   "sm": 0.3194,
+   "ndvi": 0.3352,
+   "lst": 31.515
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2023,
+   "month": 5,
+   "rain": 6.3773,
+   "sm": 0.3181,
+   "ndvi": 0.2873,
+   "lst": 33.15
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2023,
+   "month": 6,
+   "rain": 15.1265,
+   "sm": 0.3929,
+   "ndvi": 0.3957,
+   "lst": NaN
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2023,
+   "month": 7,
+   "rain": 6.9915,
+   "sm": 0.3841,
+   "ndvi": 0.5523,
+   "lst": 28.15
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2023,
+   "month": 8,
+   "rain": 32.5926,
+   "sm": 0.5238,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2023,
+   "month": 9,
+   "rain": 14.1662,
+   "sm": 0.4438,
+   "ndvi": 0.4879,
+   "lst": 26.07
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2023,
+   "month": 10,
+   "rain": 6.1684,
+   "sm": 0.3539,
+   "ndvi": 0.5203,
+   "lst": 23.29
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2023,
+   "month": 11,
+   "rain": 3.2015,
+   "sm": 0.3423,
+   "ndvi": 0.4991,
+   "lst": 25.742
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2023,
+   "month": 12,
+   "rain": 0.6082,
+   "sm": 0.3105,
+   "ndvi": 0.252,
+   "lst": 17.08
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2024,
+   "month": 1,
+   "rain": 0.1923,
+   "sm": 0.2244,
+   "ndvi": 0.2234,
+   "lst": 17.51
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2024,
+   "month": 2,
+   "rain": 0.5252,
+   "sm": 0.26,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2024,
+   "month": 3,
+   "rain": 1.6624,
+   "sm": 0.2317,
+   "ndvi": 0.3419,
+   "lst": 25.01
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2024,
+   "month": 4,
+   "rain": 0.6973,
+   "sm": 0.194,
+   "ndvi": NaN,
+   "lst": 28.3
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2024,
+   "month": 5,
+   "rain": 13.8018,
+   "sm": 0.2572,
+   "ndvi": 0.3809,
+   "lst": 33.91
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2024,
+   "month": 6,
+   "rain": 17.8413,
+   "sm": 0.2723,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2024,
+   "month": 7,
+   "rain": 24.9553,
+   "sm": 0.3326,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2024,
+   "month": 8,
+   "rain": 38.87,
+   "sm": 0.3815,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2024,
+   "month": 9,
+   "rain": 15.408,
+   "sm": 0.2902,
+   "ndvi": 0.4909,
+   "lst": 39.17
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2024,
+   "month": 10,
+   "rain": 6.1395,
+   "sm": 0.2168,
+   "ndvi": 0.3696,
+   "lst": 28.08
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2024,
+   "month": 11,
+   "rain": 0.2973,
+   "sm": 0.1267,
+   "ndvi": 0.3785,
+   "lst": 24.298
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2024,
+   "month": 12,
+   "rain": 0.0803,
+   "sm": 0.1285,
+   "ndvi": 0.2875,
+   "lst": 16.8233
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2025,
+   "month": 1,
+   "rain": 0.0,
+   "sm": 0.1583,
+   "ndvi": 0.2273,
+   "lst": 21.7486
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2025,
+   "month": 2,
+   "rain": 0.0,
+   "sm": 0.2041,
+   "ndvi": 0.1782,
+   "lst": 23.39
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2025,
+   "month": 3,
+   "rain": 0.0379,
+   "sm": 0.155,
+   "ndvi": 0.1737,
+   "lst": 27.945
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2025,
+   "month": 4,
+   "rain": 3.9553,
+   "sm": 0.1384,
+   "ndvi": 0.2251,
+   "lst": 27.33
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2025,
+   "month": 5,
+   "rain": 17.4097,
+   "sm": 0.2055,
+   "ndvi": 0.2157,
+   "lst": 27.805
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2025,
+   "month": 6,
+   "rain": 20.7885,
+   "sm": 0.2842,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2025,
+   "month": 7,
+   "rain": 26.0494,
+   "sm": 0.3467,
+   "ndvi": NaN,
+   "lst": 32.71
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2025,
+   "month": 8,
+   "rain": 17.0511,
+   "sm": 0.3466,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2025,
+   "month": 9,
+   "rain": 11.72,
+   "sm": 0.275,
+   "ndvi": 0.5835,
+   "lst": 33.03
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2025,
+   "month": 10,
+   "rain": 3.9532,
+   "sm": 0.1886,
+   "ndvi": 0.3902,
+   "lst": 24.51
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2025,
+   "month": 11,
+   "rain": 0.9008,
+   "sm": 0.1857,
+   "ndvi": 0.405,
+   "lst": 26.68
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2025,
+   "month": 12,
+   "rain": 0.0011,
+   "sm": 0.1727,
+   "ndvi": 0.3177,
+   "lst": 17.5567
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2026,
+   "month": 1,
+   "rain": 0.0,
+   "sm": 0.1741,
+   "ndvi": 0.2208,
+   "lst": 22.8843
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2026,
+   "month": 2,
+   "rain": 0.0127,
+   "sm": 0.2468,
+   "ndvi": 0.192,
+   "lst": 17.05
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2026,
+   "month": 3,
+   "rain": 1.0824,
+   "sm": 0.2114,
+   "ndvi": 0.2831,
+   "lst": 22.71
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2026,
+   "month": 4,
+   "rain": 9.6118,
+   "sm": 0.2043,
+   "ndvi": 0.2207,
+   "lst": 24.58
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2026,
+   "month": 5,
+   "rain": 7.3971,
+   "sm": 0.2669,
+   "ndvi": NaN,
+   "lst": 33.7167
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2026,
+   "month": 6,
+   "rain": 11.1278,
+   "sm": 0.2709,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2026,
+   "month": 7,
+   "rain": 25.9448,
+   "sm": 0.3569,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2026,
+   "month": 8,
+   "rain": 12.1653,
+   "sm": 0.3681,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2026,
+   "month": 9,
+   "rain": 8.9095,
+   "sm": 0.2933,
+   "ndvi": 0.362,
+   "lst": 33.3233
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2026,
+   "month": 10,
+   "rain": 2.5494,
+   "sm": 0.2088,
+   "ndvi": 0.2961,
+   "lst": 26.6725
+  },
+  {
+   "region": "Southeast_Chattogram",
+   "year": 2026,
+   "month": 11,
+   "rain": 0.255,
+   "sm": 0.1842,
+   "ndvi": 0.3759,
+   "lst": 27.08
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2022,
+   "month": 1,
+   "rain": 0.3269,
+   "sm": 0.5805,
+   "ndvi": 0.3363,
+   "lst": 22.49
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2022,
+   "month": 2,
+   "rain": 1.9371,
+   "sm": 0.5501,
+   "ndvi": 0.4329,
+   "lst": 25.13
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2022,
+   "month": 3,
+   "rain": 0.0711,
+   "sm": 0.3372,
+   "ndvi": 0.3912,
+   "lst": 25.77
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2022,
+   "month": 4,
+   "rain": 1.0215,
+   "sm": 0.2538,
+   "ndvi": NaN,
+   "lst": 26.17
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2022,
+   "month": 5,
+   "rain": 7.104,
+   "sm": 0.389,
+   "ndvi": 0.4154,
+   "lst": 28.01
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2022,
+   "month": 6,
+   "rain": 6.2715,
+   "sm": 0.4707,
+   "ndvi": NaN,
+   "lst": 24.45
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2022,
+   "month": 7,
+   "rain": 4.6248,
+   "sm": 0.5271,
+   "ndvi": 0.7285,
+   "lst": 31.06
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2022,
+   "month": 8,
+   "rain": 9.2431,
+   "sm": 0.534,
+   "ndvi": 0.5456,
+   "lst": 27.71
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2022,
+   "month": 9,
+   "rain": 9.8755,
+   "sm": 0.5375,
+   "ndvi": 0.4898,
+   "lst": NaN
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2022,
+   "month": 10,
+   "rain": 7.3268,
+   "sm": 0.5111,
+   "ndvi": 0.6522,
+   "lst": 31.106
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2022,
+   "month": 11,
+   "rain": 0.1553,
+   "sm": 0.5113,
+   "ndvi": 0.3851,
+   "lst": 24.94
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2022,
+   "month": 12,
+   "rain": 0.0303,
+   "sm": 0.5473,
+   "ndvi": 0.5028,
+   "lst": 16.5833
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2023,
+   "month": 1,
+   "rain": 0.0211,
+   "sm": 0.5759,
+   "ndvi": 0.3754,
+   "lst": 24.602
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2023,
+   "month": 2,
+   "rain": 0.0564,
+   "sm": 0.5031,
+   "ndvi": 0.3866,
+   "lst": 21.765
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2023,
+   "month": 3,
+   "rain": 1.9397,
+   "sm": 0.3117,
+   "ndvi": 0.3624,
+   "lst": 30.69
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2023,
+   "month": 4,
+   "rain": 1.6007,
+   "sm": 0.2837,
+   "ndvi": 0.4132,
+   "lst": 27.13
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2023,
+   "month": 5,
+   "rain": 5.0861,
+   "sm": 0.3985,
+   "ndvi": 0.4886,
+   "lst": 24.79
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2023,
+   "month": 6,
+   "rain": 9.5983,
+   "sm": 0.4545,
+   "ndvi": 0.4845,
+   "lst": 34.3567
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2023,
+   "month": 7,
+   "rain": 8.5776,
+   "sm": 0.5588,
+   "ndvi": 0.5736,
+   "lst": NaN
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2023,
+   "month": 8,
+   "rain": 12.7866,
+   "sm": 0.5796,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2023,
+   "month": 9,
+   "rain": 8.1883,
+   "sm": 0.5516,
+   "ndvi": NaN,
+   "lst": 30.29
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2023,
+   "month": 10,
+   "rain": 6.1031,
+   "sm": 0.5036,
+   "ndvi": 0.6243,
+   "lst": 25.34
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2023,
+   "month": 11,
+   "rain": 1.996,
+   "sm": 0.5187,
+   "ndvi": 0.5317,
+   "lst": 23.7767
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2023,
+   "month": 12,
+   "rain": 0.78,
+   "sm": 0.5195,
+   "ndvi": 0.5329,
+   "lst": 18.0567
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2024,
+   "month": 1,
+   "rain": 0.5352,
+   "sm": 0.5132,
+   "ndvi": 0.3097,
+   "lst": 16.15
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2024,
+   "month": 2,
+   "rain": 0.5919,
+   "sm": 0.4329,
+   "ndvi": 0.3408,
+   "lst": 19.73
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2024,
+   "month": 3,
+   "rain": 0.9224,
+   "sm": 0.2789,
+   "ndvi": 0.374,
+   "lst": 30.97
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2024,
+   "month": 4,
+   "rain": 0.628,
+   "sm": 0.2231,
+   "ndvi": 0.3812,
+   "lst": 27.83
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2024,
+   "month": 5,
+   "rain": 8.7635,
+   "sm": 0.3713,
+   "ndvi": 0.3718,
+   "lst": 31.07
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2024,
+   "month": 6,
+   "rain": 7.6593,
+   "sm": 0.4479,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2024,
+   "month": 7,
+   "rain": 10.7498,
+   "sm": 0.5317,
+   "ndvi": NaN,
+   "lst": 37.13
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2024,
+   "month": 8,
+   "rain": 18.5769,
+   "sm": 0.5439,
+   "ndvi": NaN,
+   "lst": 30.81
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2024,
+   "month": 9,
+   "rain": 15.4333,
+   "sm": 0.5319,
+   "ndvi": 0.4226,
+   "lst": 30.0033
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2024,
+   "month": 10,
+   "rain": 8.4831,
+   "sm": 0.4747,
+   "ndvi": NaN,
+   "lst": 25.41
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2024,
+   "month": 11,
+   "rain": 0.3515,
+   "sm": 0.4395,
+   "ndvi": NaN,
+   "lst": 25.35
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2024,
+   "month": 12,
+   "rain": 0.2985,
+   "sm": 0.4535,
+   "ndvi": NaN,
+   "lst": 15.69
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2025,
+   "month": 1,
+   "rain": 0.0195,
+   "sm": 0.5051,
+   "ndvi": 0.4384,
+   "lst": 17.27
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2025,
+   "month": 2,
+   "rain": 0.2518,
+   "sm": 0.4083,
+   "ndvi": 0.4038,
+   "lst": 19.0
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2025,
+   "month": 3,
+   "rain": 0.0932,
+   "sm": 0.2397,
+   "ndvi": 0.3845,
+   "lst": 26.205
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2025,
+   "month": 4,
+   "rain": 2.5998,
+   "sm": 0.213,
+   "ndvi": 0.3733,
+   "lst": 30.33
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2025,
+   "month": 5,
+   "rain": 8.6268,
+   "sm": 0.3206,
+   "ndvi": 0.3641,
+   "lst": 28.57
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2025,
+   "month": 6,
+   "rain": 9.7497,
+   "sm": 0.4178,
+   "ndvi": NaN,
+   "lst": 37.29
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2025,
+   "month": 7,
+   "rain": 21.0066,
+   "sm": 0.5005,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2025,
+   "month": 8,
+   "rain": 8.9171,
+   "sm": 0.5207,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2025,
+   "month": 9,
+   "rain": 7.2768,
+   "sm": 0.4591,
+   "ndvi": NaN,
+   "lst": 29.41
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2025,
+   "month": 10,
+   "rain": 4.1335,
+   "sm": 0.4159,
+   "ndvi": 0.5284,
+   "lst": 26.1233
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2025,
+   "month": 11,
+   "rain": 0.999,
+   "sm": 0.4027,
+   "ndvi": 0.4904,
+   "lst": 25.4633
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2025,
+   "month": 12,
+   "rain": 0.0353,
+   "sm": 0.4405,
+   "ndvi": NaN,
+   "lst": 16.65
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2026,
+   "month": 1,
+   "rain": 0.0,
+   "sm": 0.4973,
+   "ndvi": 0.3337,
+   "lst": 19.0025
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2026,
+   "month": 2,
+   "rain": 0.1112,
+   "sm": 0.3915,
+   "ndvi": 0.3308,
+   "lst": NaN
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2026,
+   "month": 3,
+   "rain": 1.4924,
+   "sm": 0.2612,
+   "ndvi": NaN,
+   "lst": 22.25
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2026,
+   "month": 4,
+   "rain": 2.516,
+   "sm": 0.2378,
+   "ndvi": 0.4536,
+   "lst": 26.21
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2026,
+   "month": 5,
+   "rain": 2.2763,
+   "sm": 0.3404,
+   "ndvi": NaN,
+   "lst": 31.05
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2026,
+   "month": 6,
+   "rain": 3.6712,
+   "sm": 0.4165,
+   "ndvi": NaN,
+   "lst": 34.1767
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2026,
+   "month": 7,
+   "rain": 10.6002,
+   "sm": 0.5092,
+   "ndvi": 0.6377,
+   "lst": NaN
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2026,
+   "month": 8,
+   "rain": 4.2402,
+   "sm": 0.5271,
+   "ndvi": NaN,
+   "lst": NaN
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2026,
+   "month": 9,
+   "rain": 4.1818,
+   "sm": 0.5202,
+   "ndvi": NaN,
+   "lst": 32.7167
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2026,
+   "month": 10,
+   "rain": 1.125,
+   "sm": 0.4417,
+   "ndvi": NaN,
+   "lst": 27.37
+  },
+  {
+   "region": "Southwest_Khulna",
+   "year": 2026,
+   "month": 11,
+   "rain": 5.8883,
+   "sm": 0.4055,
+   "ndvi": 0.2638,
+   "lst": 27.63
+  }
+ ],
+ "inventory": {
+  "GPM": {
+   "rows": 12418,
+   "filled": 12418
+  },
+  "SMAP": {
+   "rows": 24206,
+   "filled": 9618
+  },
+  "ECOSTRESS": {
+   "rows": 2819,
+   "filled": 933
+  },
+  "HLS": {
+   "rows": 413,
+   "filled": 220
+  },
+  "GRACE": {
+   "rows": 399,
+   "filled": 399
+  },
+  "SRTM": {
+   "rows": 7,
+   "filled": 7
+  }
+ },
+ "region_order": [
+  "Northwest_Rajshahi",
+  "North_Rangpur",
+  "Central_Dhaka",
+  "Northeast_Sylhet",
+  "Southwest_Khulna",
+  "South_Barishal",
+  "Southeast_Chattogram"
+ ]
+}

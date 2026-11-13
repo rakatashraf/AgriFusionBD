@@ -60,8 +60,8 @@ class AnalysisRun(models.Model):
     class Meta:
         ordering = ["-submitted_at"]
         indexes = [
-            models.Index(fields=["field", "status"]),
-            models.Index(fields=["submitted_by"]),
+            models.Index(fields=["field", "status"], name="analysis_field_status_idx"),
+            models.Index(fields=["submitted_by"], name="analysis_submitted_by_idx"),
         ]
 
     def save(self, *args, **kwargs):

@@ -1,0 +1,16 @@
+{
+ "strategy": "time-based, no shuffling",
+ "train": {
+  "start": "2022-01-01",
+  "end": "2024-12-31"
+ },
+ "valid": {
+  "start": "2025-01-01",
+  "end": "2025-12-31"
+ },
+ "test": {
+  "start": "2026-01-01",
+  "end": "2026-10-25"
+ },
+ "note": "Series are strongly autocorrelated; random splits leak future information."
+}

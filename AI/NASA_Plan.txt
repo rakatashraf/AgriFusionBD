@@ -1,0 +1,196 @@
+NASA Data Sources and API Implementation Plan
+FieldShift agricultural rover platform
+Django and SvelteKit with PostgreSQL and PostGIS
+Prepared 9 November 2026
+What you need to build
+Start with NASA POWER for historical weather and HLS for vegetation imagery. Combine them with rover observations and locally reviewed crop and soil information. Your Django backend will download, check, store and summarize the data; SvelteKit will display the results.
+NASA already operates its own APIs and data archives. You do not create a NASA API. You create your application APIs and small backend connectors that communicate with the existing NASA services. The route names in this report are proposed routes for your application, not NASA endpoints.
+
+| Source | Data to collect | Priority and purpose |
+|---|---|---|
+| NASA POWER | Daily weather and solar radiation | First release: historical growing conditions |
+| HLS L30 and S30 | Surface reflectance and quality flags | First release: vegetation trends and rover inspection locations |
+| SMAP | Surface soil moisture and quality flags | Later: regional wetness and dryness context |
+| GPM IMERG | Rainfall rate and quality information | Later: recent rainfall and historical rainfall events |
+| ECOSTRESS | Surface temperature; optional evapotranspiration | Later: thermal and water-use investigation |
+| SRTM | Elevation | Later: terrain context |
+| GRACE and GRACE FO | Monthly water-storage anomalies | Research: large-area water trends |
+
+The precision boundary
+A coordinate is a way to select data; it does not make the data a measurement at that exact point. Coarse grids may cover many farms. Rover readings describe specific points and depths. Display observation dates, source scale and quality with every result. Historical observations and latest available observations are not forecasts.
+Report guide: weather on page 2; imagery on page 3; optional sources on page 4; your Django APIs on page 5; processing and storage on page 6; implementation checklist on page 7; official references on page 8.
+1 NASA POWER weather data
+Use the daily point API for your 2022 to present weather history. Request JSON for backend processing and generate CSV exports yourself. POWER offers public API access without an API key for this request. The daily API supports the agriculture community code AG. [1,2]
+
+| Parameter | Meaning and usual daily unit | Use in your application |
+|---|---|---|
+| T2M | Mean air temperature at 2 m; °C | Seasonal conditions and crop development inputs |
+| T2M_MAX | Maximum air temperature at 2 m; °C | Crop and stage specific heat exposure |
+| T2M_MIN | Minimum air temperature at 2 m; °C | Cold exposure and planting constraints |
+| PRECTOTCORR | Corrected precipitation; mm/day | Rainfall totals and dry-spell indicators |
+| RH2M | Relative humidity at 2 m; % | Humidity context and water-demand inputs |
+| WS2M | Wind speed at 2 m; m/s | Water-demand inputs |
+| ALLSKY_SFC_SW_DWN | Surface shortwave solar radiation; typically kWh/m²/day for AG | Radiation input for crop water calculations |
+| PS | Surface pressure; kPa | Atmospheric input for evapotranspiration calculations |
+
+Treat returned parameter metadata as authoritative for units. Convert units explicitly when a model requires them. For example, kWh/m²/day × 3.6 gives MJ/m²/day. These weather variables alone do not supply a complete irrigation recommendation; soil, crop stage, root depth and irrigation information are also needed.
+Existing NASA endpoint
+GET https://power.larc.nasa.gov/api/temporal/daily/point
+parameters=T2M,T2M_MAX,T2M_MIN,PRECTOTCORR,RH2M,WS2M,
+           ALLSKY_SFC_SW_DWN,PS
+community=AG
+latitude=24.8&longitude=89.4
+start=20220101&end=20261109
+format=JSON&time-standard=UTC
+Pass these as request query parameters, not as a literal multiline URL. The coordinates are an example; use the selected field. At runtime, calculate the end date automatically and preserve the latest actual observation date returned. A request ending today does not guarantee data for today.
+Backend processing
+Parse properties.parameter into dated records, replace the reported fill value with null, retain units and source metadata, and save the requested and returned date ranges. Cache shared public weather requests. The source grids are much larger than a small field and may differ by parameter. [1,2]
+For your seven Bangladesh demonstration locations, label each CSV as a representative point. A point at a city is not a regional average. Regional summaries require explicit polygons and suitable spatial aggregation.
+2 HLS vegetation imagery
+Use HLSL30 and HLSS30 surface reflectance products, initially version 2.0 collections after checking catalog availability. HLS combines Landsat and Sentinel observations on a 30 m grid. Search by field boundary and date; usable cloud-free observations are not guaranteed every day. [3]
+
+| Required layer | HLSL30 band | HLSS30 band | Purpose |
+|---|---|---|---|
+| Red reflectance | B04 | B04 | Vegetation index |
+| Near infrared reflectance | B05 | B8A | Comparable NIR for L30 and S30 |
+| Shortwave infrared 1 | B06 | B11 | Optional vegetation moisture index |
+| Blue and green | B02 and B03 | B02 and B03 | Optional true-colour preview with red |
+| Quality layer | Fmask | Fmask | Remove unsuitable pixels before analysis |
+
+Band mapping follows the HLS spectral definitions. Do not use Sentinel B05 as NIR; it is a red-edge band. [4]
+What your backend calculates
+NDVI = (NIR − Red) / (NIR + Red). Optionally calculate NDMI = (NIR − SWIR1) / (NIR + SWIR1). Apply the product scale and offset, missing-value handling and quality rules before computing indices; reject zero denominators. These indices are indicators, not direct measurements of soil moisture, nutrient content or confirmed disease.
+For each date, return field median NDVI, valid-pixel coverage, observation time and a preview layer. Only compare dates that meet your declared coverage threshold. Small or narrow fields may contain too few uncontaminated pixels for a reliable field estimate.
+How to get the imagery
+1. Create a NASA Earthdata Login account. Keep credentials in backend secrets. A bearer token is supported only where the specific download service accepts it; it is not a universal NASA API key. [5]
+2. Use Earthdata Search to confirm an observation exists. In code, use earthaccess to search CMR, NASA’s collection and file catalog. Search metadata can be public; protected file access requires authentication. [5,6]
+3. Search HLSL30 and HLSS30 separately with a bounded date range and field bounding box. Record collection version and file identifiers. Download required band assets and quality layers from the links returned by the catalog.
+4. Clip imagery to the field in a worker, mask clouds and shadows using the product guide, calculate statistics, then save raster files in object storage. Serve small summaries and map layers to the frontend.
+Practical search pattern
+earthaccess.login()  # backend or local development only
+items = earthaccess.search_data(
+    short_name="HLSL30", version="2.0",
+    temporal=("2026-10-01", "2026-10-31"),
+    bounding_box=(west, south, east, north))
+This is a search pattern, not a complete download or processing program. Coordinates must be actual field bounds, in longitude and latitude order. Repeat for HLSS30; select assets explicitly and bound download size. [6]
+3 Optional NASA sources and their limits
+
+| Source and product | Collect and access | Use and limits |
+|---|---|---|
+| SMAP
+SPL3SMP_E | Surface soil moisture, retrieval-quality flags, observation time and location; discover version through CMR and download with earthaccess. [7] | Regional wetness context. The enhanced product is posted on a 9 km grid; grid spacing is not independent 9 km measurement detail. Not a rover-depth or field moisture substitute. |
+| GPM IMERG
+Early or Late and Final | Precipitation rate, time bounds and quality information from the selected run; Earthdata catalog and authenticated archive downloads. [8] | Recent rainfall context and historical events. Keep run and version separate. Typical latencies are about 4 h Early, 14 h Late and months for Final; verify actual availability. |
+| ECOSTRESS
+ECO_L2T_LSTE
+Optional ECO_L3T_JET | Land surface temperature and quality layers; optional modeled ET layers. Search collection version, field and time through CMR. [9] | 70 m product grid with irregular observation times. Surface temperature is not 2 m air temperature. ET is a derived estimate, not direct irrigation demand. |
+| SRTM
+SRTMGL1 V003 | Elevation and missing-data metadata; download intersecting tiles through Earthdata. [10] | Approximately 30 m posting at the equator. Derive broad slope context. Static historical terrain; insufficient for centimetre-scale drainage design on flat fields. |
+| GRACE and GRACE FO
+Mascon products | Monthly water-storage anomalies and uncertainty; official product downloads or Earthdata catalog. [11] | Large-area water-storage trends for researchers. Display grid is not effective resolving power. Not a field groundwater measurement or well-depth estimate. |
+
+How to choose additions
+Add IMERG if recent rainfall events are a required feature. Add SMAP for regional wetness comparisons. Add ECOSTRESS only after confirming sufficient valid scenes for the pilot fields. Add SRTM once and reuse it. Keep GRACE in the researcher workspace until there is a defensible regional analysis.
+For IMERG, integrate rainfall rates over the actual time intervals to obtain accumulation; do not simply sum rates. Prefer Final Run for retrospective research and identify provisional recent runs clearly. Do not silently join different runs into a single unlabelled series. [8]
+Sources you can defer
+Separate MODIS or Landsat workflows are not required for the first release because HLS already supports the initial vegetation use case. Add another product only if its archive, variables or coverage answer an unmet requirement. No NASA source in this plan replaces soil laboratory tests, local crop calendars, market prices or farmer observations.
+4 APIs you create in Django
+Build one Django REST API for the application. NASA connectors are internal Python modules called by workers; they do not each need a separate public API service. Use the same backend for farmer and professional portals, with different permissions.
+
+| Your proposed endpoint | Purpose and response |
+|---|---|
+| POST /api/v1/fields/ | Save a point or field polygon after permission and coordinate validation. Return field ID. |
+| POST /api/v1/fields/{id}/data-jobs/ | Request selected sources and date range. Return HTTP 202 with job ID; processing happens in Celery. |
+| GET /api/v1/jobs/{id}/ | Return queued, running, completed, partial or failed status and a safe explanation. |
+| GET /api/v1/fields/{id}/weather/ | Return stored POWER records, units, source dates and missing-data flags. |
+| GET /api/v1/fields/{id}/vegetation/ | Return HLS index time series, coverage and observation dates. |
+| GET /api/v1/fields/{id}/layers/ | Return authorized map-layer metadata and access URLs; large imagery stays out of JSON. |
+| GET /api/v1/fields/{id}/environment/ | Return enabled SMAP, IMERG, ECOSTRESS or terrain summaries with source scale. |
+| POST /api/v1/devices/{id}/observations/ | Receive rover measurements using device credentials. Deduplicate reading IDs. |
+| POST /api/v1/fields/{id}/soil-tests/ | Attach local laboratory results, units, method and sample depth. |
+| POST /api/v1/fields/{id}/rotation-jobs/ | Compare current rotation with two feasible alternatives using available evidence. Return job ID. |
+| GET /api/v1/fields/{id}/data-status/ | Show latest observation, last successful fetch, available dates and source problems. |
+| POST /api/v1/exports/ | Queue an authorized CSV or report export, including provenance and quality flags. |
+
+What needs credentials
+POWER: no API key for the public point request. Earthdata: account and supported authentication for protected archive access. Your app: Django user authentication for private fields and exports. Rover: its own revocable device credential. Never send Earthdata passwords or tokens to SvelteKit browser code.
+What does not need a new API
+NDVI calculation, cloud masking, weather aggregation and CSV generation are backend functions. Celery runs slow functions. Redis queues work and caches reusable results. You only expose endpoints when the frontend, rover or an authorized external client needs to communicate with your system.
+5 Data flow and storage
+From a map selection to a result
+1. SvelteKit captures a map point or polygon. GeoJSON uses [longitude, latitude]. Django validates coordinate ranges, polygon validity, size limits and field access. A point supports a point query; field-wide imagery summaries require a boundary.
+2. Django checks for existing usable data. If data is missing, it creates a durable job in PostgreSQL and queues bounded tasks. Return a job ID immediately instead of keeping the browser request open during downloads.
+3. Celery calls the POWER connector or the shared Earthdata search and download connector. Separate weather, imagery and export queues so one large research request cannot block all farmers.
+4. Workers check quality, transform units, calculate summaries and save results. Repeated task execution must not create duplicate observations. Publish completion only after the result is durably stored.
+5. SvelteKit reads the completed result and displays its date, units, valid coverage and limitations. Refresh according to source availability rather than calling NASA on every map click.
+
+| Store | What belongs there |
+|---|---|
+| PostgreSQL and PostGIS | Users, permissions, field geometry, jobs, daily weather, extracted indicators, rover measurements and source metadata. |
+| Object storage | Downloaded raster subsets, photographs and generated exports. Store references in PostgreSQL. |
+| Redis | Task broker and a separate disposable cache. It is not the only copy of scientific results or job history. |
+
+Metadata required for every result
+Keep source and product name, collection version, file ID or request parameters, observation time or period, retrieval time, units, source grid or spatial support, quality flags, coverage, geometry version and processing version. Store missing values as null. Preserve which values are measured, modeled or calculated.
+Avoid unnecessary requests
+Share identical public NASA assets across users, but protect private field summaries and rover data. Use provider-specific concurrency limits, timeouts and retry backoff. Coalesce duplicate requests; check for existing files before downloading. Cache by product, version, spatial selection, date range, parameters and time standard. Refresh recent provisional data deliberately.
+Rover data stays distinguishable
+Store device ID, unique reading ID, field ID, UTC timestamp, coordinates, GPS accuracy, measurement depth, value, unit, calibration record and quality status. Do not overwrite a satellite value with a rover value. Any combined estimate must preserve both inputs and state how they were combined.
+6 Implementation checklist
+
+| Step | Deliverable | Completion check |
+|---|---|---|
+| 1 Field selection | Map point and polygon capture; PostGIS storage | Coordinates are not swapped; unauthorized fields cannot be read. |
+| 2 POWER connector | Daily JSON ingestion from 2022 to latest available | Units and missing values match source response; repeated requests do not duplicate records. |
+| 3 Weather API | Stored time series and CSV export | UI shows actual latest date, not today by default. |
+| 4 HLS search | Bounded searches for both L30 and S30 | One real intersecting scene is found and downloaded with its quality layer. |
+| 5 HLS processing | Masked NDVI and optional NDMI | Band mapping is correct; cloud pixels are excluded; coverage is visible. |
+| 6 Rover ingestion | Authenticated measurement upload | Duplicate, stale and invalid readings are handled explicitly. |
+| 7 Rotation comparison | Current plan and two feasible alternatives | Inputs and reasons are traceable; insufficient evidence is shown honestly. |
+| 8 Optional sources | One added source at a time | A defined user decision improves and source-specific validation passes. |
+
+Recommended Django module layout
+environmental_data/
+  providers/power.py       # POWER requests and parsing
+  providers/earthdata.py   # catalog search and authenticated access
+  processing/hls.py       # quality masks and vegetation indices
+  processing/weather.py   # weather summaries
+  tasks.py                # Celery tasks
+  models.py               # assets, observations and job state
+  api/                    # serializers, permissions and views
+rovers/                   # device identity and observations
+rotations/                # crop rules and scenario comparisons
+Decisions to fix before development
+Choose pilot fields and crop types; confirm the rover sensor models and calibration method; define the valid HLS coverage threshold; agree on the local soil and crop data provider; and define which users can access each farm. Pin dataset versions after checking the catalog rather than silently following a latest alias.
+First release acceptance
+Demonstrate one field from map selection through POWER history, one quality-checked HLS observation, rover data upload and an explainable comparison. Show the same workflow when HLS is cloudy or a NASA service is unavailable. Return partial results where useful; do not replace missing rainfall or moisture with zero.
+This report specifies an implementation plan. It does not claim that the proposed endpoints, provider integrations or scientific decision rules have already been implemented or validated.
+7 Official sources and access links
+Documentation checked on 9 November 2026. Product coverage, version and recent-data availability must also be checked when the connector runs. The following links provide the source documentation and access entry points.
+[1] NASA POWER daily API
+https://power.larc.nasa.gov/docs/services/api/temporal/daily/
+[2] NASA POWER API tutorial and source resolution
+https://power.larc.nasa.gov/docs/tutorials/service-data-request/api/
+[3] NASA HLS data products
+https://hls.gsfc.nasa.gov/data-products/
+[4] NASA HLS algorithms and band mapping
+https://hls.gsfc.nasa.gov/algorithms/
+[5] earthaccess Earthdata authentication
+https://earthaccess.readthedocs.io/en/latest/user/howto/authenticate/
+[6] earthaccess search and access API
+https://earthaccess.readthedocs.io/en/latest/api/
+[7] NSIDC enhanced SMAP product documentation
+https://nsidc.org/data/spl3smp_e/versions/4
+[8] NASA GPM IMERG products and run differences
+https://gpm.nasa.gov/data/imerg
+[9] NASA ECOSTRESS products and specifications
+https://ecostress.jpl.nasa.gov/data/atbds-summary-table
+[10] NASA SRTMGL1 V003 product identifier
+https://doi.org/10.5067/MEASURES/SRTM/SRTMGL1.003
+[11] NASA GSFC GRACE and GRACE FO mascons
+https://earth.gsfc.nasa.gov/geo/data/grace-mascons
+Useful entry points
+Earthdata Search: https://search.earthdata.nasa.gov/
+Earthdata Login: https://urs.earthdata.nasa.gov/
+POWER interactive API pages: https://power.larc.nasa.gov/api/pages/
+The SMAP link documents a known product version; confirm the supported version and temporal coverage in CMR before production use. Follow the same version check for HLS and ECOSTRESS. NASA catalog page update dates are not necessarily observation dates.

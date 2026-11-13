@@ -149,27 +149,31 @@ class Command(BaseCommand):
     # --- Fields (mirror mock-data.ts FIELDS) -------------------------------
     def _seed_fields(self):
         farmer = User.objects.get(email="farmer@pilot.example")
-        farm, _ = Farm.objects.get_or_create(owner=farmer, name="Rafiqul's farm",
-                                             defaults={"region": "Dhaka Division"})
+        farm, _ = Farm.objects.update_or_create(
+            owner=farmer, name="Rafiqul's farm",
+            defaults={"region": "Rajshahi Division"},
+        )
         defs = [
             {
                 "slug": "north-paddy-plot", "name": "North paddy plot",
-                "lat": 25.342, "lng": 88.610, "area_ha": 2.4, "is_pin": False,
+                "lat": 24.447118, "lng": 88.568513, "area_ha": 2.4, "is_pin": False,
                 "soil": "silt loam", "drainage": "moderate", "irrigation": "canal",
-                # A small polygon ~2.4 ha around the centroid.
-                "polygon": [(88.606, 25.339), (88.614, 25.339), (88.614, 25.345),
-                            (88.606, 25.345), (88.606, 25.339)],
+                # A working crop field in Paba upazila, Rajshahi (rural farmland).
+                "polygon": [(88.567743, 24.446388), (88.569283, 24.446388),
+                            (88.569283, 24.447848), (88.567743, 24.447848),
+                            (88.567743, 24.446388)],
             },
             {
-                "slug": "river-bend", "name": "River-bend field",
-                "lat": 25.350, "lng": 88.632, "area_ha": 1.1, "is_pin": False,
+                "slug": "river-bend", "name": "Paba lowland field",
+                "lat": 24.444842, "lng": 88.569011, "area_ha": 1.1, "is_pin": False,
                 "soil": "silty clay", "drainage": "poor", "irrigation": "canal",
-                "polygon": [(88.629, 25.348), (88.635, 25.348), (88.635, 25.352),
-                            (88.629, 25.352), (88.629, 25.348)],
+                "polygon": [(88.568491, 24.444352), (88.569531, 24.444352),
+                            (88.569531, 24.445332), (88.568491, 24.445332),
+                            (88.568491, 24.444352)],
             },
             {
                 "slug": "pin-estimate-plot", "name": "Pin estimate plot",
-                "lat": 25.330, "lng": 88.590, "area_ha": 0.3, "is_pin": True,
+                "lat": 24.445198, "lng": 88.567304, "area_ha": 0.3, "is_pin": True,
                 "soil": "unknown", "drainage": "moderate", "irrigation": "canal",
             },
         ]
@@ -230,37 +234,136 @@ class Command(BaseCommand):
         # River-bend: 1-year history (rice-boro only).
         ch(river, "rice-boro", "boro", year, 1.1, 4.2)
 
-    # --- Devices + observations (mirror mock-data.ts) -----------------------
+    # --- Devices + observations (AgriRover-Q v0.2 hardware — §5.6) ---------
+    # One capacitive probe at 50 mm depth, no EC sensor, no NDVI-spot.
+    # Moisture is VWC × 100 → %. Grant expiry set per report §2.
     def _seed_devices_and_observations(self):
+        from datetime import timedelta
+        from apps.rovers.models import SurveyRun, RoverSample
+
         operator = User.objects.get(email="rover_operator@pilot.example")
         north = Field.objects.get(slug="north-paddy-plot")
         river = Field.objects.get(slug="river-bend")
 
         rv1, _ = Device.objects.get_or_create(
-            name="Rover-1 (soil probe)", operator=operator,
-            defaults={"status": "idle", "battery_pct": 82, "serial": "FS-RV-001"},
+            name="AgriRover-Q-01", operator=operator,
+            defaults={"status": "idle", "battery_pct": 93, "serial": "agrirover-q-01"},
         )
         rv2, _ = Device.objects.get_or_create(
-            name="Rover-2 (multi-sensor)", operator=operator,
-            defaults={"status": "on_mission", "battery_pct": 64, "serial": "FS-RV-002"},
+            name="AgriRover-Q-02", operator=operator,
+            defaults={"status": "idle", "battery_pct": 87, "serial": "agrirover-q-02"},
         )
-        DeviceGrant.objects.get_or_create(device=rv1, field=north)
-        DeviceGrant.objects.get_or_create(device=rv1, field=river)
-        DeviceGrant.objects.get_or_create(device=rv2, field=north)
 
         now = timezone.now()
-        obs = [
-            (rv1, north, "moisture", 34.2, "%", "valid", True, 15.0),
-            (rv1, north, "ec", 0.42, "dS/m", "valid", True, 15.0),
-            (rv2, north, "temperature", 27.8, "°C", "valid", False, None),
-            (rv2, river, "moisture", 28.1, "%", "partial", False, 10.0),
+        # Grant with 30-day expiry (report §2: grants must carry an expiry)
+        expires = now + timedelta(days=30)
+
+        DeviceGrant.objects.update_or_create(
+            device=rv1, field=north,
+            defaults={"granted_by": operator, "expires_at": expires},
+        )
+        DeviceGrant.objects.update_or_create(
+            device=rv1, field=river,
+            defaults={"granted_by": operator, "expires_at": expires},
+        )
+        DeviceGrant.objects.update_or_create(
+            device=rv2, field=north,
+            defaults={"granted_by": operator, "expires_at": expires},
+        )
+
+        # --- SurveyRun + RoverSample: one run with 9 samples (spec §5.1) ---
+        # The run mirrors the AgriRover-Q sample payload from the spec.
+        run_id = "seed-demo-run-001"
+        run, created = SurveyRun.objects.update_or_create(
+            run_id=run_id,
+            defaults={
+                "device": rv1,
+                "field": north,
+                "status": "complete",
+                "last_state": "done",
+                "samples_count": 9,
+                "started_at": now - timedelta(hours=2),
+                "completed_at": now - timedelta(minutes=30),
+            },
+        )
+        if not created:
+            # Reset samples on re-seed to keep the count stable (idempotent)
+            run.samples.all().delete()
+
+        # 9 samples across 3 lanes, 50 mm probe depth, ~2.5 m GNSS CEP
+        import random
+        random.seed(42)
+        base_lat, base_lon = north.lat, north.lng  # 24.447118, 88.568513
+        samples_data = [
+            # (sample_id, lane, lat_offset_m, lon_offset_m, vwc, temp_c, probe_ok)
+            (1, 1, 0, 0, 0.2838, 18.31, True),
+            (2, 1, 1.2, 0.8, 0.2791, 18.05, True),
+            (3, 1, 2.5, 1.5, 0.2654, 17.82, True),
+            (4, 2, 3.8, 0.5, 0.3012, 18.55, True),
+            (5, 2, 5.1, -0.3, 0.2947, 18.40, True),
+            (6, 2, 6.4, 1.1, 0.3105, 18.62, False),  # probe_ok=False → suspect
+            (7, 3, 7.2, 0.2, 0.2756, 17.94, True),
+            (8, 3, 8.5, -0.9, 0.2689, 17.78, True),
+            (9, 3, 9.8, 0.4, 0.2901, 18.20, True),
         ]
-        for i, (dev, fld, sensor, val, unit, q, cal, depth) in enumerate(obs):
-            Observation.objects.get_or_create(
-                message_id=f"seed-obs-{i}",
+
+        for (sid, lane, dlat_m, dlon_m, vwc, temp_c, probe_ok) in samples_data:
+            lat = base_lat + dlat_m / 111_320.0
+            lon = base_lon + dlon_m / (111_320.0 * 0.91)  # cos(24.37°) ≈ 0.91
+
+            sample = RoverSample.objects.create(
+                run=run,
+                sample_id=sid,
+                timestamp=now - timedelta(hours=2, minutes=(9 - sid) * 3),
+                lane=lane,
+                heading_deg=92.7 + lane * 15.0,
+                lat=lat,
+                lon=lon,
+                gps_fix="3D",
+                gps_hdop=round(0.85 + random.random() * 0.3, 2),
+                gps_satellites=10 + random.randint(0, 5),
+                probe_ok=probe_ok,
+                probe_depth_mm=50.0,
+                moisture_vwc=vwc,
+                moisture_raw=int(vwc * 42000),
+                soil_temp_c=temp_c,
+                air_temp_c=round(24.0 + random.uniform(-1, 1), 2),
+                air_humidity_pct=round(55.0 + random.uniform(-5, 5), 1),
+                air_pressure_hpa=round(1008.0 + random.uniform(-2, 2), 1),
+                battery_voltage=round(8.0 + random.uniform(0, 0.3), 2),
+                battery_soc_pct=round(85 + random.randint(0, 10), 1),
+                raw_json={"rover_id": "agrirover-q-01", "run_id": run_id, "sample_id": sid},
+            )
+
+            # Derive Observation rows (one value per row, §5.4)
+            quality = "suspect" if not probe_ok else "valid"
+            Observation.objects.update_or_create(
+                message_id=f"{run_id}:{sid}:moisture",
                 defaults={
-                    "device": dev, "field": fld, "sensor": sensor, "value": val,
-                    "unit": unit, "quality": q, "calibrated": cal, "depth_cm": depth,
-                    "taken_at": now,
+                    "device": rv1, "field": north,
+                    "sensor": "moisture",
+                    "value": round(vwc * 100.0, 1),  # VWC → %
+                    "unit": "%",
+                    "quality": quality,
+                    "calibrated": False,
+                    "depth_cm": 5.0,  # 50 mm → 5 cm
+                    "taken_at": sample.timestamp,
                 },
             )
+            Observation.objects.update_or_create(
+                message_id=f"{run_id}:{sid}:temperature",
+                defaults={
+                    "device": rv1, "field": north,
+                    "sensor": "temperature",
+                    "value": temp_c,
+                    "unit": "°C",
+                    "quality": quality,
+                    "calibrated": False,
+                    "depth_cm": 5.0,
+                    "taken_at": sample.timestamp,
+                },
+            )
+
+        # Update run sample count
+        run.samples_count = run.samples.count()
+        run.save(update_fields=["samples_count", "updated_at"])

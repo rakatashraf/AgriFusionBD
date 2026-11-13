@@ -131,8 +131,8 @@ def build_input_snapshot(run_obj) -> BuiltSnapshot:
     baseline_is_paddy = any(s in ("rice-boro", "rice-aman", "paddy") for s in baseline_seq)
 
     # --- POWER series (cached / stale) ------------------------------------
-    lat = field.lat or 25.34
-    lng = field.lng or 88.61
+    lat = field.lat or 24.4471
+    lng = field.lng or 88.5685
     start, end = _power_window_for_season(season)
     power_result = power_service.get_daily_series(lat, lng, start, end, field_model=field)
     power_days: list[PowerDay] = [

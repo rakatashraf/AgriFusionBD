@@ -1,0 +1,8 @@
+dataset,rows,cols,regions,date_min,date_max,n_unique_dates,dup_key_rows,key,cadence,primary_var,note
+GPM_IMERG,12418,11,7,2022-01-01,2026-11-09,1774,0,region+date+run,daily (complete),precipitation_mm_day,
+SMAP,24150,13,7,2022-01-01,2026-11-09,1725,0,region+date+pass,"2 passes/day, gappy",soil_moisture_m3_m3,56 duplicate rows removed (R..._001/_002)
+ECOSTRESS,2819,14,7,2022-01-01,2026-11-03,646,0,region+dt,per-overpass (irregular),lst_celsius,
+HLS,413,14,7,2022-01-01,2026-11-03,252,0,region+dt,~monthly attempt,ndvi,
+GRACE,399,10,7,2022-01-16,2026-09-16,57,0,region+date,monthly,lwe_thickness_cm,
+POWER,12313,13,7,2022-01-01,2026-10-25,1759,0,region+date,daily (complete),PRECTOTCORR,3 trailing all-null rows/region; SW_DWN has extra gaps
+SRTM,7,13,7,static,static,1,0,region,static (1 row/region),elevation_mean_m,no time dimension

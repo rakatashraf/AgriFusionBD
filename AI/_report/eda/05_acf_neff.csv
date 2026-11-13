@@ -1,0 +1,11 @@
+variable,lag1_mean,lag_where_acf<0.2,n_days,n_eff
+ECOSTRESS LST (sparse),,>30,1774,
+GPM precipitation_mm_day,0.422,4,1774,721.1
+POWER ALLSKY_SFC_SW_DWN,0.634,12,1774,397.4
+POWER PRECTOTCORR mm/day,0.638,7,1774,392.1
+POWER PS,0.969,>30,1774,27.9
+POWER RH2M,0.928,>30,1774,66.2
+POWER T2M,0.983,>30,1774,15.2
+POWER WS2M,0.74,>30,1774,265.1
+SMAP soil_moisture am,0.727,>30,1774,
+SMAP soil_moisture pm,0.697,>30,1774,

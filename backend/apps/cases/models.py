@@ -33,8 +33,8 @@ class AssistanceCase(models.Model):
 
     class Meta:
         ordering = ["-updated_at"]
-        indexes = [models.Index(fields=["farmer", "status"]),
-                   models.Index(fields=["officer", "status"])]
+        indexes = [models.Index(fields=["farmer", "status"], name="case_farmer_status_idx"),
+                   models.Index(fields=["officer", "status"], name="case_officer_status_idx")]
 
     def __str__(self):
         return f"Case {self.pk} · {self.subject}"

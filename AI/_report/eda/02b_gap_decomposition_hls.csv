@@ -1,0 +1,2 @@
+attempt_rows,rows_zero_valid_pixels,rows_valid_pixels_1_to_5,rows_valid_pixels_6_to_50,rows_valid_pixels_gt50,ndvi_present,ndvi_from_le5_pixels,ndvi_from_coverage_lt_0p1,ndvi_from_coverage_ge_0p9
+413,193,42,51,127,220,42,71,42

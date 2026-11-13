@@ -1,0 +1,11 @@
+field,value
+source,"NASA JPL GRACE/GRACE-FO Mascon CRI, RL06.3 v04 (PO.DAAC)"
+file,GRCTellus.JPL.200204_202609.GLO.RL06.3M.MSCNv04CRI.nc
+variables,"lwe_thickness (cm), uncertainty (cm), mascon_ID, cri_scale_factor"
+time_units,days since 2002-01-01T00:00:00Z
+returned_period,2022-01-01 to 2026-09-16
+months,57
+grid_resolution,0.5 degree mascon grid (about 55 km at the equator)
+note,"Values are anomalies, not absolute storage; the display grid is not effective resolving power."
+note,Not a field groundwater measurement or well-depth estimate.
+note,"GRACE and GRACE-FO gaps reflect the mission's mass-change sampling, not zero change."

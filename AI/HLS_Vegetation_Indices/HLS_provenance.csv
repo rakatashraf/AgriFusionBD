@@ -1,0 +1,13 @@
+field,value
+source,"NASA HLS HLSL30 / HLSS30 v2.0 (LP DAAC), GDAL HTTP range reads"
+collections,"C2021957657-LPCLOUD (L30), C2021957295-LPCLOUD (S30)"
+sampling,"One scene per region per month; L30 preferred, S30 used when no L30 exists"
+window,31 x 31 pixels at 30 m around the region coordinate
+indices,NDVI = (NIR - Red) / (NIR + Red); NDMI = (NIR - SWIR1) / (NIR + SWIR1)
+bands,L30 red B04 / NIR B05 / SWIR1 B06; S30 red B04 / NIR B8A / SWIR1 B11; Fmask for quality
+quality,"Fmask bits 0-5 excluded, aerosol bits 6-7 = 3 excluded, zero denominators rejected"
+scale,Surface reflectance scaled by 0.0001 before indexing
+requested_period,2022-01-01 to 2026-11-11
+note,"Indices are indicators, not direct measurements of soil moisture, nutrients or disease."
+note,Usable cloud-free observations are not guaranteed every month; coverage is reported per row.
+note,Imagery is not stored - only the sampled statistics.

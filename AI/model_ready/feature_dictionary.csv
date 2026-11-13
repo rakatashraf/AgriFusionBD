@@ -1,0 +1,100 @@
+column,table,source,unit,description,leakage_note,is_target,pct_complete
+t2m_c,daily,POWER,degC,Mean air temperature at 2 m,same-day observation,0,99.83
+tmax_c,daily,POWER,degC,Daily maximum air temperature,same-day observation,0,99.83
+tmin_c,daily,POWER,degC,Daily minimum air temperature,same-day observation,0,99.83
+power_rain_mm,daily,POWER (corrected),mm/day,"Corrected precipitation, divided by the erroneous factor of 24",same-day observation,0,99.83
+rh_pct,daily,POWER,%,Relative humidity at 2 m,same-day observation,0,99.83
+wind_ms,daily,POWER,m/s,Wind speed at 2 m,same-day observation,0,99.83
+solar_mj_m2,daily,POWER,MJ/m2/day,All-sky surface shortwave downward irradiance,same-day observation,0,95.11
+pressure_kpa,daily,POWER,kPa,Surface pressure,same-day observation,0,99.83
+gpm_rain_mm,daily,GPM IMERG,mm/day,Satellite daily precipitation (Final/Late run in gpm_run),same-day observation,0,100.0
+gpm_run,daily,derived,,,,0,100.0
+gpm_is_late_run,daily,derived,,,,0,100.0
+sm_am,daily,SMAP,m3/m3,"Surface soil moisture, AM overpass",only where retrieved,0,37.78
+sm_pm,daily,SMAP,m3/m3,"Surface soil moisture, PM overpass",only where retrieved,0,39.65
+sm_mean,daily,SMAP,m3/m3,Mean of AM and PM retrievals,only where retrieved,0,65.23
+retrieval_qual_flag,daily,SMAP,flag,Mean retrieval quality flag (0 = best),quality control,0,65.23
+elevation_mean_m,daily,SRTM,m,Mean elevation in a ~11 km window,static,0,100.0
+slope_mean_deg,daily,SRTM,deg,Mean slope in a ~11 km window,static,0,100.0
+latitude,daily,static,deg,Region latitude,static,0,100.0
+et0_fao56_mm,daily,derived,mm/day,FAO-56 Penman-Monteith reference ET,computed from same-day weather,0,95.11
+et0_hargreaves_mm,daily,derived,mm/day,"Hargreaves ET, temperature-only fallback",used where POWER solar is missing,0,99.83
+et0_method,daily,derived,,,,0,100.0
+et0_method_hargreaves,daily,derived,0/1,1 = the value came from the fallback formula,quality flag,0,100.0
+et0_best_mm,daily,derived,mm/day,"Penman-Monteith where available, else Hargreaves",see et0_method_hargreaves,0,99.83
+vpd_kpa,daily,derived,kPa,Vapour pressure deficit from T2M and RH2M,computed from same-day weather,0,99.83
+gdd_base10,daily,derived,degC-day,Growing degree days above a 10 degC base,same-day,0,99.83
+heat_day_35,daily,derived,0/1,Tmax >= 35 degC,same-day,0,100.0
+diurnal_range_c,daily,derived,degC,Tmax - Tmin,same-day,0,99.83
+power_rain_sum_3d,daily,derived,mm,Rolling N-day rainfall total (N = 3..90),window ends today,0,99.94
+et0_sum_3d,daily,derived,mm,Rolling N-day ET0 total (N = 3..90),window ends today,0,99.94
+power_rain_sum_7d,daily,derived,mm,Rolling N-day rainfall total (N = 3..90),window ends today,0,99.94
+et0_sum_7d,daily,derived,mm,Rolling N-day ET0 total (N = 3..90),window ends today,0,99.94
+power_rain_sum_14d,daily,derived,mm,Rolling N-day rainfall total (N = 3..90),window ends today,0,99.83
+et0_sum_14d,daily,derived,mm,Rolling N-day ET0 total (N = 3..90),window ends today,0,99.83
+power_rain_sum_30d,daily,derived,mm,Rolling N-day rainfall total (N = 3..90),window ends today,0,99.49
+et0_sum_30d,daily,derived,mm,Rolling N-day ET0 total (N = 3..90),window ends today,0,99.49
+power_rain_sum_60d,daily,derived,mm,Rolling N-day rainfall total (N = 3..90),window ends today,0,98.92
+et0_sum_60d,daily,derived,mm,Rolling N-day ET0 total (N = 3..90),window ends today,0,98.92
+power_rain_sum_90d,daily,derived,mm,Rolling N-day rainfall total (N = 3..90),window ends today,0,98.35
+et0_sum_90d,daily,derived,mm,Rolling N-day ET0 total (N = 3..90),window ends today,0,98.35
+gpm_rain_sum_7d,daily,derived,mm,"Rolling N-day GPM rainfall total (N = 7, 30)",window ends today,0,99.94
+gpm_rain_sum_30d,daily,derived,mm,"Rolling N-day GPM rainfall total (N = 7, 30)",window ends today,0,99.49
+dry_spell_days,daily,derived,days,Consecutive days below 1 mm of measured rainfall,same-day,0,100.0
+ndvi_last,daily,HLS,index,"Most recent NDVI, carried forward at most 45 days",see hls_age_days,0,62.19
+hls_age_days,daily,HLS,days,Age of the carried NDVI observation,use to filter stale values,0,62.19
+hls_observed_today,daily,HLS,0/1,An HLS scene was sampled today,same-day,0,100.0
+ndmi_last,daily,HLS,index,"Most recent NDMI, carried forward at most 45 days",see hls_age_days,0,62.19
+lst_c_last,daily,ECOSTRESS,degC,"Most recent surface temperature, carried at most 10 days",see ecostress_age_days,0,54.19
+ecostress_age_days,daily,ECOSTRESS,days,Age of the carried LST observation,use to filter stale values,0,54.19
+ecostress_observed_today,daily,ECOSTRESS,0/1,An ECOSTRESS overpass was sampled today,same-day,0,100.0
+grace_lwe_cm_last,daily,GRACE,cm,"Most recent water-storage anomaly, carried at most 60 days",see grace_age_days,0,99.15
+grace_age_days,daily,GRACE,days,Age of the carried GRACE value,use to filter stale values,0,99.15
+grace_observed_today,daily,GRACE,0/1,A GRACE month starts today,same-day,0,100.0
+sm_obs_age_days,daily,SMAP,days,Days since the last soil-moisture retrieval,use to filter stale values,0,100.0
+sm_7d_mean,daily,derived,m3/m3,7-day mean soil moisture,window ends today,0,97.31
+sm_anomaly_30d,daily,derived,m3/m3,7-day mean minus its 30-day mean,window ends today,0,96.29
+doy_sin,daily,calendar,-,"Seasonal position, sine encoding",known in advance,0,100.0
+doy_cos,daily,calendar,-,"Seasonal position, cosine encoding",known in advance,0,100.0
+month,daily,calendar,1-12,Month of year,known in advance,0,100.0
+is_monsoon,daily,calendar,0/1,June-September,known in advance,0,100.0
+season,daily,calendar,-,"boro / aman / rabi_aus, following the plan's season windows",known in advance,0,100.0
+target_rain_next_day_mm,daily,target,mm,GPM rainfall on the following day,TARGET,1,99.94
+target_sm_next_day,daily,target,m3/m3,SMAP soil moisture on the following day,TARGET,1,65.18
+target_et0_next_day_mm,daily,target,mm/day,ET0 on the following day,TARGET,1,99.77
+target_heat_next_day,daily,target,0/1,Heat day on the following day,TARGET,1,99.94
+index,monthly,derived,,,,0,100.0
+rain_mm,monthly,derived,,,,0,100.0
+power_rain_mm,monthly,POWER (corrected),mm/day,"Corrected precipitation, divided by the erroneous factor of 24",same-day observation,0,100.0
+et0_mm,monthly,derived,,,,0,94.83
+t2m_c,monthly,POWER,degC,Mean air temperature at 2 m,same-day observation,0,100.0
+tmax_c,monthly,POWER,degC,Daily maximum air temperature,same-day observation,0,100.0
+tmin_c,monthly,POWER,degC,Daily minimum air temperature,same-day observation,0,100.0
+rh_pct,monthly,POWER,%,Relative humidity at 2 m,same-day observation,0,100.0
+wind_ms,monthly,POWER,m/s,Wind speed at 2 m,same-day observation,0,100.0
+solar_mj_m2,monthly,POWER,MJ/m2/day,All-sky surface shortwave downward irradiance,same-day observation,0,94.83
+vpd_kpa,monthly,derived,kPa,Vapour pressure deficit from T2M and RH2M,computed from same-day weather,0,100.0
+heat_days,monthly,derived,,,,0,100.0
+gdd,monthly,derived,,,,0,100.0
+sm_mean,monthly,SMAP,m3/m3,Mean of AM and PM retrievals,only where retrieved,0,100.0
+sm_filled_days,monthly,derived,,,,0,100.0
+sm_7d_mean,monthly,derived,m3/m3,7-day mean soil moisture,window ends today,0,100.0
+lst_c,monthly,derived,,,,0,81.03
+ndvi,monthly,derived,,,,0,53.69
+ndmi,monthly,derived,,,,0,53.69
+ndvi_coverage,monthly,derived,,,,0,100.0
+grace_lwe_cm,monthly,derived,,,,0,98.28
+elevation_mean_m,monthly,SRTM,m,Mean elevation in a ~11 km window,static,0,100.0
+slope_mean_deg,monthly,SRTM,deg,Mean slope in a ~11 km window,static,0,100.0
+ndvi_next_month,monthly,target,index,NDVI in the following month,TARGET,1,52.71
+sm_next_month,monthly,target,m3/m3,Mean soil moisture in the following month,TARGET,1,98.28
+rain_next_month,monthly,target,mm,Total rainfall in the following month,TARGET,1,98.28
+ndvi_3m_mean,monthly,derived,,,,0,83.25
+rain_3m_sum,monthly,derived,,,,0,100.0
+et0_3m_sum,monthly,derived,,,,0,98.28
+water_deficit_3m,monthly,derived,,,,0,98.28
+ndvi_anomaly,monthly,derived,,,,0,38.92
+month,monthly,calendar,1-12,Month of year,known in advance,0,100.0
+doy_sin,monthly,calendar,-,"Seasonal position, sine encoding",known in advance,0,100.0
+doy_cos,monthly,calendar,-,"Seasonal position, cosine encoding",known in advance,0,100.0
+is_monsoon,monthly,calendar,0/1,June-September,known in advance,0,100.0

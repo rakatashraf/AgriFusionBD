@@ -1,0 +1,2 @@
+region,latitude,longitude,tile,window_deg,pixel_size_m,elevation_mean_m,elevation_min_m,elevation_max_m,elevation_std_m,slope_mean_deg,slope_max_deg,valid_pixels
+Northeast_Sylhet,24.89,91.87,N24E091.hgt,+/-0.05,30,21.52128206505475,-14.0,82.0,10.837371316995057,3.8852370174540596,29.421439641486938,130321

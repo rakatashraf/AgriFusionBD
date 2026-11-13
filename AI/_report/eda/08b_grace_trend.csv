@@ -1,0 +1,8 @@
+region,mascon,trend_cm_per_yr,se,mean_cm,sd_cm,mean_uncertainty_cm
+Central_Dhaka,1321,3.22,1.92,9.6,20.04,5.44
+North_Rangpur,1214,-1.85,1.92,-44.73,19.65,3.83
+Northeast_Sylhet,1321,3.22,1.92,9.6,20.04,5.44
+Northwest_Rajshahi,1320,2.67,1.62,-11.63,16.91,4.4
+South_Barishal,1321,3.22,1.92,9.6,20.04,5.44
+Southeast_Chattogram,1431,-1.67,0.57,-7.99,6.26,4.26
+Southwest_Khulna,1321,3.22,1.92,9.6,20.04,5.44

@@ -1,0 +1,2 @@
+region,latitude,longitude,tile,window_deg,pixel_size_m,elevation_mean_m,elevation_min_m,elevation_max_m,elevation_std_m,slope_mean_deg,slope_max_deg,valid_pixels
+Central_Dhaka,23.81,90.41,N23E090.hgt,+/-0.05,30,10.429984423078398,-23.0,55.0,4.505639917784508,2.7561379576194645,37.265600491751336,130321

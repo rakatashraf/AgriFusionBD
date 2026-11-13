@@ -1,0 +1,8 @@
+region,mascon_id,grid_lat,grid_lon,cri_scale_factor,identical_to_Central_Dhaka
+Central_Dhaka,1321,23.75,90.25,1.1591929715161375,True
+North_Rangpur,1214,25.75,89.25,1.4522130516118554,False
+Northeast_Sylhet,1321,24.75,91.75,0.9459751007231122,True
+Northwest_Rajshahi,1320,24.25,88.75,1.090428343985729,False
+South_Barishal,1321,22.75,90.25,0.7333910439279577,True
+Southeast_Chattogram,1431,22.25,91.75,,False
+Southwest_Khulna,1321,22.75,89.75,0.860325201210594,True

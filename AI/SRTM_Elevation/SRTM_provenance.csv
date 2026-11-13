@@ -1,0 +1,9 @@
+field,value
+source,"NASA SRTMGL1 v003 (LP DAAC), 1 arc second global DEM"
+collection,C2763266360-LPCLOUD
+coverage,"30 one-degree tiles, 88.10,21.86,92.37,26.25"
+files,"Raw .hgt tiles kept in SRTM_Elevation/tiles (3601x3601 int16, big-endian)"
+derived,Terrain statistics from a 0.1 degree window (about 11 km) around each region point
+note,"About 30 m posting at the equator; vertical accuracy is metres, not centimetres."
+note,Static historical terrain; insufficient for centimetre-scale drainage design on flat fields.
+note,Void pixels (-32768) are excluded before statistics are computed.

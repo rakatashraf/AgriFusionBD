@@ -1,0 +1,145 @@
+pair,mode,region,best_lag,max_corr,corr_lag0,corr_lag_neg5,corr_lag_pos5,corr_lag_pos10
+GPM rain -> SMAP SM am,raw,Central_Dhaka,29.0,0.217,0.131,-0.05,0.18,0.14
+GPM rain -> SMAP SM am,raw,North_Rangpur,2.0,0.243,0.159,0.054,0.169,0.146
+GPM rain -> SMAP SM am,raw,Northeast_Sylhet,2.0,0.407,0.36,0.3,0.386,0.378
+GPM rain -> SMAP SM am,raw,Northwest_Rajshahi,1.0,0.255,0.188,0.026,0.173,0.149
+GPM rain -> SMAP SM am,raw,South_Barishal,3.0,0.339,0.266,0.241,0.299,0.292
+GPM rain -> SMAP SM am,raw,Southeast_Chattogram,1.0,0.335,0.306,0.135,0.26,0.204
+GPM rain -> SMAP SM am,raw,Southwest_Khulna,21.0,0.227,0.146,0.09,0.194,0.165
+GPM rain -> SMAP SM am,raw,POOLED,3.0,0.301,0.289,0.175,0.296,0.245
+GPM rain -> SMAP SM am,deseasonalised,Central_Dhaka,4.0,0.112,0.071,-0.111,0.09,0.045
+GPM rain -> SMAP SM am,deseasonalised,North_Rangpur,1.0,0.277,0.186,-0.017,0.172,0.065
+GPM rain -> SMAP SM am,deseasonalised,Northeast_Sylhet,1.0,0.152,0.088,-0.015,0.073,0.062
+GPM rain -> SMAP SM am,deseasonalised,Northwest_Rajshahi,1.0,0.161,0.084,-0.107,0.059,0.033
+GPM rain -> SMAP SM am,deseasonalised,South_Barishal,3.0,0.154,0.075,-0.066,0.024,-0.027
+GPM rain -> SMAP SM am,deseasonalised,Southeast_Chattogram,1.0,0.216,0.196,-0.04,0.082,0.004
+GPM rain -> SMAP SM am,deseasonalised,Southwest_Khulna,1.0,0.159,0.061,-0.063,0.037,0.019
+GPM rain -> SMAP SM am,deseasonalised,POOLED,0.0,0.14,0.14,-0.076,0.081,0.005
+GPM rain -> SMAP SM pm,raw,Central_Dhaka,2.0,0.211,0.194,0.106,0.17,0.194
+GPM rain -> SMAP SM pm,raw,North_Rangpur,3.0,0.213,0.205,0.092,0.187,0.103
+GPM rain -> SMAP SM pm,raw,Northeast_Sylhet,2.0,0.41,0.389,0.309,0.403,0.384
+GPM rain -> SMAP SM pm,raw,Northwest_Rajshahi,1.0,0.312,0.306,0.055,0.25,0.199
+GPM rain -> SMAP SM pm,raw,South_Barishal,1.0,0.326,0.284,0.188,0.266,0.225
+GPM rain -> SMAP SM pm,raw,Southeast_Chattogram,2.0,0.314,0.299,0.055,0.184,0.159
+GPM rain -> SMAP SM pm,raw,Southwest_Khulna,22.0,0.239,0.216,0.113,0.188,0.188
+GPM rain -> SMAP SM pm,raw,POOLED,3.0,0.388,0.379,0.271,0.351,0.328
+GPM rain -> SMAP SM pm,deseasonalised,Central_Dhaka,0.0,0.147,0.147,0.018,0.039,0.056
+GPM rain -> SMAP SM pm,deseasonalised,North_Rangpur,1.0,0.259,0.198,-0.027,0.163,0.057
+GPM rain -> SMAP SM pm,deseasonalised,Northeast_Sylhet,3.0,0.174,0.155,0.039,0.135,0.063
+GPM rain -> SMAP SM pm,deseasonalised,Northwest_Rajshahi,1.0,0.228,0.217,-0.119,0.103,0.067
+GPM rain -> SMAP SM pm,deseasonalised,South_Barishal,1.0,0.142,0.111,-0.066,0.061,-0.006
+GPM rain -> SMAP SM pm,deseasonalised,Southeast_Chattogram,2.0,0.269,0.244,-0.14,0.074,0.02
+GPM rain -> SMAP SM pm,deseasonalised,Southwest_Khulna,2.0,0.132,0.125,-0.035,0.028,0.054
+GPM rain -> SMAP SM pm,deseasonalised,POOLED,1.0,0.21,0.181,-0.013,0.099,0.046
+POWER rain -> SMAP SM am,raw,Central_Dhaka,1.0,0.237,0.174,0.048,0.174,0.161
+POWER rain -> SMAP SM am,raw,North_Rangpur,2.0,0.285,0.233,0.104,0.257,0.205
+POWER rain -> SMAP SM am,raw,Northeast_Sylhet,0.0,0.482,0.482,0.34,0.433,0.413
+POWER rain -> SMAP SM am,raw,Northwest_Rajshahi,0.0,0.266,0.266,0.074,0.232,0.152
+POWER rain -> SMAP SM am,raw,South_Barishal,2.0,0.435,0.313,0.288,0.376,0.365
+POWER rain -> SMAP SM am,raw,Southeast_Chattogram,2.0,0.368,0.326,0.147,0.29,0.207
+POWER rain -> SMAP SM am,raw,Southwest_Khulna,3.0,0.209,0.14,0.102,0.157,0.141
+POWER rain -> SMAP SM am,raw,POOLED,24.0,0.31,0.301,0.172,0.308,0.241
+POWER rain -> SMAP SM am,deseasonalised,Central_Dhaka,1.0,0.165,0.12,-0.032,0.075,0.044
+POWER rain -> SMAP SM am,deseasonalised,North_Rangpur,2.0,0.318,0.22,-0.022,0.27,0.15
+POWER rain -> SMAP SM am,deseasonalised,Northeast_Sylhet,0.0,0.206,0.206,-0.039,0.109,0.065
+POWER rain -> SMAP SM am,deseasonalised,Northwest_Rajshahi,1.0,0.216,0.189,-0.046,0.101,0.048
+POWER rain -> SMAP SM am,deseasonalised,South_Barishal,3.0,0.215,0.121,-0.029,0.085,-0.014
+POWER rain -> SMAP SM am,deseasonalised,Southeast_Chattogram,0.0,0.248,0.248,-0.057,0.111,-0.017
+POWER rain -> SMAP SM am,deseasonalised,Southwest_Khulna,1.0,0.196,0.14,-0.016,0.051,0.034
+POWER rain -> SMAP SM am,deseasonalised,POOLED,0.0,0.223,0.223,-0.055,0.11,0.032
+GPM rain -> ECOSTRESS LST,raw,Central_Dhaka,6.0,0.396,0.212,0.239,0.3,0.146
+GPM rain -> ECOSTRESS LST,raw,North_Rangpur,-12.0,0.395,0.166,0.263,0.327,0.198
+GPM rain -> ECOSTRESS LST,raw,Northeast_Sylhet,18.0,0.466,0.35,0.369,0.294,0.374
+GPM rain -> ECOSTRESS LST,raw,Northwest_Rajshahi,16.0,0.367,0.205,0.187,0.238,0.141
+GPM rain -> ECOSTRESS LST,raw,South_Barishal,6.0,0.409,0.161,0.262,0.328,0.222
+GPM rain -> ECOSTRESS LST,raw,Southeast_Chattogram,17.0,0.346,0.067,0.076,0.22,0.198
+GPM rain -> ECOSTRESS LST,raw,Southwest_Khulna,-16.0,0.354,0.259,0.167,0.263,0.166
+GPM rain -> ECOSTRESS LST,raw,POOLED,-9.0,0.412,0.363,0.364,0.362,0.253
+GPM rain -> ECOSTRESS LST,deseasonalised,Central_Dhaka,6.0,0.078,-0.057,-0.051,-0.008,-0.126
+GPM rain -> ECOSTRESS LST,deseasonalised,North_Rangpur,-16.0,0.184,0.044,-0.024,0.107,-0.0
+GPM rain -> ECOSTRESS LST,deseasonalised,Northeast_Sylhet,24.0,0.208,0.058,0.047,-0.031,-0.015
+GPM rain -> ECOSTRESS LST,deseasonalised,Northwest_Rajshahi,16.0,0.235,-0.009,-0.227,-0.048,-0.036
+GPM rain -> ECOSTRESS LST,deseasonalised,South_Barishal,-16.0,0.209,-0.069,-0.044,0.06,-0.048
+GPM rain -> ECOSTRESS LST,deseasonalised,Southeast_Chattogram,17.0,0.175,-0.151,-0.101,0.066,0.072
+GPM rain -> ECOSTRESS LST,deseasonalised,Southwest_Khulna,-16.0,0.252,0.05,-0.078,0.086,-0.081
+GPM rain -> ECOSTRESS LST,deseasonalised,POOLED,-16.0,0.079,-0.003,-0.048,-0.016,-0.081
+POWER rain -> ECOSTRESS LST,raw,Central_Dhaka,6.0,0.453,0.289,0.292,0.434,0.213
+POWER rain -> ECOSTRESS LST,raw,North_Rangpur,-15.0,0.471,0.307,0.357,0.398,0.36
+POWER rain -> ECOSTRESS LST,raw,Northeast_Sylhet,14.0,0.547,0.361,0.372,0.396,0.385
+POWER rain -> ECOSTRESS LST,raw,Northwest_Rajshahi,-16.0,0.456,0.264,0.271,0.353,0.08
+POWER rain -> ECOSTRESS LST,raw,South_Barishal,-19.0,0.452,0.394,0.254,0.302,0.287
+POWER rain -> ECOSTRESS LST,raw,Southeast_Chattogram,6.0,0.377,0.212,0.149,0.314,0.242
+POWER rain -> ECOSTRESS LST,raw,Southwest_Khulna,-16.0,0.426,0.292,0.297,0.382,0.244
+POWER rain -> ECOSTRESS LST,raw,POOLED,0.0,0.428,0.428,0.381,0.411,0.268
+POWER rain -> ECOSTRESS LST,deseasonalised,Central_Dhaka,13.0,0.147,-0.062,-0.066,0.021,-0.06
+POWER rain -> ECOSTRESS LST,deseasonalised,North_Rangpur,5.0,0.252,0.097,-0.01,0.252,0.07
+POWER rain -> ECOSTRESS LST,deseasonalised,Northeast_Sylhet,25.0,0.335,0.05,-0.054,0.002,-0.01
+POWER rain -> ECOSTRESS LST,deseasonalised,Northwest_Rajshahi,-16.0,0.291,-0.019,-0.112,-0.008,-0.112
+POWER rain -> ECOSTRESS LST,deseasonalised,South_Barishal,-16.0,0.254,-0.058,-0.11,-0.034,0.022
+POWER rain -> ECOSTRESS LST,deseasonalised,Southeast_Chattogram,9.0,0.153,-0.052,-0.055,0.12,0.096
+POWER rain -> ECOSTRESS LST,deseasonalised,Southwest_Khulna,-16.0,0.373,0.128,-0.003,0.113,-0.033
+POWER rain -> ECOSTRESS LST,deseasonalised,POOLED,1.0,0.087,0.071,-0.044,0.044,-0.032
+GPM rain -> SMAP SM (any pass),raw,Central_Dhaka,2.0,0.196,0.174,0.02,0.187,0.175
+GPM rain -> SMAP SM (any pass),raw,North_Rangpur,3.0,0.21,0.183,0.086,0.172,0.107
+GPM rain -> SMAP SM (any pass),raw,Northeast_Sylhet,2.0,0.422,0.377,0.311,0.407,0.396
+GPM rain -> SMAP SM (any pass),raw,Northwest_Rajshahi,1.0,0.278,0.246,0.04,0.208,0.173
+GPM rain -> SMAP SM (any pass),raw,South_Barishal,1.0,0.323,0.284,0.205,0.286,0.241
+GPM rain -> SMAP SM (any pass),raw,Southeast_Chattogram,2.0,0.334,0.308,0.1,0.244,0.185
+GPM rain -> SMAP SM (any pass),raw,Southwest_Khulna,24.0,0.213,0.189,0.088,0.183,0.19
+GPM rain -> SMAP SM (any pass),raw,POOLED,2.0,0.386,0.358,0.232,0.374,0.341
+GPM rain -> SMAP SM (any pass),deseasonalised,Central_Dhaka,0.0,0.125,0.125,-0.064,0.084,0.057
+GPM rain -> SMAP SM (any pass),deseasonalised,North_Rangpur,1.0,0.273,0.194,-0.016,0.154,0.06
+GPM rain -> SMAP SM (any pass),deseasonalised,Northeast_Sylhet,1.0,0.166,0.125,0.004,0.114,0.07
+GPM rain -> SMAP SM (any pass),deseasonalised,Northwest_Rajshahi,1.0,0.186,0.151,-0.111,0.077,0.049
+GPM rain -> SMAP SM (any pass),deseasonalised,South_Barishal,1.0,0.114,0.086,-0.073,0.044,-0.027
+GPM rain -> SMAP SM (any pass),deseasonalised,Southeast_Chattogram,2.0,0.249,0.218,-0.088,0.094,-0.003
+GPM rain -> SMAP SM (any pass),deseasonalised,Southwest_Khulna,1.0,0.152,0.097,-0.062,0.035,0.041
+GPM rain -> SMAP SM (any pass),deseasonalised,POOLED,1.0,0.198,0.141,-0.073,0.115,0.032
+POWER rain -> SMAP SM (any pass),raw,Central_Dhaka,1.0,0.256,0.223,0.078,0.187,0.189
+POWER rain -> SMAP SM (any pass),raw,North_Rangpur,3.0,0.28,0.233,0.105,0.247,0.189
+POWER rain -> SMAP SM (any pass),raw,Northeast_Sylhet,4.0,0.473,0.462,0.331,0.451,0.431
+POWER rain -> SMAP SM (any pass),raw,Northwest_Rajshahi,1.0,0.289,0.266,0.068,0.21,0.147
+POWER rain -> SMAP SM (any pass),raw,South_Barishal,1.0,0.38,0.33,0.245,0.345,0.314
+POWER rain -> SMAP SM (any pass),raw,Southeast_Chattogram,1.0,0.356,0.318,0.122,0.266,0.173
+POWER rain -> SMAP SM (any pass),raw,Southwest_Khulna,24.0,0.217,0.182,0.075,0.152,0.166
+POWER rain -> SMAP SM (any pass),raw,POOLED,1.0,0.408,0.373,0.224,0.37,0.346
+POWER rain -> SMAP SM (any pass),deseasonalised,Central_Dhaka,1.0,0.199,0.193,-0.017,0.085,0.057
+POWER rain -> SMAP SM (any pass),deseasonalised,North_Rangpur,1.0,0.311,0.236,-0.02,0.239,0.161
+POWER rain -> SMAP SM (any pass),deseasonalised,Northeast_Sylhet,1.0,0.218,0.217,-0.03,0.13,0.068
+POWER rain -> SMAP SM (any pass),deseasonalised,Northwest_Rajshahi,1.0,0.232,0.195,-0.076,0.091,0.04
+POWER rain -> SMAP SM (any pass),deseasonalised,South_Barishal,1.0,0.185,0.116,-0.037,0.078,0.02
+POWER rain -> SMAP SM (any pass),deseasonalised,Southeast_Chattogram,1.0,0.294,0.254,-0.076,0.121,-0.033
+POWER rain -> SMAP SM (any pass),deseasonalised,Southwest_Khulna,1.0,0.205,0.162,-0.035,0.047,0.06
+POWER rain -> SMAP SM (any pass),deseasonalised,POOLED,1.0,0.275,0.227,-0.058,0.129,0.077
+GPM rain -> ECOSTRESS LST (daytime only),raw,Central_Dhaka,13.0,0.598,0.311,0.148,0.459,0.568
+GPM rain -> ECOSTRESS LST (daytime only),raw,North_Rangpur,,,,,,
+GPM rain -> ECOSTRESS LST (daytime only),raw,Northeast_Sylhet,24.0,0.606,0.151,0.219,0.443,0.474
+GPM rain -> ECOSTRESS LST (daytime only),raw,Northwest_Rajshahi,8.0,0.524,0.38,0.178,0.232,0.438
+GPM rain -> ECOSTRESS LST (daytime only),raw,South_Barishal,26.0,0.544,0.038,0.239,0.206,0.148
+GPM rain -> ECOSTRESS LST (daytime only),raw,Southeast_Chattogram,17.0,0.433,-0.122,0.016,0.083,-0.037
+GPM rain -> ECOSTRESS LST (daytime only),raw,Southwest_Khulna,,,,,,
+GPM rain -> ECOSTRESS LST (daytime only),raw,POOLED,13.0,0.524,0.258,0.298,0.262,0.359
+GPM rain -> ECOSTRESS LST (daytime only),deseasonalised,Central_Dhaka,13.0,0.43,0.01,0.016,0.013,0.343
+GPM rain -> ECOSTRESS LST (daytime only),deseasonalised,North_Rangpur,,,,,,
+GPM rain -> ECOSTRESS LST (daytime only),deseasonalised,Northeast_Sylhet,24.0,0.527,-0.057,0.031,0.115,-0.058
+GPM rain -> ECOSTRESS LST (daytime only),deseasonalised,Northwest_Rajshahi,13.0,0.406,0.203,-0.297,-0.299,0.209
+GPM rain -> ECOSTRESS LST (daytime only),deseasonalised,South_Barishal,-29.0,0.209,-0.142,-0.163,-0.208,-0.126
+GPM rain -> ECOSTRESS LST (daytime only),deseasonalised,Southeast_Chattogram,16.0,0.417,-0.178,-0.084,0.021,-0.03
+GPM rain -> ECOSTRESS LST (daytime only),deseasonalised,Southwest_Khulna,,,,,,
+GPM rain -> ECOSTRESS LST (daytime only),deseasonalised,POOLED,-18.0,0.278,-0.26,-0.089,-0.078,0.079
+POWER rain -> ECOSTRESS LST (daytime only),raw,Central_Dhaka,23.0,0.562,0.264,0.373,0.401,0.516
+POWER rain -> ECOSTRESS LST (daytime only),raw,North_Rangpur,,,,,,
+POWER rain -> ECOSTRESS LST (daytime only),raw,Northeast_Sylhet,13.0,0.768,0.098,0.169,0.334,0.288
+POWER rain -> ECOSTRESS LST (daytime only),raw,Northwest_Rajshahi,12.0,0.59,0.174,0.203,0.366,0.517
+POWER rain -> ECOSTRESS LST (daytime only),raw,South_Barishal,23.0,0.536,0.299,0.283,0.181,0.019
+POWER rain -> ECOSTRESS LST (daytime only),raw,Southeast_Chattogram,-27.0,0.368,0.002,0.19,0.193,0.021
+POWER rain -> ECOSTRESS LST (daytime only),raw,Southwest_Khulna,,,,,,
+POWER rain -> ECOSTRESS LST (daytime only),raw,POOLED,12.0,0.486,0.269,0.305,0.32,0.274
+POWER rain -> ECOSTRESS LST (daytime only),deseasonalised,Central_Dhaka,-27.0,0.377,-0.046,-0.07,-0.088,0.044
+POWER rain -> ECOSTRESS LST (daytime only),deseasonalised,North_Rangpur,,,,,,
+POWER rain -> ECOSTRESS LST (daytime only),deseasonalised,Northeast_Sylhet,25.0,0.57,-0.002,-0.107,0.019,-0.257
+POWER rain -> ECOSTRESS LST (daytime only),deseasonalised,Northwest_Rajshahi,11.0,0.378,-0.063,-0.27,-0.225,0.117
+POWER rain -> ECOSTRESS LST (daytime only),deseasonalised,South_Barishal,20.0,0.201,-0.138,-0.188,-0.225,-0.113
+POWER rain -> ECOSTRESS LST (daytime only),deseasonalised,Southeast_Chattogram,16.0,0.297,-0.273,-0.047,0.079,0.037
+POWER rain -> ECOSTRESS LST (daytime only),deseasonalised,Southwest_Khulna,,,,,,
+POWER rain -> ECOSTRESS LST (daytime only),deseasonalised,POOLED,-22.0,0.263,-0.249,-0.13,-0.044,-0.076

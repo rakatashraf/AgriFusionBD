@@ -27,8 +27,33 @@ def user_roles(user) -> set[str]:
         return set()
 
 
+def field_visible_to(user, field) -> bool:
+    """Object-level rule shared by every field-scoped read endpoint.
+
+    Officers and researchers see the pilot's full set; a pure farmer sees
+    their own fields plus any explicit ``FieldGrant`` (report §2, §11).
+    """
+    roles = user_roles(user)
+    if ROLE_OFFICER in roles or ROLE_RESEARCHER in roles:
+        return True
+    if field.farmer_id == user.pk:
+        return True
+    from apps.accounts.models import FieldGrant
+    return FieldGrant.objects.filter(user=user, field=field).exists()
+
+
 class IsFarmer(BasePermission):
     """Farmer reads/writes their own fields; officers & researchers read all."""
+
+    def has_permission(self, request, view):
+        # Require an authenticated user holding a relevant role. Without this
+        # DRF's default (True) lets anonymous requests through to the viewset
+        # body, where the farmer-farm lookup then crashes (and could create a
+        # Farm owned by AnonymousUser).
+        roles = user_roles(request.user)
+        if not request.user or not request.user.is_authenticated:
+            return False
+        return bool(roles & {ROLE_FARMER, ROLE_OFFICER, ROLE_RESEARCHER})
 
     def has_object_permission(self, request, view, obj):
         roles = user_roles(request.user)

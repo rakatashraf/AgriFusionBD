@@ -1,0 +1,2 @@
+region,latitude,longitude,tile,window_deg,pixel_size_m,elevation_mean_m,elevation_min_m,elevation_max_m,elevation_std_m,slope_mean_deg,slope_max_deg,valid_pixels
+North_Rangpur,25.75,89.25,N25E089.hgt,+/-0.05,30,34.40809999923266,18.0,43.0,2.2617412330355915,1.9338740186537444,15.36952380130432,130321
